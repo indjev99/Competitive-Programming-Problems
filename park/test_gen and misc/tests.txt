@@ -1,0 +1,72 @@
+1. !inf T D
+2. !inf F
+3. !500 T C
+4. !100 F B
+5. !50 T
+6. !10 F A
+7. !5 T
+8. !5 F C
+9. !3 T
+10. !3 F
+11. !2 T A
+12. !2 F C
+13. 2 F B
+14. 2 T
+15. 3 F B
+16. 3 T
+17. 5 F A
+18. 5 T D
+19. 10 F
+20. 50 T B
+21. 100 F
+22. 500 T C
+23. inf T
+24. 500 first 3/4, !500 last 1/4 C
+25. 500 first 2/4, !500 last 2/4
+26. 500 first 1/4, !500 last 3/4 C
+27. 5 first 3/4, !5 last 1/4
+28. 5 first 2/4, !5 last 2/4 D
+29. 5 first 1/4, !5 last 3/4
+30. !500 T adaptive random A
+31. !500 T adaptive left A
+32. !500 T adaptive right A
+33. 500 T adaptive random A
+34. 500 T adaptive left A
+35. 500 T adaptive right A
+
+
+26
+34
+14
+4
+23
+32
+35
+15
+16
+30
+28
+3
+5
+12
+29
+9
+6
+31
+1
+27
+17
+19
+13
+21
+10
+2
+24
+20
+8
+18
+25
+7
+33
+11
+22

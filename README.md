@@ -7,3 +7,7 @@ Sorted by difficulty (roughly) from easiest to hardest:
 * Protein
 * Rome
 * Sorting
+
+Scheduled competitions:
+* CodeIT Round 4 - 23 Feb
+* Bulgarian National Olympiad in Informatics - 16-17 March

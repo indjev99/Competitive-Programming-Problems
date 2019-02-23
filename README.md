@@ -1,13 +1,23 @@
 # Competitive Programming Problems
 Archive of competitive programming problems authored by me. Published after the competitions have passed.
 
-Sorted by difficulty (roughly) from easiest to hardest:
+Regular problems sorted by difficulty (roughly) from easiest to hardest:
+* Crypto
 * Ant
+* Yen
 * Chess
+* Krasi
+* Bases
+* Sequences
+* Space
 * Protein
+* Farm (Idea by Radoslav Dimitrov)
+* Trees (Idea by Radoslav Dimitrov)
 * Rome
+
+Optimization problems:
 * Sorting
 
-Scheduled competitions:
-* CodeIT Round 4 - 23 Feb
-* Bulgarian National Olympiad in Informatics - 16-17 March
+Upcomming competitions:
+* Bulgarian National Olympiad in Informatics - 15-17 March
+* Bulgarian Spring Competition in Informatics - 19-21 April

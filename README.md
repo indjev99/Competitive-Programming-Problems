@@ -18,6 +18,6 @@ Regular problems sorted by difficulty (roughly) from easiest to hardest:
 Optimization problems:
 * Sorting
 
-Upcomming competitions:
+Upcomming competitions for which I am setting problems:
 * Bulgarian National Olympiad in Informatics - 15-17 March
 * Bulgarian Spring Competition in Informatics - 19-21 April

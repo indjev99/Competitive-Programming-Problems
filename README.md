@@ -14,8 +14,9 @@ Regular problems sorted by difficulty (roughly) from easiest to hardest:
 * Farm (Idea by Radoslav Dimitrov)
 * Trees (Idea by Radoslav Dimitrov)
 * Rome
+* Park
 
-Optimization problems:
+Optimizational problems:
 * Sorting
 * Transmission
 

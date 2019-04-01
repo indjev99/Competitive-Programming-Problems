@@ -9,6 +9,7 @@ Regular problems sorted by difficulty (roughly) from easiest to hardest:
 * Krasi
 * Bases
 * Sequences
+* TTS
 * Space
 * Protein
 * Farm (Idea by Radoslav Dimitrov)

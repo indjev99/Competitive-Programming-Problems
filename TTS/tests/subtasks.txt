@@ -1,0 +1,4 @@
+0 example - 0 points
+1-29 subtask 1 - 15 points
+30-52 subtask 2 - 15 points
+53-75 subtask 3 - 70 points

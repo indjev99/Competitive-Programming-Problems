@@ -47,23 +47,27 @@ void genBatch()
     string outName;
     for (int i=0;i<TESTS_IN_BATCH;++i)
     {
-        if (VERBOSITY) cerr<<i+1<<":"<<endl;
         inName=getInputName();
         outName=getSolutionName();
         cerr<<TASK_NAME+".exe"+" < "+inName+" > "+outName<<endl;
-
         system((TASK_NAME+".exe"+" < "+inName+" > "+outName).c_str());
     }
 
 }
-int main()
+int main(int argc, char* args[])
 {
-    cout<<"Task name: ";
-    cin>>TASK_NAME;
-    cout<<"Tests: ";
-    cin>>TESTS_IN_BATCH;
-    cout<<"Verbosity (0-2): ";
-    cin>>VERBOSITY;
+    if (argc<3)
+    {
+        cout<<"Task name: ";
+        cin>>TASK_NAME;
+        cout<<"Tests: ";
+        cin>>TESTS_IN_BATCH;
+    }
+    else
+    {
+        TASK_NAME=args[1];
+        TESTS_IN_BATCH=atoi(args[2]);
+    }
     genBatch();
     system("pause");
     return 0;

@@ -25,7 +25,7 @@ string toString(int n, int digits)//-1 for no formating
     }
     return ans;
 }
-int main()
+int main(int argc, char* args[])
 {
     string task_name;
     string file_name;
@@ -34,16 +34,27 @@ int main()
     int last_test;
     double t,t_max=0;
     string cmd;
-    cout<<"Task name: ";
-    cin>>task_name;
-    cout<<"Executable's name: ";
-    cin>>file_name;
-    cout<<"Number of first test: ";
-    cin>>first_test;
-    cout<<"Number of last test: ";
-    cin>>last_test;
-    cout<<"Number of digits in numbers (-1 for no formating): ";
-    cin>>digits;
+    if (argc<6)
+    {
+        cout<<"Task name: ";
+        cin>>task_name;
+        cout<<"Executable's name: ";
+        cin>>file_name;
+        cout<<"Number of first test: ";
+        cin>>first_test;
+        cout<<"Number of last test: ";
+        cin>>last_test;
+        cout<<"Number of digits in numbers (-1 for no formating): ";
+        cin>>digits;
+    }
+    else
+    {
+        task_name=args[1];
+        file_name=args[2];
+        first_test=atoi(args[3]);
+        last_test=atoi(args[4]);
+        digits=atoi(args[5]);
+    }
     high_resolution_clock::time_point start_time_all,start_time,curr_time;
     start_time_all=high_resolution_clock::now();
     for(int i=first_test;i<=last_test;++i)
@@ -55,7 +66,8 @@ int main()
         system(cmd.c_str());
         curr_time=high_resolution_clock::now();
 
-        cmd="checker "+task_name+'.'+toString(i,digits)+'.'+"in"+' '+task_name+'.'+toString(i,digits)+'.'+"out"+' '+"output";
+        //cmd="checker "+task_name+'.'+toString(i,digits)+'.'+"in"+' '+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
+        cmd="fc "+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
         system(cmd.c_str());
 
         t=duration_cast<duration<double>>(curr_time-start_time).count();

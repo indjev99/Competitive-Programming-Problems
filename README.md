@@ -23,5 +23,4 @@ Optimizational problems:
 * Transmission
 
 Upcomming competitions for which I might be setting problems:
-* Bulgarian Spring Competition in Informatics - 19-21 April
 * Competition for selection of the Bulgarian National team - 4 May

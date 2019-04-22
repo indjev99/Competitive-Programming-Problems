@@ -1,7 +1,7 @@
 # Competitive Programming Problems
 Archive of competitive programming problems authored by me. Published after the competitions have passed.
 
-Regular problems sorted by difficulty (roughly) from easiest to hardest:
+Regular problems sorted by (roughly) difficulty from easiest to hardest:
 * Crypto
 * Ant
 * Yen
@@ -14,6 +14,7 @@ Regular problems sorted by difficulty (roughly) from easiest to hardest:
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
 * Trees (Idea by Radoslav Dimitrov)
+* Triangles
 * Rome
 * Park
 

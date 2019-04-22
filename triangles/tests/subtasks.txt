@@ -1,0 +1,6 @@
+subtask 1 (10), tests 1-5:   N <= 1750
+subtask 2 (15), tests 6-10:  N <= 8000
+subtask 3 (15), tests 11-15: N <= 22500
+subtask 4 (10), tests 16-20: N <= 53000
+subtask 5 (25), tests 21-25: N <= 130000
+subtask 6 (25), tests 26-30: N <= 340000

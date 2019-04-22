@@ -1,0 +1,5 @@
+Subtask 1 (5  points), tests 1-5:   n,q,t <= 10
+Subtask 2 (10 points), tests 6-11:  n,q,t <= 15000
+Subtask 3 (10 points), tests 12-17: n,q <= 18000
+Subtask 4 (20 points), tests 18-22: n,q <= 1e6, random
+Subtask 5 (55 points), tests 23-30: n,q <= 1e6

@@ -14,8 +14,9 @@ Regular problems sorted by (roughly) difficulty from easiest to hardest:
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
 * Trees (Idea by Radoslav Dimitrov)
-* Triangles
 * Rome
+* Goblins (Idea by Dimitar Karev)
+* Triangles
 * Park
 
 Optimizational problems:

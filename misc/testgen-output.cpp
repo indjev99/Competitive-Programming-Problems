@@ -8,7 +8,6 @@ string TASK_NAME;
 const string INPUT_EXT=".in";
 const string OUTPUT_EXT=".out";
 const string SOLUTION_EXT=".sol";
-int VERBOSITY;
 
 int TESTS_IN_BATCH=5;
 int curr=1;

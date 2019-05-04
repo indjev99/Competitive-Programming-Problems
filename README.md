@@ -1,7 +1,7 @@
 # Competitive Programming Problems
 Archive of competitive programming problems authored by me. Published after the competitions have passed.
 
-Regular problems sorted by (roughly) difficulty from easiest to hardest:
+Problems sorted by (roughly) difficulty from easiest to hardest:
 * Crypto
 * Ant
 * Yen
@@ -17,9 +17,10 @@ Regular problems sorted by (roughly) difficulty from easiest to hardest:
 * Rome
 * Goblins (Idea by Dimitar Karev)
 * Triangles
+* Counter
 * Park
 
-Optimizational problems:
+Optimizational problems with relative scoring:
 * Sorting
 * Transmission
 

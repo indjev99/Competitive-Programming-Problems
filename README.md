@@ -17,6 +17,7 @@ Problems sorted by (roughly) difficulty from easiest to hardest:
 * Rome
 * Goblins (Idea by Dimitar Karev)
 * Triangles
+* Compromise (Collaboration with Encho Mishinev)
 * Counter
 * Park
 
@@ -25,4 +26,5 @@ Optimizational problems with relative scoring:
 * Transmission
 
 Upcomming competitions for which I might be setting problems:
-* Competition for selection of the Bulgarian National team - 4 May
+* Summer Tournament in Informatics
+* International Autumn Tournament in Informatics

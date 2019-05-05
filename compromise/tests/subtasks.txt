@@ -1,0 +1,4 @@
+Subtask 1 (11 points), tests 1-8:   N,M <= 6 500
+Subtask 2 (23 points), tests 9-16:  N,M <= 20 000 (random tests)
+Subtask 3 (25 points), tests 17-24: N,M <= 100 000
+Subtask 4 (41 points), tests 25-32: N,M <= 500 000

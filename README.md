@@ -13,6 +13,7 @@ Problems sorted by (roughly) difficulty from easiest to hardest:
 * Space
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
+* Internship (Idea by Rusko Shikov)
 * Trees (Idea by Radoslav Dimitrov)
 * Rome
 * Goblins (Idea by Dimitar Karev)

@@ -1,6 +1,8 @@
 # Competitive Programming Problems
 Archive of competitive programming problems authored by me. Published after the competitions have passed.
 
+This repo also contains an essay/guideline on problem setting written by me. You may find it helpful.
+
 Problems sorted by (roughly) difficulty from easiest to hardest:
 * Crypto
 * Ant

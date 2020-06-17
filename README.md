@@ -29,4 +29,4 @@ Optimizational problems with relative scoring:
 * Transmission
 
 Upcomming competitions for which I might be setting problems:
-* International Autumn Tournament in Informatics
+* National Olympiad in Informatics

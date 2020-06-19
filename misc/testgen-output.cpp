@@ -5,6 +5,7 @@
 using namespace std;
 
 string TASK_NAME;
+string SOL_NAME;
 const string INPUT_EXT=".in";
 const string OUTPUT_EXT=".out";
 const string SOLUTION_EXT=".sol";
@@ -48,24 +49,28 @@ void genBatch()
     {
         inName=getInputName();
         outName=getSolutionName();
-        cerr<<TASK_NAME+".exe"+" < "+inName+" > "+outName<<endl;
-        system((TASK_NAME+".exe"+" < "+inName+" > "+outName).c_str());
+        string cmd=SOL_NAME+".exe"+" < "+inName+" > "+outName;
+        cerr<<cmd<<endl;
+        system(cmd.c_str());
     }
 
 }
 int main(int argc, char* args[])
 {
-    if (argc<3)
+    if (argc<4)
     {
         cout<<"Task name: ";
         cin>>TASK_NAME;
+        cout<<"Solution name: ";
+        cin>>SOL_NAME;
         cout<<"Tests: ";
         cin>>TESTS_IN_BATCH;
     }
     else
     {
         TASK_NAME=args[1];
-        TESTS_IN_BATCH=atoi(args[2]);
+        SOL_NAME=args[2];
+        TESTS_IN_BATCH=atoi(args[3]);
     }
     genBatch();
     system("pause");

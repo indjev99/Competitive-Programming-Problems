@@ -29,12 +29,13 @@ int main(int argc, char* args[])
 {
     string task_name;
     string file_name;
-    int digits;
+    int digits=2;
     int first_test;
     int last_test;
     double t,t_max=0;
+    bool cmp=true;
     string cmd;
-    if (argc<6)
+    if (argc<5)
     {
         cout<<"Task name: ";
         cin>>task_name;
@@ -44,6 +45,8 @@ int main(int argc, char* args[])
         cin>>first_test;
         cout<<"Number of last test: ";
         cin>>last_test;
+        cout<<"Compare results (0/1): ";
+        cin>>cmp;
         cout<<"Number of digits in numbers (-1 for no formating): ";
         cin>>digits;
     }
@@ -53,7 +56,8 @@ int main(int argc, char* args[])
         file_name=args[2];
         first_test=atoi(args[3]);
         last_test=atoi(args[4]);
-        digits=atoi(args[5]);
+        if (argc>=6) cmp=atoi(args[5]);
+        if (argc>=7) digits=atoi(args[6]);
     }
     high_resolution_clock::time_point start_time_all,start_time,curr_time;
     start_time_all=high_resolution_clock::now();
@@ -67,7 +71,7 @@ int main(int argc, char* args[])
         curr_time=high_resolution_clock::now();
 
         //cmd="checker "+task_name+'.'+toString(i,digits)+'.'+"in"+' '+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
-        cmd="fc "+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
+        if (cmp) cmd="fc "+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
         system(cmd.c_str());
 
         t=duration_cast<duration<double>>(curr_time-start_time).count();

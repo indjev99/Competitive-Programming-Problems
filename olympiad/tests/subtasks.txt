@@ -1,0 +1,6 @@
+subtask 1 (10):  10 5          tests: 1-5
+subtask 2 (30):	 600 300       tests: 6-20
+subtask 3 (40):	 1500 750      tests: 21-35
+subtask 4 (55):  4000 2000     tests: 36-50
+subtask 5 (75):  18000 9000    tests: 51-65
+subtask 6 (100): 150000 75000  tests: 66-80

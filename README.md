@@ -20,6 +20,7 @@ Problems sorted by (roughly) difficulty from easiest to hardest:
 * Rome
 * Goblins (Idea by Dimitar Karev)
 * Triangles
+* Olympiad
 * Compromise (Collaboration with Encho Mishinev)
 * Counter
 * Park

@@ -261,7 +261,7 @@ void removeChar()
     //move the deletion pointer
     --lastPos;
 
-    //remove all suffixes that are now equal and update the others
+    //remove all suffixes that are now a prefix of another and update their neighbours
     for (auto pr : removeAtTime[lastPos])
     {
         deleteSuff(pr.first, pr.second);

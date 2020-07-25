@@ -3,7 +3,7 @@ Archive of competitive programming problems authored by me. Published after the 
 
 This repo also contains an essay/guideline on problem setting written by me. You may find it helpful.
 
-Problems sorted by (roughly) difficulty from easiest to hardest:
+Problems (roughly) sorted by difficulty from easiest to hardest:
 * Crypto
 * Ant
 * Yen

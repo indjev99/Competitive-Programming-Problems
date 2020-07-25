@@ -15,6 +15,7 @@ Problems sorted by (roughly) difficulty from easiest to hardest:
 * Space
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
+* Flights
 * Internship (Idea by Rusko Shikov)
 * Trees (Idea by Radoslav Dimitrov)
 * Rome
@@ -28,6 +29,3 @@ Problems sorted by (roughly) difficulty from easiest to hardest:
 Optimizational problems with relative scoring:
 * Sorting
 * Transmission
-
-Upcomming competitions for which I might be setting problems:
-* National Olympiad in Informatics

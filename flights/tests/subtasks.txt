@@ -1,0 +1,7 @@
+subtask 1 (15): 5     5    (tests: 1-5)
+subtask 2 (15): 20k   500  (tests: 6-15)
+subtask 3 (10): 100k  2.5k (tests: 16-25)
+subtask 4 (10): 500k  5k   (tests: 26-35)
+subtask 5 (10): 2k    500k (tests: 36-45)
+subtask 6 (10): 500k  20k  (tests: 46-55)
+subtask 7 (30): 500k  500k (tests: 56-65)

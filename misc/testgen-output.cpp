@@ -10,7 +10,8 @@ const string INPUT_EXT=".in";
 const string OUTPUT_EXT=".out";
 const string SOLUTION_EXT=".sol";
 
-int TESTS_IN_BATCH=5;
+int FIRST_TEST;
+int LAST_TEST;
 int curr=1;
 string getInputName()
 {
@@ -45,7 +46,7 @@ void genBatch()
     string name;
     string inName;
     string outName;
-    for (int i=0;i<TESTS_IN_BATCH;++i)
+    for (int i=FIRST_TEST;i<=LAST_TEST;++i)
     {
         inName=getInputName();
         outName=getSolutionName();
@@ -63,15 +64,19 @@ int main(int argc, char* args[])
         cin>>TASK_NAME;
         cout<<"Solution name: ";
         cin>>SOL_NAME;
-        cout<<"Tests: ";
-        cin>>TESTS_IN_BATCH;
+        cout<<"First test: ";
+        cin>>FIRST_TEST;
+        cout<<"Last test: ";
+        cin>>LAST_TEST;
     }
     else
     {
         TASK_NAME=args[1];
         SOL_NAME=args[2];
-        TESTS_IN_BATCH=atoi(args[3]);
+        FIRST_TEST=atoi(args[3]);
+        LAST_TEST=atoi(args[4]);
     }
+    curr = FIRST_TEST;
     genBatch();
     system("pause");
     return 0;

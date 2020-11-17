@@ -3,7 +3,21 @@ Archive of competitive programming problems authored by me. Published after the 
 
 This repo also contains an essay/guideline on problem setting written by me. You may find it helpful.
 
-Problems (roughly) sorted by difficulty from easiest to hardest:
+Classical problems:
+* Flights
+* Internship (Idea by Rusko Shikov)
+* Goblins (Idea by Dimitar Karev)
+* Triangles
+* Olympiad
+* Compromise (Collaboration with Encho Mishinev)
+* Park
+
+Optimizational problems:
+* Multisort
+* Counter
+* Transmission
+
+CodeIT sprints:
 * Crypto
 * Ant
 * Yen
@@ -15,17 +29,8 @@ Problems (roughly) sorted by difficulty from easiest to hardest:
 * Space
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
-* Flights
-* Internship (Idea by Rusko Shikov)
 * Trees (Idea by Radoslav Dimitrov)
 * Rome
-* Goblins (Idea by Dimitar Karev)
-* Triangles
-* Olympiad
-* Compromise (Collaboration with Encho Mishinev)
-* Counter
-* Park
 
-Optimizational problems with relative scoring:
+CodeIT marathons:
 * Sorting
-* Transmission

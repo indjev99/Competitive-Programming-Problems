@@ -25,7 +25,6 @@ CodeIT sprints:
 * Krasi
 * Bases
 * Sequences
-* TTS
 * Space
 * Protein
 * Farm (Idea by Radoslav Dimitrov)
@@ -34,3 +33,6 @@ CodeIT sprints:
 
 CodeIT marathons:
 * Sorting
+
+Others:
+* TTS

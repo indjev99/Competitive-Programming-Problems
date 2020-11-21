@@ -7,6 +7,7 @@ Classical problems:
 * Flights
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
+* Hunter x Hunter
 * Triangles
 * Olympiad
 * Compromise (Collaboration with Encho Mishinev)

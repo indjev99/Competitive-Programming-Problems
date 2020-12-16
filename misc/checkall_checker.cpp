@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 #include<stdlib.h>
 #include<chrono>
 using namespace std;
@@ -33,6 +34,7 @@ int main(int argc, char* args[])
     int first_test;
     int last_test;
     double t,t_max=0;
+    double res, sum=0;
     string cmd;
     if (argc<5)
     {
@@ -53,7 +55,7 @@ int main(int argc, char* args[])
         file_name=args[2];
         first_test=atoi(args[3]);
         last_test=atoi(args[4]);
-        if (argc>=6) digits=atoi(args[6]);
+        if (argc>=6) digits=atoi(args[5]);
     }
     high_resolution_clock::time_point start_time_all,start_time,curr_time;
     start_time_all=high_resolution_clock::now();
@@ -66,15 +68,24 @@ int main(int argc, char* args[])
         system(cmd.c_str());
         curr_time=high_resolution_clock::now();
 
-        cmd="checker "+task_name+'.'+toString(i,digits)+'.'+"in"+' '+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output";
+        cmd="checker "+task_name+'.'+toString(i,digits)+'.'+"in"+' '+task_name+'.'+toString(i,digits)+'.'+"sol"+' '+"output"+'>'+"result";
         system(cmd.c_str());
 
         t=duration_cast<duration<double>>(curr_time-start_time).count();
         if (t>t_max) t_max=t;
-        cout<<t<<" seconds"<<'\n'<<'\n';
+
+        ifstream res_file("result");
+        res_file>>res;
+        res *= 100.0/(last_test-first_test+1);
+        sum+=res;
+
+        cerr<<"Result: "<<res<<'\n';
+        cout<<"Time: "<<t<<" seconds"<<'\n';
+        cout<<'\n';
     }
     curr_time=high_resolution_clock::now();
     t=duration_cast<duration<double>>(curr_time-start_time_all).count();
+    cout<<"Total score: "<<sum<<'\n';
     cout<<"Overall: "<<t<<" seconds"<<'\n';
     cout<<"Maximum: "<<t_max<<" seconds"<<'\n';
     return 0;

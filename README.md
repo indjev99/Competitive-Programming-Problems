@@ -9,7 +9,7 @@ Classical problems:
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
 * Triangles
-* Cancer (Mosly by Encho Mishinev, Idea by Radoslav Dimitrov)
+* Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
 * Olympiad
 * Compromise (Collaboration with Encho Mishinev)
 * Park

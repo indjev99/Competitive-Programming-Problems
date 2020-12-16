@@ -2,7 +2,11 @@
 #include <algorithm>
 #include <numeric>
 
-std::vector<int> storeTemp, compTemp, splitsTemp, idxsTemp, srcTemp;
+std::vector<int> compTemp;
+std::vector<int> storeTemp;
+std::vector<int> splits;
+std::vector<int> idxs;
+std::vector<int> srcs;
 
 void mergeSort(int* data, int n, int k)
 {
@@ -28,24 +32,24 @@ void mergeSort(int* data, int n, int k)
     for (int i = 0; i <= k; ++i)
     {
         int curr = (n * i + k / 2) / k;
-        if (i > 0) splitsTemp[i - 1] = curr;
-        if (i < k) idxsTemp[i] = curr;
+        if (i > 0) splits[i - 1] = curr;
+        if (i < k) idxs[i] = curr;
     }
     while (true)
     {
         compTemp.clear();
         for (int i = 0; i < k; ++i)
         {
-            if (idxsTemp[i] < splitsTemp[i])
+            if (idxs[i] < splits[i])
             {
-                compTemp.push_back(data[idxsTemp[i]]);
-                srcTemp[data[idxsTemp[i]]] = i;
+                compTemp.push_back(data[idxs[i]]);
+                srcs[data[idxs[i]]] = i;
             }
         }
         if (compTemp.empty()) break;
         if (compTemp.size() > 1) compare(compTemp);
         storeTemp.push_back(compTemp[0]);
-        ++idxsTemp[srcTemp[compTemp[0]]];
+        ++idxs[srcs[compTemp[0]]];
     }
     std::copy(storeTemp.begin(), storeTemp.end(), data);
 }
@@ -54,9 +58,9 @@ std::vector<int> multisort(int n, int k)
 {
     std::vector<int> res(n);
     std::iota(res.begin(), res.end(), 0);
-    splitsTemp.resize(k);
-    idxsTemp.resize(k);
-    srcTemp.resize(n);
+    splits.resize(k);
+    idxs.resize(k);
+    srcs.resize(n);
     mergeSort(res.data(), n, k);
     return res;
 }

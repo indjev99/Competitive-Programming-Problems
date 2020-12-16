@@ -2,7 +2,8 @@
 #include <algorithm>
 #include <numeric>
 
-std::vector<int> storeTemp, compTemp;
+std::vector<int> compTemp;
+std::vector<int> storeTemp;
 
 void mergeSort(int* data, int n, int k)
 {

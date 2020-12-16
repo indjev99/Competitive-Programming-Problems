@@ -5,7 +5,8 @@
 
 std::mt19937 generator;
 
-std::vector<int> leftTemp, rightTemp, compTemp;
+std::vector<int> compTemp;
+std::vector<int> leftTemp, rightTemp;
 
 void quickSort(int* data, int n, int k)
 {

@@ -44,8 +44,8 @@ void mergeSort(int* data, int n, int k)
         }
         if (compTemp.empty()) break;
         if (compTemp.size() > 1) compare(compTemp);
-        storeTemp.push_back(compTemp.front());
-        ++idxsTemp[srcTemp[compTemp.front()]];
+        storeTemp.push_back(compTemp[0]);
+        ++idxsTemp[srcTemp[compTemp[0]]];
     }
     std::copy(storeTemp.begin(), storeTemp.end(), data);
 }

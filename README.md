@@ -4,6 +4,7 @@ Archive of competitive programming problems authored by me. Published after the 
 This repo also contains an essay/guideline on problem setting written by me. You may find it helpful.
 
 Classical problems:
+* Tiling
 * Flights
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)

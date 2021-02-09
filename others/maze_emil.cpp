@@ -5,7 +5,6 @@ const int MAX_N = 1500;
 
 struct Point
 {
-    int x, y;
     char dir;
 
     int next;
@@ -75,9 +74,6 @@ void addEdges()
         for (int y = 0; y < m; ++y)
         {
             int curr = currIdx(x, y);
-            ps[curr].x = x;
-            ps[curr].y = y;
-
             int next = nextIdx(x, y, ps[curr].dir);
             ps[curr].next = next;
             ps[next].prevs.push_back(curr);

@@ -80,7 +80,7 @@ void genBatch()
 }
 int main(int argc, char* args[])
 {
-    if (argc<3)
+    if (argc<4)
     {
         cout<<"Old name: ";
         cin>>OLD_NAME;

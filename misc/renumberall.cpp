@@ -49,7 +49,7 @@ void genBatch()
     string cmd;
     currOld = FIRST_TEST;
     currNew = NEW_NUM;
-    for (int i=0;i<LAST_TEST - FIRST_TEST + 1;++i)
+    for (int i=0;i<LAST_TEST-FIRST_TEST+1;++i)
     {
         oldInName=getOldInputName();
         if (!fileExists(oldInName)) continue;

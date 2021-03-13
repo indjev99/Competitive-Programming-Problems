@@ -1,0 +1,6 @@
+subtask 1 (10): 1-10
+subtask 2 (10):	11-20
+subtask 3 (10):	21-30
+subtask 4 (20): 31-40
+subtask 5 (25): 41-50
+subtask 6 (25): 51-60

@@ -1,0 +1,4 @@
+subtask 1 (20): 1-10
+subtask 2 (20):	11-20
+subtask 3 (30):	21-30
+subtask 4 (30): 31-40

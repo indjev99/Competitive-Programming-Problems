@@ -1,0 +1,99 @@
+alloc 2 distFrontEdges backEnd
+push distFrontEdges 0
+push distFrontEdges -1
+getStart distFrontEdges
+getEnd backEnd
+
+label bfsLoop
+if equal distFrontEdges -1 goto exitBfsLoop
+  print 1000
+  print distFrontEdges
+  print backEnd
+  if notEqual distFrontEdges backEnd goto else
+    label distLoop
+    if equal distFrontEdges -1 goto exitDistLoop
+    pop distFrontEdges
+    goto distLoop
+    label exitDistLoop
+    pop distFrontEdges
+    return distFrontEdges
+  label else
+
+    add distFrontEdges backEnd
+    push distFrontEdges distFrontEdges
+    sub distFrontEdges backEnd
+    pop backEnd
+    push backEnd distFrontEdges
+    pop distFrontEdges
+    sub distFrontEdges backEnd
+
+    push distFrontEdges -1
+    push distFrontEdges backEnd
+    pop backEnd
+    getEdges distFrontEdges distFrontEdges
+    label oneEdgesLoop
+      if equal distFrontEdges 0 goto startZeroEdges
+      pop distFrontEdges
+      if equal distFrontEdges -1 goto exitOneEdgesLoop
+      push backEnd distFrontEdges
+      pop distFrontEdges
+    goto oneEdgesLoop
+    label exitOneEdgesLoop
+    pop distFrontEdges
+    goto transferEnd
+    label startZeroEdges
+    push backEnd -1
+    label zeroEdgesLoop
+      pop distFrontEdges
+      if equal distFrontEdges -1 goto exitZeroEdgesLoop
+      push backEnd distFrontEdges
+      pop distFrontEdges
+    goto zeroEdgesLoop
+    label exitZeroEdgesLoop
+    pop distFrontEdges
+    label zeroBackLoop
+    if equal backEnd -1 goto exitZeroBackLoop
+
+        add distFrontEdges backEnd
+        push distFrontEdges distFrontEdges
+        sub distFrontEdges backEnd
+        pop backEnd
+        push backEnd distFrontEdges
+        pop distFrontEdges
+        sub distFrontEdges backEnd
+
+        push distFrontEdges backEnd
+        pop backEnd
+      goto zeroBackLoop
+    label exitZeroBackLoop
+    pop backEnd
+    label transferEnd
+    push backEnd distFrontEdges
+    pop distFrontEdges
+    if notEqual distFrontEdges -1 goto bfsLoop
+      pop distFrontEdges
+      add distFrontEdges 1
+      push distFrontEdges -1
+      push distFrontEdges backEnd
+      pop backEnd
+      label backLoop
+      if empty backEnd goto exitBackLoop
+
+        add distFrontEdges backEnd
+        push distFrontEdges distFrontEdges
+        sub distFrontEdges backEnd
+        pop backEnd
+        push backEnd distFrontEdges
+        pop distFrontEdges
+        sub distFrontEdges backEnd
+
+        push distFrontEdges backEnd
+        pop backEnd
+      goto backLoop
+      label exitBackLoop
+      push backEnd distFrontEdges
+      pop distFrontEdges
+goto bfsLoop
+
+label exitBfsLoop
+return -1

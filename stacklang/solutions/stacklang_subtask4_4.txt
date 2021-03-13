@@ -1,0 +1,38 @@
+alloc 4 front back dist endEdges
+push dist 0
+getStart front
+getEnd endEdges
+
+label bfsLoop
+if empty front goto exitBfsLoop
+  if notEqual front endEdges goto else
+    return dist
+  label else
+    push endEdges -1
+    getEdges endEdges front
+    pop front
+    label edgesLoop
+    if equal endEdges -1 goto exitEdgesLoop
+      if equal endEdges 1 goto pushBack
+        pop endEdges
+        push front endEdges
+        goto popEdge
+      label pushBack
+        pop endEdges
+        push back endEdges
+      label popEdge
+      pop endEdges
+    goto edgesLoop
+    label exitEdgesLoop
+    pop endEdges
+    if notEmpty front goto bfsLoop
+      add dist 1
+      label backLoop
+      if empty back goto bfsLoop
+        push front back
+        pop back
+      goto backLoop
+goto bfsLoop
+
+label exitBfsLoop
+return -1

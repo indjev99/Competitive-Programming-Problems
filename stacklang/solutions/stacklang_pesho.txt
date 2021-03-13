@@ -1,0 +1,59 @@
+alloc 3 st1 st2 st3
+push st1 -1
+push st2 -1
+getStart st2
+push st2 0
+getEnd st3
+label bfsLabel
+	if equal st2 -1 goto bfsEndLabel
+
+	push st1 st2 pop st2
+	if notEqual st2 st3 goto notFinishLabel
+	return st1
+	
+	label notFinishLabel
+	push st3 st1 pop st1
+	push st3 st2 pop st2
+
+	push st2 -1
+	getEdges st2 st3 pop st3
+	label edgesLabel
+		if equal st2 -1 goto edgesEndLabel
+		
+		add st2 st3
+		push st1 st2 pop st2
+		push st1 st2 pop st2 
+
+		goto edgesLabel
+	label edgesEndLabel
+	pop st2
+	
+	label edges0Label
+		if equal st1 -1 goto edges0EndLabel
+		
+		push st2 st1 pop st1
+		if equal st1 st3 goto edges0ElseLabel
+			push st1 st2 pop st2
+			goto edges0EndLabel
+		label edges0ElseLabel
+			push st2 st1 pop st1
+		
+		goto edges0Label
+	label edges0EndLabel
+
+	pop st3
+	
+	if notEqual st2 -1 goto bfsLabel 
+	label queueLabel
+		if equal st1 -1 goto queueEndLabel
+		
+		push st2 st1 pop st1
+		push st2 st1 pop st1
+		
+		goto queueLabel
+	label queueEndLabel
+
+	goto bfsLabel
+label bfsEndLabel
+
+return -1

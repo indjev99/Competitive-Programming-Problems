@@ -1,0 +1,41 @@
+alloc 3 distFront back endEdges
+push distFront 0
+push distFront -1
+getStart distFront
+getEnd endEdges
+
+label bfsLoop
+if equal distFront -1 goto exitBfsLoop
+  if notEqual distFront endEdges goto else
+    label distLoop
+    if equal distFront -1 goto exitDistLoop
+    pop distFront
+    goto distLoop
+    label exitDistLoop
+    pop distFront
+    return distFront
+  label else
+    push endEdges -1
+    getEdges endEdges distFront
+    pop distFront
+    label edgesLoop
+    if equal endEdges -1 goto exitEdgesLoop
+      pop endEdges
+      push back endEdges
+      pop endEdges
+    goto edgesLoop
+    label exitEdgesLoop
+    pop endEdges
+    if notEqual distFront -1 goto bfsLoop
+      pop distFront
+      add distFront 1
+      push distFront -1
+      label backLoop
+      if empty back goto bfsLoop
+        push distFront back
+        pop back
+      goto backLoop
+goto bfsLoop
+
+label exitBfsLoop
+return -1

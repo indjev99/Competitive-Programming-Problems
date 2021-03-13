@@ -1,0 +1,21 @@
+alloc 3 front end edges
+getStart front
+getEnd end
+
+label dfsLoop
+if empty front goto exitDfsLoop
+  if notEqual front end goto else
+    return 0
+  label else
+    getEdges edges front
+    pop front
+    label edgesLoop
+    if empty edges goto dfsLoop
+      pop edges
+      push front edges
+      pop edges
+    goto edgesLoop
+goto dfsLoop
+
+label exitDfsLoop
+return -1

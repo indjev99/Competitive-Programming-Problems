@@ -5,11 +5,13 @@ This repo also contains an essay/guideline on problem setting written by me. You
 
 Classical problems:
 * Tiling
-* Ads (Idea and statement by Pavel Nikolov)
+* Ads (Idea and statement by Pavel Petrov)
 * Flights
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
+* Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
+* Periods (Idea by Radoslav Dimitrov)
 * Sets (Based on rough idea by Radostin Chonev)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)

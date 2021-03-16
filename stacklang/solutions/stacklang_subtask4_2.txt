@@ -6,9 +6,6 @@ getEnd backEnd
 
 label bfsLoop
 if equal distFrontEdges -1 goto exitBfsLoop
-  print 1000
-  print distFrontEdges
-  print backEnd
   if notEqual distFrontEdges backEnd goto else
     label distLoop
     if equal distFrontEdges -1 goto exitDistLoop

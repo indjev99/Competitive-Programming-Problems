@@ -1,0 +1,109 @@
+alloc 2 even odd
+
+push even 0
+push even -1
+push odd 1
+push odd -1
+getStart even
+push even 0
+getEnd odd
+goto evenToOdd
+
+#
+Active stack: [(i : {0, 1}, node of distance n + i)], n
+Inactive stack: end node, [(0, node of distance n + 1)], n + 1
+#
+
+# Insert the top value of even under the top value of odd #
+label pushToOdd
+pop even
+sub even odd
+add odd even
+sub even odd
+push odd 0
+push odd 0
+sub odd even
+pop even
+goto evenToOdd
+
+# Push the edges from the top value of even to even #
+label visitNextEven
+pop even
+if equal even odd goto foundEven
+push odd even
+pop even
+getEdges even odd
+pop odd
+# goto evenToOdd #
+
+label evenToOdd
+if equal even 1 goto pushToOdd
+if equal even 0 goto visitNextEven
+# goto switchToOdd #
+
+# Switch from an active even stack to an active odd stack #
+# label switchToOdd #
+pop even
+add even 2
+push even -1
+push even odd
+pop odd
+if notEqual odd -1 goto visitNextOdd
+return -1
+
+# Insert the top value of odd under the top value of even #
+label pushToEven
+pop odd
+sub odd even
+add even odd
+sub odd even
+push even 0
+push even 0
+sub even odd
+pop odd
+goto oddToEven
+
+# Push the edges from the top value of odd to odd #
+label visitNextOdd
+pop odd
+if equal odd even goto foundOdd
+push even odd
+pop odd
+getEdges odd even
+pop even
+# goto oddToEven #
+
+label oddToEven
+if equal odd 1 goto pushToEven
+if equal odd 0 goto visitNextOdd
+# goto switchToEven #
+
+# Switch from an active even stack to an active odd stack #
+# label switchToEven #
+pop odd
+add odd 2
+push odd -1
+push odd even
+pop even
+if notEqual even -1 goto visitNextEven
+return -1
+
+label foundEven
+pop even
+if equal even -1 goto returnEven
+pop even
+goto foundEven
+
+label returnEven
+pop even
+return even
+
+label foundOdd
+pop odd
+if equal odd -1 goto returnOdd
+pop odd
+goto foundOdd
+
+label returnOdd
+pop odd
+return odd

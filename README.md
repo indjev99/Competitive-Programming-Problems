@@ -10,20 +10,20 @@ Classical problems:
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
-* Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
-* Periods (Idea by Radoslav Dimitrov)
 * Sets (Based on rough idea by Radostin Chonev)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
-* Stacklang
 * Olympiad
 * Compromise (Collaboration with Encho Mishinev)
-* Park
 
-Optimizational problems:
+Optimizational (or similar) problems:
+* Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
+* Periods (Idea by Radoslav Dimitrov)
 * Multisort
+* Stacklang
 * Counter
 * Transmission
+* Park
 
 CodeIT sprints:
 * Crypto
@@ -42,5 +42,5 @@ CodeIT sprints:
 CodeIT marathons:
 * Sorting
 
-Others:
+Training problems:
 * TTS

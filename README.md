@@ -16,7 +16,7 @@ Classical problems:
 * Olympiad
 * Compromise (Collaboration with Encho Mishinev)
 
-Optimizational (or similar) problems:
+Non-standard problems:
 * Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
 * Periods (Idea by Radoslav Dimitrov)
 * Multisort

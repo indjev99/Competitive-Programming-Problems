@@ -1,4 +1,4 @@
-alloc 3 front endEdges len
+alloc 3 front endEdges dist
 push front 0
 getStart front
 getEnd endEdges
@@ -12,11 +12,11 @@ if empty front goto exitDfsLoop
     push endEdges -1
     getEdges endEdges front
     pop front
-    push len front
+    push dist front
     pop front
     label edgesLoop
     if equal endEdges -1 goto exitEdgesLoop
-      add endEdges len
+      add endEdges dist
       push front endEdges
       pop endEdges
       push front endEdges

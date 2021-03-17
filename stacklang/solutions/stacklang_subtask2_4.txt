@@ -1,4 +1,4 @@
-alloc 4 front end edges len
+alloc 4 front end edges dist
 push front 0
 getStart front
 getEnd end
@@ -11,11 +11,11 @@ if empty front goto exitDfsLoop
   label else
     getEdges edges front
     pop front
-    push len front
+    push dist front
     pop front
     label edgesLoop
     if empty edges goto dfsLoop
-      add edges len
+      add edges dist
       push front edges
       pop edges
       push front edges

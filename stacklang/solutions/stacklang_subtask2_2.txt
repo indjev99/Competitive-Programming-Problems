@@ -1,46 +1,46 @@
-alloc 2 frontLen endEdges
-push frontLen 0
-getStart frontLen
+alloc 2 frontDist endEdges
+push frontDist 0
+getStart frontDist
 getEnd endEdges
 
 label dfsLoop
-if empty frontLen goto exitDfsLoop
-  if notEqual frontLen endEdges goto else
-    pop frontLen
-    return frontLen
+if empty frontDist goto exitDfsLoop
+  if notEqual frontDist endEdges goto else
+    pop frontDist
+    return frontDist
   label else
     push endEdges -1
-    getEdges endEdges frontLen
-    pop frontLen
+    getEdges endEdges frontDist
+    pop frontDist
     label edgesLoop
     if equal endEdges -1 goto exitEdgesLoop
-      add endEdges frontLen
+      add endEdges frontDist
 
-      add frontLen endEdges
-      push frontLen frontLen
-      sub frontLen endEdges
+      add frontDist endEdges
+      push frontDist frontDist
+      sub frontDist endEdges
       pop endEdges
-      push endEdges frontLen
-      pop frontLen
-      sub frontLen endEdges
+      push endEdges frontDist
+      pop frontDist
+      sub frontDist endEdges
 
-      push frontLen endEdges
+      push frontDist endEdges
       pop endEdges
 
-      add frontLen endEdges
-      push frontLen frontLen
-      sub frontLen endEdges
+      add frontDist endEdges
+      push frontDist frontDist
+      sub frontDist endEdges
       pop endEdges
-      push endEdges frontLen
-      pop frontLen
-      sub frontLen endEdges
+      push endEdges frontDist
+      pop frontDist
+      sub frontDist endEdges
 
-      push frontLen endEdges
+      push frontDist endEdges
       pop endEdges
     goto edgesLoop
     label exitEdgesLoop
     pop endEdges
-    pop frontLen
+    pop frontDist
 goto dfsLoop
 
 label exitDfsLoop

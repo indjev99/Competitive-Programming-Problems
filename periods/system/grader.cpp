@@ -53,11 +53,6 @@ static void calcRealPeriods()
     for (int i = 0; i < n; ++i)
     {
         int period = i - failLink[i];
-    }
-
-    for (int i = 0; i < n; ++i)
-    {
-        int period = i - failLink[i];
         if ((i + 1) % period == 0) realPeriods[i] = period;
         else realPeriods[i] = i + 1;
     }
@@ -86,7 +81,7 @@ int main()
     numQs = 0;
     retPeriods = findPeriods(n);
 
-    if (retPeriods.size() != n) setResult(-1);
+    if ((int) retPeriods.size() != n) setResult(-1);
 
     for (int i = 0; i < n; ++i)
     {

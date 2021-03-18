@@ -22,14 +22,18 @@ std::vector<int> findPeriods(int n)
         return periods;
     }
 
+    int minPeriod = 0;
     for (int period = 1; period < n; ++period)
     {
-        for (int i = period - 1; i < n; i += period)
+        if (period < minPeriod) continue;
+        for (int i = 2 * period - 1; i < n; i += period)
         {
-            if (hasPeriod(i + 1, period) && period < periods[i])
+            if (hasPeriod(i + 1, period))
             {
                 periods[i] = period;
+                minPeriod = i + 2;
             }
+            else break;
         }
     }
 

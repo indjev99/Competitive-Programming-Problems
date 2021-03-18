@@ -15,7 +15,7 @@ std::vector<int> findPeriods(int n)
             if (hasPeriod(i + 1, period))
             {
                 periods[i] = period;
-                minPeriod = std::max(minPeriod, i + 2);
+                minPeriod = i + 2;
             }
             else break;
         }

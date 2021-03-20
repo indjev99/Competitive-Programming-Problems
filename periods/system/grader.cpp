@@ -19,7 +19,7 @@ static long long hashWithInput(long long hsh)
 
 static void setResult(int res)
 {
-    std::cout << res << "" << hashWithInput(res) << std::endl;
+    std::cout << res << " " << hashWithInput(res) << std::endl;
     exit(0);
 }
 
@@ -42,12 +42,17 @@ static void calcRealPeriods()
     failLink[0] = -1;
     for (int i = 1; i < n; ++i)
     {
-        int cand = failLink[i - 1] + 1;
-        while (cand >= 0 && array[i] != array[cand])
+        int cand = failLink[i - 1];
+        while (array[i] != array[cand + 1])
         {
+            if (cand == -1)
+            {
+                cand = -2;
+                break;
+            }
             cand = failLink[cand];
         }
-        failLink[i] = cand;
+        failLink[i] = cand + 1;
     }
 
     for (int i = 0; i < n; ++i)
@@ -88,7 +93,7 @@ int main()
         if (retPeriods[i] != realPeriods[i]) setResult(-1);
     }
 
-    std::cout << numQs << " " << hashWithInput(numQs) << std::endl;
+    setResult(numQs);
 
     return 0;
 }

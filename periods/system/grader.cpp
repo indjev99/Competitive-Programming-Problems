@@ -40,19 +40,20 @@ static void calcRealPeriods()
 
     std::vector<int> failLink(n);
     failLink[0] = -1;
-    for (int i = 1; i < n; ++i)
+    for (int i = 1, cnd = 0; i < n; ++i, ++cnd)
     {
-        int cand = failLink[i - 1];
-        while (array[i] != array[cand + 1])
+        if (array[i] == array[cnd])
         {
-            if (cand == -1)
-            {
-                cand = -2;
-                break;
-            }
-            cand = failLink[cand];
+            failLink[i] = failLink[cnd];
         }
-        failLink[i] = cand + 1;
+        else
+        {
+            failLink[i] = cnd;
+            while (cnd >= 0 && array[i] != array[cnd])
+            {
+                cnd = failLink[cnd];
+            }
+        }
     }
 
     for (int i = 0; i < n; ++i)

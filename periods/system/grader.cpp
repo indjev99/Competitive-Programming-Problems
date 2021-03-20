@@ -73,15 +73,6 @@ bool hasPeriod(int len, int period)
         setResult(-2);
     }
 
-    if (len % period != 0) return false;
-
-    for (int i = period; i < len; ++i)
-    {
-        if (array[i] != array[i - period]) return false;
-    }
-
-    return true;
-
     return len % period == 0 && period % realPeriods[len - 1] == 0;
 }
 

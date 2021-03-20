@@ -10,12 +10,13 @@ std::vector<int> findPeriods(int n)
     for (int period = 1; period < n; ++period)
     {
         if (period < minPeriod) continue;
+        if (periods[period - 1] < period) continue;
         for (int i = 2 * period - 1; i < n; i += period)
         {
             if (hasPeriod(i + 1, period))
             {
                 periods[i] = period;
-                minPeriod = i + 2;
+                minPeriod = i + 1 - (period - 1);
             }
             else break;
         }

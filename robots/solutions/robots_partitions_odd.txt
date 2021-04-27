@@ -1,0 +1,46 @@
+Y2 N Y2/N2 -> Major
+Y2/N2 Y N2 -> Minor
+
+X Y N -> N2
+Y N X -> Y2
+
+Y2 N ? -> Y1
+Y2/N2 Y N/N1/N' -> N1
+
+Y/Y1/Y' N Y2/N2 -> Y1
+? Y N2 -> N1
+
+Y/Y1/Y' N ? -> Y
+? Y N/N1/N' -> N
+
+Y/Y1/Y' N1 ? -> Y2
+? Y1 N/N1/N' -> N2
+
+Y/Y1/Y2/Y' N2/N' ? -> Y'
+? Y2/Y' N/N1/N2/N' -> N'
+
+X/Y2/N2 Y X/Y2/N2 -> Major
+X/Y2/N2 N X/Y2/N2 -> Minor
+
+X Y ? -> Y2
+X N ? -> N2
+
+? Y X -> Y2
+? N X -> N2
+
+Y2/N2 Y ? -> Y1
+Y2/N2 N ? -> N1
+
+? Y Y2/N2 -> Y1
+? N Y2/N2 -> N1
+
+? Y ? -> Y
+? N ? -> N
+
+? Y1 ? -> Y2
+? N1 ? -> N2
+
+? Y2/Y' ? -> Y'
+? N2/N' ? -> N'
+
+? 0 ? -> 0

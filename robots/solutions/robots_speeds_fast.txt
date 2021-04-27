@@ -1,0 +1,71 @@
+X/A_R Y X/B_L -> Major
+X/A_R N X/B_L -> Minor
+
+X/A_R Y/N Y_L/N_L/B'_L -> Major
+Y_R/N_R/A'_R Y/N X/B_L -> Minor
+
+Y_R/N_R/A'_R Y Y_L/N_L/B'_L -> Y_M
+Y_R/N_R/A'_R N Y_L/N_L/B'_L -> N_M
+
+A Y_ML/Y_R Y_MR/N_MR/B'_MR/Y_L/N_L/B'_L -> Major
+Y_ML/N_ML/A'_ML/Y_R/N_R/A'_R N_MR/N_L B -> Minor
+
+A N_ML/N_R Y_MR/N_MR/Y_L/N_L/B'_L/B_L -> A'_ML
+Y_ML/N_ML/Y_R/N_R/A'_R/A_R Y_MR/Y_L B -> B'_MR
+
+? A_R Y_L/N_L/B'_L/B_L -> Major
+Y_R/N_R/A'_R/A_R B_L ? -> Minor
+
+? Y_R Y_L/N_L/B'_L -> Y_ML
+? N_R Y_L/N_L/B'_L -> N_ML
+? A'_R Y_L/N_L/B'_L -> Major
+
+Y_R/N_R/A'_R Y_L ? -> Y_MR
+Y_R/N_R/A'_R N_L ? -> N_MR
+Y_R/N_R/A'_R B'_L ? -> Minor
+
+X/A_R Y ? -> A_R
+X/A_R N ? -> A'_R
+
+Y_R/N_R/A'_R Y ? -> Y_R
+Y_R/N_R/A'_R N ? -> N_R
+
+? Y X/B_L -> B'_L
+? N X/B_L -> B_L
+
+? Y Y_L/N_L/B'_L -> Y_L
+? N Y_L/N_L/B'_L -> N_L
+
+A Y/Y_R ? -> A
+A N/N_R ? -> A'
+
+? Y/Y_L X/B -> B'
+? N/N_L X/B -> B
+
+A Y_M B -> Major
+A N_M B -> Minor
+
+A Y_M/N_M ? -> Major
+? Y_M/N_M B -> Minor
+
+? A'/A'_R ? -> A
+? B'/B'_L ? -> B
+
+? A'_ML ? -> Major
+? B'_MR ? -> Minor
+
+? A/A_R/B/B_L ? -> X'
+
+? Y/Y_R/Y_L ? -> Y
+? N/N_R/N_L ? -> N
+
+? Y_M ? -> Y_M
+? N_M ? -> N_M
+
+? Y_ML ? -> Y_ML
+? N_ML ? -> N_ML
+
+? Y_MR ? -> Y_MR
+? N_MR ? -> N_MR
+
+? X' ? -> X'

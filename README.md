@@ -21,6 +21,7 @@ Non-standard problems:
 * Periods (Idea by Radoslav Dimitrov)
 * Multisort
 * Stacklang
+* Robots
 * Counter
 * Transmission
 * Park

@@ -1,0 +1,39 @@
+X Y'/YY' ? -> Major
+? N'/NN' X -> Minor
+
+Y/YY' N/NN' N/NN' -> N
+Y/YY' Y/YY' N/NN' -> Y
+
+Y/YY' N/NN' Y'/YY' -> Y'
+N'/NN' Y/YY' N/NN' -> N'
+
+Y/YY' N/NN' ? -> 0
+? Y/YY' N/NN' -> 0
+Y/YY' 0 N/NN' -> 0
+
+Y/YY' N'/NN' Y'/YY' -> Y
+N'/NN' Y'/YY' N/NN' -> N
+
+N'/NN' N'/NN' Y'/YY' -> N'
+N'/NN' Y'/YY' Y'/YY' -> Y'
+
+? N'/NN' Y'/YY' -> 0
+N'/NN' Y'/YY' ? -> 0
+N'/NN' 0 Y'/YY' -> 0
+
+X N/NN' N/NN' -> NN'
+Y/YY' Y/YY' X -> YY'
+
+X N/NN' ? -> N'
+? Y/YY' X -> Y'
+
+Y/YY' ? Y'/YY' -> YY'
+N'/NN' ? N/NN' -> NN'
+
+Y/YY' ? ? -> Y
+? ? N/NN' -> N
+
+? ? Y'/YY' -> Y'
+N'/NN' ? ? -> N'
+
+? ? ? -> 0

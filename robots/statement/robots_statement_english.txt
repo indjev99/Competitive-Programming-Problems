@@ -1,0 +1,65 @@
+A group of N robots are voting whether to accept some proposition. Each robot votes
+either Yes or No and they want to decide whether at least half of them have voted
+Yes.
+
+The robots are quite limited. They are all standing in a line. At each time step,
+each robot is in some state S_i. Then it has to chose what state to transition to
+for the next time step. This has to depend only on S_{i-1}, S_i and S_{i+1},
+since each robot only sees its neighbours. All robots share the same rule set.
+The leftmost and rightmost robots see state 'X' on their left and right,
+respectively. At time step 0, all robots are in states 'Y' or 'N', which indicate
+voting Yes and No, respectively. Then they follow their rules until some robot
+declares the result by going into states 'Major' or 'Minor', where 'Major'
+means majority (at least half of the votes were for Yes) and 'Minor' means
+minority (less than hald of the votes were Yes). If multiple robots make a
+declaration at the same time step, the leftmost one takes precedence. Also,
+the robots have a time limit for the number of iterations/time steps. They have
+to reach a decision by that point.
+
+Your job is to design a rule set for the robots so that they can correctly decide
+whether to accept the proposition or not. The basic rule format is as follows:
+
+L M R -> E
+
+A robot in M who sees left neighbour in L and a right neighbour in R, transitios
+to E. You can also use '?' as a wildcard witch matches with every state in the
+place of L, M or R. Finally, you can list multiple states separated by '/' for
+L, M or R. Example:
+
+? A_0/Y/10 X -> Major
+
+Here, a the rightmost robot (since its right neighbour is in X), when in states
+A_0, Y or 10 will declare that there was a majority. When there are multiple
+matching rules for some robot, the first one takes precedence. Example:
+
+A ? B -> Major
+? C B/A -> A
+
+If the actual configuration is A C B, this robot will declare majority, since that
+rule is first.
+
+Constraints:
+1 <= N <= 1500
+Maximum number of allowed iterations = 7500
+Maximum number of states you can use (not counting X, Major and Minor) = 30
+
+Scoring:
+The score for a subtask will be the minimum score for a test in that subtask.
+The part of the score received depends on the number of iterations used:
+
+iters <= TARGET: 1.0
+iters <= TARGET + 7: 0.85
+otherwise: max(0.75 * ((TARGET + 8) / iters)^0.85, 0.2)
+
+Here TARGET depends on the subtask.
+
+Subtasks:
+10 points: N <= 10; TARGET = N + 1
+20 points: N <= 99 and N is odd; TARGET = N + 1
+30 points: N <= 1499 and N is odd; TARGET = floor(N / 2) + 3
+20 points: N <= 1500 and N is even; TARGET = floor(N / 2) + 3
+20 points: N <= 1500; TARGET = floor(N / 2) + 3
+
+Each test will consist of several subtests and what matters is the worst
+score achieved on any of the subtests. This does not affect your solution,
+as running it on all subtests is handled by the system checker.

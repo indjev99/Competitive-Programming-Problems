@@ -1,0 +1,29 @@
+Y_A/Y_AB'/N_A/N_AB'/X/Y_AB/N_AB Y/Y_B' X -> Major
+Y_B/Y_A'B/N_B/N_A'B/X/Y_AB/N_AB N X -> Minor
+
+? Y_A'/N_A' X -> Major
+? Y_B'/N_B' X -> Minor
+
+X/Y_AB/N_AB Y ? -> Y_AB'
+X/Y_AB/N_AB N ? -> N_A'B
+
+Y_A/Y_AB'/N_A/N_AB' Y/Y_B ? -> Y_A
+Y_A/Y_AB'/N_A/N_AB' N/N_B ? -> N_A'
+Y_A/N_A Y_B' ? -> Y_AB
+
+Y_B/Y_A'B/N_B/N_A'B Y/Y_A ? -> Y_B'
+Y_B/Y_A'B/N_B/N_A'B N/N_A ? -> N_B
+Y_B/N_B N_A' ? -> N_AB
+
+? Y_A'/Y_A'B ? -> Y_A
+? Y_B'/Y_AB' ? -> Y_B
+
+? N_A'/N_A'B ? -> N_A
+? N_B'/N_AB' ? -> N_B
+
+X Y_B/N_A ? -> X'
+
+? Y/Y_A/Y_B/Y_AB ? -> Y
+? N/N_A/N_B/N_AB ? -> N
+
+? X' ? -> X'

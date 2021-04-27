@@ -10,9 +10,10 @@ Classical problems:
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
-* Sets (Based on rough idea by Radostin Chonev)
+* Sets (Rough idea by Radostin Chonev)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
+* Towers (Solution idea by Encho Mishinev, Rough idea by Radoslav Dimitrov)
 * Olympiad
 * Compromise (Collaboration with Encho Mishinev)
 

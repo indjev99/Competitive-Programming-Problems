@@ -1,0 +1,38 @@
+1. Nim
+
+2. Second player wins iff XOR of small is 0 and there is an even number of big ones.
+Argument in next part.
+
+3. Notice that when removing at least one big, the number of small don't matter.
+We look at XOR of big and small. Second player wins iff both are 0. Argument is similar.
+If big XOR is not 0, first player removes some big, as in Nim, and replaces them with some
+(or no) small, to make the small XOR 0. If only small XOR is not 0, then play as in Nim.
+If both XORs are 0, you cannot keep that. Any big move messes up big XOR and
+similarly for any small move.
+
+4. We write [x, y] to mean x big and y small with K = 0. Notice that these have a strict
+(lexicographic) order of reachability; from [x, y] you can, in one move, reach any [w, z]
+where w < x or w = x and z < y. This is the property, similar to regular Nim piles, that
+allows us to show that any "transfinite" game is equivalent to an [x, y] "Nim" pile. The
+proof is equivalent to SG for finite games. The parallel composition of 2 games is equivalent
+to the pointwise XOR of the two games (as shown in 3) and the choice between a set of a games
+is equivalent to the MEX of those games, which is defined due to these piles having an order.
+Let us write (B, S) for a big and b small with the given K and write (B, S) = [x, y] when the
+two games are equivalent. Since K = 1 and B_i <= 10 we can just compute the games by hand:
+(1, 0) = [0, 0], (2, 0) = [0, 0], (2, 1) = [0, 1], (3, 0) = [0, 0], (3, 1) = [0, 2], ...
+Importantly, (B, S) = [B, S - B * K] when S >= B * K.
+
+5. We automate the naive way of computing these using a DP or memoization. This is done
+by computing the MEX of all choices from (B, S). Since we obviously can't go through all
+of them (there is an infinite number), we have to automatically cover the choices where
+(B, S) = [B, S - B * K]. For each B, we have B * K interesting games of the form (B, S).
+Thus, there are MAX_B^2 * K interesting games. For each interesting game we itereate through
+most interesting games before it (its choices) and we also sort them.Therefore, the total
+complexity is MAX_B^4 * K^2 * log (MAX_B * K).
+
+6. In this part we process all interesting games for a given B at once. This works because
+they all have the same choices, plus the preceeding games with the same B (but smaller S).
+We find the first B * K MEXes of the list of their common choices and assign them to the
+interesting games with the given B in ascending order. Each MEX comutation works the same
+way as before, but we only have MAX_B of those, instead of MAX_B^2 * K. Therefore, the total
+complexity is MAX_B^3 * K * log (MAX_B * K).

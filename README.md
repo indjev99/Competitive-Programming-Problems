@@ -8,13 +8,16 @@ Classical problems:
 * Ads (Idea and statement by Pavel Petrov)
 * Flights
 * Internship (Idea by Rusko Shikov)
+* Rabbit (Collaboration with Encho Mishinev)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
+* Hint (Collaboration with Encho Mishinev)
+* Olympiad
 * Sets (Rough idea by Radostin Chonev)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
+* Heaps
 * Towers (Solution idea by Encho Mishinev, Rough idea by Radoslav Dimitrov)
-* Olympiad
 * Compromise (Collaboration with Encho Mishinev)
 
 Non-standard problems:

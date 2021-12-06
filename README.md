@@ -14,6 +14,7 @@ Classical problems:
 * Hint (Collaboration with Encho Mishinev)
 * Olympiad
 * Sets (Rough idea by Radostin Chonev)
+* Playlists (Mostly by Encho Mishinev, Solution by me)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
 * Heaps

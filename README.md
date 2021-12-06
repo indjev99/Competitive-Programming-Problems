@@ -8,10 +8,8 @@ Classical problems:
 * Ads (Idea and statement by Pavel Petrov)
 * Flights
 * Internship (Idea by Rusko Shikov)
-* Rabbit (Collaboration with Encho Mishinev)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
-* Hint (Collaboration with Encho Mishinev)
 * Olympiad
 * Sets (Rough idea by Radostin Chonev)
 * Triangles
@@ -21,10 +19,12 @@ Classical problems:
 * Compromise (Collaboration with Encho Mishinev)
 
 Non-standard problems:
+* Rabbit (Collaboration with Encho Mishinev)
 * Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
 * Periods (Idea by Radoslav Dimitrov)
 * Multisort
 * Stacklang
+* Hint (Collaboration with Encho Mishinev)
 * Robots
 * Counter
 * Transmission

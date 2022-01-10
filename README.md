@@ -6,6 +6,7 @@ This repo also contains an essay/guideline on problem setting written by me. You
 Classical problems:
 * Tiling
 * Ads (Idea and statement by Pavel Petrov)
+* Oil
 * Flights
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)

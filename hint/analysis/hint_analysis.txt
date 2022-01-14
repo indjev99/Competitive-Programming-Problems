@@ -1,0 +1,25 @@
+Base DP:
+
+First, we notice that we can solve the problem without sending a hint in O(N * M) time and memory using a simple DP. This solution gets 10 points.
+
+Naive encodings:
+
+A very naive approach is to encode the entire solution in binary. This takes O(N * log(N)) bits and receives about 17 points. A somewhat better idea is to instead go through one of the sequences and for each element, record whether it is part of the solution. This takes O(N) bits and gets about 26 points.
+
+Solution idea:
+
+The idea for the solution is to partition the sequences/solution into O(sqrt(N)) chunks and leave a hint that allows the solver to solve each chunk separately. There are many similar schemes, so we describe one of them.
+
+We split the first sequence into K = O(sqrt(N)) chunks of size N / K. For each one we find the first of the solution that is in that chunk. Then we record the positions of that element and its corresponding element in the second sequence in binary. In the solver, we parse this to find the range of each chunk and solve each on its own. Each such solve takes N / K * T time, where T is the length of the range of the chunk. The sum of all those times is N / K * (Sum of all T) = N * M / K = O(sqrt(N) * M). The memory complexity is N / K * max T = O(sqrt(N) * M) and could also be a limitting factor. The hint length is K * log(N) = O(sqrt(N) * log(N))
+
+There are many possible improvements on the encoding (such as only encoding the corresponding position in the second sequence with some way to encode skipping a chunk). Additionally, it is possible to tweak the constant for K to take full advantage of the time limit and memory limit (as there is a trade-off between run time/memory usage and hint length). A naive implementation of this idea will get about 44 points, while a good one will receive about 78.
+
+Full solution:
+
+The full solution also uses the sqrt partitioning idea. However, it does not encode the exact ranges of the chunks using O(log(N)) bits each. Instead, it partitions the second sequence into K chunk as well. Then it records the range of each chunk from the first sequence in terms of chunks from the second one. This is easy to encode using a two-pointers approach by going through the solution and for element computing its chunk in each sequence. Then we record 0 to advance the first sequence chunk pointer and 1 for the second sequence chunk pointer. Parsing this is also easy, but actually solving isn't.
+
+The problem is that there is now overlap between the ranges of the chunks. If the first chunk has range [0, A], then the second chunk has range [A, B]. Meaning that they have an overlap of one chunk of size M / K from the second sequence. This means that we can't just solve them independently. Instead, we need to carry over the final state of the DP from solving one chunk to solving the next. This is conceptually simple and is relatively easy to implement in O(N * M) memory, but the memory limit disallows that. We can instead use an unordered_map, but its heavy constant in a critical part of the program leads to quite a slow solution. Instead, we implement this using a static array of size N / K * (M + N) (the '+ N' is due to the overlaps). Here we need to copy certain bits of the DP array from the end of one chunk's part to the start of the next one's. Reconstruction is also not fully trivial. In the end, we get a time and memory complexity of N * (M + N) / K = O(sqrt(N) * (N + M)).
+
+Depending on the constant for K (which depends on the time and memory efficiency of the solution), this solution gets between about 91 and 100 points.
+
+Authors: Emil Indzhev and Encho Mishinev

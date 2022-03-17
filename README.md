@@ -25,6 +25,7 @@ Non-standard problems:
 * Rabbit (Collaboration with Encho Mishinev)
 * Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
 * Periods (Idea by Radoslav Dimitrov)
+* Poker
 * Multisort
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)

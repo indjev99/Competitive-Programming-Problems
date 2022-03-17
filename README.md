@@ -5,7 +5,7 @@ This repo also contains an essay/guideline on problem setting written by me. You
 
 Classical problems:
 * Tiling
-* Ads (Idea and statement by Pavel Petrov)
+* Ads (Idea by Pavel Petrov)
 * Permutation
 * Oil
 * Flights
@@ -14,7 +14,6 @@ Classical problems:
 * Hunter x Hunter
 * Olympiad
 * Sets (Rough idea by Radostin Chonev)
-* Playlists (Mostly by Encho Mishinev, Solution by me)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
 * Heaps
@@ -27,6 +26,8 @@ Non-standard problems:
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
 * Multisort
+* Gcd (Idea by Radoslav Dimitrov)
+* Playlists (Collaboration with Encho Mishinev)
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)
 * Robots

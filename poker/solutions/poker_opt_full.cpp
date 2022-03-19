@@ -172,10 +172,7 @@ void info()
 {
     findExpProfit();
 
-    double score = std::min(std::max(2 * expProfit / (0.99 * ante), 0.0), 1.0);
-    score = score * score * score * score * score * score;
-
-    std::cerr << "Score: " << std::fixed << std::setprecision(4) << score << std::endl;
+    std::cerr << "Normalized profit: " << std::fixed << std::setprecision(4) << 2 * expProfit / ante << std::endl;
     std::cerr << "Average profit: " << std::fixed << std::setprecision(4) << expProfit << std::endl;
 
     double avgOpenBetProb = 0;

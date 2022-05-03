@@ -13,6 +13,7 @@ Classical problems:
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
 * Olympiad
+* Rain (Idea found by Encho Mishinev)
 * Sets (Rough idea by Radostin Chonev)
 * Triangles
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)

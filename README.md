@@ -31,6 +31,7 @@ Non-standard problems:
 * Playlists (Collaboration with Encho Mishinev)
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)
+* Shoes (Collaboration with Viktor Kozhuharov)
 * Robots
 * Counter
 * Transmission

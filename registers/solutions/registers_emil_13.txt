@@ -1,0 +1,772 @@
+# ?zig and ?zag are kept in sync and referred to as ?zigzag
+# Yzigzag counts from 0 to Y
+# Xzigzag repeatedly counts from 0 to X and down from X to 0
+# We refer to Out as Ozig
+
+registers Yzig Yzag Xzig Xzag Ozag Zero
+
+# while Yzigzag != Y
+YLoop:
+jeq Yzig Y YLoopEnd
+
+  # increment Yzigzag with the zig zag mechanism
+  # first we increment Yzig
+  YzigLoop:
+    inc Yzig
+  jeq Yzig Yzag YzigLoop
+  YzigLoopEnd:
+
+  # then we increment Yzzag
+  YzagLoop:
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+  jeq Zero Zero YzagLoop
+  YzagLoopEnd:
+  # Yzigzag is now incremented
+
+  # while Xzigzag != X
+  XLoop:
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop1:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop1
+    XzigLoopEnd1:
+  
+    # then we increment Xzzag
+    XzagLoop1:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd1
+    jeq Zero Zero XzagLoop1
+    XzagLoopEnd1:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop1:
+      inc Out
+    jeq Out Ozag OzigLoop1
+    OzigLoopEnd1:
+  
+    # then we increment Ozzag
+    OzagLoop1:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd1
+    jeq Zero Zero OzagLoop1
+    OzagLoopEnd1:
+    # Ozigzag is now incremented
+
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop2:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop2
+    XzigLoopEnd2:
+  
+    # then we increment Xzzag
+    XzagLoop2:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd2
+    jeq Zero Zero XzagLoop2
+    XzagLoopEnd2:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop2:
+      inc Out
+    jeq Out Ozag OzigLoop2
+    OzigLoopEnd2:
+  
+    # then we increment Ozzag
+    OzagLoop2:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd2
+    jeq Zero Zero OzagLoop2
+    OzagLoopEnd2:
+    # Ozigzag is now incremented
+
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop3:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop3
+    XzigLoopEnd3:
+  
+    # then we increment Xzzag
+    XzagLoop3:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd3
+    jeq Zero Zero XzagLoop3
+    XzagLoopEnd3:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop3:
+      inc Out
+    jeq Out Ozag OzigLoop3
+    OzigLoopEnd3:
+  
+    # then we increment Ozzag
+    OzagLoop3:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd3
+    jeq Zero Zero OzagLoop3
+    OzagLoopEnd3:
+    # Ozigzag is now incremented
+
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop4:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop4
+    XzigLoopEnd4:
+  
+    # then we increment Xzzag
+    XzagLoop4:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd4
+    jeq Zero Zero XzagLoop4
+    XzagLoopEnd4:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop4:
+      inc Out
+    jeq Out Ozag OzigLoop4
+    OzigLoopEnd4:
+  
+    # then we increment Ozzag
+    OzagLoop4:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd4
+    jeq Zero Zero OzagLoop4
+    OzagLoopEnd4:
+    # Ozigzag is now incremented
+
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop5:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop5
+    XzigLoopEnd5:
+  
+    # then we increment Xzzag
+    XzagLoop5:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd5
+    jeq Zero Zero XzagLoop5
+    XzagLoopEnd5:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop5:
+      inc Out
+    jeq Out Ozag OzigLoop5
+    OzigLoopEnd5:
+  
+    # then we increment Ozzag
+    OzagLoop5:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd5
+    jeq Zero Zero OzagLoop5
+    OzagLoopEnd5:
+    # Ozigzag is now incremented
+
+  jeq Zero Zero XLoop
+  XLoopEnd:
+
+  # if Yzig == Y: break
+  jeq Yzig Y YLoopEnd
+
+  # increment Yzigzag with the zig zag mechanism
+  # first we increment Yzig
+  YzigRevLoop:
+    inc Yzig
+  jeq Yzig Yzag YzigRevLoop
+  YzigRevLoopEnd:
+
+  # then we increment Yzzag
+  YzagRevLoop:
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+    inc Yzag
+  jeq Yzig Yzag YzagRevLoopEnd
+  jeq Zero Zero YzagRevLoop
+  YzagRevLoopEnd:
+  # Yzigzag is now incremented
+
+  # while Xzigzag != 0
+  XRevLoop:
+  jeq Xzig Zero XRevLoopEnd
+
+    # decrement Xzigzag with the zig zag mechanism
+    # first we decrement Xzig
+    XzigRevLoop1:
+      dec Xzig
+    jeq Xzig Xzag XzigRevLoop1
+    XzigRevLoopEnd1:
+  
+    # then we decrement Xzzag
+    XzagRevLoop1:
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd1
+    jeq Zero Zero XzagRevLoop1
+    XzagRevLoopEnd1:
+    # Xzigzag is now decremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigRevLoop1:
+      inc Out
+    jeq Out Ozag OzigRevLoop1
+    OzigRevLoopEnd1:
+  
+    # then we increment Ozzag
+    OzagRevLoop1:
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd1
+    jeq Zero Zero OzagRevLoop1
+    OzagRevLoopEnd1:
+    # Ozigzag is now incremented
+
+  jeq Xzig Zero XRevLoopEnd
+
+    # decrement Xzigzag with the zig zag mechanism
+    # first we decrement Xzig
+    XzigRevLoop2:
+      dec Xzig
+    jeq Xzig Xzag XzigRevLoop2
+    XzigRevLoopEnd2:
+  
+    # then we decrement Xzzag
+    XzagRevLoop2:
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd2
+    jeq Zero Zero XzagRevLoop2
+    XzagRevLoopEnd2:
+    # Xzigzag is now decremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigRevLoop2:
+      inc Out
+    jeq Out Ozag OzigRevLoop2
+    OzigRevLoopEnd2:
+  
+    # then we increment Ozzag
+    OzagRevLoop2:
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd2
+    jeq Zero Zero OzagRevLoop2
+    OzagRevLoopEnd2:
+    # Ozigzag is now incremented
+
+  jeq Xzig Zero XRevLoopEnd
+
+    # decrement Xzigzag with the zig zag mechanism
+    # first we decrement Xzig
+    XzigRevLoop3:
+      dec Xzig
+    jeq Xzig Xzag XzigRevLoop3
+    XzigRevLoopEnd3:
+  
+    # then we decrement Xzzag
+    XzagRevLoop3:
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd3
+    jeq Zero Zero XzagRevLoop3
+    XzagRevLoopEnd3:
+    # Xzigzag is now decremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigRevLoop3:
+      inc Out
+    jeq Out Ozag OzigRevLoop3
+    OzigRevLoopEnd3:
+  
+    # then we increment Ozzag
+    OzagRevLoop3:
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd3
+    jeq Zero Zero OzagRevLoop3
+    OzagRevLoopEnd3:
+    # Ozigzag is now incremented
+
+  jeq Xzig Zero XRevLoopEnd
+
+    # decrement Xzigzag with the zig zag mechanism
+    # first we decrement Xzig
+    XzigRevLoop4:
+      dec Xzig
+    jeq Xzig Xzag XzigRevLoop4
+    XzigRevLoopEnd4:
+  
+    # then we decrement Xzzag
+    XzagRevLoop4:
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd4
+    jeq Zero Zero XzagRevLoop4
+    XzagRevLoopEnd4:
+    # Xzigzag is now decremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigRevLoop4:
+      inc Out
+    jeq Out Ozag OzigRevLoop4
+    OzigRevLoopEnd4:
+  
+    # then we increment Ozzag
+    OzagRevLoop4:
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd4
+    jeq Zero Zero OzagRevLoop4
+    OzagRevLoopEnd4:
+    # Ozigzag is now incremented
+
+  jeq Xzig Zero XRevLoopEnd
+
+    # decrement Xzigzag with the zig zag mechanism
+    # first we decrement Xzig
+    XzigRevLoop5:
+      dec Xzig
+    jeq Xzig Xzag XzigRevLoop5
+    XzigRevLoopEnd5:
+  
+    # then we decrement Xzzag
+    XzagRevLoop5:
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+      dec Xzag
+    jeq Xzig Xzag XzagRevLoopEnd5
+    jeq Zero Zero XzagRevLoop5
+    XzagRevLoopEnd5:
+    # Xzigzag is now decremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigRevLoop5:
+      inc Out
+    jeq Out Ozag OzigRevLoop5
+    OzigRevLoopEnd5:
+  
+    # then we increment Ozzag
+    OzagRevLoop5:
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+      inc Ozag
+    jeq Out Ozag OzagRevLoopEnd5
+    jeq Zero Zero OzagRevLoop5
+    OzagRevLoopEnd5:
+    # Ozigzag is now incremented
+
+  jeq Zero Zero XRevLoop
+  XRevLoopEnd:
+
+jeq Zero Zero YLoop
+YLoopEnd:

@@ -1,0 +1,80 @@
+# ?zig and ?zag are kept in sync and referred to as ?zigzag
+# Yzigzag counts from 0 to Y
+# Xzigzag repeatedly counts from 0 to X
+# We refer to Out as Ozig
+
+registers Yzig Yzag Xzig Xzag Ozag Zero
+
+# while Yzigzag != Y
+YLoop:
+jeq Yzig Y YLoopEnd
+
+  # increment Yzigzag with the zig zag mechanism
+  # first we increment Yzig
+  YzigLoop:
+    inc Yzig
+  jeq Yzig Yzag YzigLoop
+  YzigLoopEnd:
+
+  # then we increment Yzzag
+  YzagLoop:
+    inc Yzag
+  jeq Yzig Yzag YzagLoopEnd
+  jeq Zero Zero YzagLoop
+  YzagLoopEnd:
+  # Yzigzag is now incremented
+
+  # while Xzigzag != X
+  XLoop:
+  jeq Xzig X XLoopEnd
+
+    # increment Xzigzag with the zig zag mechanism
+    # first we increment Xzig
+    XzigLoop:
+      inc Xzig
+    jeq Xzig Xzag XzigLoop
+    XzigLoopEnd:
+  
+    # then we increment Xzzag
+    XzagLoop:
+      inc Xzag
+    jeq Xzig Xzag XzagLoopEnd
+    jeq Zero Zero XzagLoop
+    XzagLoopEnd:
+    # Xzigzag is now incremented
+
+    # increment Ozigzag with the zig zag mechanism
+    # first we increment Ozig
+    OzigLoop:
+      inc Out
+    jeq Out Ozag OzigLoop
+    OzigLoopEnd:
+  
+    # then we increment Ozzag
+    OzagLoop:
+      inc Ozag
+    jeq Out Ozag OzagLoopEnd
+    jeq Zero Zero OzagLoop
+    OzagLoopEnd:
+    # Ozigzag is now incremented
+
+  jeq Zero Zero XLoop
+  XLoopEnd:
+
+  # clear Xzigzag for next iteration
+  # while Xzig != 0
+  XzigZeroLoop:
+    dec Xzig
+  jeq Xzig Zero XzigZeroLoopEnd
+  jeq Zero Zero XzigZeroLoop
+  XzigZeroLoopEnd:
+
+  # while Xzag != 0
+  XzagZeroLoop:
+    dec Xzag
+  jeq Xzag Zero XzagZeroLoopEnd
+  jeq Zero Zero XzagZeroLoop
+  XzagZeroLoopEnd:
+
+jeq Zero Zero YLoop
+YLoopEnd:

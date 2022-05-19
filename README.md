@@ -24,6 +24,7 @@ Classical problems:
 Non-standard problems:
 * Rabbit (Collaboration with Encho Mishinev)
 * Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
+* Registers (Collaboration with Encho Mishinev)
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
 * Multisort

@@ -1,0 +1,90 @@
+Let X_i be the pattern of marble i.
+Let C(x) be the number of marbles with pattern j.
+I.e. C(x) = Sum_x (X_i == x).
+The permutation and numbering are random variables.
+Let P(A) be the probability of A.
+And let E[F] be the expected value of F.
+
+P(X_i == X_j)
+=
+Sum_x P(X_i == x and X_j == x)
+=
+Sum_x C(x) / N * (C(x) - 1) / (N - 1)
+=
+Sum_x (C(x)^2 / (N (N - 1)) - C(X) / (N (N - 1)))
+=
+Sum_x C(x)^2 / (N (N - 1)) - N / (N (N - 1))
+=
+H / (N (N - 1)) - 1 / (N - 1)
+
+Therefore,
+
+E[(X_0 == X_1) * N * (N - 1) + N]
+=
+P(X_0 == X_1) * N * (N - 1) + N
+=
+H - N + N
+=
+H
+
+So a solutions is the following simple program:
+Check whether X_0 == X_1;
+If yes return N * (N - 1) + N;
+If no, return N.
+
+This program gets about 30 points.
+
+The STD of this estimation is very large.
+So we sample more pairs of X-s and average.
+This is valid by linearity of expectation:
+For all F, G: E[F + G] = E[F] + E[G].
+
+One idea is to store the first number.
+Then count how many times it occurs.
+Then return C(X_0) * N.
+We can also think of this like so:
+
+E[Q]
+=
+N * Sum_x P(X_0 == x) C(x)
+=
+N * Sum_x C(x)^2 / N
+=
+N * H / N
+=
+H
+
+This has better STD, especially when patterns
+have roughly equal number of marbles.
+
+It gets about 50 points or more with optimizations.
+
+This still has bad STD when some patterns have
+many more marbles than other patterns.
+Asymptotically, it is not even better than
+our first naive solution.
+The issue is that Q depends a lot on the first number.
+Instead, we will sample consequitive pairs of X-s,
+i.e. we will count the number of i-s s.t.
+X_i == X_{i - 1}. Let this be D.
+Then return D * N + N.
+E[D] = (N - 1) * P(X_j == X_j) * N + N = H
+These consequitive pairs are almost independent,
+so the STD decreases by sqrt(N - 1).
+
+This solution receives about 75 points.
+
+We can improve it further by noticing that the STD
+decreases with sqrt(Numbers stored), so we can store
+the last K numbers and compare with each of them.
+This way, we have S = K + 1, so our STD is decreased
+by sqrt(K), while we are penalized for sqrt(K + 1).
+Essentially, we dilute the cost of the counter.
+Another optimization is to notice that the counter
+and numbers don't need a full int, so we can pack
+them with some bit operations.
+
+Each of these optimizations gets to around 85 points.
+Together, they lead to the full 100 point solution.
+
+Author: Emil Indzhev

@@ -1,0 +1,24 @@
+1.
+Brute force.
+
+2.
+Sort R in increasing or decreasing order.
+Each bucket is an interval. Do KN^2 dp.
+
+3.
+Notice that dp[n - 1][k] is a decreasing convex function in k.
+So we can do Chinese optimization/discrete Lagrange multipliers,
+i.e. set a cost per interval and then binary search for the cost,
+which induces the desired number of intervals (with interpolation
+at the end, when the function is not strictly convex).
+This is N^2 log .
+
+4.
+Sort R in decreasing order.
+Then dp[t][i] = min{dp[t - 1][j] - R[j + 1] * j + R[j + 1] * i | 0 <= j < i}
+Notice this is a linear function in i and the coefficients depend only on j.
+So we do Convex Hull Trick. This is KN.
+
+5.
+Do both of the above.
+The full solutions is O(N log N).

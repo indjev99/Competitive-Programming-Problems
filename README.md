@@ -13,11 +13,14 @@ Classical problems:
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
 * Lin
-* Olympiad
 * Rain (Idea found by Encho Mishinev)
-* Sets (Rough idea by Radostin Chonev)
+* Olympiad
+* Missing
+* Foresight
 * Triangles
+* Ram
 * Fork
+* Sets (Rough idea by Radostin Chonev)
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
 * Heaps
 * Towers (Solution idea by Encho Mishinev, Rough idea by Radoslav Dimitrov)
@@ -35,10 +38,11 @@ Non-standard problems:
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)
 * Shoes (Collaboration with Viktor Kozhuharov)
+* Memory
+* Park
 * Robots
 * Counter
 * Transmission
-* Park
 
 CodeIT sprints:
 * Crypto

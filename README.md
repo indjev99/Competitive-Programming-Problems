@@ -12,6 +12,7 @@ Classical problems:
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
+* Lin
 * Olympiad
 * Rain (Idea found by Encho Mishinev)
 * Sets (Rough idea by Radostin Chonev)

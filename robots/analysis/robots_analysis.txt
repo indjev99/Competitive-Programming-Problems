@@ -1,4 +1,4 @@
-Non-scalable solutions include anything with explicit counting:
+Non-scalable solutions include anything with explicit counting with states:
 1. Just count with all the states -- robots_dummy.txt.
 2. Count with 2 counters (next to each other) and use CRT -- robots_crt.txt.
 

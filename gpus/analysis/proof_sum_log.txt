@@ -1,0 +1,25 @@
+integral_{1 <= x <= n} log^k (n / x) dx
+=
+integral_{1 <= x <= n} sum_{0 <= i <= k} (-1)^i {k choose i} log^{k - i} n log^i x dx
+=
+sum_{0 <= i <= k} (-1)^i {k choose i} log^{k - i} n * integral_{1 <= x <= n} log^i x dx
+=
+sum_{0 <= i <= k} (-1)^i {k choose i} log^{k - i} n * [x sum_{0 <= j <= i} (-1)^{i - j} i! / j! log^j x]_{1 <= x <= n}
+=
+sum_{0 <= i <= k} (-1)^i {k choose i} log^{k - i} n * n sum_{0 <= j <= i} (-1)^{i - j} i! / j! log^j n + o(n)
+=
+n sum_{0 <= i <= k} sum_{0 <= j <= i} (-1)^{2 i - j} k! / (i! (k - i)!) i! / j! log^{k - i + j} n + o(n)
+=
+n sum_{0 <= i <= k} sum_{0 <= j <= i} (-1)^j k! / (k - i)! / j! log^{k - i + j} n + o(n)
+= {t := k - i + j, k - t <= i <= k, j = t + i - k}
+n sum_{0 <= t <= k} log^t n sum_{k - t <= i <= k} (-1)^{t + i - k} k! / (k - i)! / (t + i - k)! + o(n)
+= {s := i - (k - t), i = s + k - t}
+n sum_{0 <= t <= k} log^t n sum_{0 <= s <= t} (-1)^s k! / (t - s)! / (s)! + o(n)
+=
+n sum_{0 <= t <= k} log^t n k! / t! sum_{0 <= s <= t} (-1)^s {t choose s} + o(n)
+=
+n sum_{0 <= t <= k} log^t n k! / t! (1 - 1)^t + o(n)
+=
+n sum_{0 <= t <= k} log^t n k! / t! 1_{t = 0} + o(n)
+=
+k! n + o(n)

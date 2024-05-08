@@ -1,0 +1,60 @@
+Let U_t be the number of tasks being ran at second t.
+Clearly those are ran on the t cheapest GPUs.
+We can also see that WLOG we can have U_{t + 1} >= U_t.
+If that is not the case, simply move one task from t to t + 1.
+This leads us to two possible paths for a greedy.
+
+Idea 1:
+1. Iterate through possible final times F.
+2. Iterate through tasks in descending order of T_i.
+3. Schedule task i, on the cheapest machine possible, at the latest time possible.
+4. Compute total cost S and update the minimum F * S found.
+
+Idea 2:
+1. Iterate through possible final times F.
+2. Iterate through machines in ascending order of C_i.
+3. For machine i, schedule tasks on it from time F - 1 back.
+   To find the number of tasks to schedule, we simply iterate down from F - 1.
+   We keep track of the "tightest" constraint found so far.
+   The constraints are that for each time point we may not schedule more tasks before it
+   than there are "currently" not yet scheduled tasks before it.
+4. Compute total cost S and update the minimum F * S found.
+
+Both ideas can be implemented in O(N^2), though slower solutions also get points.
+
+To get a better solution, we can use one of two approaches.
+Both start by using one of the previous ones for F = T_max + 1.
+
+Idea 1:
+1. Keep track of the number of tasks assigned to each GPU (those are assigned to it during a suffix of the time).
+1. Analyse what happens when we move from final time F to F + 1.
+2. Notice that we only "move" some tasks from the most expensive used GPU (or GPUs) to cheaper ones.
+3. To maintain U_{t + 1} >= U_t, we can easily find the number of tasks to move,
+   possibly making some GPUs completely unused.
+
+This can be implemented by moving tasks by task, which looks like O(N^2), but is actually O(N log N).
+This is because the number of tasks moved in 3. is equal to the number of GPUs used in the solution.
+But we can easily see that the number of GPUs used is at most ceil(N / (F - T_max)).
+Therefore, the complexity is equal to N times the sum of the harmonic series up to N.
+Thus, it is O(N log N).
+We can instead use other approaches to also achieve O(N log N) (e.g. segment tree and/or binary search).
+Some optimized ideas here can actually be O(N), but with a very high constant.
+See proof_sum_log for the reason why Sum_i log^k (N / i) = O(N).
+
+To get a proper linear solution we need only notice that instead of moving task by task,
+we can "virtually" add +1 to the counts for all GPUs (by keeping track of a total addition done).
+Then we simply need to subtract numGpus from the final GPU's count.
+If that would make it negative, we pop it and keep doing this.
+Since we do at most one partial subtask per final time and at most one pop per GPU, this is O(N).
+
+Idea 2:
+1. For each F compute the optimal counts per GPU only using the details from the one for T_max + 1.
+2. For each K, number of GPUs used, see how many tasks are left after we apply the optimal solution at T_max + 1.
+3. Assign the remaining ones to the first K machines in a "rectangle" in GPU-time space (being careful at the edges).
+
+As discussed above, this is O(N log N), if we stop when we have too many machines to fill a rectangle.
+To turn this into a linear solution, notice that a lot of iteration are spent on GPU counts before we can fit
+all remaning tasks into the rectangle. So compute the minimum number of tasks needed, as well as the maximum.
+Or, more easily, iterate through Ks (numbers of used GPUs) and for each compute min and max time.
+This is obviously linear, since if we compute these carefully, each time is in the min to max interval of
+at most one GPU count.

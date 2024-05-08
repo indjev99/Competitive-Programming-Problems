@@ -14,6 +14,7 @@ Classical problems:
 * Hunter x Hunter
 * Lin
 * Rain (Idea found by Encho Mishinev)
+* GPUs (Idea by Georgi Marinov)
 * Olympiad
 * Missing
 * Foresight

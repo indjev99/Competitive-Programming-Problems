@@ -39,6 +39,7 @@ Non-standard problems:
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)
 * Shoes (Collaboration with Viktor Kozhuharov)
+* Puzzle
 * Memory
 * Park
 * Robots

@@ -1,0 +1,36 @@
+For partial points we can do something like:
+
+Invent some metric for how balanced the rolls seem (e.g. sum of distances from mean).
+Sort all the dice by this metric and say that a prefix is fair and the rest isn't.
+Balance the length in some way using X and Y.
+This can get middling points but something like 40 is trivial.
+
+A better idea is to randomly sample the value of the metric using simulations of fair dice and unfair dice.
+We do this using a simulation:
+1. If unfair, follow the algorithm from the statement to generate its probabilities.
+   If fair, initialize them to 1 / N.
+2. Roll the die M times.
+3. Compute the value of the metric and increment a counter in an array/map keyed on this value.
+4. Repeat this a bunch of times to get somewhat accurate statistics.
+5. For each die in the input, compute the value of the metric for its rolls.
+6. Look up the number of times this value was achieved by a fair die and by an unfair die
+   (or more accurately the proportion of all fair rolls and of all unfair rolls).
+7. Use these conditional probabilities P(value | fair) and P(value | unfair) with Bayes' theorem:
+     P(fair | value)
+   = P(value | fair) P(fair) / P(value)
+   = P(value | fair) P / (P(value | fair) P + P(value | unfair) * (1 - P))
+8. After that classify the die as whatever minimizes the expected loss, i.e. say it is fair if:
+   P(fair | value) * X > (1 - P(fair | value)) * Y
+
+This can get 80-90 with good metrics that capture stuff like max rolled count, min rolled count, deviation, etc.
+
+To get a 100, we can notice that everything is symmetric between the different sides.
+We also notice that the number of possible partitions of M into N partitions is not that high.
+Therefore, we can make the "metric" be the sorted list of side counts.
+This (with enough iteration to get accurate stats) is the optimal possible solution,
+since it exactly computes the probability based on all the given information.
+
+Alternatively, if we do simulations for fair and unfair dice, but without using Bayes' theorem,
+we can use various approximations such as P(value | fair) / (P(value | fair) + P(value | unfair)).
+And then normalize this so the average value for the input dice is P.
+This will get about 75 points.

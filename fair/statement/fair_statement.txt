@@ -1,0 +1,69 @@
+There is a sequence of K N-sided dice.
+Some of them are fair, while others aren't.
+More precisely, each die has probability P of being fair and 1 - P of being unfair.
+A fair die has equal probabilities of rolling each of its N sides.
+An unfair die can have any probabilities for its sides, generated randomly in the following way:
+1. For i from 1 to N, generate a random uniform number from 0 to 1, this is Q_i.
+2. The probability of rolling the i-th side is Q_i / (Q_1 + ... + Q_N).
+Each of the K dice has been rolled M times and we have recorded the outcomes.
+Your task is to predict, for each die, whether it is fair or unfair based on these outcomes.
+Your penalty for predicting that a fair die is unfair is X and for the opposite case it is Y.
+You should try to minimize your total penalty.
+
+
+Constraints
+
+2 <= N <= 8
+15 <= M <= 40
+0.5 <= P <= 0.8
+0.3 <= X, Y <= 0.7
+X + Y = 1
+K = 100000
+
+
+Input
+
+N M P X Y
+K
+Count_1_1 ... Count_1_N
+...
+Count_K_1 ... Count_K_N
+
+
+Output
+
+IsFair_1
+...
+IsFair_K
+
+
+Sample input
+
+3 15 0.6 0.35 0.65
+3
+6 4 5
+9 5 1
+5 5 5
+
+
+Sample output
+
+1
+0
+1
+
+
+Scoring
+
+All tests are scored independently.
+Let TP be the total penalty you got on the test.
+AP = TP / K
+BAP = Min(P * X, (1 - P) * Y)
+S = Max((BAP - AP) / BAP, 0)
+R = S / S_Author
+
+Your result for the test is then:
+
+1. 1.0, if R > 0.999
+2. 0.3 + 0.7 * (1 - (1 - (R - 0.8) / 0.2)^0.75), if R > 0.8
+3. 0.3 * R / 0.8, otherwise

@@ -35,6 +35,7 @@ Non-standard problems:
 * Poker
 * Multisort
 * Gcd (Idea by Radoslav Dimitrov)
+* Fair
 * Playlists (Collaboration with Encho Mishinev)
 * Stacklang
 * Hint (Collaboration with Encho Mishinev)

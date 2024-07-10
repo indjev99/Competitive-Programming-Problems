@@ -171,22 +171,6 @@ bool bestCostChunkBs(int unmatched, int remaining)
     return chunkCost < iterCost;
 }
 
-int getChunkLen(int unmatched, int remaining)
-{
-    int upb = (remaining - unmatched) / 2;
-
-    int target = 0;
-    double probUnmatched = 1;
-
-    for (target = 0; target < upb && probUnmatched > 0.6; ++target)
-    {
-        double currProb = (double) (unmatched + target) / (remaining - target);
-        probUnmatched *= 1 - currProb;
-    }
-
-    return std::min(std::max(target, 2), upb);
-}
-
 std::vector<std::pair<int, int>> guessPairs(int n)
 {
     computeBsCosts(n);

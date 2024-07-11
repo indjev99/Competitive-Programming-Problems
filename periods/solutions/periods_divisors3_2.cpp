@@ -8,12 +8,14 @@ std::vector<int> findPeriods(int n)
 
     for (int period = 1; period < n; ++period)
     {
-        for (int i = period - 1; i < n; i += period)
+        if (periods[period - 1] < period) continue;
+        for (int i = 2 * period - 1; i < n; i += period)
         {
-            if (hasPeriod(i + 1, period) && period < periods[i])
+            if (periods[i] == i + 1 && hasPeriod(i + 1, period))
             {
                 periods[i] = period;
             }
+            else break;
         }
     }
 

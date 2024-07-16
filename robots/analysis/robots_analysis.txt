@@ -2,13 +2,104 @@ Non-scalable solutions include anything with explicit counting with states:
 1. Just count with all the states -- robots_dummy.txt.
 2. Count with 2 counters (next to each other) and use CRT -- robots_crt.txt.
 
-A few actually generic but suboptimal approaches are also implemented,
-but will not be discussed here. The main ideas are to "slide" around
-the Ys and Ns and either sort/partition them or cancel them out.
+A few generic but suboptimal (more iterations) approaches are also implemented.
+It is recommended to also read about them, since the ideas are also cool
+and are sometimes part of the "full" solutions for other similar problems.
+
+1. Paritions:
+
+Do a sort of bubble sort of the Ys and Ns and then check whether the middle
+element (or 1 right of the middle if N is even) is a Y.
+
+The bubble sort is quite simple, whenever an N has a Y to its left, it becomes
+a Y. Similarly, whenever a Y has an N to its left, it becomes an N.
+
+At the same time we want to find th middle, so separately from that, we have
+a second "channel" of info in the states: we have states 1 and 2 that we move
+from the left and from the right end so that they meet in the middle.
+
+More specifically: a 1 becomes a 2, then the 2 moves to the right (rather the
+element after a 2 becomes a 1 and the 2 becomes a ', to say it's "done" with
+1s and 2). That way we know whether to move this signal left of right.
+Alternatively we could have used 1/2 for left and 3/4 for right -- there are
+enough states.
+
+This way the two signals meet in the middle at time N-1. We could have done this
+faster. In fact, we intentionally slow it down by a fator of 2 (by counting 1, 2
+and then move). The reason is that the bubble sort takes worst case N-1 steps to
+finish sorting the array.
+
+Notice that we speak of separate "channels", i.e. the Y/N channel and the
+1/2/'/nothing channel. We actually need to write down the transitions for all
+combinations of these, but that is not hard.
+
+This solution gets 59.49 points, since it takes N-1 steps.
+See robots_partitions.txt.
+
+2. Speeds
+
+Here we send two signals from the left end to the right end that "race".
+Signal A takes one iteration per Y and two per N (i.e. first A' then A),
+while signal B takes one iteration per N and two per Y.
+
+That way, A gets to the end before B, if there are more Bs and vice versa.
+This takes floor(3/2 N) steps in the worst case (when there is an equal
+number of Ys and Ns). This solution gets 40.86 points.
+See robots_speeds.txt.
+
+There is a possible improvement:
+We send signal A from the left and signal B from the right.
+Notice that they meet after the midpoint, if there are more
+Ys and before the midpoint, if there are more Ns.
+
+Instead of using this directly, we actually just find the middle,
+similarly to the partitions idea, but with just an R and an L signal,
+with no delaying (so we find it as fast as possible:
+in floor(N / 2) + 1 time). At the same time we send the A and B signals.
+Noteice that they are never in front of the R and L signals repsecively.
+So the condition: on which side of the middle do A and B meet,
+becomes equivalent to the condition: does A cross the middle first
+or does B. (There are some corner cases around meeting exactly at the
+middle, or exactly as we find the middle, etc. -- one trick is to exploit
+the fact that, if two robots announce at the same time, the opinion of the
+left one counts -- this is why we chose the directions in this way.)
+
+The improved version takes N steps in the worst case and gets 59.48 points.
+See robots_speeds_fast.txt.
+
+3. Collisions:
+
+This is a much worse idea, but still with some merit.
+We try to "collide" all Ys and Ns, so that whenever a Y and an N meet,
+they annihilate each other. Then we check what's left at the end.
+
+The way to do that is to send all Ys to the right and all Ns to the left.
+Then for those that reach their end, we reflect them back as Y's and N's.
+Y's go to the left and N's to the right. It is important to "phase" Ys and
+Y's through each other (i.e. they are on separate channels and can overlap).
+Similarly for N and N's. Again whenever Y and N meet or whenever Y' and N'
+meet, they annihilate each other (i.e. if they'd "swap", they become 0s
+or whatever else comes to occupy them, and whenever they'd go to the same
+cell, it becomes 0).
+
+Finally, whenever an N' reaches the right end or whenever a Y' reaches the
+left end, we stop and announce Minority or Majority, respectively.
+
+This takes 2N iterations in the worst case. However, it doesn't work
+when there is an equal number of Ys and Ns (since everything becomes 0s).
+To deal with that case, we need to send a "timer" that takes 2N + 1 steps
+(i.e. moves from the left end to the right end at 2 iterations per cell)
+and then announces Majority.
+
+This gets 32.2 points with a worst case of 2N + 1 iterations.
+See robots_phasing.txt or robots_phasing_odd for the version with this fix.
+
+4. Full Solution:
 
 The full solutions starts with a fairly obvious idea:
 Use a binary counter to count number seen Ys - number of seen Ns.
 The interesting part is how to implement it:
+
 0. The Y and N robots when not next to the counter do nothing.
    I.e. they keep their state the same.
 1. Keep a binary counter on the "tape" of robots.
@@ -17,7 +108,8 @@ The interesting part is how to implement it:
    We also allow -1 and -2 since we can't access
    a sign bit from far away, so we store negative digits.
    Still the interpretation of the counter as a nubmer is
-   Sum_i 2^i d_i (just allowing -2 <= d_i <= 2)
+   Sum_i 2^i d_i (just allowing -2 <= d_i <= 2).
+
 2. Move the counter to the right on each iteration.
    The least senior bit (the rightmost one) "eats"
    the leftmost Y/N (incrementing or decrementing).
@@ -25,15 +117,17 @@ The interesting part is how to implement it:
    and the bit before them "eats" their carry.
    Since we are moving the counter to the right,
    all of this state is actually transfered to the "next" robot.
-   E.g. for -2 <= d <= 2
+   E.g. for -2 <= d <= 2:
    d -1/0/1 ? -> d
    d 2/Y ? -> d + 1
    d -2/N ? -> d - 1
+
 3. On the left end of the counter we move a fake X, X'.
    It is equivalent to 0, except it means that all bits to
    its left are also X' (0 in value).
    This is useful for the next part so we know where the
    counter ends on its left part.
+
 4. When the counter reaches the end we check its sign.
    We do this by still shifting the counter to the right.
    We can't stop it anyway. The rightmost robot (the one
@@ -46,7 +140,8 @@ The interesting part is how to implement it:
    When we are finally left with only one bit with an X'
    to its left it just "returns" its sign.
    It announces Minor if it is negative and Major otherwise.
-This solution takes N + log_2(N) steps.
+
+This solution takes N + floor(log_2(N)) + 1 steps and gets 54.79 points.
 See robots_counter_binary.txt.
 
 We can nearly double the speed with an easy improvement.
@@ -62,7 +157,9 @@ which now depends on the parity of the length of the tape.
 For convenience we introduce +X' and -X' to store the sign
 on the actual end of tape marker and we just need a few rules
 for all the cases like d Y/N X' and d X' X'.
-This solution takes N / 2 + log_2(N) steps.
+
+This solution takes floor(N / 2) + floor(log_2(N)) + 1 steps.
+It gets 82.5 points, as it is almost the full idea.
 See robots_counter_fast_binary.txt.
 
 The final improvement is to reduce the log term.
@@ -71,4 +168,8 @@ This can be done by using a higher base in an analogous way.
 We have enough states for base 12, which is what the full solution is.
 Instead of writing it by hand, since there are many transitions,
 we can write a program to print the instructions.
-See robots_counter_fast_base_K_generator.txt.
+(Though by hand is still doable, especially with a base like 4.)
+
+This only changes the base of the log in the number of steps.
+With base 4 it gets 89.5 points and with base 12 -- 100 points.
+See robots_counter_fast_base_K_generator.cpp and robots_counter_fast_base_12.txt.

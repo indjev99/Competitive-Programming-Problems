@@ -1,0 +1,115 @@
+X Y'/Y'1/Y'2/YY'/YY'1/YY'2 ? -> Major
+? N'/N'1/N'2/NN'/NN'1/NN'2 X -> Minor
+
+? Y2/Y'2/YY'2/N2/N'2/NN'2/02 X -> Major
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N1/NN'1 N/N1/N2/NN'/NN'1/NN'2 -> N2
+Y/Y1/Y2/YY'/YY'1/YY'2 Y1/YY'1 N/N1/N2/NN'/NN'1/NN'2 -> Y2
+
+Y2/YY'2 N/N1/N2/NN'/NN'1/NN'2 N/N1/N2/NN'/NN'1/NN'2 -> N1
+Y2/YY'2 Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> Y1
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 N/N1/N2/NN'/NN'1/NN'2 -> N
+Y/Y1/Y2/YY'/YY'1/YY'2 Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> Y
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N1/NN'1 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'2
+N'/N'1/N'2/NN'/NN'1/NN'2 Y1/YY'1 N/N1/N2/NN'/NN'1/NN'2 -> N'2
+
+Y2/YY'2 N/N1/N2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'1
+N'2/NN'2 Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> N'1
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'
+N'/N'1/N'2/NN'/NN'1/NN'2 Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> N'
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N1/NN'1 ? -> 02
+? Y/Y1/Y2/YY'/YY'1/YY'2 N1/NN'1 -> 02
+Y/Y1/Y2/YY'/YY'1/YY'2 0/01/02 N1/NN'1 -> 02
+
+Y2/YY'2 N/N1/N2/NN'/NN'1/NN'2 ? -> 01
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> 01
+Y2/YY'2 0/01/02 N/N1/N2/NN'/NN'1/NN'2 -> 01
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 ? -> 0
+? Y/Y1/Y2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> 0
+Y/Y1/Y2/YY'/YY'1/YY'2 0/01/02 N/N1/N2/NN'/NN'1/NN'2 -> 0
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N'1/NN'1 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y2
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'1/YY'1 N/N1/N2/NN'/NN'1/NN'2 -> N2
+
+Y2/YY'2 N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y1
+N'2NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> N1
+
+N'/N'1/N'2/NN'/NN'1/NN'2 N'1/NN'1 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> N'2
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'1/YY'1 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'2
+
+Y/Y1/Y2/YY'/YY'1/YY'2 N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 N/N1/N2/NN'/NN'1/NN'2 -> N
+
+N'2/NN'2 N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> N'1
+N'2/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'1
+
+N'/N'1/N'2/NN'/NN'1/NN'2 N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> N'
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'
+
+? N'1/NN'1 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 02
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'1/YY'1 ? -> 02
+N'/N'1/N'2/NN'/NN'1/NN'2 01 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 02
+
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 01
+N'2/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 ? -> 01
+N'2/NN'2 0/01/02 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 01
+
+? N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 0
+N'/N'1/N'2/NN'/NN'1/NN'2 Y'/Y'1/Y'2/YY'/YY'1/YY'2 ? -> 0
+N'/N'1/N'2/NN'/NN'1/NN'2 0/01/02 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> 0
+
+X N1/NN'1 N/N1/N2/NN'/NN'1/NN'2 -> NN'2
+Y/Y1/Y2/YY'/YY'1/YY'2 Y1/YY'1 X -> YY'2
+
+X N/N1/N2/NN'/NN'1/NN'2 N/N1/N2/NN'/NN'1/NN'2 -> NN'1
+Y2/YY'2 Y/Y1/Y2/YY'/YY'1/YY'2 X -> YY'1
+
+X N/N1/N2/NN'/NN'1/NN'2 N/N1/N2/NN'/NN'1/NN'2 -> NN'
+Y/Y1/Y2/YY'/YY'1/YY'2 Y/Y1/Y2/YY'/YY'1/YY'2 X -> YY'
+
+X N1/NN'1 ? -> N'2
+? Y1/YY'1 X -> Y'2
+
+X N/N1/N2/NN'/NN'1/NN'2 ? -> N'1
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 Y/Y1/Y2/YY'/YY'1/YY'2 X -> Y'1
+
+X N/N1/N2/NN'/NN'1/NN'2 ? -> N'
+? Y/Y1/Y2/YY'/YY'1/YY'2 X -> Y'
+
+Y/Y1/Y2/YY'/YY'1/YY'2 Y1/Y'1/YY'1/N1/N'1/NN'1/01 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> YY'2
+N'/N'1/N'2/NN'/NN'1/NN'2 Y1/Y'1/YY'1/N1/N'1/NN'1/01 N/N1/N2/NN'/NN'1/NN'2 -> NN'2
+
+Y2/YY'2 ? Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> YY'1
+N'2/NN'2 ? N/N1/N2/NN'/NN'1/NN'2 -> NN'1
+
+Y/Y1/Y2/YY'/YY'1/YY'2 ? Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> YY'
+N'/N'1/N'2/NN'/NN'1/NN'2 ? N/N1/N2/NN'/NN'1/NN'2 -> NN'
+
+Y/Y1/Y2/YY'/YY'1/YY'2 Y1/Y'1/YY'1/N1/N'1/NN'1/01 ? -> Y2
+? Y1/Y'1/YY'1/N1/N'1/NN'1/01 N/N1/N2/NN'/NN'1/NN'2 -> N2
+
+Y2/YY'2 ? ? -> Y1
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 ? N/N1/N2/NN'/NN'1/NN'2 -> N1
+
+Y/Y1/Y2/YY'/YY'1/YY'2 ? ? -> Y
+? ? N/N1/N2/NN'/NN'1/NN'2 -> N
+
+? Y1/Y'1/YY'1/N1/N'1/NN'1/01 Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'2
+N'/N'1/N'2/NN'/NN'1/NN'2 Y1/Y'1/YY'1/N1/N'1/NN'1/01 ? -> N'2
+
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 ? Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'1
+N'2/NN'2 ? ? -> N'1
+
+? ? Y'/Y'1/Y'2/YY'/YY'1/YY'2 -> Y'
+N'/N'1/N'2/NN'/NN'1/NN'2 ? ? -> N'
+
+? Y1/Y'1/YY'1/N1/N'1/NN'1/01 ? -> 02
+
+X/Y2/Y'2/YY'2/N2/N'2/NN'2/02 ? ? -> 01
+
+? ? ? -> 0

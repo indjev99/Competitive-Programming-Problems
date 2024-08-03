@@ -40,6 +40,11 @@ from "unvisited") and M total number of skips (due to missing edges).
 
 Complexity: O(Q log Q + NM) = O(Q log Q + N^2.5)
 
+Alternatively, though less obvious, we can use the optimization for
+subtask 4, but without the improved BFS (i.e. using the dumb one).
+
+Complexity: O(Q log Q + NM) = O(Q log Q + N^2.5)
+
 Subtask 4
 
 To solve this subtask, we must observe that, if two nodes have fewer

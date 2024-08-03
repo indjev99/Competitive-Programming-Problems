@@ -1,0 +1,59 @@
+Subtask 1
+
+Just run a regular BFS from C to D for each query.
+We can run this BFS by first building the graph with all non-missing edges.
+Alternatively, and slightly cleverer/faster, we can just sort the missing list
+from each node and then use two pointers when iterating through its neighbours.
+
+Complexity: O(Q N^2)
+
+Subtask 2
+
+It is stupid that we run a BFS for each query when Q > N.
+Instead we can sort the queries by source node, run a BFS from the current source
+node and then answer all queries where it is a source.
+Note that the sort could be done in linear time, but there is no need to.
+
+Complexity: O(Q log Q + N^3)
+
+Alternatively, we can just run Floyd-Warshall, though this also takes more memory.
+
+Complexity: O(Q + N^3)
+
+Subtask 3
+
+Now we have to figure out a better way to run a BFS from a given node.
+We note that in an average step "almost all" other nodes are visited.
+Then later, in subsequent steps, most of the non-missing neighbours
+are already visited and it is dumb that we iterate through them again.
+
+What we can do is to keep a list of all nodes not yet visited in the
+current BFS run (which is initally all nodes except the source).
+Then, on a given step (with current node curr), we simply go though
+all "unvisited" nodes and visit them (i.e. set their distance and add
+them to the BFS queue), unless the edge between them and curr is missing.
+We can do this by first going through the missing edges of curr and
+marking those nodes as "not next"; then we simply unmark them,
+when we skip them while iterating through "unvisited".
+This means that, in a given BFS run, we do N final visits (thus removing
+from "unvisited") and M total number of skips (due to missing edges).
+
+Complexity: O(Q log Q + NM) = O(Q log Q + N^2.5)
+
+Subtask 4
+
+To solve this subtask, we must observe that, if two nodes have fewer
+than N / 2 missing edges, the dist between them is at most 2.
+This is because either the nodes are the same, or there is an edge
+between them, or each has at more than N / 2 - 1 edges to the N - 2
+nodes other than the two; then by the pigeonhole principle, there
+must be a third node with a non-missing edge to both nodes.
+
+Therefore, we can answer all heavy-heavy queries easily, just by
+checking whether there is an edge between the two nodes.
+All light-light, heavy-light and light-heavy queries can be
+answered like in subtask 3, though importantly, we only run BFSs
+from the light nodes. Since the light nodes have at least N / 2
+missing edges, there is at most O(M / N) = O(sqrt(N)) of them.
+
+Complexity: O(Q log Q + M^2 / N) = O(Q log Q + N^2)

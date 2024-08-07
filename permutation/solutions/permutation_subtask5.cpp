@@ -26,20 +26,20 @@ void output()
 
 void solve()
 {
-	for (int i = 0; i < n; ++i)
-	{
-		int& curr = occurs[q[i] - 1];
-		if (curr == 1 && (i < 2 || q[i] != q[i - 2])) return;
-		if (curr == 2) return;
-		++curr;
-	}
+    for (int i = 0; i < n; ++i)
+    {
+        int& curr = occurs[q[i] - 1];
+        if (curr == 1 && (i < 2 || q[i] != q[i - 2])) return;
+        if (curr == 2) return;
+        ++curr;
+    }
 
     for (int i = 1; i < n && (i < 2 || q[i - 1] != p[i - 2]); i += 2)
     {
         p[i] = q[i - 1];
     }
 
-	if (p[n - 2] != 0 && p[n - 2] != q[n - 1]) return;
+    if (p[n - 2] != 0 && p[n - 2] != q[n - 1]) return;
 
     for (int i = n - 2; i >= 0 && (i >= n - 2 || q[i + 1] != p[i + 2]); i -= 2)
     {

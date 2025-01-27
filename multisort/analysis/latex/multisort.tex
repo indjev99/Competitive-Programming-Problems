@@ -36,7 +36,7 @@
 
 \section{Introduction}
 
-Sorting an array using a 2-way comparison function is a well studied problem in Computer Science. We generalize the problem to use a $k$-way comparison function and modify existing algorithms to support that. Our focus is on minimizing the number of comparisons for a wide range of values of $k$, while also keeping the actual running time of the algorithms small. All algorithms and optimizations have been implemented and tested using a tasting framework designed for the problem.
+Sorting an array using a 2-way comparison function is a well-studied problem in Computer Science. We generalize the problem to use a $k$-way comparison function and modify existing algorithms to support that. Our focus is on minimizing the number of comparisons for a wide range of values of $k$, while also keeping the actual running time of the algorithms small. All algorithms and optimizations have been implemented and tested using a tasting framework designed for the problem.
 
 Note, this essay is adapted from the statement and analysis of a competitive programming problem for selection of the Bulgarian national team for the IOI. All solution and testing framework implementations may be found at: \\
 \url{https://github.com/indjev99/Competitive-Programming-Problems/tree/master/multisort}
@@ -45,7 +45,7 @@ Note, this essay is adapted from the statement and analysis of a competitive pro
 
 \subsection{Mathematical formulation}
 
-We need to sort a uniform random permutation $ P $ of $ n $ different elements. The permutation is hidden from us, but we can make $k$-way comparisons on it using the indices of the elements we want to compare. The answer to the query is a sequence containing the same indices as the query but ordered in increasing order with respect ot the indexed elements of $ P $. More formally, for a query $ I $ we get the answer $ J $ where:
+We need to sort a uniform random permutation $ P $ of $ n $ different elements. The permutation is hidden from us, but we can make $k$-way comparisons on it using the indices of the elements we want to compare. The answer to the query is a sequence containing the same indices as the query but ordered in increasing order with respect to the indexed elements of $ P $. More formally, for a query $ I $ we get the answer $ J $ where:
 
 $$ I \subseteq \mathbb{Z}_n : \abs{I} \leq k $$
 
@@ -71,11 +71,11 @@ It can use the compare function by passing $ I $ as a \verb|vector| of indices a
 void compare(std::vector<int>& elems);
 \end{lstlisting}
 
-At the end the testing framework verifies that $ R $ is correctly sorted and prints the number of comparisons used. It can also perform many runs and average them or take their maximum. This is used for more detailed analysis of the performance of our solutions.
+It the end the testing framework verifies that $ R $ is correctly sorted and prints the number of comparisons used. It can also perform many runs and average them or take their maximum. This is used for more detailed analysis of the performance of our solutions.
 
 \section{Theoretical lower bound}
 
-One way to get a lower bound on the number of comparisons needed is to analyze the amount of information we need to find and divide it by the maximum amount of information we can get per comparison. The amount of inforation $ \mathrm{H}(X) $ (in natural units of information) in a discrete random variable $ X $ that can take values in $ V $ according to some probability distribution $ \mathbb{P} $ is \cite{informationtheory}:
+One way to get a lower bound on the number of comparisons needed is to analyze the amount of information we need to find and divide it by the maximum amount of information we can get per comparison. The amount of information $ \mathrm{H}(X) $ (in natural units of information) in a discrete random variable $ X $ that can take values in $ V $ according to some probability distribution $ \mathbb{P} $ is \cite{informationtheory}:
 
 $$ \mathrm{H}(X) = - \sum_{v \in V} \mathbb{P}(X = v) \ln{\mathbb{P}(X = v)} $$
 
@@ -129,7 +129,7 @@ It is well-known using a few comparisons to get a better pivot is usually worth 
 
 \subsection{Multiway multibranch}
 
-The ``multibranch" optimization reduces the number of queries by a factor of $ \ln{k} $ and the ``multway" one -- by a factor of $ k $. It is a good idea to combine them to achieve the wanted complexity. Naively, we can try having $ \frac{k}{2} $ pivots and process elements in batches of $ \frac{k}{2} $, but after a bit of thinking (and calculating or trying) this is clearly not optimal. Let us call the number of pivots $ s $. Then, the optimal value of $ s $ that we can calculate using a few simplifications is the one that maximizes $ (k - s) \ln{(s)} $. That value is $ s = \frac{k}{ \mathrm{W}(ke) } $.
+The ``multibranch" optimization reduces the number of queries by a factor of $ \ln{k} $ and the ``multway" one -- by a factor of $ k $. It is a good idea to combine them to achieve the wanted complexity. Naively, we can try having $ \frac{k}{2} $ pivots and process elements in batches of $ \frac{k}{2} $, but after a bit of thinking (and calculating or trying) this is clearly not optimal. Let us call the number of pivots $ s $. Then, the optimal value of $ s $ that we can calculate using a few simplifications is the one that maximizes $ s \ln{(k - s)} $. That value is $ s = k - \frac{k}{ \mathrm{W}(ke) } $.
 
 However, these simplifications turn out to be too great. In practice the splits are not perfect, $ n $ also matters due to not fully utilized queries and both of these concerns propagate up the recursion. Given that $ n = 20000 $ is fixed (for our testing), it is better to use some constant for $ s $  (such as $ s = 4 $) and only tweak it for small $ k $.
 
@@ -191,7 +191,7 @@ Again, we can combine these two optimizations produce a better solution. First, 
 
 Note that in the worst case we only extract $ \frac{k}{s} $ elements per merge step. However, the average case is closer to $ k $, especially when $ s $ is small, since the elements are uniformly distributed among the chunks. This can be formalized using a more careful analysis.
 
-Therefore, if $ s $ is chosen well, this solution will have the optimal query complexity. Furthermore, it does $ \mathrm{\Theta}\left( k \right) $ per query. Thus, its total run time is $ \mathrm{\Theta}\left( n \log_k{n} \right) $, which makes it more than feasable.
+Therefore, if $ s $ is chosen well, this solution will have the optimal query complexity. Furthermore, it does $ \mathrm{\Theta}\left( k \right) $ operations per query. Thus, its total run time is $ \mathrm{\Theta}\left( n \log_k{n} \right) $, which makes it more than feasable.
 
 So, we just need to choose $ s $. As with quicksort, we can just hardcode simple rules for using $ s $ up to $ 5 $ and receive 74 points. Alternatively, we can run tests for more values of $ k $, in order to have more complicated rules for $ s $, as well as make more minor improvements to the merging and receive 86 points. As expected, this is very close to the results the quicksort solution gets.
 
@@ -199,7 +199,7 @@ So, we just need to choose $ s $. As with quicksort, we can just hardcode simple
 
 More complex strategies for chosing $ s $ at each step, depending on both $ n $ and $ k $, have not been explored. A DP approach (perhaps with random sampling), similar to the one for quicksort, will likely perform well and receive close to 100 points.
 
-Another possible improvement, is to add a version of the ``alignment'' optimaztion to the above merge sort solution.
+Another possible improvement, is to add a version of the ``alignment'' optimization to the above merge sort solution.
 
 \section{Topological sort}
 

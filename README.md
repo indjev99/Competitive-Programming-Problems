@@ -9,6 +9,7 @@ Classical problems:
 * Permutation
 * Oil
 * Flights
+* Mushrooms (Collaboration with Encho Mishinev and Atanas Dimitrov)
 * Internship (Idea by Rusko Shikov)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter

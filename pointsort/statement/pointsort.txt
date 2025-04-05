@@ -1,0 +1,89 @@
+There are N K-dimensional points numbered from 0 to N-1.
+For each dimensions d, the coordinates of the points in that dimension
+form a permutation of the integers from 0 to N-1.
+You can compare two points i and j and the result is a list of K booleans,
+corresponding to comparing each coordinate.
+You have to find the coordinates of all points,
+while trying to minimize the number of comparisons.
+
+Implementation details:
+
+You have to implement the function `pointSort`:
+
+std::vector<std::vector<int>> pointSort(int n, int k);
+
+It will be called T times (different subtests, with the same n and k each time).
+Its return value R should be the coordinates of the points,
+i.e. R[i][d] should be the d-th coordinate of point i.
+
+The jury implements the function `compare`:
+
+std::vector<bool> compare(int i, int j);
+
+Your program may call it any number of times.
+It arguments should be two distinct valid point indices.
+Its return value R is the list of comparisons, i.e. R[d] = true,
+iff the d-th coordinate of point i is less than that of point j.
+
+Your program should include the header file "pointsort.h" and should not have a main function.
+It should not read from the standard input, nor write to the standard output.
+
+Constraints:
+
+N = 10000
+2 <= K <= 5
+6 <= T <= 15
+
+The permutation of the points' coordinates in each dimension is
+generated uniformly randomly and independently from the other permutations.
+
+Scoring:
+
+Each of the 4 tests is scored separately.
+Your score (fraction of max points awarded) for a given test is as follows:
+
+If your program ever performs an invalid comparison or returns an incorrect answer,
+the score for the test is 0.
+
+Otherwise, let Q be the average number of comparisons your program used among the T runs.
+Let Q* be the target for Q (specified below for each subtask).
+
+Define the the relative extra number of comparisons your program made as:
+E = Q / Q* - 1
+
+Finally, your score for the test is S:
+S = max(1 - 3.75 * min(max(E, 0), 0.15) - max(E - 0.15, 0), 0.1)
+
+Some sample values of score:
+
+E = 0.00; S = 100.00%
+E = 0.05; S =  81.25%
+E = 0.10; S =  62.50%
+E = 0.15; S =  43.75%
+E = 0.20; S =  38.75%
+E = 0.30; S =  28.75%
+E = 0.40; S =  18.75%
+E = 0.50; S =  10.00%
+
+Tests:
+
+1. 25 pts; K = 2; T = 15; Q* = 187500
+2. 35 pts; K = 3; T = 10; Q* = 267000
+3. 25 pts; K = 4; T =  8; Q* = 350800
+4. 15 pts; K = 5; T =  6; Q* = 434500
+
+Local testing:
+
+You are provided with a sample header file and local grader to compile with your program.
+The local grader expects as input:
+T
+N K RAND_GEN
+DATA_FOR_INPUT -- T times
+
+The RAND_GEN parameter specifies whether you want the grader to generate random uniform tests for you.
+It should be 0, if you want to use your own tests, or 1, if you want to the grader to generate the tests.
+If RAND_GEN=1, DATA_FOR_INPUT should be a single number -- the seed for the test.
+Otherwise, it should contain N lines, each with K integers -- the coordinates of the points.
+
+The local grader will print the number of comparisons your program performed,
+or an error message, if your program did not manage to solve the test.

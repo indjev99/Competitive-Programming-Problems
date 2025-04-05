@@ -34,6 +34,7 @@ Non-standard problems:
 * Registers (Collaboration with Encho Mishinev)
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
+* Pointsort
 * Multisort
 * Gcd (Idea by Radoslav Dimitrov)
 * Fair

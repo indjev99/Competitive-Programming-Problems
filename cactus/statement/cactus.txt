@@ -1,0 +1,86 @@
+There is a connected simple* cactus** graph with N nodes.
+Your task is to compress it as a bitstring B (trying to minimize its length |B|).
+Then you have to use the bitstring B to reconstruct the original graph.
+
+* A graph is simple, iff it is unweighted, undirected and has no loops or multi edges.
+** A graph is a cactus, iff each of its edges is a part of at most one cycle.
+
+Implementation details:
+
+You have to implement the following two functions:
+
+std::vector<bool> encode(int n, std::vector<std::pair<int, int>> edges);
+
+This function will be called with N and the list of edges E of the graph.
+The orders of the edges and of the nodes of each edge are randomized.
+The nodes are labeled from 0 to N - 1 and the labels are also randomized.
+The function has to return a bitstring B, representing the graph.
+
+std::vector<std::pair<int, int>> decode(int n, std::vector<bool> data);
+
+This function will then be caled with N and the bitstring B.
+It has to return the list of edges E of the graph.
+They may be permuted, as can the pairs of nodes in each edge.
+
+Each of these two functions will run in a separate process.
+Additionally, each will be called T times (all in the same process),
+each call representing a different subtest.
+
+Your program should not have a main function.
+It should not read from the standard input, nor write to the standard output.
+
+Constraints:
+
+N = 16000
+T = 5
+
+Scoring:
+
+Your score (fraction of max points awarded) for the task is equal to the minimum score on any subtest in any test.
+The score S for a subtest depends on |B| as follows:
+
+Let T1 = 240600
+Let T2 = 256000
+Let T3 = 272000
+Let T4 = 304000
+Let Т5 = 400000
+
+S = 0, if your program did not manage to reconstruct the graph.
+S = 1, if |B| <= T1
+S = 1 - 0.24 * (|B| - T1) / (T2 - T1), if T1 <= |B| <= T2
+S = 0.76 - 0.16 * (|B| - T2) / (T3 - T2), if T2 <= |B| <= T3
+S = 0.60 - 0.16 * (|B| - T3) / (T4 - T3), if T3 <= |B| <= T4
+S = 0.44 - 0.30 * (|B| - T4) / (T5 - T4), if T4 <= |B| <= T5
+S = 0.14 * T5 / |B|, if T5 <= |B|
+
+Some sample values of score:
+
+|B| = 240000; S = 100%
+|B| = 248000; S =  88%
+|B| = 256000; S =  76%
+|B| = 272000; S =  60%
+|B| = 288000; S =  52%
+|B| = 304000; S =  44%
+|B| = 320000; S =  39%
+|B| = 336000; S =  34%
+|B| = 352000; S =  29%
+|B| = 368000; S =  24%
+|B| = 384000; S =  19%
+|B| = 400000; S =  14%
+|B| = 672000; S =  ~8%
+
+Local testing:
+
+You are provided with a sample header file and local grader to compile with your program.
+The local grader does not use separate processes.
+It expects as input:
+T
+Followed by T repetitions of (each its own subtest):
+N M
+A_1 B_1
+...
+A_M B_M
+Where M is the number of edges, and A_i and B_i are the two nodes that edge i connects.
+
+The local grader will print the number of bits your program used for each subtest,
+or an error message, if your program did not manage to solve the test.

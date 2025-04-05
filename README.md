@@ -40,6 +40,7 @@ Non-standard problems:
 * Fair
 * Playlists (Collaboration with Encho Mishinev)
 * Stacklang
+* Cactus (Idea by Ivan Lupov)
 * Hint (Collaboration with Encho Mishinev)
 * Shoes (Collaboration with Viktor Kozhuharov)
 * Puzzle

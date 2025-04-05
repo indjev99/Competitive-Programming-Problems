@@ -1,0 +1,2729 @@
+Adding weird: 71
+Adding almost_nodtris: 17
+Adding almost_triangles: 17
+Adding almost_squares: 17
+Adding almost_pents: 17
+Adding almost_septs: 17
+Adding smalls: 17
+Adding mids: 17
+Adding dots: 17
+Adding bigs: 17
+Adding triangles: 37
+Adding squares: 37
+Adding pents: 37
+Adding hexes: 27
+Adding septs: 27
+Adding octs: 27
+Adding decs: 27
+Adding tris_fours: 27
+Adding tris_hexes: 27
+Adding tris_undecs: 27
+Adding odds_mean_5: 27
+Adding tris_tridecs: 27
+Adding many_smallish: 27
+Adding anti_arith: 27
+Adding anti_arith_ceil: 27
+Adding anti_huffman: 37
+Adding anti_huffman_und: 27
+Adding anti_huffman_unu: 27
+Total subtests: 750
+
+
+Test 1:
+
+triangles edges, path rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+octs mix 0.75, path apples
+Counts: edges = 18205 cycles = 2206 singles = 0
+
+almost_pents, iPath rng
+Counts: edges = 19621 cycles = 3622 singles = 2795
+
+odds_mean_5 mix 0.75, rng apples
+Counts: edges = 23105 cycles = 7106 singles = 1
+
+tris_tridecs mix 0.9925, path apples
+Counts: edges = 18434 cycles = 2435 singles = 0
+
+
+Test 2:
+
+pents, star
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+anti_huffman_und mix 0.95, path apples
+Counts: edges = 20396 cycles = 4397 singles = 0
+
+anti_huffman edges, path rng
+Counts: edges = 20439 cycles = 4440 singles = 0
+
+tris_undecs mix 0.85, rng apples
+Counts: edges = 19901 cycles = 3902 singles = 0
+
+tris_undecs mix 0.75, path apples
+Counts: edges = 19738 cycles = 3739 singles = 0
+
+
+Test 3:
+
+anti_arith_ceil mix 0.975, rng apples
+Counts: edges = 21522 cycles = 5523 singles = 0
+
+tris_fours mix 0.98, path apples
+Counts: edges = 22323 cycles = 6324 singles = 1
+
+anti_huffman mix 0.9, rng apples
+Counts: edges = 20323 cycles = 4324 singles = 0
+
+almost_nodes mix, rng
+Counts: edges = 16669 cycles = 670 singles = 12359
+
+triangles, rng beads
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+
+Test 4:
+
+almost_triangles mix, rng apples
+Counts: edges = 22106 cycles = 6107 singles = 60
+
+anti_arith_ceil mix 0.92, path apples
+Counts: edges = 21376 cycles = 5377 singles = 0
+
+bigs edges, rng
+Counts: edges = 16010 cycles = 11 singles = 0
+
+odds_mean_5 mix 0.85, rng apples
+Counts: edges = 23441 cycles = 7442 singles = 0
+
+anti_huffman mix 0.85, rng apples
+Counts: edges = 20289 cycles = 4290 singles = 1
+
+
+Test 5:
+
+almost_squares mix 0.95, path apples
+Counts: edges = 21078 cycles = 5079 singles = 57
+
+anti_arith_ceil, path rng
+Counts: edges = 21453 cycles = 5454 singles = 1
+
+anti_huffman_und, iPath rng
+Counts: edges = 19117 cycles = 3118 singles = 2908
+
+pents mix 0.985, path apples
+Counts: edges = 19985 cycles = 3986 singles = 0
+
+mids edges, rng apples
+Counts: edges = 16243 cycles = 244 singles = 6
+
+
+Test 6:
+
+almost_nodtris edges, rng
+Counts: edges = 19785 cycles = 3786 singles = 3595
+
+squares mix 0.85, path apples
+Counts: edges = 21076 cycles = 5077 singles = 0
+
+squares mix 0.925, rng apples
+Counts: edges = 21216 cycles = 5217 singles = 0
+
+tris_hexes edges, path rng
+Counts: edges = 20518 cycles = 4519 singles = 1
+
+anti_huffman_unu mix 0.8, path apples
+Counts: edges = 19439 cycles = 3440 singles = 0
+
+
+Test 7:
+
+nodes, iPath 0.98 rng cycle
+Counts: edges = 16000 cycles = 1 singles = 8660
+
+mids mix, path apples
+Counts: edges = 16257 cycles = 258 singles = 4
+
+anti_arith_ceil mix 0.9925, path apples
+Counts: edges = 21538 cycles = 5539 singles = 1
+
+anti_arith_ceil mix 0.85, path apples
+Counts: edges = 21247 cycles = 5248 singles = 0
+
+anti_huffman_unu mix 0.85, rng apples
+Counts: edges = 19489 cycles = 3490 singles = 2
+
+
+Test 8:
+
+hexes mix 0.935, path apples
+Counts: edges = 19159 cycles = 3160 singles = 0
+
+anti_huffman_unu edges, path rng
+Counts: edges = 19558 cycles = 3559 singles = 0
+
+anti_huffman, rng
+Counts: edges = 20512 cycles = 4513 singles = 0
+
+odds_mean_5 mix 0.95, path apples
+Counts: edges = 23799 cycles = 7800 singles = 1
+
+almost_nodtris, rng
+Counts: edges = 20337 cycles = 4338 singles = 4054
+
+
+Test 9:
+
+septs mix 0.975, path apples
+Counts: edges = 18652 cycles = 2653 singles = 0
+
+tris_tridecs mix 0.85, rng apples
+Counts: edges = 18376 cycles = 2377 singles = 1
+
+nodes, iPath 0.98 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+pents mix 0.7, path apples
+Counts: edges = 19718 cycles = 3719 singles = 0
+
+anti_arith_ceil mix 0.95, path apples cyc
+Counts: edges = 21415 cycles = 5416 singles = 0
+
+
+Test 10:
+
+bigs mix, path apples
+Counts: edges = 16010 cycles = 11 singles = 0
+
+almost_triangles mix, path apples
+Counts: edges = 22078 cycles = 6079 singles = 55
+
+almost_triangles mix, path apples cyc
+Counts: edges = 22066 cycles = 6067 singles = 0
+
+septs mix 0.75, path apples
+Counts: edges = 18559 cycles = 2560 singles = 0
+
+odds_mean_5 mix 0.9, path apples
+Counts: edges = 23607 cycles = 7608 singles = 0
+
+
+Test 11:
+
+triangles mix 0.85, rng apples
+Counts: edges = 23447 cycles = 7448 singles = 1
+
+septs mix 0.7, path apples
+Counts: edges = 18536 cycles = 2537 singles = 0
+
+tris_fours mix 0.75, path apples
+Counts: edges = 21819 cycles = 5820 singles = 1
+
+almost_squares mix, star
+Counts: edges = 20451 cycles = 4452 singles = 45
+
+odds_mean_5 mix 0.75, path apples
+Counts: edges = 23116 cycles = 7117 singles = 0
+
+
+Test 12:
+
+tris_tridecs mix 0.975, path apples
+Counts: edges = 18497 cycles = 2498 singles = 0
+
+almost_squares mix, rng
+Counts: edges = 20488 cycles = 4489 singles = 43
+
+triangles mix 0.75, path apples
+Counts: edges = 23124 cycles = 7125 singles = 0
+
+many_smallish mix 0.8, path apples
+Counts: edges = 18094 cycles = 2095 singles = 206
+
+almost_triangles, iPath rng
+Counts: edges = 21268 cycles = 5269 singles = 2355
+
+
+Test 13:
+
+dots mix, star
+Counts: edges = 17562 cycles = 1563 singles = 1408
+
+anti_arith_ceil edges, path rng
+Counts: edges = 21576 cycles = 5577 singles = 0
+
+squares mix, rng apples
+Counts: edges = 20553 cycles = 4554 singles = 0
+
+almost_nodes mix, path
+Counts: edges = 16629 cycles = 630 singles = 12631
+
+octs, iPath star
+Counts: edges = 17599 cycles = 1600 singles = 4799
+
+
+Test 14:
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+mids mix, rng
+Counts: edges = 16241 cycles = 242 singles = 2
+
+almost_nodtris mix, rng
+Counts: edges = 20097 cycles = 4098 singles = 3634
+
+almost_nodtris mix, path apples cyc
+Counts: edges = 20077 cycles = 4078 singles = 0
+
+tris_hexes mix 0.975, path apples
+Counts: edges = 20553 cycles = 4554 singles = 0
+
+
+Test 15:
+
+squares mix 0.8, path apples
+Counts: edges = 21005 cycles = 5006 singles = 0
+
+odds_mean_5 mix 0.95, path apples cyc
+Counts: edges = 23810 cycles = 7811 singles = 0
+
+mids, star
+Counts: edges = 16250 cycles = 251 singles = 0
+
+dots edges, star
+Counts: edges = 17408 cycles = 1409 singles = 1217
+
+almost_nodes mix, iPath 0.99 rng
+Counts: edges = 16009 cycles = 10 singles = 15951
+
+
+Test 16:
+
+squares edges, rng
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+anti_arith mix 0.92, path apples
+Counts: edges = 20305 cycles = 4306 singles = 1
+
+almost_nodtris mix, path rng
+Counts: edges = 20069 cycles = 4070 singles = 3762
+
+pents mix, path apples cyc
+Counts: edges = 19562 cycles = 3563 singles = 0
+
+tris_tridecs mix 0.92, path apples
+Counts: edges = 18436 cycles = 2437 singles = 0
+
+
+Test 17:
+
+decs mix 0.95, rng apples
+Counts: edges = 17758 cycles = 1759 singles = 0
+
+nodes, iPath 0.99 rng cycle
+Counts: edges = 16000 cycles = 1 singles = 4832
+
+many_smallish mix 0.7, path apples
+Counts: edges = 18068 cycles = 2069 singles = 223
+
+tris_tridecs mix 0.98, path apples
+Counts: edges = 18496 cycles = 2497 singles = 0
+
+almost_squares edges, path rng
+Counts: edges = 21177 cycles = 5178 singles = 60
+
+
+Test 18:
+
+tris_tridecs mix 0.95, path apples cyc
+Counts: edges = 18435 cycles = 2436 singles = 0
+
+pents edges, rng apples
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+almost_septs edges, star
+Counts: edges = 19909 cycles = 3910 singles = 45
+
+anti_arith mix 0.95, rng apples
+Counts: edges = 20253 cycles = 4254 singles = 0
+
+many_smallish mix 0.85, rng apples
+Counts: edges = 18094 cycles = 2095 singles = 263
+
+
+Test 19:
+
+hexes mix 0.7, path apples
+Counts: edges = 19009 cycles = 3010 singles = 1
+
+hexes mix 0.95, path apples cyc
+Counts: edges = 19166 cycles = 3167 singles = 0
+
+pents mix 0.8, path apples
+Counts: edges = 19807 cycles = 3808 singles = 1
+
+almost_pents, path rng
+Counts: edges = 21165 cycles = 5166 singles = 63
+
+tris_hexes mix 0.75, rng apples
+Counts: edges = 20244 cycles = 4245 singles = 0
+
+
+Test 20:
+
+triangles mix, path rng
+Counts: edges = 22403 cycles = 6404 singles = 1
+
+decs mix 0.98, path apples
+Counts: edges = 17773 cycles = 1774 singles = 0
+
+nodes, iPath 0.1 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+anti_arith edges, path rng
+Counts: edges = 20419 cycles = 4420 singles = 0
+
+hexes mix 0.9, rng apples
+Counts: edges = 19138 cycles = 3139 singles = 0
+
+
+Test 21:
+
+tris_tridecs mix 0.975, rng apples
+Counts: edges = 18514 cycles = 2515 singles = 0
+
+almost_triangles edges, rng
+Counts: edges = 21105 cycles = 5106 singles = 44
+
+anti_arith mix 0.85, path apples
+Counts: edges = 20245 cycles = 4246 singles = 0
+
+decs, star
+Counts: edges = 17777 cycles = 1778 singles = 0
+
+nodes, iPath 0.6 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+
+Test 22:
+
+triangles mix 0.93, path apples ears
+Counts: edges = 23736 cycles = 7737 singles = 4
+
+triangles, rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+smalls, star
+Counts: edges = 19809 cycles = 3810 singles = 419
+
+squares mix 0.965, path apples
+Counts: edges = 21266 cycles = 5267 singles = 1
+
+octs mix 0.975, path apples
+Counts: edges = 18276 cycles = 2277 singles = 0
+
+
+Test 23:
+
+almost_septs mix, path rng
+Counts: edges = 20473 cycles = 4474 singles = 44
+
+pents mix 0.75, path apples
+Counts: edges = 19771 cycles = 3772 singles = 0
+
+almost_nodtris mix 0.95, path apples cyc
+Counts: edges = 20267 cycles = 4268 singles = 0
+
+tris_hexes, iPath rng
+Counts: edges = 19203 cycles = 3204 singles = 2898
+
+hexes mix 0.98, path apples
+Counts: edges = 19186 cycles = 3187 singles = 0
+
+
+Test 24:
+
+hexes mix 0.95, rng apples
+Counts: edges = 19136 cycles = 3137 singles = 1
+
+anti_huffman mix 0.92, path apples
+Counts: edges = 20285 cycles = 4286 singles = 0
+
+smalls edges, rng
+Counts: edges = 19068 cycles = 3069 singles = 335
+
+anti_huffman_und mix 0.925, rng apples
+Counts: edges = 20330 cycles = 4331 singles = 0
+
+bigs mix, star
+Counts: edges = 16010 cycles = 11 singles = 0
+
+
+Test 25:
+
+triangles mix 0.35, rng
+Counts: edges = 22036 cycles = 6037 singles = 2
+
+many_smallish mix 0.985, path apples
+Counts: edges = 18151 cycles = 2152 singles = 244
+
+triangles mix 0.75, rng apples
+Counts: edges = 23107 cycles = 7108 singles = 2
+
+tris_tridecs mix 0.75, path apples
+Counts: edges = 18389 cycles = 2390 singles = 1
+
+anti_huffman mix 0.75, rng apples
+Counts: edges = 20113 cycles = 4114 singles = 1
+
+
+Test 26:
+
+almost_triangles edges, rng apples
+Counts: edges = 21094 cycles = 5095 singles = 51
+
+septs mix 0.985, path apples
+Counts: edges = 18658 cycles = 2659 singles = 0
+
+many_smallish mix 0.95, path apples
+Counts: edges = 18121 cycles = 2122 singles = 208
+
+dots mix, path apples cyc
+Counts: edges = 17480 cycles = 1481 singles = 0
+
+pents, iPath 0.99 rng
+Counts: edges = 16039 cycles = 40 singles = 15800
+
+
+Test 27:
+
+anti_huffman mix 0.95, path apples cyc
+Counts: edges = 20420 cycles = 4421 singles = 0
+
+anti_huffman mix 0.935, path apples
+Counts: edges = 20317 cycles = 4318 singles = 0
+
+triangles mix, star
+Counts: edges = 22444 cycles = 6445 singles = 2
+
+pents, path rng
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+tris_fours mix 0.85, path apples
+Counts: edges = 22051 cycles = 6052 singles = 1
+
+
+Test 28:
+
+almost_triangles, rng
+Counts: edges = 23468 cycles = 7469 singles = 77
+
+dots mix, path apples
+Counts: edges = 17705 cycles = 1706 singles = 1454
+
+anti_huffman edges, rng apples
+Counts: edges = 19483 cycles = 3484 singles = 1
+
+almost_septs mix 0.95, path apples
+Counts: edges = 21100 cycles = 5101 singles = 31
+
+bigs, rng
+Counts: edges = 16008 cycles = 9 singles = 0
+
+
+Test 29:
+
+septs mix 0.75, rng apples
+Counts: edges = 18556 cycles = 2557 singles = 0
+
+almost_squares mix, path apples
+Counts: edges = 20477 cycles = 4478 singles = 64
+
+smalls edges, path rng
+Counts: edges = 19686 cycles = 3687 singles = 377
+
+octs mix 0.98, path apples
+Counts: edges = 18278 cycles = 2279 singles = 0
+
+anti_huffman_und, iPath star
+Counts: edges = 19118 cycles = 3119 singles = 4799
+
+
+Test 30:
+
+almost_squares mix 0.95, path apples cyc
+Counts: edges = 21101 cycles = 5102 singles = 0
+
+octs mix 0.7, path apples
+Counts: edges = 18190 cycles = 2191 singles = 0
+
+tris_hexes, star
+Counts: edges = 20597 cycles = 4598 singles = 0
+
+tris_undecs mix 0.985, path apples
+Counts: edges = 20042 cycles = 4043 singles = 1
+
+tris_tridecs mix 0.9, rng apples
+Counts: edges = 18396 cycles = 2397 singles = 0
+
+
+Test 31:
+
+squares mix 0.98, path apples
+Counts: edges = 21295 cycles = 5296 singles = 1
+
+anti_huffman edges, rng
+Counts: edges = 19467 cycles = 3468 singles = 1
+
+anti_huffman, iPath star
+Counts: edges = 19126 cycles = 3127 singles = 4799
+
+tris_undecs mix 0.92, path apples
+Counts: edges = 19882 cycles = 3883 singles = 1
+
+triangles edges, rng beads
+Counts: edges = 21332 cycles = 5333 singles = 1
+
+
+Test 32:
+
+triangles mix, rng
+Counts: edges = 22383 cycles = 6384 singles = 0
+
+anti_huffman_und mix 0.95, path apples cyc
+Counts: edges = 20350 cycles = 4351 singles = 0
+
+bigs mix, path rng
+Counts: edges = 16010 cycles = 11 singles = 0
+
+odds_mean_5 mix 0.8, path apples
+Counts: edges = 23247 cycles = 7248 singles = 2
+
+fullcycle, iPath 0.5
+Counts: edges = 16000 cycles = 1 singles = 7999
+
+
+Test 33:
+
+almost_squares edges, star
+Counts: edges = 19927 cycles = 3928 singles = 29
+
+tris_hexes mix 0.75, path apples
+Counts: edges = 20265 cycles = 4266 singles = 0
+
+tris_undecs mix 0.9925, path apples
+Counts: edges = 19960 cycles = 3961 singles = 0
+
+triangles mix 0.9925, path apples
+Counts: edges = 23967 cycles = 7968 singles = 1
+
+triangles mix 0.985, path apples
+Counts: edges = 23940 cycles = 7941 singles = 0
+
+
+Test 34:
+
+almost_pents edges, rng
+Counts: edges = 19915 cycles = 3916 singles = 41
+
+triangles mix 0.98, path apples
+Counts: edges = 23916 cycles = 7917 singles = 1
+
+tris_tridecs mix 0.75, path apples
+Counts: edges = 18320 cycles = 2321 singles = 0
+
+anti_huffman mix 0.9, path apples
+Counts: edges = 20340 cycles = 4341 singles = 0
+
+mids edges, star
+Counts: edges = 16250 cycles = 251 singles = 2
+
+
+Test 35:
+
+hexes mix 0.75, path apples
+Counts: edges = 19042 cycles = 3043 singles = 1
+
+octs mix 0.9925, path apples
+Counts: edges = 18281 cycles = 2282 singles = 1
+
+octs mix 0.9, path apples
+Counts: edges = 18254 cycles = 2255 singles = 0
+
+smalls mix 0.95, path apples cyc
+Counts: edges = 19648 cycles = 3649 singles = 0
+
+anti_huffman_unu mix 0.85, path apples
+Counts: edges = 19454 cycles = 3455 singles = 1
+
+
+Test 36:
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+anti_huffman_und mix 0.985, path apples
+Counts: edges = 20427 cycles = 4428 singles = 0
+
+squares mix 0.75, rng apples
+Counts: edges = 20921 cycles = 4922 singles = 0
+
+tris_tridecs edges, path rng
+Counts: edges = 18497 cycles = 2498 singles = 0
+
+octs mix 0.95, rng apples
+Counts: edges = 18254 cycles = 2255 singles = 1
+
+
+Test 37:
+
+hexes mix 0.9, path apples
+Counts: edges = 19137 cycles = 3138 singles = 0
+
+tris_undecs mix 0.9, path apples
+Counts: edges = 19874 cycles = 3875 singles = 0
+
+tris_fours mix 0.985, path apples
+Counts: edges = 22360 cycles = 6361 singles = 1
+
+tris_fours mix 0.8, path apples
+Counts: edges = 21920 cycles = 5921 singles = 1
+
+nodes, iPath 0.995 rng cycle
+Counts: edges = 16000 cycles = 1 singles = 2569
+
+
+Test 38:
+
+squares mix 0.75, path apples
+Counts: edges = 20931 cycles = 4932 singles = 0
+
+many_smallish, rng
+Counts: edges = 18170 cycles = 2171 singles = 232
+
+almost_nodes mix, iPath 0.98 rng
+Counts: edges = 16015 cycles = 16 singles = 15923
+
+tris_fours mix 0.95, path apples cyc
+Counts: edges = 22283 cycles = 6284 singles = 0
+
+tris_fours mix 0.975, path apples
+Counts: edges = 22341 cycles = 6342 singles = 0
+
+
+Test 39:
+
+odds_mean_5 mix 0.965, path apples
+Counts: edges = 23859 cycles = 7860 singles = 1
+
+anti_huffman mix 0.8, path apples
+Counts: edges = 20211 cycles = 4212 singles = 1
+
+octs, path rng
+Counts: edges = 18285 cycles = 2286 singles = 0
+
+almost_nodes mix, iPath star
+Counts: edges = 16460 cycles = 461 singles = 13704
+
+mids, iPath star
+Counts: edges = 16183 cycles = 184 singles = 4800
+
+
+Test 40:
+
+tris_hexes mix 0.925, rng apples
+Counts: edges = 20450 cycles = 4451 singles = 0
+
+smalls mix, star
+Counts: edges = 19379 cycles = 3380 singles = 341
+
+anti_huffman_unu mix 0.975, path apples
+Counts: edges = 19550 cycles = 3551 singles = 0
+
+decs mix 0.975, rng apples
+Counts: edges = 17773 cycles = 1774 singles = 0
+
+tris_undecs mix 0.75, rng apples
+Counts: edges = 19744 cycles = 3745 singles = 0
+
+
+Test 41:
+
+almost_nodes mix, iPath rng
+Counts: edges = 16442 cycles = 443 singles = 13598
+
+octs mix 0.96, path apples
+Counts: edges = 18273 cycles = 2274 singles = 0
+
+pents mix 0.95, path apples
+Counts: edges = 19944 cycles = 3945 singles = 0
+
+anti_arith mix 0.975, rng apples
+Counts: edges = 20425 cycles = 4426 singles = 0
+
+nodes, rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+
+Test 42:
+
+triangles edges, iPath 0.99 rng
+Counts: edges = 16052 cycles = 53 singles = 15841
+
+bigs edges, star
+Counts: edges = 16007 cycles = 8 singles = 0
+
+anti_arith mix 0.8, path apples
+Counts: edges = 20223 cycles = 4224 singles = 1
+
+many_smallish mix 0.935, path apples
+Counts: edges = 18141 cycles = 2142 singles = 228
+
+almost_nodes mix, iPath 0.995 rng
+Counts: edges = 16001 cycles = 2 singles = 15993
+
+
+Test 43:
+
+tris_hexes mix 0.975, rng apples
+Counts: edges = 20561 cycles = 4562 singles = 0
+
+dots mix, path rng
+Counts: edges = 17361 cycles = 1362 singles = 1232
+
+almost_septs, iPath star
+Counts: edges = 19643 cycles = 3644 singles = 4834
+
+decs mix 0.95, path apples
+Counts: edges = 17767 cycles = 1768 singles = 0
+
+triangles edges, star
+Counts: edges = 21332 cycles = 5333 singles = 1
+
+
+Test 44:
+
+odds_mean_5 mix 0.9, rng apples
+Counts: edges = 23626 cycles = 7627 singles = 1
+
+almost_pents mix, rng apples
+Counts: edges = 20463 cycles = 4464 singles = 50
+
+pents mix 0.85, path apples
+Counts: edges = 19849 cycles = 3850 singles = 1
+
+pents mix 0.975, path apples
+Counts: edges = 19972 cycles = 3973 singles = 0
+
+pents mix 0.965, path apples
+Counts: edges = 19962 cycles = 3963 singles = 0
+
+
+Test 45:
+
+nodes, iPath 0.995 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+septs edges, path rng
+Counts: edges = 18666 cycles = 2667 singles = 0
+
+almost_septs mix, rng
+Counts: edges = 20461 cycles = 4462 singles = 41
+
+almost_septs, star
+Counts: edges = 21204 cycles = 5205 singles = 60
+
+octs mix 0.965, path apples
+Counts: edges = 18271 cycles = 2272 singles = 0
+
+
+Test 46:
+
+odds_mean_5 mix 0.92, path apples
+Counts: edges = 23685 cycles = 7686 singles = 1
+
+almost_pents edges, path rng
+Counts: edges = 21153 cycles = 5154 singles = 58
+
+smalls mix, path apples
+Counts: edges = 19384 cycles = 3385 singles = 377
+
+tris_hexes mix 0.95, rng apples
+Counts: edges = 20434 cycles = 4435 singles = 0
+
+octs mix 0.95, path apples
+Counts: edges = 18270 cycles = 2271 singles = 0
+
+
+Test 47:
+
+anti_huffman mix 0.95, path apples
+Counts: edges = 20338 cycles = 4339 singles = 0
+
+almost_septs, path rng
+Counts: edges = 21182 cycles = 5183 singles = 47
+
+anti_huffman mix, rng
+Counts: edges = 19869 cycles = 3870 singles = 0
+
+decs mix 0.75, path apples
+Counts: edges = 17733 cycles = 1734 singles = 1
+
+septs mix 0.75, path apples
+Counts: edges = 18560 cycles = 2561 singles = 0
+
+
+Test 48:
+
+nodes, iPath star
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+smalls, path rng
+Counts: edges = 19719 cycles = 3720 singles = 410
+
+decs mix 0.7, path apples
+Counts: edges = 17717 cycles = 1718 singles = 0
+
+tris_undecs mix 0.85, path apples
+Counts: edges = 19855 cycles = 3856 singles = 0
+
+anti_arith_ceil mix 0.85, rng apples
+Counts: edges = 21198 cycles = 5199 singles = 0
+
+
+Test 49:
+
+anti_huffman mix 0.25, path apples
+Counts: edges = 19717 cycles = 3718 singles = 1
+
+bigs mix 0.95, path apples cyc
+Counts: edges = 16010 cycles = 11 singles = 0
+
+decs mix 0.95, path apples cyc
+Counts: edges = 17768 cycles = 1769 singles = 0
+
+anti_huffman_und mix 0.8, path apples
+Counts: edges = 20154 cycles = 4155 singles = 0
+
+triangles mix 0.95, rng apples
+Counts: edges = 23622 cycles = 7623 singles = 0
+
+
+Test 50:
+
+anti_arith mix 0.935, path apples
+Counts: edges = 20338 cycles = 4339 singles = 0
+
+triangles mix, path apples cyc
+Counts: edges = 22369 cycles = 6370 singles = 0
+
+anti_huffman mix 0.9925, path apples
+Counts: edges = 20390 cycles = 4391 singles = 1
+
+tris_tridecs mix 0.985, path apples
+Counts: edges = 18469 cycles = 2470 singles = 1
+
+almost_squares, path rng
+Counts: edges = 21187 cycles = 5188 singles = 54
+
+
+Test 51:
+
+almost_pents edges, rng apples
+Counts: edges = 19920 cycles = 3921 singles = 38
+
+decs mix 0.8, path apples
+Counts: edges = 17740 cycles = 1741 singles = 0
+
+hexes mix 0.925, rng apples
+Counts: edges = 19149 cycles = 3150 singles = 0
+
+almost_triangles, iPath star
+Counts: edges = 21230 cycles = 5231 singles = 4856
+
+pents edges, path rng
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+
+Test 52:
+
+tris_undecs mix 0.935, path apples
+Counts: edges = 19954 cycles = 3955 singles = 0
+
+mids mix 0.95, path apples
+Counts: edges = 16249 cycles = 250 singles = 3
+
+anti_arith_ceil, star
+Counts: edges = 21505 cycles = 5506 singles = 1
+
+smalls mix, rng apples
+Counts: edges = 19370 cycles = 3371 singles = 366
+
+tris_hexes mix 0.98, path apples
+Counts: edges = 20510 cycles = 4511 singles = 1
+
+
+Test 53:
+
+decs mix 0.92, path apples
+Counts: edges = 17762 cycles = 1763 singles = 0
+
+many_smallish mix 0.95, path apples cyc
+Counts: edges = 18110 cycles = 2111 singles = 0
+
+anti_arith_ceil mix 0.9, rng apples
+Counts: edges = 21373 cycles = 5374 singles = 0
+
+decs mix 0.85, path apples
+Counts: edges = 17752 cycles = 1753 singles = 0
+
+bigs, path rng
+Counts: edges = 16011 cycles = 12 singles = 0
+
+
+Test 54:
+
+triangles mix 0.8, path apples
+Counts: edges = 23290 cycles = 7291 singles = 1
+
+mids, path rng
+Counts: edges = 16239 cycles = 240 singles = 1
+
+septs mix 0.9, path apples
+Counts: edges = 18622 cycles = 2623 singles = 0
+
+triangles mix 0.725, path apples
+Counts: edges = 23123 cycles = 7124 singles = 1
+
+almost_septs mix, path apples cyc
+Counts: edges = 20456 cycles = 4457 singles = 0
+
+
+Test 55:
+
+smalls edges, rng apples
+Counts: edges = 19025 cycles = 3026 singles = 360
+
+anti_arith_ceil mix 0.965, path apples
+Counts: edges = 21480 cycles = 5481 singles = 0
+
+tris_hexes mix 0.7, path apples
+Counts: edges = 20216 cycles = 4217 singles = 0
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+hexes mix 0.965, path apples
+Counts: edges = 19177 cycles = 3178 singles = 0
+
+
+Test 56:
+
+anti_huffman_unu mix 0.9, path apples
+Counts: edges = 19464 cycles = 3465 singles = 1
+
+squares mix, path apples cyc
+Counts: edges = 20582 cycles = 4583 singles = 0
+
+almost_nodtris, iPath star
+Counts: edges = 19548 cycles = 3549 singles = 8057
+
+almost_pents mix 0.95, path apples
+Counts: edges = 21083 cycles = 5084 singles = 45
+
+many_smallish mix 0.98, path apples
+Counts: edges = 18199 cycles = 2200 singles = 241
+
+
+Test 57:
+
+nodes, iPath 0.99 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+tris_hexes mix 0.8, path apples
+Counts: edges = 20316 cycles = 4317 singles = 1
+
+squares mix, rng
+Counts: edges = 20572 cycles = 4573 singles = 0
+
+smalls mix 0.95, path apples
+Counts: edges = 19657 cycles = 3658 singles = 452
+
+octs, iPath rng
+Counts: edges = 17599 cycles = 1600 singles = 3580
+
+
+Test 58:
+
+almost_nodtris mix 0.95, path apples
+Counts: edges = 20287 cycles = 4288 singles = 4010
+
+octs mix 0.985, path apples
+Counts: edges = 18281 cycles = 2282 singles = 0
+
+triangles mix 0.92, path apples
+Counts: edges = 23702 cycles = 7703 singles = 0
+
+dots mix, rng
+Counts: edges = 17481 cycles = 1482 singles = 1423
+
+tris_fours mix 0.975, rng apples
+Counts: edges = 22348 cycles = 6349 singles = 1
+
+
+Test 59:
+
+tris_fours, path rng
+Counts: edges = 22389 cycles = 6390 singles = 0
+
+squares, star
+Counts: edges = 21332 cycles = 5333 singles = 0
+
+anti_arith_ceil mix 0.935, path apples
+Counts: edges = 21384 cycles = 5385 singles = 1
+
+hexes edges, path rng
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+squares mix 0.985, path apples
+Counts: edges = 21307 cycles = 5308 singles = 1
+
+
+Test 60:
+
+triangles mix 0.965, path apples
+Counts: edges = 23859 cycles = 7860 singles = 0
+
+nodes, rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+squares mix, path rng
+Counts: edges = 20555 cycles = 4556 singles = 0
+
+decs mix 0.85, rng apples
+Counts: edges = 17750 cycles = 1751 singles = 0
+
+tris_tridecs mix 0.935, path apples
+Counts: edges = 18470 cycles = 2471 singles = 0
+
+
+Test 61:
+
+tris_hexes mix 0.95, path apples
+Counts: edges = 20567 cycles = 4568 singles = 0
+
+mids, rng
+Counts: edges = 16266 cycles = 267 singles = 0
+
+anti_huffman_unu mix 0.935, path apples
+Counts: edges = 19551 cycles = 3552 singles = 0
+
+many_smallish mix 0.95, rng apples
+Counts: edges = 18080 cycles = 2081 singles = 213
+
+octs mix 0.95, path apples cyc
+Counts: edges = 18272 cycles = 2273 singles = 0
+
+
+Test 62:
+
+decs, iPath star
+Counts: edges = 17244 cycles = 1245 singles = 4799
+
+odds_mean_5 mix 0.935, path apples
+Counts: edges = 23749 cycles = 7750 singles = 1
+
+almost_septs mix, rng apples
+Counts: edges = 20470 cycles = 4471 singles = 47
+
+tris_undecs, iPath star
+Counts: edges = 18862 cycles = 2863 singles = 4799
+
+anti_huffman mix 0.965, path apples
+Counts: edges = 20346 cycles = 4347 singles = 1
+
+
+Test 63:
+
+anti_arith mix 0.7, path apples
+Counts: edges = 20099 cycles = 4100 singles = 0
+
+septs mix 0.9, rng apples
+Counts: edges = 18623 cycles = 2624 singles = 0
+
+tris_fours, rng
+Counts: edges = 22424 cycles = 6425 singles = 1
+
+odds_mean_5, iPath rng
+Counts: edges = 21599 cycles = 5600 singles = 2184
+
+tris_fours mix 0.7, path apples
+Counts: edges = 21713 cycles = 5714 singles = 0
+
+
+Test 64:
+
+septs mix 0.935, path apples
+Counts: edges = 18638 cycles = 2639 singles = 0
+
+anti_huffman_und mix 0.9, rng apples
+Counts: edges = 20262 cycles = 4263 singles = 0
+
+tris_hexes mix 0.85, rng apples
+Counts: edges = 20419 cycles = 4420 singles = 0
+
+tris_hexes mix 0.935, path apples
+Counts: edges = 20509 cycles = 4510 singles = 1
+
+odds_mean_5 mix 0.98, path apples
+Counts: edges = 23922 cycles = 7923 singles = 0
+
+
+Test 65:
+
+octs, star
+Counts: edges = 18285 cycles = 2286 singles = 0
+
+tris_undecs mix 0.9, rng apples
+Counts: edges = 19871 cycles = 3872 singles = 0
+
+triangles mix 0.65, rng
+Counts: edges = 22819 cycles = 6820 singles = 0
+
+anti_huffman_und, path rng
+Counts: edges = 20413 cycles = 4414 singles = 0
+
+triangles mix 0.9, rng apples
+Counts: edges = 23623 cycles = 7624 singles = 1
+
+
+Test 66:
+
+octs edges, path rng
+Counts: edges = 18285 cycles = 2286 singles = 0
+
+tris_undecs, star
+Counts: edges = 19970 cycles = 3971 singles = 1
+
+tris_hexes mix 0.985, path apples
+Counts: edges = 20543 cycles = 4544 singles = 0
+
+bigs edges, path rng
+Counts: edges = 16009 cycles = 10 singles = 0
+
+triangles, iPath rng
+Counts: edges = 21599 cycles = 5600 singles = 2232
+
+
+Test 67:
+
+odds_mean_5 mix 0.75, path apples
+Counts: edges = 23111 cycles = 7112 singles = 0
+
+hexes mix 0.75, rng apples
+Counts: edges = 19045 cycles = 3046 singles = 1
+
+tris_fours mix 0.85, rng apples
+Counts: edges = 22042 cycles = 6043 singles = 1
+
+anti_huffman_und mix 0.975, path apples
+Counts: edges = 20423 cycles = 4424 singles = 1
+
+anti_huffman mix 0.985, path apples
+Counts: edges = 20369 cycles = 4370 singles = 0
+
+
+Test 68:
+
+tris_fours mix 0.9, path apples
+Counts: edges = 22162 cycles = 6163 singles = 0
+
+almost_pents mix, path rng
+Counts: edges = 20470 cycles = 4471 singles = 46
+
+tris_fours, iPath rng
+Counts: edges = 20478 cycles = 4479 singles = 2455
+
+tris_undecs mix 0.975, path apples
+Counts: edges = 19895 cycles = 3896 singles = 0
+
+many_smallish mix 0.92, path apples
+Counts: edges = 18148 cycles = 2149 singles = 259
+
+
+Test 69:
+
+anti_huffman mix 0.75, path apples
+Counts: edges = 20111 cycles = 4112 singles = 0
+
+dots, iPath star
+Counts: edges = 17215 cycles = 1216 singles = 5834
+
+squares edges, star
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+tris_undecs mix 0.98, path apples
+Counts: edges = 19981 cycles = 3982 singles = 0
+
+triangles, iPath 0.99 rng
+Counts: edges = 16079 cycles = 80 singles = 15761
+
+
+Test 70:
+
+anti_arith_ceil mix 0.95, path apples
+Counts: edges = 21362 cycles = 5363 singles = 0
+
+odds_mean_5, rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+bigs mix, rng
+Counts: edges = 16011 cycles = 12 singles = 0
+
+anti_huffman_und mix 0.92, path apples
+Counts: edges = 20302 cycles = 4303 singles = 1
+
+squares mix 0.95, path apples
+Counts: edges = 21243 cycles = 5244 singles = 0
+
+
+Test 71:
+
+tris_undecs mix 0.8, path apples
+Counts: edges = 19848 cycles = 3849 singles = 1
+
+dots mix 0.95, path apples
+Counts: edges = 17635 cycles = 1636 singles = 1410
+
+odds_mean_5 mix 0.7, path apples
+Counts: edges = 22971 cycles = 6972 singles = 1
+
+almost_pents mix, path apples cyc
+Counts: edges = 20456 cycles = 4457 singles = 0
+
+anti_huffman mix 0.975, path apples
+Counts: edges = 20485 cycles = 4486 singles = 0
+
+
+Test 72:
+
+anti_arith mix 0.75, path apples
+Counts: edges = 20181 cycles = 4182 singles = 1
+
+triangles mix 0.6875, path apples
+Counts: edges = 22933 cycles = 6934 singles = 1
+
+anti_arith mix 0.9, rng apples
+Counts: edges = 20433 cycles = 4434 singles = 0
+
+odds_mean_5 mix 0.925, rng apples
+Counts: edges = 23710 cycles = 7711 singles = 2
+
+anti_arith, iPath rng
+Counts: edges = 19169 cycles = 3170 singles = 2892
+
+
+Test 73:
+
+tris_tridecs, iPath star
+Counts: edges = 17804 cycles = 1805 singles = 4799
+
+anti_huffman_und mix 0.975, rng apples
+Counts: edges = 20378 cycles = 4379 singles = 0
+
+squares edges, path rng
+Counts: edges = 21332 cycles = 5333 singles = 0
+
+bigs, iPath rng
+Counts: edges = 16008 cycles = 9 singles = 4791
+
+tris_fours mix 0.9925, path apples
+Counts: edges = 22393 cycles = 6394 singles = 0
+
+
+Test 74:
+
+tris_undecs mix 0.95, path apples
+Counts: edges = 19919 cycles = 3920 singles = 0
+
+almost_squares, iPath rng
+Counts: edges = 19627 cycles = 3628 singles = 2797
+
+fullcycle, ears
+Counts: edges = 16000 cycles = 1 singles = 4
+
+squares mix 0.935, path apples
+Counts: edges = 21223 cycles = 5224 singles = 0
+
+triangles mix 0.65, path apples
+Counts: edges = 22795 cycles = 6796 singles = 2
+
+
+Test 75:
+
+many_smallish mix 0.75, path apples
+Counts: edges = 18067 cycles = 2068 singles = 231
+
+tris_fours mix 0.95, path apples
+Counts: edges = 22281 cycles = 6282 singles = 1
+
+fullcycle, iPath 0.15 path
+Counts: edges = 16000 cycles = 1 singles = 2399
+
+pents mix 0.85, rng apples
+Counts: edges = 19854 cycles = 3855 singles = 0
+
+triangles mix 0.25, path apples
+Counts: edges = 21815 cycles = 5816 singles = 2
+
+
+Test 76:
+
+anti_huffman_unu mix 0.98, path apples
+Counts: edges = 19624 cycles = 3625 singles = 1
+
+anti_arith mix 0.9, path apples
+Counts: edges = 20267 cycles = 4268 singles = 1
+
+anti_arith mix 0.75, path apples
+Counts: edges = 20166 cycles = 4167 singles = 0
+
+almost_septs mix 0.95, path apples cyc
+Counts: edges = 21084 cycles = 5085 singles = 0
+
+mids mix, star
+Counts: edges = 16232 cycles = 233 singles = 1
+
+
+Test 77:
+
+anti_huffman_unu mix 0.965, path apples
+Counts: edges = 19556 cycles = 3557 singles = 1
+
+anti_arith mix 0.98, path apples
+Counts: edges = 20338 cycles = 4339 singles = 0
+
+decs mix 0.9, path apples
+Counts: edges = 17759 cycles = 1760 singles = 0
+
+bigs mix, path apples cyc
+Counts: edges = 16009 cycles = 10 singles = 0
+
+tris_tridecs mix 0.8, path apples
+Counts: edges = 18402 cycles = 2403 singles = 0
+
+
+Test 78:
+
+triangles mix 0.925, rng apples
+Counts: edges = 23690 cycles = 7691 singles = 1
+
+bigs mix, rng apples
+Counts: edges = 16006 cycles = 7 singles = 0
+
+decs mix 0.9925, path apples
+Counts: edges = 17775 cycles = 1776 singles = 0
+
+dots edges, rng
+Counts: edges = 17525 cycles = 1526 singles = 1330
+
+almost_squares, iPath star
+Counts: edges = 19629 cycles = 3630 singles = 4842
+
+
+Test 79:
+
+squares mix 0.85, rng apples
+Counts: edges = 21073 cycles = 5074 singles = 0
+
+tris_undecs mix 0.95, rng apples
+Counts: edges = 19897 cycles = 3898 singles = 0
+
+tris_undecs, path rng
+Counts: edges = 20035 cycles = 4036 singles = 0
+
+septs, rng
+Counts: edges = 18666 cycles = 2667 singles = 0
+
+squares, rng
+Counts: edges = 21332 cycles = 5333 singles = 0
+
+
+Test 80:
+
+hexes, rng
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+hexes mix 0.975, rng apples
+Counts: edges = 19183 cycles = 3184 singles = 0
+
+octs mix 0.9, rng apples
+Counts: edges = 18255 cycles = 2256 singles = 1
+
+triangles, path rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+anti_huffman_unu mix 0.75, rng apples
+Counts: edges = 19393 cycles = 3394 singles = 0
+
+
+Test 81:
+
+tris_tridecs mix 0.925, rng apples
+Counts: edges = 18395 cycles = 2396 singles = 0
+
+hexes mix 0.975, path apples
+Counts: edges = 19182 cycles = 3183 singles = 1
+
+almost_nodes mix, iPath 0.99 rng cycle
+Counts: edges = 16009 cycles = 10 singles = 13978
+
+tris_undecs mix 0.95, path apples cyc
+Counts: edges = 19931 cycles = 3932 singles = 0
+
+septs mix 0.965, path apples
+Counts: edges = 18652 cycles = 2653 singles = 0
+
+
+Test 82:
+
+dots, star
+Counts: edges = 17375 cycles = 1376 singles = 1280
+
+triangles, star
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+mids edges, rng
+Counts: edges = 16247 cycles = 248 singles = 0
+
+many_smallish, path rng
+Counts: edges = 18114 cycles = 2115 singles = 235
+
+tris_fours mix 0.75, rng apples
+Counts: edges = 21818 cycles = 5819 singles = 1
+
+
+Test 83:
+
+dots, path rng
+Counts: edges = 17713 cycles = 1714 singles = 1576
+
+almost_nodtris mix, rng apples
+Counts: edges = 20053 cycles = 4054 singles = 3773
+
+pents mix 0.95, rng apples
+Counts: edges = 19899 cycles = 3900 singles = 0
+
+almost_triangles mix 0.95, path apples
+Counts: edges = 23263 cycles = 7264 singles = 75
+
+tris_fours mix 0.965, path apples
+Counts: edges = 22303 cycles = 6304 singles = 0
+
+
+Test 84:
+
+anti_huffman_unu, path rng
+Counts: edges = 19593 cycles = 3594 singles = 0
+
+decs, iPath rng
+Counts: edges = 17244 cycles = 1245 singles = 3806
+
+tris_hexes, path rng
+Counts: edges = 20577 cycles = 4578 singles = 0
+
+pents mix, path apples
+Counts: edges = 19562 cycles = 3563 singles = 0
+
+anti_huffman_unu, iPath rng
+Counts: edges = 18554 cycles = 2555 singles = 3135
+
+
+Test 85:
+
+anti_huffman_unu mix 0.7, path apples
+Counts: edges = 19424 cycles = 3425 singles = 0
+
+bigs edges, rng apples
+Counts: edges = 16008 cycles = 9 singles = 0
+
+squares mix 0.975, rng apples
+Counts: edges = 21284 cycles = 5285 singles = 0
+
+many_smallish mix 0.965, path apples
+Counts: edges = 18183 cycles = 2184 singles = 206
+
+almost_nodtris mix, star
+Counts: edges = 20350 cycles = 4351 singles = 3863
+
+
+Test 86:
+
+dots mix 0.95, path apples cyc
+Counts: edges = 17557 cycles = 1558 singles = 0
+
+anti_huffman_und mix 0.9925, path apples
+Counts: edges = 20496 cycles = 4497 singles = 1
+
+tris_undecs mix 0.975, rng apples
+Counts: edges = 20052 cycles = 4053 singles = 1
+
+pents mix 0.75, path apples
+Counts: edges = 19769 cycles = 3770 singles = 0
+
+septs mix 0.925, rng apples
+Counts: edges = 18628 cycles = 2629 singles = 1
+
+
+Test 87:
+
+mids mix 0.95, path apples cyc
+Counts: edges = 16247 cycles = 248 singles = 0
+
+squares mix 0.9925, path apples
+Counts: edges = 21320 cycles = 5321 singles = 0
+
+anti_huffman_und mix 0.965, path apples
+Counts: edges = 20427 cycles = 4428 singles = 0
+
+triangles mix, rng beads
+Counts: edges = 22410 cycles = 6411 singles = 0
+
+triangles mix 0.75, path apples
+Counts: edges = 23072 cycles = 7073 singles = 0
+
+
+Test 88:
+
+anti_huffman_und, rng
+Counts: edges = 20367 cycles = 4368 singles = 0
+
+dots edges, path rng
+Counts: edges = 17451 cycles = 1452 singles = 1248
+
+tris_fours edges, path rng
+Counts: edges = 22396 cycles = 6397 singles = 0
+
+almost_squares, star
+Counts: edges = 21176 cycles = 5177 singles = 42
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+
+Test 89:
+
+almost_squares mix, path apples cyc
+Counts: edges = 20450 cycles = 4451 singles = 0
+
+anti_huffman_unu mix 0.95, rng apples
+Counts: edges = 19505 cycles = 3506 singles = 0
+
+hexes mix 0.8, path apples
+Counts: edges = 19068 cycles = 3069 singles = 0
+
+almost_pents, rng
+Counts: edges = 21184 cycles = 5185 singles = 56
+
+hexes mix 0.9925, path apples
+Counts: edges = 19194 cycles = 3195 singles = 0
+
+
+Test 90:
+
+smalls, iPath rng
+Counts: edges = 18607 cycles = 2608 singles = 3436
+
+almost_squares edges, rng
+Counts: edges = 19923 cycles = 3924 singles = 47
+
+anti_arith_ceil mix 0.8, path apples
+Counts: edges = 21167 cycles = 5168 singles = 0
+
+odds_mean_5 mix 0.975, path apples
+Counts: edges = 23899 cycles = 7900 singles = 0
+
+octs mix 0.75, path apples
+Counts: edges = 18202 cycles = 2203 singles = 1
+
+
+Test 91:
+
+anti_huffman_unu mix 0.95, path apples cyc
+Counts: edges = 19542 cycles = 3543 singles = 0
+
+mids, iPath rng
+Counts: edges = 16185 cycles = 186 singles = 4622
+
+pents edges, rng
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+almost_pents edges, star
+Counts: edges = 19930 cycles = 3931 singles = 34
+
+anti_huffman_unu mix 0.985, path apples
+Counts: edges = 19669 cycles = 3670 singles = 0
+
+
+Test 92:
+
+squares mix 0.95, path apples cyc
+Counts: edges = 21241 cycles = 5242 singles = 0
+
+pents mix 0.935, path apples
+Counts: edges = 19937 cycles = 3938 singles = 0
+
+hexes, iPath rng
+Counts: edges = 18239 cycles = 2240 singles = 3275
+
+tris_hexes mix 0.95, path apples cyc
+Counts: edges = 20512 cycles = 4513 singles = 0
+
+pents mix, star
+Counts: edges = 19551 cycles = 3552 singles = 1
+
+
+Test 93:
+
+octs mix 0.94, path apples
+Counts: edges = 18264 cycles = 2265 singles = 0
+
+triangles edges, rng apples
+Counts: edges = 21332 cycles = 5333 singles = 1
+
+anti_huffman_unu mix 0.925, rng apples
+Counts: edges = 19506 cycles = 3507 singles = 0
+
+almost_septs edges, rng apples
+Counts: edges = 19913 cycles = 3914 singles = 46
+
+pents mix 0.9925, path apples
+Counts: edges = 19992 cycles = 3993 singles = 0
+
+
+Test 94:
+
+tris_tridecs mix 0.95, rng apples
+Counts: edges = 18477 cycles = 2478 singles = 0
+
+mids edges, path rng
+Counts: edges = 16257 cycles = 258 singles = 2
+
+tris_hexes mix 0.9925, path apples
+Counts: edges = 20616 cycles = 4617 singles = 1
+
+anti_arith_ceil mix 0.98, path apples
+Counts: edges = 21475 cycles = 5476 singles = 0
+
+triangles mix 0.935, path apples
+Counts: edges = 23735 cycles = 7736 singles = 0
+
+
+Test 95:
+
+almost_triangles mix, path rng
+Counts: edges = 22068 cycles = 6069 singles = 73
+
+squares mix 0.975, path apples
+Counts: edges = 21293 cycles = 5294 singles = 0
+
+almost_nodtris, star
+Counts: edges = 19854 cycles = 3855 singles = 3433
+
+anti_arith_ceil, iPath star
+Counts: edges = 19888 cycles = 3889 singles = 4799
+
+pents mix 0.975, rng apples
+Counts: edges = 19974 cycles = 3975 singles = 0
+
+
+Test 96:
+
+tris_fours mix 0.95, rng apples
+Counts: edges = 22165 cycles = 6166 singles = 1
+
+bigs mix 0.95, path apples
+Counts: edges = 16009 cycles = 10 singles = 0
+
+decs mix 0.975, path apples
+Counts: edges = 17772 cycles = 1773 singles = 0
+
+triangles mix 0.95, path apples cyc
+Counts: edges = 23804 cycles = 7805 singles = 0
+
+almost_septs mix, path apples
+Counts: edges = 20466 cycles = 4467 singles = 40
+
+
+Test 97:
+
+tris_fours mix 0.92, path apples
+Counts: edges = 22201 cycles = 6202 singles = 0
+
+pents, iPath rng
+Counts: edges = 18799 cycles = 2800 singles = 3045
+
+anti_arith mix 0.95, path apples
+Counts: edges = 20309 cycles = 4310 singles = 0
+
+octs, rng
+Counts: edges = 18285 cycles = 2286 singles = 0
+
+septs, path rng
+Counts: edges = 18666 cycles = 2667 singles = 0
+
+
+Test 98:
+
+anti_arith, path rng
+Counts: edges = 20401 cycles = 4402 singles = 0
+
+triangles mix 0.75, path apples
+Counts: edges = 23098 cycles = 7099 singles = 0
+
+pents mix, path rng
+Counts: edges = 19565 cycles = 3566 singles = 1
+
+anti_arith_ceil mix 0.75, rng apples
+Counts: edges = 21047 cycles = 5048 singles = 0
+
+decs mix 0.985, path apples
+Counts: edges = 17774 cycles = 1775 singles = 0
+
+
+Test 99:
+
+hexes, star
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+anti_huffman mix 0.75, path apples
+Counts: edges = 20138 cycles = 4139 singles = 0
+
+many_smallish mix 0.9, rng apples
+Counts: edges = 18166 cycles = 2167 singles = 242
+
+septs mix 0.8, path apples
+Counts: edges = 18579 cycles = 2580 singles = 0
+
+septs mix 0.95, path apples
+Counts: edges = 18644 cycles = 2645 singles = 0
+
+
+Test 100:
+
+tris_tridecs, star
+Counts: edges = 18470 cycles = 2471 singles = 0
+
+smalls edges, star
+Counts: edges = 19070 cycles = 3071 singles = 344
+
+pents mix 0.95, path apples cyc
+Counts: edges = 19952 cycles = 3953 singles = 0
+
+odds_mean_5 edges, path rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+squares mix 0.75, path apples
+Counts: edges = 20925 cycles = 4926 singles = 1
+
+
+Test 101:
+
+almost_triangles mix, rng
+Counts: edges = 22079 cycles = 6080 singles = 55
+
+almost_squares edges, rng apples
+Counts: edges = 19905 cycles = 3906 singles = 30
+
+anti_huffman_und mix 0.98, path apples
+Counts: edges = 20416 cycles = 4417 singles = 0
+
+many_smallish, iPath rng
+Counts: edges = 17536 cycles = 1537 singles = 3776
+
+anti_huffman_unu, rng
+Counts: edges = 19598 cycles = 3599 singles = 0
+
+
+Test 102:
+
+many_smallish mix 0.75, rng apples
+Counts: edges = 18096 cycles = 2097 singles = 202
+
+anti_huffman mix 0.85, path apples
+Counts: edges = 20208 cycles = 4209 singles = 0
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+tris_tridecs, iPath rng
+Counts: edges = 17789 cycles = 1790 singles = 3476
+
+pents mix 0.9, rng apples
+Counts: edges = 19898 cycles = 3899 singles = 0
+
+
+Test 103:
+
+anti_huffman mix, path apples cyc
+Counts: edges = 19930 cycles = 3931 singles = 0
+
+anti_huffman_unu mix 0.75, path apples
+Counts: edges = 19472 cycles = 3473 singles = 0
+
+octs mix 0.975, rng apples
+Counts: edges = 18275 cycles = 2276 singles = 1
+
+octs mix 0.8, path apples
+Counts: edges = 18222 cycles = 2223 singles = 0
+
+tris_undecs mix 0.925, rng apples
+Counts: edges = 20058 cycles = 4059 singles = 1
+
+
+Test 104:
+
+triangles mix 0.8, rng
+Counts: edges = 23285 cycles = 7286 singles = 1
+
+squares, path rng
+Counts: edges = 21332 cycles = 5333 singles = 0
+
+squares, iPath 0.99 rng
+Counts: edges = 16052 cycles = 53 singles = 15788
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+almost_nodes mix, iPath 0.99 rng cycle
+Counts: edges = 16011 cycles = 12 singles = 3612
+
+
+Test 105:
+
+almost_squares mix, path rng
+Counts: edges = 20462 cycles = 4463 singles = 51
+
+nodes, star
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+almost_septs, iPath rng
+Counts: edges = 19637 cycles = 3638 singles = 2770
+
+almost_pents mix, star
+Counts: edges = 20459 cycles = 4460 singles = 45
+
+septs mix 0.85, rng apples
+Counts: edges = 18602 cycles = 2603 singles = 0
+
+
+Test 106:
+
+many_smallish mix 0.975, rng apples
+Counts: edges = 18068 cycles = 2069 singles = 209
+
+anti_huffman mix, path rng
+Counts: edges = 19913 cycles = 3914 singles = 0
+
+almost_nodes mix, star
+Counts: edges = 16657 cycles = 658 singles = 12719
+
+septs mix 0.92, path apples
+Counts: edges = 18634 cycles = 2635 singles = 0
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+
+Test 107:
+
+odds_mean_5, iPath star
+Counts: edges = 21599 cycles = 5600 singles = 4799
+
+tris_hexes mix 0.75, path apples
+Counts: edges = 20252 cycles = 4253 singles = 1
+
+anti_arith mix 0.9925, path apples
+Counts: edges = 20390 cycles = 4391 singles = 0
+
+odds_mean_5 mix 0.975, rng apples
+Counts: edges = 23895 cycles = 7896 singles = 0
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+
+Test 108:
+
+odds_mean_5, star
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+tris_fours mix 0.925, rng apples
+Counts: edges = 22205 cycles = 6206 singles = 0
+
+anti_huffman_und mix 0.95, rng apples
+Counts: edges = 20329 cycles = 4330 singles = 0
+
+anti_arith mix 0.985, path apples
+Counts: edges = 20482 cycles = 4483 singles = 0
+
+triangles mix 0.75, path apples ears
+Counts: edges = 23120 cycles = 7121 singles = 5
+
+
+Test 109:
+
+hexes, path rng
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+many_smallish mix 0.9, path apples
+Counts: edges = 18117 cycles = 2118 singles = 220
+
+many_smallish, iPath star
+Counts: edges = 17526 cycles = 1527 singles = 4955
+
+squares mix 0.95, rng apples
+Counts: edges = 21164 cycles = 5165 singles = 0
+
+squares, iPath star
+Counts: edges = 19732 cycles = 3733 singles = 4800
+
+
+Test 110:
+
+many_smallish mix 0.925, rng apples
+Counts: edges = 18116 cycles = 2117 singles = 258
+
+triangles, iPath star
+Counts: edges = 21599 cycles = 5600 singles = 4799
+
+squares mix, path apples
+Counts: edges = 20567 cycles = 4568 singles = 0
+
+odds_mean_5 mix 0.985, path apples
+Counts: edges = 23937 cycles = 7938 singles = 1
+
+triangles mix, rng apples
+Counts: edges = 22404 cycles = 6405 singles = 1
+
+
+Test 111:
+
+anti_huffman mix, rng apples
+Counts: edges = 19899 cycles = 3900 singles = 0
+
+squares mix 0.7, path apples
+Counts: edges = 20846 cycles = 4847 singles = 0
+
+anti_huffman mix, path apples
+Counts: edges = 19941 cycles = 3942 singles = 0
+
+anti_huffman_und, star
+Counts: edges = 20478 cycles = 4479 singles = 0
+
+smalls, rng
+Counts: edges = 19677 cycles = 3678 singles = 439
+
+
+Test 112:
+
+almost_nodtris mix, path apples
+Counts: edges = 20109 cycles = 4110 singles = 3616
+
+tris_hexes mix 0.9, rng apples
+Counts: edges = 20461 cycles = 4462 singles = 0
+
+decs mix 0.75, path apples
+Counts: edges = 17725 cycles = 1726 singles = 2
+
+many_smallish edges, path rng
+Counts: edges = 18149 cycles = 2150 singles = 252
+
+pents mix 0.25, path apples
+Counts: edges = 19358 cycles = 3359 singles = 1
+
+
+Test 113:
+
+tris_undecs, iPath rng
+Counts: edges = 18791 cycles = 2792 singles = 3003
+
+tris_tridecs, rng
+Counts: edges = 18513 cycles = 2514 singles = 0
+
+triangles edges, rng
+Counts: edges = 21332 cycles = 5333 singles = 1
+
+anti_huffman_und mix 0.85, rng apples
+Counts: edges = 20204 cycles = 4205 singles = 0
+
+pents mix, rng
+Counts: edges = 19554 cycles = 3555 singles = 0
+
+
+Test 114:
+
+anti_huffman edges, star
+Counts: edges = 19470 cycles = 3471 singles = 0
+
+almost_triangles edges, path rng
+Counts: edges = 23512 cycles = 7513 singles = 69
+
+triangles mix 0.2, rng
+Counts: edges = 21704 cycles = 5705 singles = 0
+
+tris_hexes, iPath star
+Counts: edges = 19203 cycles = 3204 singles = 4799
+
+triangles mix 0.85, path apples
+Counts: edges = 23453 cycles = 7454 singles = 0
+
+
+Test 115:
+
+smalls mix, path rng
+Counts: edges = 19350 cycles = 3351 singles = 373
+
+decs mix 0.75, rng apples
+Counts: edges = 17730 cycles = 1731 singles = 0
+
+almost_septs, rng
+Counts: edges = 21164 cycles = 5165 singles = 49
+
+almost_triangles, star
+Counts: edges = 23463 cycles = 7464 singles = 74
+
+tris_undecs, rng
+Counts: edges = 19962 cycles = 3963 singles = 1
+
+
+Test 116:
+
+hexes mix 0.85, rng apples
+Counts: edges = 19106 cycles = 3107 singles = 0
+
+almost_triangles mix, star
+Counts: edges = 22101 cycles = 6102 singles = 66
+
+septs mix 0.98, path apples
+Counts: edges = 18656 cycles = 2657 singles = 0
+
+triangles mix, path apples
+Counts: edges = 22398 cycles = 6399 singles = 2
+
+anti_huffman mix 0.925, rng apples
+Counts: edges = 20343 cycles = 4344 singles = 0
+
+
+Test 117:
+
+anti_huffman_und mix 0.75, path apples
+Counts: edges = 20173 cycles = 4174 singles = 0
+
+anti_huffman mix 0.975, rng apples
+Counts: edges = 20395 cycles = 4396 singles = 1
+
+triangles mix, path beads ears
+Counts: edges = 22385 cycles = 6386 singles = 5
+
+anti_huffman_unu mix 0.75, path apples
+Counts: edges = 19451 cycles = 3452 singles = 0
+
+anti_arith mix 0.95, path apples cyc
+Counts: edges = 20413 cycles = 4414 singles = 0
+
+
+Test 118:
+
+pents, iPath star
+Counts: edges = 18799 cycles = 2800 singles = 4799
+
+many_smallish mix 0.75, path apples
+Counts: edges = 18082 cycles = 2083 singles = 264
+
+smalls mix, path apples cyc
+Counts: edges = 19348 cycles = 3349 singles = 0
+
+tris_tridecs mix 0.9, path apples
+Counts: edges = 18440 cycles = 2441 singles = 0
+
+tris_tridecs, path rng
+Counts: edges = 18483 cycles = 2484 singles = 1
+
+
+Test 119:
+
+almost_squares, rng
+Counts: edges = 21188 cycles = 5189 singles = 54
+
+pents, rng
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+smalls mix, rng
+Counts: edges = 19381 cycles = 3382 singles = 367
+
+anti_arith mix 0.85, rng apples
+Counts: edges = 20262 cycles = 4263 singles = 0
+
+anti_huffman_und mix 0.75, rng apples
+Counts: edges = 20196 cycles = 4197 singles = 0
+
+
+Test 120:
+
+mids mix, path apples cyc
+Counts: edges = 16256 cycles = 257 singles = 0
+
+many_smallish mix 0.9925, path apples
+Counts: edges = 18117 cycles = 2118 singles = 261
+
+almost_nodtris edges, path rng
+Counts: edges = 20314 cycles = 4315 singles = 4041
+
+triangles mix 0.975, rng apples
+Counts: edges = 23893 cycles = 7894 singles = 0
+
+fullcycle
+Counts: edges = 16000 cycles = 1 singles = 0
+
+
+Test 121:
+
+dots, iPath rng
+Counts: edges = 17069 cycles = 1070 singles = 4918
+
+bigs, iPath star
+Counts: edges = 16006 cycles = 7 singles = 4799
+
+septs, star
+Counts: edges = 18666 cycles = 2667 singles = 0
+
+anti_arith_ceil mix 0.95, rng apples
+Counts: edges = 21310 cycles = 5311 singles = 0
+
+odds_mean_5 mix 0.85, path apples
+Counts: edges = 23451 cycles = 7452 singles = 0
+
+
+Test 122:
+
+dots mix, rng apples
+Counts: edges = 17556 cycles = 1557 singles = 1336
+
+almost_pents, star
+Counts: edges = 21196 cycles = 5197 singles = 58
+
+anti_huffman, iPath rng
+Counts: edges = 19091 cycles = 3092 singles = 2918
+
+anti_arith_ceil, rng
+Counts: edges = 21460 cycles = 5461 singles = 0
+
+octs mix 0.85, path apples
+Counts: edges = 18235 cycles = 2236 singles = 0
+
+
+Test 123:
+
+many_smallish, star
+Counts: edges = 18180 cycles = 2181 singles = 231
+
+almost_triangles, path rng
+Counts: edges = 23450 cycles = 7451 singles = 72
+
+triangles, iPath 0.9 rng
+Counts: edges = 16799 cycles = 800 singles = 13638
+
+tris_tridecs mix 0.95, path apples
+Counts: edges = 18404 cycles = 2405 singles = 0
+
+anti_huffman_und mix 0.75, path apples
+Counts: edges = 20211 cycles = 4212 singles = 0
+
+
+Test 124:
+
+tris_fours, iPath star
+Counts: edges = 20463 cycles = 4464 singles = 4799
+
+fullcycle, iPath
+Counts: edges = 16000 cycles = 1 singles = 4799
+
+decs mix 0.935, path apples
+Counts: edges = 17765 cycles = 1766 singles = 0
+
+hexes mix 0.92, path apples
+Counts: edges = 19146 cycles = 3147 singles = 0
+
+septs, iPath star
+Counts: edges = 17866 cycles = 1867 singles = 4799
+
+
+Test 125:
+
+nodes, iPath 0.9 rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+smalls, iPath star
+Counts: edges = 18612 cycles = 2613 singles = 5086
+
+hexes, iPath star
+Counts: edges = 18239 cycles = 2240 singles = 4799
+
+octs mix 0.925, rng apples
+Counts: edges = 18259 cycles = 2260 singles = 0
+
+fullcycle edges, iPath 0.65
+Counts: edges = 16000 cycles = 1 singles = 10399
+
+
+Test 126:
+
+almost_pents mix, rng
+Counts: edges = 20481 cycles = 4482 singles = 45
+
+tris_hexes, rng
+Counts: edges = 20565 cycles = 4566 singles = 0
+
+anti_arith_ceil mix 0.75, path apples
+Counts: edges = 21114 cycles = 5115 singles = 1
+
+squares mix 0.92, path apples
+Counts: edges = 21184 cycles = 5185 singles = 1
+
+septs mix 0.9925, path apples
+Counts: edges = 18662 cycles = 2663 singles = 0
+
+
+Test 127:
+
+almost_septs edges, path rng
+Counts: edges = 21176 cycles = 5177 singles = 56
+
+anti_huffman_unu mix 0.975, rng apples
+Counts: edges = 19574 cycles = 3575 singles = 0
+
+anti_huffman, star
+Counts: edges = 20478 cycles = 4479 singles = 1
+
+anti_huffman mix 0.7, path apples
+Counts: edges = 20126 cycles = 4127 singles = 0
+
+pents mix, rng apples
+Counts: edges = 19547 cycles = 3548 singles = 2
+
+
+Test 128:
+
+bigs, star
+Counts: edges = 16011 cycles = 12 singles = 0
+
+nodes, path ears
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+septs mix 0.85, path apples
+Counts: edges = 18599 cycles = 2600 singles = 1
+
+octs mix 0.935, path apples
+Counts: edges = 18266 cycles = 2267 singles = 1
+
+decs edges, path rng
+Counts: edges = 17777 cycles = 1778 singles = 0
+
+
+Test 129:
+
+anti_arith_ceil mix 0.925, rng apples
+Counts: edges = 21415 cycles = 5416 singles = 0
+
+triangles mix 0.95, path apples
+Counts: edges = 23793 cycles = 7794 singles = 1
+
+tris_tridecs mix 0.7, path apples
+Counts: edges = 18314 cycles = 2315 singles = 2
+
+squares edges, rng apples
+Counts: edges = 19999 cycles = 4000 singles = 0
+
+pents edges, star
+Counts: edges = 19199 cycles = 3200 singles = 0
+
+
+Test 130:
+
+anti_huffman_unu mix 0.9, rng apples
+Counts: edges = 19499 cycles = 3500 singles = 0
+
+octs mix 0.92, path apples
+Counts: edges = 18256 cycles = 2257 singles = 1
+
+tris_tridecs mix 0.75, rng apples
+Counts: edges = 18417 cycles = 2418 singles = 0
+
+tris_undecs mix 0.965, path apples
+Counts: edges = 19984 cycles = 3985 singles = 0
+
+squares mix 0.9, path apples
+Counts: edges = 21164 cycles = 5165 singles = 0
+
+
+Test 131:
+
+hexes mix 0.95, path apples
+Counts: edges = 19170 cycles = 3171 singles = 0
+
+almost_pents, iPath star
+Counts: edges = 19634 cycles = 3635 singles = 4834
+
+anti_huffman, path rng
+Counts: edges = 20448 cycles = 4449 singles = 0
+
+almost_triangles mix 0.95, path apples cyc
+Counts: edges = 23348 cycles = 7349 singles = 0
+
+decs mix 0.9, rng apples
+Counts: edges = 17758 cycles = 1759 singles = 0
+
+
+Test 132:
+
+many_smallish mix 0.85, path apples
+Counts: edges = 18100 cycles = 2101 singles = 251
+
+dots edges, rng apples
+Counts: edges = 17492 cycles = 1493 singles = 1323
+
+tris_undecs edges, path rng
+Counts: edges = 20016 cycles = 4017 singles = 0
+
+anti_huffman_und mix 0.935, path apples
+Counts: edges = 20374 cycles = 4375 singles = 1
+
+anti_arith mix 0.75, rng apples
+Counts: edges = 20140 cycles = 4141 singles = 0
+
+
+Test 133:
+
+anti_arith_ceil, iPath rng
+Counts: edges = 19829 cycles = 3830 singles = 2687
+
+tris_fours mix 0.935, path apples
+Counts: edges = 22289 cycles = 6290 singles = 0
+
+septs, iPath rng
+Counts: edges = 17866 cycles = 1867 singles = 3451
+
+mids mix, rng apples
+Counts: edges = 16256 cycles = 257 singles = 2
+
+septs mix 0.975, rng apples
+Counts: edges = 18654 cycles = 2655 singles = 0
+
+
+Test 134:
+
+anti_arith mix 0.975, path apples
+Counts: edges = 20420 cycles = 4421 singles = 0
+
+anti_huffman_und edges, path rng
+Counts: edges = 20513 cycles = 4514 singles = 1
+
+anti_huffman_und mix 0.9, path apples
+Counts: edges = 20292 cycles = 4293 singles = 1
+
+anti_arith_ceil mix 0.9, path apples
+Counts: edges = 21269 cycles = 5270 singles = 0
+
+decs, rng
+Counts: edges = 17777 cycles = 1778 singles = 0
+
+
+Test 135:
+
+almost_pents mix 0.95, path apples cyc
+Counts: edges = 21076 cycles = 5077 singles = 0
+
+almost_nodes mix, iPath 0.9 rng
+Counts: edges = 16076 cycles = 77 singles = 15586
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+nodes, iPath rng
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+tris_undecs mix 0.7, path apples
+Counts: edges = 19636 cycles = 3637 singles = 0
+
+
+Test 136:
+
+squares mix 0.25, path apples
+Counts: edges = 20259 cycles = 4260 singles = 0
+
+tris_fours mix 0.9, rng apples
+Counts: edges = 22128 cycles = 6129 singles = 0
+
+anti_arith, star
+Counts: edges = 20472 cycles = 4473 singles = 1
+
+pents mix 0.925, rng apples
+Counts: edges = 19926 cycles = 3927 singles = 1
+
+septs mix 0.95, path apples cyc
+Counts: edges = 18646 cycles = 2647 singles = 0
+
+
+Test 137:
+
+almost_nodes mix, iPath 0.995 rng cycle
+Counts: edges = 16001 cycles = 2 singles = 15187
+
+anti_huffman_und mix 0.7, path apples
+Counts: edges = 20128 cycles = 4129 singles = 0
+
+almost_nodtris edges, rng apples
+Counts: edges = 19819 cycles = 3820 singles = 3587
+
+mids mix, path rng
+Counts: edges = 16260 cycles = 261 singles = 3
+
+anti_arith_ceil mix 0.7, path apples
+Counts: edges = 21019 cycles = 5020 singles = 1
+
+
+Test 138:
+
+pents mix 0.9, path apples
+Counts: edges = 19901 cycles = 3902 singles = 0
+
+octs mix 0.85, rng apples
+Counts: edges = 18236 cycles = 2237 singles = 0
+
+anti_arith mix 0.925, rng apples
+Counts: edges = 20347 cycles = 4348 singles = 1
+
+anti_huffman_unu mix 0.95, path apples
+Counts: edges = 19547 cycles = 3548 singles = 0
+
+almost_septs edges, rng
+Counts: edges = 19916 cycles = 3917 singles = 41
+
+
+Test 139:
+
+almost_nodes mix, path ears
+Counts: edges = 16649 cycles = 650 singles = 12494
+
+triangles mix 0.97, path apples ears
+Counts: edges = 23875 cycles = 7876 singles = 5
+
+almost_septs mix, star
+Counts: edges = 20448 cycles = 4449 singles = 33
+
+triangles, iPath 0.26 star
+Counts: edges = 21919 cycles = 5920 singles = 4159
+
+octs mix 0.75, rng apples
+Counts: edges = 18208 cycles = 2209 singles = 0
+
+
+Test 140:
+
+dots, rng
+Counts: edges = 17536 cycles = 1537 singles = 1440
+
+anti_arith_ceil mix 0.75, path apples
+Counts: edges = 21094 cycles = 5095 singles = 1
+
+anti_arith mix 0.965, path apples
+Counts: edges = 20353 cycles = 4354 singles = 1
+
+many_smallish mix 0.975, path apples
+Counts: edges = 18091 cycles = 2092 singles = 249
+
+septs mix 0.95, rng apples
+Counts: edges = 18620 cycles = 2621 singles = 0
+
+
+Test 141:
+
+triangles, iPath 0.98 rng
+Counts: edges = 16159 cycles = 160 singles = 15521
+
+odds_mean_5 mix 0.9925, path apples
+Counts: edges = 23971 cycles = 7972 singles = 1
+
+pents mix 0.98, path apples
+Counts: edges = 19981 cycles = 3982 singles = 0
+
+anti_huffman_unu mix 0.9925, path apples
+Counts: edges = 19557 cycles = 3558 singles = 0
+
+tris_hexes mix 0.965, path apples
+Counts: edges = 20516 cycles = 4517 singles = 1
+
+
+Test 142:
+
+odds_mean_5 mix 0.95, rng apples
+Counts: edges = 23590 cycles = 7591 singles = 0
+
+triangles mix 0.7, path apples
+Counts: edges = 22955 cycles = 6956 singles = 1
+
+tris_hexes mix 0.9, path apples
+Counts: edges = 20424 cycles = 4425 singles = 0
+
+triangles mix 0.975, path apples
+Counts: edges = 23897 cycles = 7898 singles = 1
+
+almost_triangles edges, star
+Counts: edges = 21128 cycles = 5129 singles = 50
+
+
+Test 143:
+
+tris_undecs mix 0.75, path apples
+Counts: edges = 19724 cycles = 3725 singles = 0
+
+anti_huffman_und mix 0.85, path apples
+Counts: edges = 20257 cycles = 4258 singles = 0
+
+tris_tridecs mix 0.85, path apples
+Counts: edges = 18393 cycles = 2394 singles = 0
+
+almost_nodtris edges, star
+Counts: edges = 19804 cycles = 3805 singles = 3472
+
+pents mix 0.92, path apples
+Counts: edges = 19921 cycles = 3922 singles = 0
+
+
+Test 144:
+
+triangles, iPath 0.995 rng
+Counts: edges = 16039 cycles = 40 singles = 15880
+
+anti_arith, iPath star
+Counts: edges = 19088 cycles = 3089 singles = 4800
+
+almost_pents mix, path apples
+Counts: edges = 20480 cycles = 4481 singles = 48
+
+anti_huffman mix 0.98, path apples
+Counts: edges = 20438 cycles = 4439 singles = 1
+
+decs, path rng
+Counts: edges = 17777 cycles = 1778 singles = 0
+
+
+Test 145:
+
+anti_huffman mix 0.95, rng apples
+Counts: edges = 20288 cycles = 4289 singles = 0
+
+triangles mix 0.9, path apples
+Counts: edges = 23609 cycles = 7610 singles = 0
+
+almost_squares mix, rng apples
+Counts: edges = 20451 cycles = 4452 singles = 52
+
+nodes, path
+Counts: edges = 15999 cycles = 0 singles = 16000
+
+fullcycle edges, iPath 0.4 ears
+Counts: edges = 16000 cycles = 1 singles = 6403
+
+
+Test 146:
+
+squares mix, star
+Counts: edges = 20570 cycles = 4571 singles = 1
+
+triangles mix 0.675, path apples
+Counts: edges = 22877 cycles = 6878 singles = 0
+
+anti_huffman_unu, iPath star
+Counts: edges = 18496 cycles = 2497 singles = 4799
+
+almost_nodtris, path rng
+Counts: edges = 20262 cycles = 4263 singles = 4100
+
+anti_huffman_unu mix 0.92, path apples
+Counts: edges = 19434 cycles = 3435 singles = 0
+
+
+Test 147:
+
+anti_arith_ceil mix 0.975, path apples
+Counts: edges = 21479 cycles = 5480 singles = 1
+
+tris_fours mix 0.75, path apples
+Counts: edges = 21797 cycles = 5798 singles = 2
+
+hexes mix 0.75, path apples
+Counts: edges = 19049 cycles = 3050 singles = 0
+
+decs mix 0.965, path apples
+Counts: edges = 17770 cycles = 1771 singles = 0
+
+squares, iPath rng
+Counts: edges = 19732 cycles = 3733 singles = 2692
+
+
+Test 148:
+
+squares mix 0.9, rng apples
+Counts: edges = 21160 cycles = 5161 singles = 0
+
+almost_nodtris, iPath rng
+Counts: edges = 19353 cycles = 3354 singles = 6148
+
+tris_tridecs mix 0.965, path apples
+Counts: edges = 18485 cycles = 2486 singles = 0
+
+decs mix 0.925, rng apples
+Counts: edges = 17761 cycles = 1762 singles = 0
+
+anti_huffman_unu, star
+Counts: edges = 19578 cycles = 3579 singles = 0
+
+
+Test 149:
+
+anti_huffman mix, star
+Counts: edges = 19927 cycles = 3928 singles = 1
+
+tris_hexes mix 0.92, path apples
+Counts: edges = 20445 cycles = 4446 singles = 1
+
+anti_arith, rng
+Counts: edges = 20418 cycles = 4419 singles = 0
+
+tris_hexes mix 0.85, path apples
+Counts: edges = 20408 cycles = 4409 singles = 0
+
+anti_arith_ceil mix 0.985, path apples
+Counts: edges = 21467 cycles = 5468 singles = 1
+
+
+Test 150:
+
+pents mix 0.75, rng apples
+Counts: edges = 19755 cycles = 3756 singles = 1
+
+hexes mix 0.85, path apples
+Counts: edges = 19107 cycles = 3108 singles = 0
+
+odds_mean_5, path rng
+Counts: edges = 23998 cycles = 7999 singles = 1
+
+tris_fours, star
+Counts: edges = 22383 cycles = 6384 singles = 0
+
+hexes mix 0.985, path apples
+Counts: edges = 19192 cycles = 3193 singles = 1

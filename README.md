@@ -24,6 +24,7 @@ Classical problems:
 * Fork
 * Sets (Rough idea by Radostin Chonev)
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
+* Tunnels
 * Brackets (Solution idea by Encho Mishnev, Idea by Ivo Karagyozov)
 * Heaps
 * Towers (Solution idea by Encho Mishinev, Rough idea by Radoslav Dimitrov)

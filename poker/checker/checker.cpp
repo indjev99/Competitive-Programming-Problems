@@ -35,15 +35,14 @@ void error(const std::string& message)
 double checkCheck(int self, int opponent)
 {
     if (self < opponent) return 0;
-    else return ante; 
+    else return ante;
 }
 
 double betCall(int self, int opponent)
 {
     if (self < opponent) return -betSize;
-    else return (ante + betSize); 
+    else return (ante + betSize);
 }
-
 
 void findExpProfit()
 {
@@ -133,11 +132,11 @@ void findExpProfit()
         firstExpProfits[i] /= (n - 1);
         secondExpProfits[i] /= (n - 1);
 
-        expProfit += firstExpProfits[i];
+        // expProfit += firstExpProfits[i];
         expProfit += secondExpProfits[i];
     }
 
-    expProfit /= 2 * n;
+    expProfit /= 1 * n;
 }
 
 void info()
@@ -215,19 +214,19 @@ void parseStrategy(std::ifstream& stratFile)
         if (word == "") continue;
 
         card = std::stoi(word) - 1;
-        
+
         word = "";
         lineStream >> word;
         if (word == "") error("Unexpected line end in.");
-    
+
         situation = word;
         if (situation.back() != ':') error("Expected ':' after situation.");
         situation = situation.substr(0, situation.size() - 1);
-        
+
         word = "";
         lineStream >> word;
         if (word == "") error("Unexpected line end.");
-    
+
         action = word;
 
         word = "";
@@ -298,7 +297,7 @@ int main(int argc, char *argv[])
     std::cout << std::fixed << std::setprecision(4) << score << std::endl;
     std::cerr << "Average profit: " << std::fixed << std::setprecision(4) << expProfit << std::endl;
 
-    //info();
+    info();
 
     return 0;
 }

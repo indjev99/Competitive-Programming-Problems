@@ -11,6 +11,7 @@ Classical problems:
 * Flights
 * Mushrooms (Collaboration with Encho Mishinev and Atanas Dimitrov)
 * Internship (Idea by Rusko Shikov)
+* NMST (Mostly by Hristo Venev)
 * Goblins (Idea by Dimitar Karev)
 * Hunter x Hunter
 * Lin

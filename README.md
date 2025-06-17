@@ -27,6 +27,7 @@ Classical problems:
 * Cancer (Mostly by Encho Mishinev, Idea by Radoslav Dimitrov)
 * Tunnels
 * Brackets (Solution idea by Encho Mishnev, Idea by Ivo Karagyozov)
+* Subway (Collaboration Deyan Hadzhi-Manich, Idea by Radoslav Dimitrov and Martin Kopchev)
 * Heaps
 * Towers (Solution idea by Encho Mishinev, Rough idea by Radoslav Dimitrov)
 * Compromise (Collaboration with Encho Mishinev)

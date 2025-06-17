@@ -1,0 +1,77 @@
+Alice frequently finds herself sorting lists of numbers by hand and she's gotten sick of it.
+Finally, she's bought a machine that can do the sorting for her.
+However, the machine is quite limited and she is not sure how to use it to sort numbers.
+
+The machine has M=10^5 8-bit registers (i.e. storing values between 0 and 255), indexed from 0 to M-1.
+The machine cannot input or output data; it can only execute operations on its registers.
+The operations are specified as follows:
+IN_1 IN_2 OUT TABLE[256][256]
+The machine will read the values at registers IN_1 and IN_2: V_1 and V_2.
+Then it will compute the result as U = TABLE[V_1][V_2].
+Finally, it will set the value of register OUT to be U.
+Additionally, since the machine has only one register reader/writer, the indices of the 3 registers must be close to each other.
+Formally, the pairwise distances between IN_1, IN_2 and OUT all have to be no more than D=26.
+
+Since the machine cannot input or output data, the "input" data is just written to its registers before executing the operations (and all other registers contain random data) and the "output" data is read from its registers after executing the operations (and all other registers are ignored).
+The input and output are lists of numbers written in consecutive 8-tuples of registers in base 256 from least to most significant digit.
+
+The input format is a single number N (the number of numbers to sort) followed by the N numbers to sort: A_0 to A_{N - 1}. This means that the input takes up the first 8 * (N + 1) registers.
+
+For example N = 3, A[0] = 25655, A[1] = 500, A[2] = 1966081.
+The first 32 registers will contain:
+3 0 0 0 0 0 0 0 100 55 0 0 0 0 0 0 244 1 0 0 0 0 0 0 1 0 30 0 0 0 0 0
+
+The output format is just a list of N numbers, which should be the sorted values of A.
+In the above example we want the output to be 500, 25655, 1966081; i.e. the first 24 registers should contain:
+244 1 0 0 0 0 0 0 100 55 0 0 0 0 0 0 1 0 30 0 0 0 0 0
+
+Your task is to write a program which sends operations to the machine that will sort the list of numbers. Additionally, your goal is to try to minimize the number of operations the machine executes.
+
+Interaction:
+
+You need to implement:
+
+void sortNumbers(int maxN)
+
+It will be called only once.
+The given maxN is an upper bound for N for the test.
+
+You can call:
+
+void applyOp(int input1, int input2, int output, const std::vector<std::vector<int>>& opTable)
+
+Works as explained above.
+
+In the official grading system, the jury will simultaneously run your operations against T subtests (and the test will be passed if the numbers in all T subtests are correctly sorted). Notice that this does NOT mean that sortNumbers will be called T times.
+
+Constraints:
+
+1 <= N <= MAX_N <= 350
+0 <= A[i] <= 10^18
+M = 1e5
+D = 26
+T <= 30
+
+Subtasks:
+
+1. N = MAX_N = 2, А[i] <= 200 (10 points)
+2. N = MAX_N = 2 (9 points)
+3. N = MAX_N <= 150 (11 points)
+4. MAX_N <= 150 (11 points)
+5. N = MAX_N <= 350 (38 points)
+6. MAX_N <= 350 (21 points)
+
+Your score (fraction of points received) for a given subtask is the minimum score on any test in it.
+
+Scoring:
+
+Let C be the number of instructions you send to the machine on a given test.
+Also, let G = 2150000 be the target number of operations to get a full score.
+Then your score S for the test is:
+
+1. C <= G:
+    S = 1
+2. C >= 3 * G:
+    S = 0
+3. Otherwise:
+    S = (1 - 0.5 * (C / G - 1))^2.25

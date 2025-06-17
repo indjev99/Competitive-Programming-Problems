@@ -48,6 +48,7 @@ Non-standard problems:
 * Puzzle
 * Memory
 * Park
+* Ops
 * Robots
 * Counter
 * Transmission

@@ -1,0 +1,41 @@
+X/X' X' X/X' -> Fire
+
+? SlowR' FastL -> X''
+SlowR' FastL ? -> X''
+SlowR'' Wait FastL -> X''
+
+FastR SlowL' ? -> X''
+? FastR SlowL' -> X''
+FastR Wait SlowL'' -> X''
+
+X/X' Wait X/X' -> X'
+
+? X''/X' ? -> X'
+
+? Wait X'' -> Init
+X'' Wait ? -> Init
+
+Init Wait ? -> FastR
+X/X' Init ? -> SlowR
+
+? Wait Init -> FastL
+? Init X/X' -> SlowL
+
+? FastR X/X' -> FastL
+X/X' FastL ? -> FastR
+
+? FastR/FastL ? -> Wait
+FastR Wait ? -> FastR
+? Wait FastL -> FastL
+
+? SlowR ? -> SlowR'
+? SlowR' ? -> SlowR''
+? SlowR'' ? -> Wait
+SlowR'' Wait ? -> SlowR
+
+? SlowL ? -> SlowL'
+? SlowL' ? -> SlowL''
+? SlowL'' ? -> Wait
+? Wait SlowL'' -> SlowL
+
+? Wait ? -> Wait

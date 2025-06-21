@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\input{structure.tex}
+\renewcommand{\bottomtitlespace}{3cm}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\preto{\@verbatim}{\topsep=0pt \partopsep=0pt}
+\makeatother
+
+\begin{document}
+
+\problem{Problem AT32. Sync}
+\addauthor{Author: Emil Indzhev}{2025}{06}{20}
+\renewcommand{\header}{
+	TRAINING COMPETITION FOR THE\\
+	BULGARIAN EXTENDED NATIONAL TEAM\\
+	Bankya, 20 June 2025\\
+	Group A
+}
+
+A group of $N$ robots standing in a line are trying to fire a signal at the same time. The robots are quite limited -- the only thing they remember is what state they are in. The only other thing they see is what states their neighbors' states. The only thing they can do is updating their state. The robots all run on the same clock, i.e. all of them update their states at the same time.
+
+Formally, at each time step robot $i$ ($1 \leq i \leq N)$ is in some state $S_i$. Then it has to choose what state to transition to for the next time step. This can depend only on $S_{i-1}$, $S_i$ and $S_{i+1}$. The robot may choose to stay in state $S_i$ or transition to any other valid state. All robots share the same rule-set (i.e. the robot does not know its index $i$). All robots choose their next state based on the states of the robots at the current time step and then they all update their states simultaneously. The leftmost and rightmost robots see the fictitious state \verb|X| on their left and right, respectively. I.e. we set $S_0$ and $S_{N+1}$ to \verb|X|. The robots cannot enter state \verb|X|.
+
+The robots are normally kept in the special built-in state \verb|Wait|. They have hard-coded rules such that, if a robot is in state \verb|Wait| and only sees \verb|Wait| and/or \verb|X| on each of its sides, it will stay in \verb|Wait|.
+
+Notice that, if all robots start in \verb|Wait|, no progress will happen. Thus, at time step 0, all robots are in \verb|Wait| except the leftmost one (i.e. robot $1$), which is put in the built-in state \verb|Init|. That state has no restrictions on how it is used (unlike \verb|Wait|).
+
+The robots will then keep updating their states on each timestep until some robot enters
+the special built-in state \verb|Fire| (or until the time limit is up). The goal is for all
+robots to enter \verb|Fire| on that same timestep. They win, if they do this, and lose,
+if only some robots enter \verb|Fire|, or no robots enter \verb|Fire| before the time is up.
+
+Your job is to design a set of states and a rule-set for the robots so that they can synchronize and fire the signal at the same time. The rule-set should work for all allowed values of $N$ within the time steps limit, which is $5N$. Additionally, you may not use more than $40$ distinct states (not counting \verb|X| and \verb|Fire|). Finally, you should also try to further minimize the number of states used, as you will be scored based on that.
+
+You will need to submit a \verb|.txt| file with a list of transition rules to the grading system. You do not need to ``declare'' states -- all states mentioned in the rules you list are implicitly declared. State names can be arbitrary sequences of non-whitespace printable ASCII characters except \verb|/| and \verb|#|. The file should have one rule per line (lines without rules are also allowed). Additionally, everything on a line after a \verb|#| is considered a comment and is ignored. The rule format is as follows:
+
+\begin{verbatim}
+L M R -> E
+\end{verbatim}
+
+This means that a robot in state \verb|M| who sees their left neighbor in state \verb|L| and their right neighbor in \verb|R| transitions to state \verb|E|. For convenience, for \verb|L|, \verb|M| or \verb|R|, you can list multiple states separated by \verb|/| (without spaces) or use \verb|?| as a wildcard
+that matches with every possible state. Additionally, \verb|L|, \verb|M| and \verb|R| may not be \verb|Fire| (since the run ends as soon as a robot enters \verb|Fire|) and \verb|M| and \verb|E| may not be \verb|X| (since no robot may be in state \verb|X|). Example:
+
+\begin{verbatim}
+? A_0/Y^/10+ X -> Fire
+\end{verbatim}
+
+Here, the rightmost robot (since its right neighbor is in \verb|X|), when in states
+\verb|A_0|, \verb|Y^| or \verb|10+| will enter \verb|Fire| regardless of its left neighbor (since the rule has \verb|?|); this will end the run.
+
+When there are multiple matching rules for some robot's situation, the top-most one (in the order in the rule-set) takes precedence. Example:
+
+\begin{verbatim}
+Wait ? B -> Wait
+? C B/Init -> A
+\end{verbatim}
+
+If the actual configuration is \verb|Wait C B|, both rules would match, but the middle robot will enter state \verb|Wait|, since that rule is first.
+
+Note the built-in rule about \verb|Wait|, which is implicitly listed before the rules you write in your rule set (i.e. has higher precedence):
+
+\begin{verbatim}
+X/Wait Wait X/Wait -> Wait
+\end{verbatim}
+
+Also note that you do not need to define transition rules for all triples of states. Not defining a rule is only an issue, if that configuration actually occurs (in which case the verdict is Wrong Answer).
+
+Here is an example of a full (but unsuccessful) rule-set ran with $N=3$:
+
+\begin{verbatim}
+? Init ? -> Wait # Init always turns into a Wait
+? Wait ? -> A' # Wait with a non-Wait neighbor turns into an A'
+
+# Next are the transitions from A'
+Wait A' Wait -> Wait
+? A' X -> Init
+Wait/X A' ? -> _B2
+? A' ? -> A'
+
+# Finally _B2 fires
+X/_B2 _B2 A'/_B2 -> Fire
+\end{verbatim}
+
+Running this rule-set yields the following sequence of robot states:
+
+\begin{verbatim}
+Init Wait Wait
+Wait A' Wait
+A' Wait A'
+_B2 A' Init
+Fire A' Wait
+\end{verbatim}
+
+The run ends since a robot entered \verb|Fire|. However, the robots lose since not all of them did.
+
+\subsection{Local testing}
+
+You are provided with a simulator that will read $N$ and then your list of rules (until the end of input, which you can ``type'' with Ctrl+Z on Windows). The simulator will then run your rule-set on the given $N$ until the run ends (due to a robot firing or due to the number of time steps exceeding the limit). It will print the sequence of states on each time step as well as the total number of time steps and the total number of states. You may modify the simulator's code however you want.
+
+\subsection{Constraints}
+\vspace{0.1em}
+
+\begin{itemize}
+\item $2 \leq N \leq 2500$
+\item $\textrm{Number of time steps} \leq 5N$
+\item $\textrm{Number of states} \leq 40$
+\end{itemize}
+
+\newpage
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Points} & $N$ \\
+\hline
+$1$ & $7$ & $\leq 5$ \\
+\hline
+$2$ & $6$ & $\leq 15$ \\
+\hline
+$3$ & $14$ & $= 2^K$ \\
+\hline
+$4$ & $14$ & $= 2^K + 1$ \\
+\hline
+$5$ & $14$ & $= 2^K - 1$ \\
+\hline
+$6$ & $14$ & $= 2^K - 2$ \\
+\hline
+$7$ & $31$ & No restrictions \\
+\hline
+\end{tblr}
+\caption*{You get points for a given subtask only if your program passes all tests in it and all other subtasks included in its constraints.}
+\end{table}
+\FloatBarrier
+
+\subsection{Scoring}
+
+Subtasks 1 and 2 will not have partial scoring -- you either get the full points or not. For all other subtasks, your score (the fraction of the points you receive) depends on the number of states you use (not counting \verb|X| and \verb|Fire|). Let's call that number $M$.
+Then your score $S$ is:
+
+\begin{itemize}
+\item If $M \leq 7$: $S = 1$
+\item Otherwise: $S = \left( \frac{7}{M} \right) ^ {0.6}$
+\end{itemize}
+
+\end{document}

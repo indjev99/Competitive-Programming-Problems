@@ -1,0 +1,53 @@
+X/Init Init X/Init -> Fire
+
+Init Wait Init -> FastB
+
+Init Wait ? -> FastR
+X/Init Init ? -> SlowR
+
+? Wait Init -> FastL
+? Init X/Init -> SlowL
+
+? Init ? -> SlowB
+
+? SlowR'/SlowB' FastR'/FastB' -> Init
+SlowR'/SlowB' FastR'/FastB' ? -> Init
+SlowR''/SlowB'' Wait FastR'/FastB' -> Init
+
+FastL'/FastB' SlowL'/SlowB' ? -> Init
+? FastL'/FastB' SlowL'/SlowB' -> Init
+FastL'/FastB' Wait SlowL''/SlowB'' -> Init
+
+FastR Wait FastL -> FastB
+? FastB ? -> FastB'
+? FastB' ? -> Wait
+? Wait FastB' -> FastR'
+FastB' Wait ? -> FastL'
+
+? FastR X/FastL -> FastR'
+? FastR/FastR' ? -> Wait
+FastR Wait ? -> FastR
+? Wait FastR' -> FastR'
+
+X/FastR FastL ? -> FastL'
+? FastL/FastL' ? -> Wait
+? Wait FastL -> FastL
+FastL' Wait ? -> FastL'
+
+? SlowR ? -> SlowR'
+? SlowR' ? -> SlowR''
+? SlowR'' ? -> Wait
+SlowR'' Wait ? -> SlowR
+
+? SlowL ? -> SlowL'
+? SlowL' ? -> SlowL''
+? SlowL'' ? -> Wait
+? Wait SlowL'' -> SlowL
+
+? SlowB ? -> SlowB'
+? SlowB' ? -> SlowB''
+? SlowB'' ? -> Wait
+? Wait SlowB'' -> SlowL
+SlowB'' Wait ? -> SlowR
+
+? Wait ? -> Wait

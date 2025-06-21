@@ -1,0 +1,66 @@
+X/PermaWall PermaWall X/PermaWall -> Fire
+
+? PermaWall ? -> PermaWall
+
+X/PermaWall ? X/PermaWall -> PermaWall
+
+X/PermaWall Wall1 ShotFinal -> PermaWall
+Wall1 ShotFinal X/PermaWall -> PermaWall
+ShotFinal Wall1 X/PermaWall -> PermaWall
+X/PermaWall ShotFinal Wall1 -> PermaWall
+
+
+X/PermaWall Init ? -> Wall1
+? Init X/PermaWall -> Wall1
+Init ? ? -> Rocket
+? ? Init -> Rocket
+
+Rocket PermaWall ? -> PermaWall
+? PermaWall Rocket -> PermaWall
+Rocket Wait Rocket -> PermaWall
+Rocket Wait/Wall2 ? -> Rocket
+? Wait/Wall2 Rocket -> Rocket
+
+? Rocket X/PermaWall -> ShotFinal
+Shot Rocket ? -> Shot
+Wall1 Rocket ? -> Shot
+X/PermaWall Rocket ? -> ShotFinal
+? Rocket Shot -> Shot
+? Rocket Wall1 -> Shot
+
+? Wall1 Shot -> Wall2
+Shot Wall1 ? -> Wall2
+
+X/PermaWall/Wall2 Wait Shot -> Wall1
+Shot Wait X/PermaWall/Wall2 -> Wall1
+
+Wall2 Wait ShotFinal -> Init
+ShotFinal Wait Wall2 -> Init
+
+Wait/Wall2 Init Wait/Wall2 -> Wait
+Wait/Wall2 Rocket Wait/Wall2 -> Wall1
+
+Rocket Rocket Rocket -> PermaWall
+? Rocket Rocket -> Wall1
+Rocket Rocket ? -> Wall1
+
+X/PermaWall/Wall2 Wall1 ShotFinal -> Init
+Wall1 ShotFinal ? -> Init
+ShotFinal Wall1 X/PermaWall/Wall2 -> Init
+? ShotFinal Wall1 -> Init
+
+
+Shot ? Shot -> Shot
+Wall1/Wall2 ? Shot -> Shot
+Shot ? Wall1/Wall2 -> Shot
+Shot/Wall1/Wall2 ? ShotFinal -> ShotFinal
+ShotFinal ? Shot/Wall1/Wall2 -> ShotFinal
+
+? Shot ? -> Wait
+? ShotFinal ? -> Wait
+
+X/PermaWall/Wall2 Wall2 X/PermaWall/Wall2 -> Wait
+? Wall2 ? -> Wall2
+? Wall1 ? -> Wall1
+
+? Wait ? -> Wait

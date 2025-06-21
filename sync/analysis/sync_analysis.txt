@@ -1,0 +1,35 @@
+Author: Emil Indzhev
+
+This problem is known in the literature as the "Firing squad synchronization problem". You can find a lot of information on it online.
+
+Subtasks 1 and 2
+
+These subtasks are intended for solutions with explcit counters that need O(N^2) states for subtask 2 or O(N) states for subtask 2.
+
+Full problem
+
+As hinted by subtasks 3-6, the solution to the problem is a divide and conquer approach. The subtasks are there in case the solution only works with some parity and some particular way of splitting (e.g. whether it eliminates the points on the split or not). Solutions that pass for one of these subtasks should be easy enough to generalize with a bit of debugging and handling odd/even cases.
+
+The simplest solution actually needs ~3N (3N + O(log N)) time, but the time limit is set to more due to some worse solutions that need more time (such as ~4N). The optimal for this problem is actually 2N - 2, which is precisely the theoretic lower bound. Also this can be done with just 5 states (including Wait and Init). However, we require 7 states for a 100 points because the 5 and 6 states solutions ae quite hard.
+
+Now let's see how to actually solve the problem. The key part is to find the middle of the line (the middle robot or the middle two robots). The easiest way is to send 1 "signal" from left to right that then bounces from the right wall and starts moving left. At the same time send another signal from left ot right that moves every 3 steps. We can do this by making that signal pass through 3 states and then moving (and going back to state 1). Finally, when the slow and fast signals collide that is the middle (the slow signal covered 1/2 N cells of the tape in 3/2 N time and the fast signal covered N + 1/2 N cells of the tape in the same time). Depending on how they collide, we can deduce the parity of N. And alternative idea is to make the fast signal send back signals every second step that move the slow signal/accumulator. That way the fast signal reaches the end (and disappears instead of bouncing back) and sends 1/2 N back signals in total, so we can have a slow signal/accumulator end its movement at 1/2 N -- i.e. the middle (alternatively the fast signal sends on every step and the slow one moves on every two received back signals).
+
+After that, we just need to recursively do the same thing in each half (find their middles and so on). This takes 3/2 N + 3/2 N / 2 + 3/2 N / 4 + ... = 3N time steps. Finally when every cell is a middle (i.e. every cell neighbors a middle on each of its sides), they can fire.
+
+There are many possible details about how to handle the details. One option is when find the/a middle to leave a "wall" there that stays there and acts as an X until the end (and then when all walls border walls they fire).
+
+Alternatively, we can just not leave a wall and make the fast signals on each side bounce off of each other; this is easy when N is even, but when it is odd we need to count this old middle as belonging to each half and have special states that represent two fast signals about to collide and two fast signals that already collided. We also need to take care of spawning the slow signal on each side, e.g. by having a special bidirectional slow signal that will split into two when it moves. This is a bit more complicated and actually needs more states to start with, but is easier to optimize down to 7 states than the other version (since it doesn't need extra states for wall we place).
+
+You can find easier to understand the solutions with more states in the sample solutions and observe and study them on various values of N in the simulator. Then you can find their gradually improved versions to understand how they are optimized. Some common tricks are combining states that do similar things where it is possible to deduce from their environments which version they are. Or in some extreme cases combine totally unrelated states that happen to never be used in the same contexts. Also, we may introduce some special indicator state that we use to distinguish multiple pairs of possible states in adjacent cells (and thus merge them). You can see this with the Wait' state in some solutions that acts as a trail to the slow and fast signals to indicate their direction (instead of having extra states per direction and the two sided versions).
+
+The model 7 states solution (sync_nowall_7.txt) has the following states:
+
+Wait -- empty space
+
+Wait' -- empty space that is a trail of a fast or slow signal; disappears when the signal is about to move (i.e. immediatelly for the fast signal)
+
+Fast -- fast signal (1 timestep per cell) that bounces off walls and other fast signals (moving in opposite directions); spawns a Wait' trail behind itself (or rather in its place when it moves); moves in the direction of a Wait instead of a Wait'; if Wait' is on both sides, it remains and, if Wait is on both sidesm,it splits into boths sides
+
+Slow/Slow'/Slow'' -- the three phases of the slow signal; also spawns a Wait' trail and moves in the direction of a Wait instead of a Wait'; if Wait is on both sides it splits into boths sides
+
+Init -- spawns a fast signal on each of its free sides (a free side is one that is not Init or X) and turns into a slow signal; Init is spawned when a fast and a slow signal collide (if the chunk is odd it is on the middle cell, otherwise on the middle two cells); turns into Fire when it borders only Init cells

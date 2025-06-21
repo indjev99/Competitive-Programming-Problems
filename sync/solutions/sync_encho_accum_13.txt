@@ -1,0 +1,71 @@
+PreFinal ? X/PermaWall -> Fire
+X/PermaWall ? PreFinal -> Fire
+PreFinal ? PreFinal -> Fire
+X/PermaWall PreFinal X/PermaWall -> Fire
+
+? PermaWall ? -> PermaWall
+
+X/PermaWall ? X/PermaWall -> PreFinal
+
+X/PermaWall Wall1 ShotLeftFinal -> PreFinal
+Wall1 ShotLeftFinal X/PermaWall -> PreFinal
+ShotRightFinal Wall1 X/PermaWall -> PreFinal
+X/PermaWall ShotRightFinal Wall1 -> PreFinal
+
+
+X/PermaWall Init ? -> Wall1
+? Init X/PermaWall -> Wall1
+Init ? ? -> RocketRight
+? ? Init -> RocketLeft
+
+RocketRight PermaWall ? -> PermaWall
+? PermaWall RocketLeft -> PermaWall
+RocketRight ? ? -> RocketRight
+? ? RocketLeft -> RocketLeft
+
+? RocketRight X/PermaWall -> ShotLeftFinal
+? RocketRight ? -> ShotLeft
+X/PermaWall RocketLeft ? -> ShotRightFinal
+? RocketLeft ? -> ShotRight
+
+? Wall1 ShotLeft -> Wall2
+ShotRight Wall1 ? -> Wall2
+
+Wall1 ShotLeft ShotLeft -> Wall1
+ShotRight ShotRight Wall1 -> Wall1
+Wall1 ShotLeft ShotLeftFinal -> PerfectMid
+ShotRightFinal ShotRight Wall1 -> PerfectMid
+
+X/PermaWall/Wall2 Wait ShotLeft -> Wall1
+ShotRight Wait X/PermaWall/Wall2 -> Wall1
+
+X/PermaWall/Wall2 Wait ShotLeftFinal -> PerfectMid
+ShotRightFinal Wait X/PermaWall/Wall2 -> PerfectMid
+
+X/PermaWall/Wall2 Wall1 ShotLeftFinal -> PerfectMid
+Wall1 ShotLeftFinal ? -> PerfectMid
+ShotRightFinal Wall1 X/PermaWall/Wall2 -> PerfectMid
+? ShotRightFinal Wall1 -> PerfectMid
+
+
+? ? ShotLeft -> ShotLeft
+? ? ShotLeftFinal -> ShotLeftFinal
+ShotRight ? ? -> ShotRight
+ShotRightFinal ? ? -> ShotRightFinal
+
+? ShotLeft ? -> Wait
+? ShotRight ? -> Wait
+? ShotLeftFinal ? -> Wait
+? ShotRightFinal ? -> Wait
+
+
+? PerfectMid ? -> PermaWall
+? ? PerfectMid -> Init
+PerfectMid ? ? -> Init
+
+
+X/PermaWall/Wall2 Wall2 X/PermaWall/Wall2 -> Wait
+? Wall2 ? -> Wall2
+? Wall1 ? -> Wall1
+
+? Wait ? -> Wait

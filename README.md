@@ -51,6 +51,7 @@ Non-standard problems:
 * Memory
 * Park
 * Ops
+* Sync
 * Robots
 * Counter
 * Transmission

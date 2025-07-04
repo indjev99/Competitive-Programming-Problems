@@ -276,7 +276,7 @@ std::vector<bool> decode(int n, std::vector<std::pair<int, int>> tree)
             int br = dfsEnd(i, -1);
 
             if (br == B_MULTI) continue;
-    
+
             ends.push_back(i);
         }
 

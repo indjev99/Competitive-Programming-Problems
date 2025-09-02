@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{2-oji diena}
+\renewcommand{\problemName}{Užduotis: Navigacija}
+\renewcommand{\lang}{Lithuanian}
+
+\renewcommand{\tl}{$3$ sek.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+Duotas \textbf{jungus bekryptis paprastasis kaktuso grafas}\textsuperscript{1} su $N \leq 1000$ viršūnių ir $M$ briaunų. Jo viršūnės yra spalvotos (spalvos pažymėtos neneigiamais sveikaisiais skaičiais nuo $0$ iki $1499$). Iš pradžių visos viršūnės turi spalvą $0$. \textbf{Deterministinis robotas be atminties}\textsuperscript{2} tyrinėja grafą judėdamas tarp viršūnių. Jis turi aplankyti visas viršūnes bent kartą, ir tada išsijungti.
+
+Robotas pradeda judėti iš tam tikros viršūnės, kuri gali būti bet kuri iš grafo viršūnių. Kiekvieno žingsnio metu robotas mato dabartinės viršūnės spalvą, ir visų kaimyninių viršūnių spalvas \textbf{tam tikra tvarka, fiksuota dabartinei viršūnei} (t.y., aplankydamas tą pačią viršūnę dar kartą robotas matys tą pačią viršūnių tvarką, net jei jų spalvos pasikeitė). Robotas atlieka vieną iš šių dviejų veiksmų:
+\begin{enumerate}
+    \item Nusprendžia išsijungti.
+    \item Parenka naują (ar galimai tą pačią) spalvą dabartinei viršūnei, ir pasirenka kaimyninę viršūnę, į kurią jis planuoja judėti. Kaimyninė viršūnė yra nusakoma indeksu nuo $0$ iki $D-1$, kur $D$ yra kaimyninių viršūnių skaičius.
+\end{enumerate}
+
+Antruoju atveju, dabartinė viršūnė yra perdažoma (arba galimai lieka tos pačios spalvos) ir robotas pajuda į pasirinktą kaimyninę viršūnę. Tai kartojasi tol, kol robotas išsijungia, arba pasiekia iteracijų limitą. Jei robotas neaplanko visų viršūnių iki išsijungimo, arba pasiekia iteracijų limitą, jis pralaimi. Iteracijų limitas lygus $L = 3000$ žingsnių.
+
+Sukurkite roboto strategiją, kuri galėtų išspręsti šią užduotį bet kuriam tokiam kaktuso grafui. Be to, pabandykite minimizuoti skirtingų spalvų skaičių, kurį naudoja jūsų sprendimas. Spalva $0$ įtraukta į naudojamas spalvas.
+
+\textsuperscript{1}\textit{Jungus bekryptis paprastasis kaktuso grafas yra jungus bekryptis paprastasis grafas (kiekviena viršūnė yra pasiekiama iš bet kurios kitos viršūnės; briaunos neturi krypties; nėra kilpų, o kiekvieną viršūnių porą jungia ne daugiau nei viena briauna), kuriame kiekviena briauna priklauso daugiausiai vienam paprastajam ciklui (paprastasis ciklas yra ciklas, kuriame kiekviena viršūnė pasikartoja daugiausiai vieną kartą). Žemiau esanti iliustracija yra pavyzdys.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Robotas yra deterministinis ir be atminties, jei jo veiksmai priklauso tik nuo dabartinių duomenų (t.y., jis nesaugo jokios informacijos iš praėjusių žingsnių), ir su tais pačiais pradiniais duomenimis jis visada pasirenka tą patį veiksmą.}
+
+\subsection{Realizacija}
+Roboto stategija realizuojama šia funkcija:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Ji gauna du parametrus: dabartinės viršūnės spalvą bei visų kaimyninių viršūnių spalvas (tam tikra tvarka). Ji turi grąžinti porą, kurios pirmasis elementas yra nauja dabartinės viršūnės spalva, o antrasis elementas yra kaimyninės viršūnės indeksas, į kurią robotas turėtų judėti. Jei robotas turėtų sustoti ir išsijungti, funkcija turi grąžinti porą $(-1, -1)$.
+
+Ši funkcija bus kviečiama pakartotinai tam, kad būtų parinkti roboto veiksmai. Kadangi ji yra deterministinė, jei \texttt{navigate} jau buvo iškviesta su tam tikrais parametrais, ji niekada nebus vėl iškviečiama su tais pačiais parametrais; vietoj to, jo ankstesnė išvesta reikšmė bus pernaudota. Be to, kiekvienas testas gali turėti $T \leq 5$ dalinių testų (su skirtingais grafais ar/ir pradinėmis pozicijomis), kurie gali būti kviečiami tuo pačiu metu (t.y., jūsų programa gali būti iškviesta iš pakaitomis besikeičiančių dalinių testų). Galiausiai, \texttt{navigate} gali būti iškviesta \textbf{skirtingose} jūsų programos \textbf{kopijose} (bet gali būti kviečiama ir toje pačioje programos kopijoje). Bendras jūsų programos kopijų skaičius yra $P = 100$. Dėl šios priežasties, jūsų programa neturi perduoti informacijos tarp skirtingų iškvietimų.
+
+\subsection{Ribojimai}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Spalva} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Vertinimas}
+
+Taškų, kuriuos gausite, už konkrečią dalinę užduotį, dalis $S$ priklausys nuo $C$ -- maksimalaus skirtingo spalvų skaičiaus, kurį naudoja jūsų sprendimas (įskaičiuojant spalvą $0$) iš visų tos dalinės užduoties dalinių testų ar bet kurios kitos reikalingos dalinės užduoties:
+
+\begin{itemize}
+\item Jei jūsų sprendimas neįveikia nei vieno dalinio testo, tuomet $S = 0$.
+\item Jei $C \leq 4$, tuomet $S = 1.0$.
+\item Jei $4 < C \leq 8$, tuomet $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Jei $8 < C \leq 21$, tuomet $S = 0.4 \frac{8}{C}$.
+\item Jei $C > 21$, tuomet $S = 0.15$.
+\end{itemize}
+
+\subsection{Dalinės užduotys}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Dalinė užduotis} & \textbf{Taškai} & \textbf{\makecell{Reikaingos\\dalinės užduotys}} & $N$ & \textbf{Papildomi ribojimai}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Pavyzdys. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Grafas yra ciklas.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Grafas yra žvaigždė.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Grafas yra takas.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Grafas yra medis.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Visos viršūnės turi ne daugiau nei $3$ kaimynines viršūnes ir viršūnė, kurioje robotas pradeda judėti, turi $1$ kaimyninę viršūnę. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Grafas ciklas turi šias briaunas: $\left(i, (i+1) \bmod N\right)$ visiems $0 \leq i < N$. \\
+\textsuperscript{2}Grafas žvaigždė turi šias briaunas: $\left(0, i\right)$ visiems $1 \leq i < N$. \\
+\textsuperscript{3}Grafas takas turi šias briaunas: $\left(i, i+1\right)$ for $0 \leq i < N - 1$. \\
+\textsuperscript{4}Medis yra grafas be ciklų.}
+\end{table}
+\FloatBarrier
+
+\subsection{Pavyzdys}
+
+Nagrinėkime paprastąjį grafą iš šios sąlygos iliustracijos, kuris turi $N=7$, $M=8$ bei viršūnes $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ ir $(2, 6)$. Papildomai, kadangi elementų tvarka viršūnių kaiminysčių sąraše yra svarbi, pateikiame šią tvarką lentelėje:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Viršūnė}} & \textbf{Kaimyninės viršūnės} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Tarkime, kad robotas pradeda judėti viršūnėje $5$. Tai yra viena iš galimų (nesėkmingų) interakcijos sekų:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Spalvos}} & \textbf{\makecell{Viršūnė}} & \textbf{\makecell{Kvietinys į \texttt{navigate}}} & \textbf{Grąžinta reikšmė} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Šiame pavyzdyje robotas iš viso panaudojo $6$ skirtingas spalvas: $0$, $1$, $2$, $3$, $4$ ir $8$ (atkreipkite dėmesį, kad $0$ būtų įskaičiuota kaip panaudota spalva, net jeigu robotas nebūtų grąžinęs spalvos $0$, nes visų viršūnių pradinė spalva yra $0$). Robotas įvykdė $9$ iteracijas prieš išsijungdamas. Tačiau, jis neįveikė šio dalinio testo, nes jis išsijungė neaplankęs viršūnės $1$.
+
+\textsuperscript{1}Atkreipkite dėmesį, kad  \texttt{navigate} $4$-os iteracijos metu iš tikrųjų nebūtų iškviesta. Tai yra todėl, kadangi jis yra ekvivalentus iškvietimui $1$-oje iteracijoje, tad vertinimo programa paprasčiausiai pakartotinai panaudotų jūsų funkcijos to iškvietimo grąžintą reikšmę. Vis dėlto, ši iteracija vis tiek yra įtraukiama į roboto atliktų interakcijų skaičių.
+
+\subsection{Pavyzdinė vertinimo programa}
+
+Pavyzdinė vertinimo programa nepaleidžia daugybės programos kopijų, todėl visi iškvietimai į \texttt{navigate} bus atliekami toje pačioje jūsų programos kopijoje.
+
+
+Pradinių duomenų formatas: Pirmiausia $T$ (dalinių testų skaičius) yra perskaitomas. Tada, kiekvienam daliniui testui:
+\begin{itemize}
+\item $1$-oji eilutė: du sveikieji skaičiai -- $N$ ir $M$;
+\item $2+i$-oji eilutė (kiekvienam $0 \leq i < M$): du sveikieji skaičiai -- $A_i$ ir $B_i$, kurie apibūdina dvi viršūnes, kurias jungia briauna $i$ ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+Pavyzdinė vertinimo progama tada išves skirtingų spalvų skaičių, kurį panaudojo jūsų sprendimas, ir atliktą iteracijų skaičių iki išsijungimo. Kitu atveju, ji išves klaidos pranešimą, jei jūsų sprendimas buvo nesėkmingas.
+
+Pagal nutylėjimą, pavyzdinė vertinimo progama spausdina išsamią informaciją apie tai, ką robotas mato bei daro kiekvienos iteracijos metu. Jūs galite tai išjungti, pakeisdami \texttt{DEBUG} vertę iš \texttt{true} į \texttt{false}.
+
+\end{document}

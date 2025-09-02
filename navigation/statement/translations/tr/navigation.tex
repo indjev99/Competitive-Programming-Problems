@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 2}
+\renewcommand{\problemName}{Görev Navigasyon \\ (Task Navigation)}
+\renewcommand{\lang}{Türkçe}
+
+\renewcommand{\tl}{$3$ saniye}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+$N \leq 1000$ düğüm ve $M$ kenara sahip bir \textbf{bağlı yönsüz basit kaktüs çizgesi}\textsuperscript{1} vardır. Bu çizgenin düğümleri renkli olup (0 ile 1499 arasında negatif olmayan tamsayılarla gösterilir) başlangıçta tüm düğümlerin rengi 0'dır. Bir \textbf{deterministik hafızasız robot}\textsuperscript{2}, düğümden düğüme hareket ederek çizgeyi keşfeder. Robot, tüm düğümleri en az bir kez ziyaret etmeli ve ardından bu işlemi sonlandırmalıdır. 
+
+Robot, çizgedeki herhangi bir düğümden başlayabilir. Her adımda, mevcut düğümünün rengini ve tüm komşu düğümlerin renklerini \textbf{mevcut düğüm için sırası sabitlenmiş} şekilde görür (yani, bir düğümü tekrar ziyaret ettiğinde, renkleri öncekinden farklı olsa bile, robot aynı komşu düğüm serisini görür). Robot, aşağıdaki iki eylemden birini gerçekleştirir:
+\begin{enumerate}
+    \item Sonlandırmaya karar verir.
+    \item Mevcut düğüm için yeni (veya muhtemelen aynı) bir renk ve hangi komşu düğüme geçileceğini seçer. Komşu düğüm, $0$ ile $D-1$ arasında bir indeksle tanımlanır; burada $D$, komşu düğümlerin sayısıdır.
+\end{enumerate}
+
+İkinci durumda, mevcut düğüm yeniden renklendirilir (veya muhtemelen aynı renkte kalır) ve robot seçilen komşu düğüme hareket eder. Bu, robot sonlanana veya iterasyon limiti dolana kadar tekrarlanır. 
+Robot, tüm düğümleri ziyaret edip $L = 3000$ adımlık iterasyon sınırı içinde sonlandırırsa kazanır (aksi takdirde kaybeder).
+
+Bu tür kaktüs çizgelerinde problemi çözebilecek bir robot stratejisi tasarlamalısınız. Ayrıca, çözümünüzde kullandığınız farklı renk sayısını en aza indirmeye çalışmalısınız. Burada renk 0 her zaman kullanılmış olarak sayılır.
+
+\textsuperscript{1}\textit{Bağlı yönsüz basit kaktüs çizgesi, her kenarın en fazla bir basit döngüye ait olduğu (basit döngü, her düğümü en fazla bir kez içeren bir döngüdür) bağlı yönsüz basit bir çizgedir (her düğüm diğer tüm düğümlerden ulaşılabilir; kenarlar çift yönlüdür; kendi kendine döngü veya çoklu kenar içermez). Aşağıdaki resim bir örnektir.}
+
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.4\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Bir robot, eylemleri yalnızca mevcut girdilerine bağlıysa (yani bir adımdan diğer adıma veri depolamıyorsa) ve aynı girdiler verildiğinde her zaman aynı eylemi seçiyorsa, deterministik ve hafızasızdır.}
+
+\subsection{İmplementasyon detayları}
+Robotun stratejisi aşağıdaki fonksiyon ile kodlanmalıdır:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Parametre olarak mevcut düğümün rengini ve tüm komşu düğümlerin renklerini (sırayla) alır. Bu fonksiyon, ilk elemanı mevcut düğümün yeni rengi, ikinci elemanı ise robotun hareket etmesi gereken düğümün komşuluk indeksi olan bir çift dönmelidir. Bunun yerine robotun sonlandırması gerekiyorsa, fonksiyon $(-1, -1)$ çiftini dönmelidir.
+
+Bu fonksiyon, robotun eylemlerini seçmek için tekrar tekrar çağrılacaktır. Deterministik olduğu için, \texttt{navigate} bazı parametrelerle zaten çağrılmışsa, aynı parametrelerle bir daha asla çağrılmayacaktır; bunun yerine önceki dönen değer yeniden kullanılacaktır. Ek olarak, her test $T \leq 5$ alt test içerebilir (farklı çizgeler ve/veya başlangıç konumları) ve bunlar eşzamanlı olarak çalıştırılabilir (yani, programınız farklı alt testler hakkında dönüşümlü çağrılar alabilir). Son olarak, \texttt{navigate} çağrıları programınızın \textbf{farklı çalıştırmalarında} gerçekleşebilir (ancak bazen aynı çalıştırmada da gerçekleşebilir). Programınızın toplam çalıştırma sayısı $P = 100$'dür. Tüm bunlar nedeniyle, programınız farklı çağrılar arasında bilgi aktarmaya çalışmamalıdır.
+
+\subsection{Kısıtlar}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Color (Renk)} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Puanlama}
+
+Aldığınız alt görevin puanlarının $S$ kısmı, $C$ değerine bağlıdır. $C$, çözümünüzün o alt görevdeki veya diğer gerekli alt görevlerdeki herhangi bir testte kullandığı farklı renklerin (renk $0$ dahil) maksimum sayısıdır:
+
+\begin{itemize}
+\item Çözümünüz herhangi bir alt testte başarısız olursa, $S = 0$ olur.
+\item Eğer $C \leq 4$ ise $S = 1.0$.
+\item Eğer $4 < C \leq 8$ ise $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Eğer $8 < C \leq 21$ ise $S = 0.4 \frac{8}{C}$.
+\item Eğer $C > 21$ ise $S = 0.15$.
+\end{itemize}
+
+\subsection{Altgörevler}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Altgörev} & \textbf{Puan} & \textbf{\makecell{Gerekli\\altgörevler}} & $N$ & \textbf{Ek kısıtlar}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Örnek. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Çizge bir döngüdür.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Çizge bir yıldızdır.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Çizge bir yoldur.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Çizge bir ağaçtır.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Tüm düğümlerin en fazla 3 adet komşu düğümü vardır ve robotun başladığı düğümün 1 adet komşu düğümü vardır.\\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Bir döngü çizgesi şu kenarlara sahiptir: $\left(i, (i+1) \bmod N\right)$ for  $0 \leq i < N$. \\
+\textsuperscript{2}Bir yıldız çizgesi şu kenarlara sahiptir: $\left(0, i\right)$ for  $1 \leq i < N$. \\
+\textsuperscript{3}Bir yol çizgesi şu kenarlara sahiptir: $\left(i, i+1\right)$ for $0 \leq i < N - 1$. \\
+\textsuperscript{4}Ağaç, döngüsüz bir çizgedir.}
+\end{table}
+\FloatBarrier
+
+\subsection{Örnek}
+Görüntüdeki örnek çizgeyi ele alalım. Bu çizgede $N=7$, $M=8$ ve kenarlar $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ ve $(2, 6)$ vardır. Ayrıca, düğümlerin komşuluk listelerindeki elemanların sıralamaları da önemli olduğundan, bunları bu tabloda veriyoruz:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Düğüm}} & \textbf{Komşu düğümler} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Robotun $5$ düğümünden başladığını varsayalım. O zaman aşağıdaki, olası (başarısız) etkileşim serisidir:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Renkler}} & \textbf{\makecell{Düğüm}} & \textbf{\makecell{ \texttt{navigate} olan çağrı}} & \textbf{Dönen değer} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Burada robot toplam $6$ farklı renk kullandı: $0$, $1$, $2$, $3$, $4$ and $8$ (tüm düğümler $0$ rengiyle başladığı için, robot $0$ rengini hiç dönmemiş olsa bile $0$ kullanılmış sayılırdı). Robot, sonlandırılmadan önce 9 iterasyon yaptı. Ancak, $1$ düğümünü ziyaret etmeden sonlandırıldığı için başarısız oldu.
+
+\textsuperscript{1} İterasyon $4$'te \texttt{navigate} çağrısının aslında gerçekleşmeyeceğini unutmayın. Bunun nedeni, bu çağrının iterasyon $1$'deki çağrıya eşdeğer olmasıdır, bu nedenle grader, eski çağrıdan fonksiyonunuzun dönme değerini yeniden kullanacaktır. Ancak bu, yine de robotun bir iterasyonu olarak sayılır.
+
+\subsection{Örnek grader}
+
+Örnek grader, programınızı birden fazla kez çalıştırmaz, bu nedenle \texttt{navigate} fonksiyonuna yapılan tüm çağrılar programınızın aynı çalıştırmasında yer alır.
+
+Girdi formatı şu şekildedir: İlk olarak $T$ (alt testlerin sayısı) okunur. Ardından her bir alt test için:
+\begin{itemize}
+\item satır $1$: iki tamsayı -- $N$ ve $M$;
+\item satır $2+i$ ($0 \leq i < M$ için): iki tamsayı -- $A_i$ ve $B_i$, bunlar $i$ kenarının bağladığı iki düğümdür ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+Örnek grader, çözümünüzün kullandığı farklı renklerin sayısını ve sonlandırılmadan önce ihtiyaç duyduğu iterasyon sayısını yazdıracaktır. Alternatif olarak, çözümünüz başarısız olursa bir hata mesajı yazdıracaktır.
+
+Varsayılan olarak, örnek grader robotun her iterasyonda gördüğü ve yaptığı ile ilgili ayrıntılı bilgiler yazar. \texttt{DEBUG} değerini \texttt{true} yerine \texttt{false} olarak değiştirerek bunu devre dışı bırakabilirsiniz.
+
+\end{document}

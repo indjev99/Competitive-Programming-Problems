@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Dan 2}
+\renewcommand{\problemName}{Task Navigiranje}
+\renewcommand{\lang}{Hrvatski}
+
+\renewcommand{\tl}{$3$ sek.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+Postoji \textbf{povezani neusmjereni jednostavni kaktusni graf}\textsuperscript{1} s $N \leq 1000$ čvorova i $M$ bridova. Njegovi čvorovi imaju boje (označene nenegativnim cijelim brojevima od $0$ do $1499$). U početku svi čvorovi imaju boju $0$. \textbf{deterministički robot bez memorije}\textsuperscript{2} istražuje graf krećući se od čvora do čvora. Mora posjetiti sve čvorove barem jednom, a zatim završiti.
+
+Robot počinje na nekom čvoru, koji može biti bilo koji od čvorova u grafu. U svakom koraku vidi boju svog trenutnog čvora i boje svih susjednih čvorova \textbf{u nekom redoslijedu fiksnom za trenutni čvor} (tj. ponovni posjet čvoru dat će robotu isti niz susjednih čvorova, čak i ako su im boje drugačije nego prije). Robot izvodi jednu od sljedeće dvije radnje:
+\begin{enumerate}
+\item Odlučuje završiti.
+\item Odabire novu (ili eventualno istu) boju za trenutni čvor i susjedni čvor na koji se treba pomaknuti. Susjedni čvor identificira se indeksom od $0$ do $D-1$, gdje je $D$ broj susjednih čvorova.
+\end{enumerate}
+
+U drugom slučaju, trenutni čvor se prebojava (ili eventualno ostaje iste boje) i robot se pomiče na odabrani susjedni čvor. To se ponavlja sve dok robot ne završi ili dok ne dosegne ograničenje iteracije. Robot pobjeđuje ako posjeti sve čvorove, a zatim završi unutar ograničenja iteracije od $L = 3000$ koraka (inače gubi).
+
+Trebali biste osmisliti strategiju za robota koja može riješiti problem na bilo kojem takvom grafu kaktusa. Osim toga, trebali biste pokušati smanjiti broj različitih boja koje vaše rješenje koristi. Ovdje se boja 0 uvijek računa kao korištena.
+
+\textsuperscript{1}\textit{Povezani neusmjereni jednostavni graf kaktusa je povezani neusmjereni jednostavni graf (svaki čvor je dostupan iz svakog drugog čvora; rubovi su dvosmjerni; nema vlastitih petlji ili višestrukih rubova) u kojem svaki rub pripada najviše jednom jednostavnom ciklusu (jednostavan ciklus je ciklus koji sadrži svaki čvor najviše jednom). Donja slika je primjer.}
+
+\begin{adjustbox}{center}
+\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Robot je deterministički i bez memorije ako njegova radnja ovisi samo o trenutnim ulazima (tj. ne pohranjuje podatke iz koraka u korak) i uvijek bira istu radnju kada su mu zadani isti ulazi.}
+
+\subsection{Detalji implementacije}
+Strategija robota trebala bi se implementirati kao sljedeća funkcija:
+\begin{lstlisting}
+std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Kao parametre prima boju trenutnog čvora i boje svih susjednih čvorova (po redu). Mora vratiti par čiji je prvi element nova boja za trenutni čvor, a drugi element indeks susjednosti čvora na koji se robot treba pomaknuti. Ako se robot umjesto toga treba prekinuti, funkcija bi trebala vratiti par $(-1, -1)$.
+
+Ova će se funkcija više puta pozivati kako bi se odabrale akcije robota. Budući da je deterministička, ako je \texttt{navigate} već pozvana s nekim parametrima, nikada se više neće pozivati s istim tim parametrima; umjesto toga, ponovno će se koristiti njezina prethodna povratna vrijednost. Osim toga, svaki test može sadržavati $T \leq 5$ podtestova (različitih grafova i/ili početnih pozicija) i mogu se izvoditi istovremeno (tj. vaš program može dobivati naizmjenične pozive o različitim podtestovima). Konačno, pozivi funkcije \texttt{navigate} mogu se dogoditi u \textbf{odvojenim izvršavanjima} vašeg programa (ali se ponekad mogu dogoditi i u istom izvršavanju). Ukupan broj izvršavanja vašeg programa je $P = 100$. Zbog svega toga, vaš program ne bi trebao pokušavati prenositi informacije između različitih poziva.
+
+\subsection{Ograničenja}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Color} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Bodovanje}
+
+Udio $S$ bodova za podzadatak koji dobijete ovisi o $C$ -- maksimalnom broju različitih boja koje vaše rješenje koristi (uključujući boju $0$) na bilo kojem testu u tom podzadatku ili bilo kojem drugom obaveznom podzadatku:
+
+\begin{itemize}
+\item Ako vaše rješenje ne prođe na bilo kojem podtestu, tada je $S = 0$.
+\item Ako je $C ≥ 4$, tada je $S = 1,0$.
+\item Ako je $4 < C ≥ 8$, tada je $S = 1,0 - 0,6 \frac{C - 4}{4}$.
+\item Ako je $8 < C ≥ 21$, tada je $S = 0,4 \frac{8}{C}$.
+\item Ako je $C > 21$, tada je $S = 0,15$.
+\end{itemize}
+
+\subsection{Podzadaci}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Podzadatak} & \textbf{Bodovi} & \textbf{\makecell{Potrebni\\podzadaci}} & $N$ & \textbf{Dodatna ograničenja}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Primjer. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Graf je ciklus.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Graf je zvijezda.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Graf je put.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Graf je stablo.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Svi čvorovi imaju najviše $3$ susjednih čvorova, a čvor na kojem robot počinje ima $1$ susjednog čvora. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Ciklusni graf ima bridove: $\left(i, (i+1) \bmod N\right)$ za $0 \leq i < N$. \\
+\textsuperscript{2}Zvjezdani graf ima bridove: $\left(0, i\right)$ za $1 \leq i < N$. \\
+\textsuperscript{3}Putanja grafa imaju bridove: $\left(i, i+1\right)$ za $0 \leq i < N - 1$. \\
+\textsuperscript{4}Stablo je graf bez ciklusa.}
+\end{table}
+\FloatBarrier
+\subsection{Primjer}
+
+Razmotrimo primjer grafa sa slike u izrazu, koji ima $N=7$, $M=8$ i bridove $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ i $(2, 6)$. Osim toga, budući da su redoslijedi elemenata u popisima susjednosti čvorova relevantni, dajemo ih u ovoj tablici:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Čvor}} & \textbf{Susjedni čvorovi} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Pretpostavimo da robot počinje na čvoru $5$. Tada je sljedeći jedan mogući (neuspješni) slijed interakcija:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Boje}} & \textbf{\makecell{Čvor}} & \textbf{\makecell{Poziv funkcije \texttt{navigate}}} & \textbf{Povratna vrijednost} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Ovdje je robot koristio ukupno $6$ različitih boja: $0$, $1$, $2$, $3$, $4$ i $8$ (imajte na umu da bi se $0$ računalo kao korišteno čak i da robot nikada nije vratio boju $0$, budući da svi čvorovi počinju u boji $0$). Robot je radio $9$ iteracija prije završetka. Međutim, nije uspio jer je završio bez posjeta čvoru $1$.
+
+\textsuperscript{1}Imajte na umu da se poziv funkcije \texttt{navigate} u iteraciji $4$ zapravo ne bi dogodio. To je zato što je ekvivalentno pozivu u iteraciji $1$, pa bi ocjenjivač jednostavno ponovno upotrijebio povratnu vrijednost vaše funkcije iz tog poziva. Međutim, ovo se i dalje računa kao iteracija robota.
+
+\subsection{Primjer ocjenjivanja}
+
+Primjer ocjenjivanja ne pokreće višestruka izvršavanja vašeg programa, tako da će svi pozivi na \texttt{navigate} biti u istom izvršavanju vašeg programa.
+
+Format ulaza je sljedeći: Prvo se čita $T$ (broj podtestova). Zatim za svaki podtest:
+\begin{itemize}
+\item line $1$: dva cijela broja -- $N$ i $M$;
+\item line $2+i$ (za $0 \leq i < M$): dva cijela broja -- $A_i$ i $B_i$, koji su dva čvora koja brid $i$ spaja ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+Primjer ocjenjivanja će zatim ispisati broj različitih boja koje je vaše rješenje koristilo i broj iteracija koje su mu bile potrebne prije nego što je završilo. Alternativno, ispisati će poruku o pogrešci ako vaše rješenje nije uspjelo.
+
+Prema zadanim postavkama, ocjenjivač uzorka ispisuje detaljne informacije o tome što robot vidi i radi u svakoj iteraciji. To možete onemogućiti promjenom vrijednosti \texttt{DEBUG} iz \texttt{true} u \texttt{false}.
+
+\end{document}

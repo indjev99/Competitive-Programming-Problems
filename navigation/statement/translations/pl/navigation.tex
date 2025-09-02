@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Dzień 2}
+\renewcommand{\problemName}{Nawigacja}
+\renewcommand{\lang}{Polski}
+
+\renewcommand{\tl}{$3$ sek.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+Dany jest \textbf{spójny nieskierowany prosty graf postaci kaktusa}\textsuperscript{1}, który ma $N \leq 1000$ wierzchołków i $M$ krawędzi. Wierzchołki mają przypisane kolory (oznaczone przez nieujemne liczby całkowite od $0$ do $1499$). Początkowo wszystkie wierzchołki mają kolor $0$. \textbf{Deterministyczny robot bez pamięci}\textsuperscript{2} chodzi po grafie przemieszczając się pomiędzy wierzchołkami. Jego zadaniem jest odwiedzić wszystkie wierzchołki co najmniej raz i następnie zakończyć swoje działanie.
+
+Robot zaczyna w pewnym wierzchołku, który może być dowolnym wierzchołkiem grafu. W każdym kroku, widzi kolor wierzchołka w którym się znajduje i kolor wszystkich sąsiadów tego wierzchołka; \textbf{kolejność sąsiadów danego wierzchołka jest niezmienna} (ponowne odwiedzenie wierzchołka nie zmieni kolejności podania kolorów wierzchołków sąsiadujących z nim, nawet jeśli ich kolory się zmienią). Robot wykonuje jedną z podanych akcji:
+\begin{enumerate}
+    \item Kończy swoje działanie.
+    \item Wybiera nowy (może się nie zmienić) kolor dla obecnego wierzchołka i do którego z sąsiadujących wierzchołków się ruszy. Sąsiadujące wierzchołki są ponumerowane liczbami od $0$ do $D-1$, gdzie $D$ to liczba sąsiadów.
+\end{enumerate}
+
+W przypadku drugiej opcji, obecnemu wierzchołkowi zostaje przypisany nowy kolor (może zostać ten sam), a robot przemieszcza się do wybranego sąsiedniego wierzchołka. Jest to powtarzane aż do zakończenia działania robota lub wyczerpania limitu kroków. Robot odnosi sukces jeśli odwiedzi wszystkie wierzchołki i zakończy swoje działania, nie przekraczając liczby kroków $L = 3000$ (w przeciwnym razie robot przegrywa).
+
+Twoim zadaniem jest zaprojektowanie strategii robota, tak żeby odniósł sukces dla każdego grafu o postaci kaktusa. Dodatkowo, powinieneś zminimalizować liczbę różnych kolorów użytych przez robota. Kolor 0, jest zawsze liczony jako użyty.
+
+\textsuperscript{1}\textit{Spójny nieskierowany prosty graf postaci kaktusa, jest spójnym nieskierowanym prostym grafem  (każdy wierzchołek jest osiągalny z każdego innego; krawędzie są nieskierowane; nie zawiera pętelek i multikrawędzi), w którym każda krawędź należy do co najwyżej jednego cyklu prostego (cykl prosty, jest cyklem który przechodzi przez każdy wierzchołek co najwyżej raz). Poniższy obrazek jest przykładem takiego grafu.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Robot jest deterministyczny i bez pamięci, jeśli każdy jego krok zależy tylko od jego obecnych danych (nie przechowuje żadnych danych z poprzednich kroków), i zawsze wybiera tą samą akcję dla tych samych danych.}
+
+\subsection{Szczegóły implementacji}
+Strategia robota powinna być zaimplementowana w następującej funkcji:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Funkcja ta dostaje jako parametry, kolor obecnego wierzchołka, i kolory jego sąsiadów. Powinna zwrócić parę, której pierwszy element to nowy kolor obecnego wierzchołka, a drugi to indeks sąsiada z podanego vectora kolorów, do którego powinien przejść robot. Jeśli robot powinien zakończyć swoje działania, funkcja powinna zwrócić parę $(-1, -1)$.
+
+Ta funkcja będzie wywoływana wiele razy, dla określenia akcji robota. Ponieważ powinna być deterministyczna, jeśli \texttt{navigate} była wywołana raz, nie będzie nigdy więcej wywołana z tymi samymi parametrami; zostanie użyta poprzednio zwrócona przez nią wartość. Dodatkowo każdy test, zawiera $T \leq 5$ podtestów (różnych grafów i/lub różnych pozycji), które mogą być sprawdzane równocześnie (twoja funkcja być wywoływany na zmianę dla różnych podtestów). Dodatkowo, wywołania \texttt{navigate} mogą nastąpić \textbf{w różnych uruchomieniach} twojego programu (ale mogą nastąpić również w tym samym uruchomieniu). Sumaryczna liczba uruchomień twojego programu nie przekroczy $P = 100$. Z tych powodów twój program nie powinien sobie przekazywać informacji pomiędzy wywołaniami.
+
+\subsection{Ograniczenia}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Kolor} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Ocenianie}
+
+Ułamek $S$ punktów, które otrzymasz za podzadanie zależy od $C$ -- maksymalnej liczby kolorów, które twój program użyje (wliczając kolor $0$) ze wszystkich testów tego podzadania lub dowolnego innego podzadania wymaganego dla tego podzadania:
+
+\begin{itemize}
+\item Jeśli twoje rozwiązania będzie błędne dla dowolnego z podtestów, wtedy $S = 0$.
+\item Jeśli $C \leq 4$, wtedy $S = 1.0$.
+\item Jeśli $4 < C \leq 8$, wtedy $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Jeśli $8 < C \leq 21$, wtedy $S = 0.4 \frac{8}{C}$.
+\item Jeśli $C > 21$, wtedy $S = 0.15$.
+\end{itemize}
+
+\subsection{Podzadania}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Podzadanie} & \textbf{Punkty} & \textbf{\makecell{Wymagane\\podzadania}} & $N$ & \textbf{Dodatkowe ograniczenia}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Test przykładowy. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Graf jest cyklem.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Graf jest gwiazdą.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Graf jest ścieżką.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Graf jest drzewem.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Wszystkie wierzchołki mają co najwyżej $3$ sąsiadów, a wierzchołek z którego startuje robot ma co najwyżej $1$ sąsiada. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Cykl ma krawędzie: $\left(i, (i+1) \bmod N\right)$ dla  $0 \leq i < N$. \\
+\textsuperscript{2}Gwiazda ma krawędzie: $\left(0, i\right)$ dla  $1 \leq i < N$. \\
+\textsuperscript{3}Ścieżka ma krawędzie: $\left(i, i+1\right)$ dla $0 \leq i < N - 1$. \\
+\textsuperscript{4}Drzewo to graf bez cykli.}
+\end{table}
+\FloatBarrier
+
+\subsection{Przykład}
+
+Rozważmy graf z testu przykładowego, który jest na poniższym rysunku, gdzie $N=7$, $M=8$, a krawędzie to: $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ i $(2, 6)$. Dodatkowo, ponieważ kolejności wierzchołków na listach sąsiedztwa są istotne, podane są w poniższej tabelce:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Wierzchołek}} & \textbf{Sąsiedzi} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Przyjmijmy, że robot startuje z wierzchołka $5$. Wtedy to jest możliwa (nieudana) sekwencja interakcji:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Kolory}} & \textbf{\makecell{Wierzchołek}} & \textbf{\makecell{Wywołanie \texttt{navigate}}} & \textbf{Zwrócona wartość} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Robot użył $6$ różnych kolorów: $0$, $1$, $2$, $3$, $4$ i $8$ ($0$ liczy się jako użyty kolor, nawet jeśli robot nigdy nie zwróciłby koloru $0$, bo wszystkie wierzchołki zaczynają z kolorem $0$). Robot wykonał $9$ kroków przed zakończeniem działania. Mimo to robot przegrał, bo nie odwiedził wierzchołka $1$.
+
+\textsuperscript{1}Zwróć uwagę, że wywołanie \texttt{navigate} w kroku $4$ nie wydarzyłoby się, ponieważ jest identyczne do wywołania w kroku $1$, więc funkcja sprawdzająca użyłaby wartości zwróconej przez twoją funkcję z wcześniejszego wywołania. Ten krok nadal byłby jednak liczony do sumarycznej liczby kroków robota.
+
+\subsection{Przykładowa biblioteczka}
+
+Przykładowa biblioteczka nie uruchamia twojego programu wiele razy, więc wszystkie wywołania \texttt{navigate} nastąpią w tym samym uruchomieniu twojego programu.
+
+Format wejścia jest następujący: najpierw jest wczytane $T$ (liczba podtestów). Później dla każdego podtestu wczytane są:
+\begin{itemize}
+\item linia $1$: dwie liczby całkowite -- $N$ oraz $M$;
+\item linia $2+i$ (dla każdego $0 \leq i < M$): dwie liczby całkowite -- $A_i$ oraz $B_i$, które są wierzchołkami, które łączy $i$-ta krawędź ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+Następnie przykładowa biblioteczka wypisze ile kolorów zużył robot przed zakończeniem działania lub wypisze komunikat błędu jeśli twój program będzie błędny.
+
+Domyślnie, przykładowa biblioteczka wypisuje dokładne informacje o tym co robot widzi i robi, w każdej iteracji. Możesz to wyłączyć, zmieniając wartość \texttt{DEBUG} z \texttt{true} na \texttt{false}.
+
+\end{document}

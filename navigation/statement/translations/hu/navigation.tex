@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 2}
+\renewcommand{\problemName}{Task Navigation}
+\renewcommand{\lang}{Hungarian [HUN]}
+
+\renewcommand{\tl}{$3$ sec.}
+\renewcommand{\ml}{$512$ MB}
+\problem{Navigáció}
+
+% There is a \textbf{connected undirected simple cactus graph}\textsuperscript{1} with $N \leq 1000$ nodes and $M$ edges. Its nodes have colors (denoted with non-negative integers from $0$ to $1499$). Initially all nodes have color $0$. A \textbf{deterministic memoryless robot}\textsuperscript{2} explores the graph by moving from node to node. It must visit all nodes at least once and then terminate.
+Van egy \textbf{egyszerű, összefüggő, irányítatlan kaktuszgráf}\textsuperscript{1}, $N \leq 1000$ csúccsal és $M$ éllel. A csúcsok (0 és 1499 közötti nemnegatív egész számokkal) színezettek. Kezdetben minden csúcs színe 0. Egy \textbf{determinisztikus memória nélküli robot}\textsuperscript{2} csúcsról csúcsra haladva fedezi fel a gráfot. Minden csúcsot legalább egyszer meg kell látogatnia, majd le kell állnia.
+
+% The robot starts at some node, which could be any of the nodes in the graph. At each step, it sees the color of its current node and the colors of all adjacent nodes \textbf{in some order fixed for the current node} (i.e. revisiting the node will give the robot the same sequence of adjacent nodes, even if their colors are different than before). The robot does one of the following two actions:
+A robot a gráf egy adott csúcsából indul, ami a gráf bármelyik csúcsa lehet. Minden lépésben látja a jelenlegi és a szomszédos csúcsok színeit egy, az adott csúcsnál rögzített sorrendben (azaz, ha újból a csúcshoz ér, ugyanabban a sorrendben fogja látni a szomszédos csúcsokat, akkor is, ha közben a színük megváltozott). A robot minden lépésben az alábbi műveletek valamelyikét hajtja végre:
+\begin{enumerate}
+    % \item Decides to terminate.
+    \item Úgy dönt, hogy leáll.
+    % \item Chooses a new (or possibly the same) color for the current node and which adjacent node to move to. The adjacent node is identified by an index from $0$ to $D-1$, where $D$ is the number of adjacent nodes.
+    \item Kiszínezi a jelenlegi csúcsot valamilyen színnel (ez meg is egyezhet a korábbi színével), majd átmozog egy szomszédos csúcsba. A szomszédos csúcsot egy $0$ és $D-1$ közötti sorszámmal azonosítja, ahol $D$ a szomszédos csúcsok száma.
+\end{enumerate}
+
+% In the second case, the current node is recolored (or possibly stays the same color) and the robot moves to the chosen adjacent node. This repeats until the robot terminates or until it reaches the iteration limit. The robot wins if it visits all nodes and then terminates within the iteration limit of $L = 3000$ steps (otherwise it loses).
+A második esetben az aktuális csúcs átszíneződik (vagy esetleg változatlan marad a színe), és a robot a kiválasztott szomszédos csúcsba mozog. Ez addig ismétlődik, amíg a robot le nem áll, vagy amíg el nem éri a lépészám határát. A robot akkor nyer, ha az összes csúcsot meglátogatja, majd az $L = 3000$ lépéses határon belül leáll (ellenkező esetben veszít).
+
+% You should design a strategy for the robot that can solve the problem on any such cactus graph. Additionally, you should try to minimize the number of distinct colors your solution uses. Here color 0 always counts as used.
+
+% \textsuperscript{1}\textit{A connected undirected simple cactus graph is a connected undirected simple graph (every node is reachable from every other node; edges are bi-directional; has no self-loops or multi-edges) in which every edge belongs to at most one simple cycle (a simple cycle is a cycle that contains each node at most once). The below image is an example.}
+\textsuperscript{1}\textit{Az egyszerű, összefüggő, irányítatlan kaktuszgráf egy olyan egyszerű, összefüggő irányítatlan gráf (nincsenek hurokélek és többszörös élek; bármely csúcs elérhető bármelyik másikból; az élek kétirányúak), melyben minden él legfeljebb egy egyszerű körhöz tartozik (az egyszerű kör egy olyan kör, amely minden csúcsot legfeljebb egyszer tartalmaz). A lenti példa egy ilyen gráfot ábrázol.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+%\textsuperscript{2}\textit{A robot is deterministic and memoryless, if its action depends only on its current inputs (i.e. it stores no data from step to step), and it always chooses the same action when given the same inputs.}
+\textsuperscript{2}\textit{Egy robot determinisztikus és memória nélküli, ha a viselkedése kizárólag a jelenlegi bemenetétől függ (azaz, nem ment el semmilyen adatot a lépések között), és azonos bemenet esetén mindig ugyanazt a kimenetet adja.}
+
+Olyan stratégiát kell tervezned a robot számára, amely képes megoldani a feladatot bármely kaktuszgráfban. Ezen kívül törekedj arra, hogy a megoldásod a lehető legkevesebb különböző színt használja. Itt a 0 szín mindig használtnak számít.
+
+%\subsection{Implementation details}
+\subsection{Megvalósítás}
+
+% The robot's strategy should be implemented as the following function:
+A robot stratégiáját az alábbi függvényben kell megvalósítanod:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+%It receives as parameters the color of the current node and the colors of all adjacent nodes (in order). It must return a pair whose first element is the new color for the current node and whose second element is the adjacency index of the node the robot should move to. If instead the robot should terminate, the function should return the pair $(-1, -1)$.
+A függvény paraméterként megkapja az aktuális csúcs színét és az összes szomszédos csúcs színét (sorrendben). Egy olyan értékpárt kell visszaadnia, amelynek első eleme az aktuális csúcs új színe, második eleme pedig annak a csúcsszomszédjának sorszáma, ahová a robotnak át kell lépnie. Ha ehelyett a robotnak le kell állnia, a függvénynek a $(-1, -1)$ értékpárt kell visszaadnia.
+
+% This function will be called repeatedly in order to choose the actions of the robot. Since it is deterministic, if \texttt{navigate} was already called with some parameters, it will never be called with those same parameters again; instead its previous return value will be reused. Additionally, each test may contain $T \leq 5$ subtests (distinct graphs and/or starting positions) and they may be run concurrently (i.e. your program may get alternating calls about different subtests). Finally, the calls to \texttt{navigate} may happen in \textbf{separate executions} of your program (but they may also sometimes happen in the same execution). The total number of executions of your program is $P = 100$. Due to all of this, your program should not try to pass information between different calls.
+Ez a függvény hívódik meg újra és újra, hogy kiválassza a robot lépéseit. Mivel determinisztikus, ezért ha a \texttt{navigate} függvényt már meghívtuk bizonyos paraméterekkel, akkor soha többé nem hívjuk meg ugyanazokkal a paraméterekkel; ehelyett a korábbi visszatérési értékét újra felhasználjuk. Ezen kívül minden teszt tartalmazhat $T \leq 5$ altesztet (különböző gráfokat és/vagy kiindulási csúcsokat), és ezek párhuzamosan is futhatnak (azaz a programunk felváltva kaphat hívásokat a különböző altesztektől). Végül, a \texttt{navigate} hívások a program \textbf{különböző végrehajtásaitól} is jöhetnek (vagy ugyanabban a végrehajtásban is történhetnek). A programvégrehajtások teljes száma $P = 100$. Ezek miatt a programodnak nem szabad megpróbálnia információt átadni a különböző hívások között.
+
+%\subsection{Constraints}
+\subsection{Korlátok}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{szín} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+% \subsection{Scoring}
+\subsection{Pontozás}
+
+% The fraction $S$ of the points for a subtask that you get depends on $C$ -- the maximum number of distinct colors your solution uses (including color $0$) on any test in that subtask or any other required subtask:
+Az egy részfeladatért kapott pontok $S$ hányada $C$-től függ, ami a megoldásod által használt színek maximális száma (a $0$ színt is beleértve) az adott részfeladat vagy bármelyik, ehhez a részfeladathoz szükséges részfeladat bármely tesztjénél:
+
+\begin{itemize}
+%\item If your solution fails on any subtest, then $S = 0$.
+\item Ha a programod elbukik bármelyik teszteseten, akkor $S = 0$.
+\item Ha $C \leq 4$, akkor $S = 1.0$.
+\item Ha $4 < C \leq 8$, akkor $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Ha $8 < C \leq 21$, akkor $S = 0.4 \frac{8}{C}$.
+\item Ha $C > 21$, akkor $S = 0.15$.
+\end{itemize}
+
+%\subsection{Subtasks}
+\subsection{Részfeladatok}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+%\textbf{Subtask} & \textbf{Points} & \textbf{\makecell{Required\\subtasks}} & $N$ & \textbf{Additional constraints}\\
+\textbf{Részfeladat} & \textbf{Pontszám} & \textbf{\makecell{Szükséges\\részfeladatok}} & $N$ & \textbf{További korlátok}\\
+\hline
+%$0$ & $0$ & $-$ & $\leq 300$ & The example. \\
+$0$ & $0$ & $-$ & $\leq 300$ & A példa. \\
+\hline
+%$1$ & $6$ & $-$ & $\leq 300$ & The graph is a cycle.\textsuperscript{1} \\
+$1$ & $6$ & $-$ & $\leq 300$ & A gráf egy kör.\textsuperscript{1} \\
+\hline
+%$2$ & $7$ & $-$ & $\leq 300$ & The graph is a star.\textsuperscript{2} \\ 
+$2$ & $7$ & $-$ & $\leq 300$ & A gráf egy csillag.\textsuperscript{2} \\ 
+\hline
+%$3$ & $9$ & $-$ & $\leq 300$ & The graph is a path.\textsuperscript{3} \\ 
+$3$ & $9$ & $-$ & $\leq 300$ & A gráf egy útvonalgráf.\textsuperscript{3} \\ 
+\hline
+%$4$ & $16$ & $2 - 3$ & $\leq 300$ & The graph is a tree.\textsuperscript{4} \\
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & A gráf egy fagráf.\textsuperscript{4} \\
+\hline
+%$5$ & $27$ & $-$ & $\leq 300$ & All nodes have at most $3$ adjacent nodes and the node the robot starts at has $1$ adjacent node. \\
+$5$ & $27$ & $-$ & $\leq 300$ & Minden csúcsnak legfeljebb $3$ szomszédja van és a kezdőcsúcsnak $1$ szomszédja van. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+%\caption*{\textsuperscript{1}A cycle graph has edges: $\left(i, (i+1) \bmod N\right)$ for  $0 \leq i < N$. \\
+\caption*{\textsuperscript{1}Egy körgráf élei: $\left(i, (i+1) \bmod N\right)$ minden  $0 \leq i < N$ esetén. \\
+\textsuperscript{2}Egy csillaggráf élei: $\left(0, i\right)$ minden  $1 \leq i < N$ esetén. \\
+\textsuperscript{3}Egy útvonalgráf élei: $\left(i, i+1\right)$ minden $0 \leq i < N - 1$ esetén. \\
+\textsuperscript{4}A fagráf egy körmentes gráf.}
+\end{table}
+\FloatBarrier
+
+%\subsection{Example}
+\subsection{Példa}
+
+%Consider the sample graph from the image in the statement, which has $N=7$, $M=8$ and edges $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ and $(2, 6)$. Additionally, since the orders of the elements in the nodes' adjacency lists are relevant, we give them in this table:
+Tekintsük példaként a fenti ábrán látható gráfot, amelyben $N=7$, $M=8$, és amelynek élei $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ és $(2, 6)$. Továbbá, mivel a csúcsok szomszédsági listáiban az elemek sorrendje is fontos, megadjuk őket ebben a táblázatban:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+%\textbf{\makecell{Node}} & \textbf{Adjacent nodes} \\
+\textbf{\makecell{Csúcs}} & \textbf{Szomszédos csúcsok} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+%Suppose the robot starts at node $5$. Then the following is one possible (unsuccessful) sequence of interactions:
+Tegyük fel, hogy a robot az $5$-ös csúcsnál kezd. Ekkor az alábbi egy lehetséges (sikertelen) lépéssorozat:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+%\textbf{\makecell{\#}} & \textbf{\makecell{Colors}} & \textbf{\makecell{Node}} & \textbf{\makecell{Call to \texttt{navigate}}} & \textbf{Return value} \\
+\textbf{\makecell{\#}} & \textbf{\makecell{Színek}} & \textbf{\makecell{Csúcs}} & \textbf{\makecell{\texttt{navigate} függvényhívás}} & \textbf{\makecell{Visszatérési\\érték}} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+%Here the robot used a total of $6$ distinct colors: $0$, $1$, $2$, $3$, $4$ and $8$ (note that $0$ would have counted as used even if the robot never returned color $0$, since all nodes start in color $0$). The robot ran for $9$ iterations before terminating. However, it failed since it terminated without having visited node $1$.
+Itt a robot összesen $6$ különböző színt használt: $0$, $1$, $2$, $3$, $4$ és $8$ (megjegyzendő, hogy a $0$ akkor is használtnak számítana, ha a robot soha nem tért volna vissza a $0$ színnel, mivel minden csúcs színe kezdetben $0$). A robot $9$ lépést tett meg, mielőtt leállt. Azonban kudarcot vallott, mivel anélkül állt le, hogy meglátogatta volna az $1$-es csúcsot.
+
+%\textsuperscript{1}Note the call to \texttt{navigate} at iteration $4$ would not actually happen. This is because it is equivalent to the call at iteration $1$, so the grader would simply reuse the return value of your function from that call. However, this still counts as an iteration of the robot.
+\textsuperscript{1}Megjegyezzük, hogy a \texttt{navigate} hívása a $4$. lépésnél valójában nem történik meg. Ez azért van, mert ez megegyezik az $1$. lépésnél történő hívással, így az értékelő egyszerűen újra felhasználja a függvényed visszatérési értékét a korábbi hívásból. Ez azonban továbbra is egy lépésnek számít a robotnál.
+
+%\subsection{Sample grader}
+\subsection{Mintaértékelő}
+
+%The sample grader does not run multiple executions of your program, so all calls to \texttt{navigate} will be in the same execution of your program.
+A mintaértékelő nem futtatja a programodat többször, így minden \texttt{navigate} hívás egy programfuttatáson belül történik.
+
+%The input format is the following: First $T$ (the number of subtests) is read. Then for each subtest:
+A bemenet formátuma a következő: Először beolvassuk $T$-t, a résztesztek számát. Ezután minden résztesztre:
+\begin{itemize}
+% \item line $1$: two integers -- $N$ and $M$;
+\item $1$. sor: két egész szám -- $N$ és $M$;
+% \item line $2+i$ (for $0 \leq i < M$): two integers -- $A_i$ and $B_i$, which are the two nodes that edge $i$ connects ($0 \leq A_i, B_i < N$).
+\item $2+i$. sor (minden $0 \leq i < M$ esetén): két egész szám -- $A_i$ és $B_i$, az $i$. él által összekötött csúcsok sorszáma ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+% The sample grader will then print out the number of distinct colors your solution used and the number of iterations it needed before it terminated. Alternatively, it will print out an error message, if your solution failed.
+A mintaértékelő ezután kiírja a megoldás által használt különböző színek számát és a megoldás befejezéséhez szükséges lépések számát. Alternatívaként hibaüzenetet ír ki, ha a megoldásod sikertelen volt.
+
+% By default, the sample grader prints detailed information on what the robot sees and does at each iteration. You can disable this, by changing the value of \texttt{DEBUG} from \texttt{true} to \texttt{false}.
+Alapértelmezés szerint a mintaértékelő részletes információt ír ki arról, hogy a robot mit lát és mit csinál minden egyes lépésben. Ezt kikapcsolhatod, ha a \texttt{DEBUG} értékét \texttt{true}-ról \texttt{false}-ra változtatod.
+
+\end{document}

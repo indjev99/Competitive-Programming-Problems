@@ -1,0 +1,2184 @@
+
+Subtask 1: 1-1
+
+Test 001:
+
+example
+
+Subtask 2: 2-5
+
+Test 002:
+
+cycle SN-1 NSH
+Counts: nodes=299 edges=299 cycles=1 singles=0 maxDegree=2
+
+cycle 8
+Counts: nodes=8 edges=8 cycles=1 singles=0 maxDegree=2
+
+cycle 4
+Counts: nodes=4 edges=4 cycles=1 singles=0 maxDegree=2
+
+cycle 3
+Counts: nodes=3 edges=3 cycles=1 singles=0 maxDegree=2
+
+cycle 7
+Counts: nodes=7 edges=7 cycles=1 singles=0 maxDegree=2
+
+Test 003:
+
+cycle SN
+Counts: nodes=300 edges=300 cycles=1 singles=0 maxDegree=2
+
+cycle SN
+Counts: nodes=300 edges=300 cycles=1 singles=0 maxDegree=2
+
+cycle 10
+Counts: nodes=10 edges=10 cycles=1 singles=0 maxDegree=2
+
+cycle 6
+Counts: nodes=6 edges=6 cycles=1 singles=0 maxDegree=2
+
+cycle 9
+Counts: nodes=9 edges=9 cycles=1 singles=0 maxDegree=2
+
+Test 004:
+
+cycle SN NSH
+Counts: nodes=300 edges=300 cycles=1 singles=0 maxDegree=2
+
+cycle SN-1
+Counts: nodes=299 edges=299 cycles=1 singles=0 maxDegree=2
+
+cycle SN-2
+Counts: nodes=298 edges=298 cycles=1 singles=0 maxDegree=2
+
+cycle 4 NSH
+Counts: nodes=4 edges=4 cycles=1 singles=0 maxDegree=2
+
+cycle 5
+Counts: nodes=5 edges=5 cycles=1 singles=0 maxDegree=2
+
+Test 005:
+
+cycle 11
+Counts: nodes=11 edges=11 cycles=1 singles=0 maxDegree=2
+
+cycle 3 NSH
+Counts: nodes=3 edges=3 cycles=1 singles=0 maxDegree=2
+
+cycle SN
+Counts: nodes=300 edges=300 cycles=1 singles=0 maxDegree=2
+
+Subtask 3: 6-8
+
+Test 006:
+
+star 4 SH 0
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=3
+
+star SN SH 1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star SN-1 SH 1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star 3 NSH 2
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+star SN NSH SN/2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+Test 007:
+
+star SN NSH SN-2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star 5 SH 1
+Counts: nodes=5 edges=4 cycles=0 singles=5 maxDegree=4
+
+star SN NSH 2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star 4 SH 1
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=3
+
+star SN NSH SN-1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+Test 008:
+
+star SN-1 SH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star 3 NSH 1
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+star 3 SH 0
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+star SN SH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+star SN NSH 1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=299
+
+Subtask 4: 9-14
+
+Test 009:
+
+path SN SH 1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 3 NSH 0
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+path SN SH 2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 5 SH 2
+Counts: nodes=5 edges=4 cycles=0 singles=5 maxDegree=2
+
+path SN NSH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+Test 010:
+
+path SN NSH SN-3
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 4 NSH 2
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+path SN NSH SN-2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN SH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN-1 SH 1
+Counts: nodes=299 edges=298 cycles=0 singles=299 maxDegree=2
+
+Test 011:
+
+path SN-1 SH SN/2
+Counts: nodes=299 edges=298 cycles=0 singles=299 maxDegree=2
+
+path 4 SH 0
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+path SN SH SN/2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN NSH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 4 NSH 3
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+Test 012:
+
+path SN NSH 3*SN/4
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 3 NSH 1
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+path SN NSH 1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN-1 SH 0
+Counts: nodes=299 edges=298 cycles=0 singles=299 maxDegree=2
+
+path 3 NSH 2
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+Test 013:
+
+path SN NSH SN/2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 4 SH 1
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+path SN NSH SN-1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN NSH 2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN-1 SH
+Counts: nodes=299 edges=298 cycles=0 singles=299 maxDegree=2
+
+Test 014:
+
+path SN SH SN/4
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN SH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path SN NSH SN/4
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+path 4 NSH 0
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+path 4 NSH 1
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+Subtask 5: 15-16
+
+Test 015:
+
+tree SN NSH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=9
+
+tree SN SH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=8
+
+tree SN SH SN/2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=9
+
+tree SN NSH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=11
+
+tree SN SH SN-1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=9
+
+Test 016:
+
+tree SN NSH SN/2
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=12
+
+tree SN SH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=8
+
+tree SN NSH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=8
+
+tree SN NSH SN-1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=10
+
+tree SN SH
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=12
+
+Subtask 6: 17-31
+
+Test 017:
+
+extr smalls edges, rng rng
+Counts: nodes=300 edges=353 cycles=54 singles=7 maxDegree=3
+
+extr triangles edges, rng rng
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr bigs edges, path rng
+Counts: nodes=300 edges=314 cycles=15 singles=1 maxDegree=3
+
+extr cycle 3
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+extr cycle 8
+Counts: nodes=9 edges=9 cycles=1 singles=1 maxDegree=3
+
+Test 018:
+
+path 4 NSH 0
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+extr smalls edges, path rng
+Counts: nodes=300 edges=359 cycles=60 singles=5 maxDegree=3
+
+star 4 NSH 2
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=3
+
+star 3 NSH 2
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+extr cycle 4 NSH
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+Test 019:
+
+path SN NSH SN-1
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+extr bigs edges, path rng
+Counts: nodes=300 edges=314 cycles=15 singles=1 maxDegree=3
+
+extr mids edges, rng rng
+Counts: nodes=300 edges=327 cycles=28 singles=2 maxDegree=3
+
+extr cycle 11
+Counts: nodes=12 edges=12 cycles=1 singles=1 maxDegree=3
+
+extr cycle SN-1 NSH
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+Test 020:
+
+extr triangles edges, path beads NSH TFF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr tris_fours edges, rng rng
+Counts: nodes=300 edges=383 cycles=84 singles=3 maxDegree=3
+
+path 4 NSH 3
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+path 3 NSH 0
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+extr cycle SN-1
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+Test 021:
+
+extr mids edges, rng rng
+Counts: nodes=300 edges=326 cycles=27 singles=3 maxDegree=3
+
+extr mids edges, path rng
+Counts: nodes=300 edges=326 cycles=27 singles=3 maxDegree=3
+
+extr cycle SN-1
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+extr bigs edges, rng rng
+Counts: nodes=300 edges=313 cycles=14 singles=1 maxDegree=3
+
+extr cycle 9
+Counts: nodes=10 edges=10 cycles=1 singles=1 maxDegree=3
+
+Test 022:
+
+extr tris_fours edges, path rng
+Counts: nodes=300 edges=387 cycles=88 singles=2 maxDegree=3
+
+path SN NSH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+extr cycle SN-1
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+extr smalls edges, path rng
+Counts: nodes=300 edges=359 cycles=60 singles=13 maxDegree=3
+
+extr cycle SN-1 NSH rev
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+Test 023:
+
+extr triangles edges, path beads NSH FTF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr triangles edges, path beads NSH TFF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr smalls edges, rng rng
+Counts: nodes=300 edges=360 cycles=61 singles=7 maxDegree=3
+
+path SN SH 0
+Counts: nodes=300 edges=299 cycles=0 singles=300 maxDegree=2
+
+extr bigs edges, rng rng
+Counts: nodes=300 edges=313 cycles=14 singles=1 maxDegree=3
+
+Test 024:
+
+extr mids edges, rng rng
+Counts: nodes=300 edges=326 cycles=27 singles=1 maxDegree=3
+
+extr cycle 3 NSH rev
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+star 3 NSH 1
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+extr triangles edges, path beads NSH FFT 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr cycle 7
+Counts: nodes=8 edges=8 cycles=1 singles=1 maxDegree=3
+
+Test 025:
+
+extr smalls edges, rng rng
+Counts: nodes=300 edges=359 cycles=60 singles=6 maxDegree=3
+
+extr triangles edges, path rng
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr mids edges, rng rng
+Counts: nodes=300 edges=326 cycles=27 singles=1 maxDegree=3
+
+extr cycle SN-1
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+extr triangles edges, path beads NSH TFF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+Test 026:
+
+extr mids edges, path rng
+Counts: nodes=300 edges=327 cycles=28 singles=1 maxDegree=3
+
+extr cycle 3 NSH
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+extr cycle 10
+Counts: nodes=11 edges=11 cycles=1 singles=1 maxDegree=3
+
+extr triangles edges, path beads NSH FFF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+path 3 NSH 2
+Counts: nodes=3 edges=2 cycles=0 singles=3 maxDegree=2
+
+Test 027:
+
+extr smalls edges, path rng
+Counts: nodes=300 edges=353 cycles=54 singles=10 maxDegree=3
+
+path 5 SH 0
+Counts: nodes=5 edges=4 cycles=0 singles=5 maxDegree=2
+
+extr bigs edges, path rng
+Counts: nodes=300 edges=313 cycles=14 singles=1 maxDegree=3
+
+star 4 NSH 3
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=3
+
+path 4 SH 0
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=2
+
+Test 028:
+
+extr bigs edges, rng rng
+Counts: nodes=300 edges=315 cycles=16 singles=1 maxDegree=3
+
+extr triangles edges, path beads NSH FTT 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr mids edges, path rng
+Counts: nodes=300 edges=327 cycles=28 singles=1 maxDegree=3
+
+extr cycle 4 NSH rev
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+extr cycle 6
+Counts: nodes=7 edges=7 cycles=1 singles=1 maxDegree=3
+
+Test 029:
+
+extr smalls edges, rng rng
+Counts: nodes=300 edges=351 cycles=52 singles=10 maxDegree=3
+
+extr smalls edges, path rng
+Counts: nodes=300 edges=358 cycles=59 singles=4 maxDegree=3
+
+star 4 NSH 1
+Counts: nodes=4 edges=3 cycles=0 singles=4 maxDegree=3
+
+extr cycle 5
+Counts: nodes=6 edges=6 cycles=1 singles=1 maxDegree=3
+
+extr bigs edges, path rng
+Counts: nodes=300 edges=313 cycles=14 singles=1 maxDegree=3
+
+Test 030:
+
+extr mids edges, path rng
+Counts: nodes=300 edges=327 cycles=28 singles=1 maxDegree=3
+
+extr cycle SN-1
+Counts: nodes=300 edges=300 cycles=1 singles=1 maxDegree=3
+
+extr triangles edges, path beads NSH TFF 0
+Counts: nodes=300 edges=398 cycles=99 singles=3 maxDegree=3
+
+extr squares edges, path rng
+Counts: nodes=300 edges=374 cycles=75 singles=1 maxDegree=3
+
+extr squares edges, rng rng
+Counts: nodes=300 edges=374 cycles=75 singles=1 maxDegree=3
+
+Test 031:
+
+extr cycle 4
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+path SN-1 SH 0
+Counts: nodes=299 edges=298 cycles=0 singles=299 maxDegree=2
+
+extr pents edges, rng rng
+Counts: nodes=300 edges=359 cycles=60 singles=1 maxDegree=3
+
+extr pents edges, path rng
+Counts: nodes=300 edges=359 cycles=60 singles=1 maxDegree=3
+
+extr bigs edges, rng rng
+Counts: nodes=300 edges=313 cycles=14 singles=1 maxDegree=3
+
+Subtask 7: 32-72
+
+Test 032:
+
+triangles, star apples NSH FFT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles, rng rng
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=16
+
+mids, path beads
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=4
+
+triangles edges, path beads
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=3
+
+mids edges, path beads
+Counts: nodes=300 edges=325 cycles=26 singles=2 maxDegree=3
+
+Test 033:
+
+tris_fours edges, star rng
+Counts: nodes=300 edges=383 cycles=84 singles=2 maxDegree=28
+
+bigs, rng beads
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=8
+
+triangles, star apples NSH TFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+squares edges, cycle apples
+Counts: nodes=300 edges=375 cycles=76 singles=0 maxDegree=4
+
+triangles, star apples 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+Test 034:
+
+squares mix, path beads
+Counts: nodes=300 edges=384 cycles=85 singles=1 maxDegree=4
+
+bigs, path beads
+Counts: nodes=300 edges=315 cycles=16 singles=0 maxDegree=4
+
+triangles, star apples NSH TFF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles mix, rng apples
+Counts: nodes=300 edges=420 cycles=121 singles=0 maxDegree=64
+
+squares mix, rng apples
+Counts: nodes=300 edges=385 cycles=86 singles=0 maxDegree=47
+
+Test 035:
+
+triangles, path beads NSH rev FTF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+tris_fours edges, cycle apples
+Counts: nodes=300 edges=386 cycles=87 singles=0 maxDegree=4
+
+tris_fours mix, path rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=7
+
+triangles edges, star apples 1
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=101
+
+pents edges, rng beads
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=9
+
+Test 036:
+
+triangles, path beads NSH rev FFT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH FFT 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+pents mix, rng apples
+Counts: nodes=300 edges=366 cycles=67 singles=1 maxDegree=71
+
+triangles, star apples NSH FFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles mix, star rng 3
+Counts: nodes=300 edges=422 cycles=123 singles=2 maxDegree=86
+
+Test 037:
+
+triangles, star apples NSH FFT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+pents edges, path apples
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=4
+
+mids mix, path rng
+Counts: nodes=300 edges=325 cycles=26 singles=0 maxDegree=6
+
+pents mix, path rng
+Counts: nodes=300 edges=365 cycles=66 singles=1 maxDegree=9
+
+triangles mix, path apples
+Counts: nodes=300 edges=417 cycles=118 singles=1 maxDegree=16
+
+Test 038:
+
+pents edges, path beads
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=3
+
+triangles mix, cycle apples
+Counts: nodes=300 edges=418 cycles=119 singles=0 maxDegree=16
+
+bigs, star rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+pents edges, rng rng
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=6
+
+tris_fours, star apples
+Counts: nodes=300 edges=416 cycles=117 singles=1 maxDegree=235
+
+Test 039:
+
+tris_fours, path rng
+Counts: nodes=300 edges=418 cycles=119 singles=1 maxDegree=8
+
+triangles, star apples NSH TFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+mids, rng rng
+Counts: nodes=300 edges=329 cycles=30 singles=0 maxDegree=14
+
+bigs edges, rng rng
+Counts: nodes=300 edges=313 cycles=14 singles=0 maxDegree=3
+
+squares mix, rng beads
+Counts: nodes=300 edges=385 cycles=86 singles=1 maxDegree=9
+
+Test 040:
+
+tris_fours edges, rng rng
+Counts: nodes=300 edges=384 cycles=85 singles=0 maxDegree=5
+
+triangles, path beads
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+bigs edges, path beads
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=3
+
+squares, rng rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=20
+
+triangles edges, rng apples
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=10
+
+Test 041:
+
+triangles edges, cycle apples
+Counts: nodes=300 edges=400 cycles=101 singles=0 maxDegree=4
+
+bigs, path rng
+Counts: nodes=300 edges=313 cycles=14 singles=0 maxDegree=4
+
+mids mix, path apples
+Counts: nodes=300 edges=326 cycles=27 singles=0 maxDegree=11
+
+squares mix, path rng
+Counts: nodes=300 edges=383 cycles=84 singles=2 maxDegree=7
+
+pents edges, rng apples
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=9
+
+Test 042:
+
+bigs mix, rng apples
+Counts: nodes=300 edges=313 cycles=14 singles=0 maxDegree=11
+
+tris_fours edges, rng beads
+Counts: nodes=300 edges=386 cycles=87 singles=0 maxDegree=10
+
+squares edges, rng rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=5
+
+triangles, star apples NSH FFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles, star apples NSH FTT 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+Test 043:
+
+tris_fours, rng beads
+Counts: nodes=300 edges=424 cycles=125 singles=1 maxDegree=14
+
+triangles, path beads NSH rev TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+mids mix, rng rng
+Counts: nodes=300 edges=326 cycles=27 singles=0 maxDegree=6
+
+pents, path beads
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=4
+
+tris_fours mix, rng rng
+Counts: nodes=300 edges=399 cycles=100 singles=1 maxDegree=13
+
+Test 044:
+
+triangles edges, star rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=38
+
+tris_fours, path beads
+Counts: nodes=300 edges=423 cycles=124 singles=0 maxDegree=4
+
+triangles, path beads NSH FTF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH FTF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+squares edges, path beads
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=3
+
+Test 045:
+
+squares mix, star rng
+Counts: nodes=300 edges=386 cycles=87 singles=0 maxDegree=44
+
+triangles, star apples NSH TFF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+squares mix, rng rng
+Counts: nodes=300 edges=384 cycles=85 singles=0 maxDegree=15
+
+triangles, path beads NSH FTF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+mids edges, rng rng
+Counts: nodes=300 edges=325 cycles=26 singles=2 maxDegree=5
+
+Test 046:
+
+triangles, rng beads
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=14
+
+bigs, rng rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+bigs, star apples
+Counts: nodes=300 edges=316 cycles=17 singles=0 maxDegree=34
+
+mids edges, star apples
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=29
+
+pents mix, path beads
+Counts: nodes=300 edges=365 cycles=66 singles=0 maxDegree=4
+
+Test 047:
+
+squares edges, rng beads
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=8
+
+mids edges, path rng
+Counts: nodes=300 edges=324 cycles=25 singles=0 maxDegree=4
+
+tris_fours edges, rng apples
+Counts: nodes=300 edges=382 cycles=83 singles=2 maxDegree=9
+
+mids edges, rng beads
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=6
+
+pents mix, rng rng
+Counts: nodes=300 edges=365 cycles=66 singles=0 maxDegree=9
+
+Test 048:
+
+squares edges, star apples
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=76
+
+triangles, path rng
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=16
+
+pents mix, rng beads
+Counts: nodes=300 edges=365 cycles=66 singles=1 maxDegree=10
+
+bigs mix, path beads
+Counts: nodes=300 edges=314 cycles=15 singles=1 maxDegree=4
+
+squares, path beads
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=4
+
+Test 049:
+
+tris_fours mix, rng beads
+Counts: nodes=300 edges=394 cycles=95 singles=1 maxDegree=12
+
+mids edges, rng apples
+Counts: nodes=300 edges=323 cycles=24 singles=0 maxDegree=7
+
+bigs edges, star rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=4
+
+pents mix, cycle apples
+Counts: nodes=300 edges=366 cycles=67 singles=0 maxDegree=16
+
+triangles mix, rng rng
+Counts: nodes=300 edges=418 cycles=119 singles=1 maxDegree=11
+
+Test 050:
+
+triangles, path beads NSH rev FFT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH FTF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+tris_fours mix, star apples
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=151
+
+squares, rng beads
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=20
+
+mids edges, star rng
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=6
+
+Test 051:
+
+pents, rng rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=12
+
+triangles, star apples NSH FTF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles, path beads NSH FTT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+squares edges, path rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=4
+
+triangles, path beads NSH rev FFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+Test 052:
+
+bigs mix, path apples
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=10
+
+mids mix, rng beads
+Counts: nodes=300 edges=329 cycles=30 singles=0 maxDegree=9
+
+mids mix, path beads
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=4
+
+triangles, star apples NSH TFF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+pents, path rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=10
+
+Test 053:
+
+mids, rng beads
+Counts: nodes=300 edges=328 cycles=29 singles=0 maxDegree=12
+
+squares, star rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=54
+
+triangles, path beads NSH rev TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+tris_fours, star rng
+Counts: nodes=300 edges=418 cycles=119 singles=0 maxDegree=84
+
+mids, star apples
+Counts: nodes=300 edges=329 cycles=30 singles=0 maxDegree=60
+
+Test 054:
+
+tris_fours mix, path beads
+Counts: nodes=300 edges=398 cycles=99 singles=1 maxDegree=4
+
+triangles, path beads NSH TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+mids, path rng
+Counts: nodes=300 edges=328 cycles=29 singles=0 maxDegree=6
+
+triangles, path beads NSH rev TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+bigs edges, star apples
+Counts: nodes=300 edges=313 cycles=14 singles=0 maxDegree=15
+
+Test 055:
+
+mids edges, cycle apples
+Counts: nodes=300 edges=329 cycles=30 singles=0 maxDegree=4
+
+triangles, path beads NSH FFT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, path beads NSH TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH FTT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles, path beads NSH rev FFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+Test 056:
+
+bigs mix, cycle apples
+Counts: nodes=300 edges=315 cycles=16 singles=0 maxDegree=8
+
+mids mix, cycle apples
+Counts: nodes=300 edges=328 cycles=29 singles=0 maxDegree=16
+
+bigs edges, path apples
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=4
+
+tris_fours edges, path apples
+Counts: nodes=300 edges=383 cycles=84 singles=1 maxDegree=4
+
+tris_fours edges, path beads
+Counts: nodes=300 edges=385 cycles=86 singles=2 maxDegree=3
+
+Test 057:
+
+triangles, path beads NSH FFT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles edges, path rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=4
+
+triangles, path beads NSH rev FTT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH FFF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+mids mix, rng apples
+Counts: nodes=300 edges=328 cycles=29 singles=0 maxDegree=18
+
+Test 058:
+
+triangles edges, star apples 3
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=101
+
+bigs mix, rng beads
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+triangles mix, rng beads
+Counts: nodes=300 edges=420 cycles=121 singles=0 maxDegree=13
+
+mids, star rng
+Counts: nodes=300 edges=327 cycles=28 singles=0 maxDegree=16
+
+triangles, path beads NSH rev TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+Test 059:
+
+squares, path rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=12
+
+pents, rng beads
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=12
+
+triangles edges, rng rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=7
+
+pents, star apples
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=150
+
+bigs mix, rng rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=7
+
+Test 060:
+
+triangles, path beads NSH TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH TFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles mix, star apples 3
+Counts: nodes=300 edges=416 cycles=117 singles=0 maxDegree=169
+
+triangles mix, path beads
+Counts: nodes=300 edges=416 cycles=117 singles=1 maxDegree=4
+
+triangles edges, star rng 0
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=43
+
+Test 061:
+
+tris_fours, rng rng
+Counts: nodes=300 edges=418 cycles=119 singles=0 maxDegree=12
+
+tris_fours edges, star apples
+Counts: nodes=300 edges=384 cycles=85 singles=1 maxDegree=87
+
+triangles, path beads NSH rev FTF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+pents mix, path apples
+Counts: nodes=300 edges=366 cycles=67 singles=0 maxDegree=12
+
+pents edges, star apples
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=61
+
+Test 062:
+
+tris_fours edges, path rng
+Counts: nodes=300 edges=383 cycles=84 singles=1 maxDegree=4
+
+triangles, path beads NSH TFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+bigs mix, path rng
+Counts: nodes=300 edges=313 cycles=14 singles=0 maxDegree=5
+
+pents mix, star rng
+Counts: nodes=300 edges=367 cycles=68 singles=0 maxDegree=34
+
+mids mix, star rng
+Counts: nodes=300 edges=326 cycles=27 singles=0 maxDegree=11
+
+Test 063:
+
+triangles, star apples
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+tris_fours mix, path apples
+Counts: nodes=300 edges=400 cycles=101 singles=0 maxDegree=14
+
+triangles, star apples 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+squares mix, path apples
+Counts: nodes=300 edges=386 cycles=87 singles=0 maxDegree=20
+
+bigs mix, star rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+Test 064:
+
+triangles mix, star apples
+Counts: nodes=300 edges=417 cycles=118 singles=0 maxDegree=173
+
+squares, star apples
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=200
+
+triangles, path beads NSH FFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+triangles, star apples NSH TFF 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+tris_fours mix, rng apples
+Counts: nodes=300 edges=401 cycles=102 singles=0 maxDegree=40
+
+Test 065:
+
+triangles, star rng 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=110
+
+triangles, star apples NSH TFF 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles mix, star rng
+Counts: nodes=300 edges=418 cycles=119 singles=1 maxDegree=81
+
+pents edges, path rng
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=4
+
+triangles, path beads NSH FTT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+Test 066:
+
+squares mix, cycle apples
+Counts: nodes=300 edges=385 cycles=86 singles=0 maxDegree=14
+
+tris_fours mix, cycle apples
+Counts: nodes=300 edges=395 cycles=96 singles=0 maxDegree=12
+
+tris_fours mix, star rng
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=51
+
+triangles, star rng
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=124
+
+triangles mix, star apples 0
+Counts: nodes=300 edges=419 cycles=120 singles=1 maxDegree=183
+
+Test 067:
+
+mids edges, path apples
+Counts: nodes=300 edges=328 cycles=29 singles=1 maxDegree=4
+
+squares edges, rng apples
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=12
+
+bigs edges, path rng
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=4
+
+triangles, star rng 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=121
+
+triangles edges, path apples
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=4
+
+Test 068:
+
+triangles edges, star apples 0
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=101
+
+bigs edges, rng apples
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+pents mix, star apples
+Counts: nodes=300 edges=365 cycles=66 singles=0 maxDegree=97
+
+squares edges, path apples
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=4
+
+triangles mix, star rng 0
+Counts: nodes=300 edges=418 cycles=119 singles=1 maxDegree=92
+
+Test 069:
+
+triangles edges, star apples
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=101
+
+bigs edges, rng beads
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=6
+
+squares edges, star rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=27
+
+bigs edges, cycle apples
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=4
+
+bigs mix, star apples
+Counts: nodes=300 edges=314 cycles=15 singles=0 maxDegree=24
+
+Test 070:
+
+triangles, star apples NSH FTT 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+triangles, path beads NSH rev FTT 1
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+pents, star rng
+Counts: nodes=300 edges=374 cycles=75 singles=0 maxDegree=40
+
+triangles, star apples 3
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=299
+
+pents edges, star rng
+Counts: nodes=300 edges=359 cycles=60 singles=0 maxDegree=18
+
+Test 071:
+
+pents edges, cycle apples
+Counts: nodes=300 edges=360 cycles=61 singles=0 maxDegree=4
+
+triangles edges, star rng 3
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=43
+
+triangles mix, star apples 1
+Counts: nodes=300 edges=416 cycles=117 singles=1 maxDegree=171
+
+mids mix, star apples
+Counts: nodes=300 edges=326 cycles=27 singles=0 maxDegree=42
+
+triangles, path beads NSH FFF 0
+Counts: nodes=300 edges=448 cycles=149 singles=1 maxDegree=4
+
+Test 072:
+
+triangles mix, path rng
+Counts: nodes=300 edges=416 cycles=117 singles=2 maxDegree=7
+
+triangles edges, rng beads
+Counts: nodes=300 edges=399 cycles=100 singles=0 maxDegree=8
+
+squares mix, star apples
+Counts: nodes=300 edges=388 cycles=89 singles=1 maxDegree=148
+
+Subtask 8: 73-129
+
+Test 073:
+
+max mids, path rng
+Counts: nodes=1000 edges=1092 cycles=93 singles=0 maxDegree=6
+
+max triangles, path beads NSH TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles, path beads NSH rev FFT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max mids edges, rng rng
+Counts: nodes=1000 edges=1086 cycles=87 singles=2 maxDegree=5
+
+max triangles, path beads NSH TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+Test 074:
+
+max triangles edges, star rng 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=123
+
+max triangles, path beads NSH FFT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max smalls edges, rng rng
+Counts: nodes=1000 edges=1196 cycles=197 singles=25 maxDegree=6
+
+max triangles, star apples NSH FTT 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max path SN SH
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+Test 075:
+
+max bigs, rng rng
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=6
+
+max path SN NSH SN/2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+max triangles, path beads NSH rev FTT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles edges, star apples 1
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=335
+
+max extr cycle SN-1
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+Test 076:
+
+max pents, path rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=8
+
+max smalls, path rng
+Counts: nodes=1000 edges=1247 cycles=248 singles=22 maxDegree=10
+
+max cycle SN
+Counts: nodes=1000 edges=1000 cycles=1 singles=0 maxDegree=2
+
+max pents mix, star rng
+Counts: nodes=1000 edges=1222 cycles=223 singles=0 maxDegree=78
+
+max smalls edges, star rng
+Counts: nodes=1000 edges=1175 cycles=176 singles=21 maxDegree=46
+
+Test 077:
+
+max bigs mix, rng beads
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=14
+
+max squares edges, star rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=66
+
+max squares mix, path rng
+Counts: nodes=1000 edges=1281 cycles=282 singles=2 maxDegree=8
+
+max triangles, path beads NSH FFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max smalls mix, rng apples
+Counts: nodes=1000 edges=1205 cycles=206 singles=32 maxDegree=72
+
+Test 078:
+
+max tris_fours mix, path rng
+Counts: nodes=1000 edges=1331 cycles=332 singles=0 maxDegree=9
+
+max bigs mix, star apples
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=67
+
+max squares mix, star rng
+Counts: nodes=1000 edges=1284 cycles=285 singles=1 maxDegree=116
+
+max triangles mix, star rng
+Counts: nodes=1000 edges=1392 cycles=393 singles=1 maxDegree=209
+
+max pents edges, rng rng
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=6
+
+Test 079:
+
+max triangles, path beads NSH FTF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max path SN NSH SN-2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+max mids mix, cycle apples
+Counts: nodes=1000 edges=1089 cycles=90 singles=0 maxDegree=16
+
+max triangles mix, star apples 3
+Counts: nodes=1000 edges=1392 cycles=393 singles=0 maxDegree=573
+
+max extr triangles edges, rng rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+Test 080:
+
+max triangles edges, path apples
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=4
+
+max tris_fours edges, path apples
+Counts: nodes=1000 edges=1287 cycles=288 singles=1 maxDegree=4
+
+max mids edges, cycle apples
+Counts: nodes=1000 edges=1088 cycles=89 singles=0 maxDegree=4
+
+max triangles edges, rng apples
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=10
+
+max tris_fours mix, star rng
+Counts: nodes=1000 edges=1326 cycles=327 singles=1 maxDegree=171
+
+Test 081:
+
+max bigs mix, path beads
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=4
+
+max smalls, path beads
+Counts: nodes=1000 edges=1245 cycles=246 singles=22 maxDegree=4
+
+max squares mix, star apples
+Counts: nodes=1000 edges=1285 cycles=286 singles=0 maxDegree=431
+
+max cycle SN
+Counts: nodes=1000 edges=1000 cycles=1 singles=0 maxDegree=2
+
+max triangles, path beads NSH rev FTF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+Test 082:
+
+max triangles mix, rng rng
+Counts: nodes=1000 edges=1401 cycles=402 singles=1 maxDegree=14
+
+max pents mix, path rng
+Counts: nodes=1000 edges=1222 cycles=223 singles=0 maxDegree=8
+
+max smalls mix, star apples
+Counts: nodes=1000 edges=1201 cycles=202 singles=24 maxDegree=318
+
+max mids edges, path rng
+Counts: nodes=1000 edges=1088 cycles=89 singles=1 maxDegree=4
+
+max pents edges, path rng
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=4
+
+Test 083:
+
+max triangles, star apples NSH FFT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, path beads NSH rev FTF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max bigs edges, path rng
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=3
+
+max pents mix, path apples
+Counts: nodes=1000 edges=1222 cycles=223 singles=0 maxDegree=18
+
+max tris_fours, path beads
+Counts: nodes=1000 edges=1399 cycles=400 singles=1 maxDegree=4
+
+Test 084:
+
+max mids, rng beads
+Counts: nodes=1000 edges=1095 cycles=96 singles=0 maxDegree=18
+
+max triangles mix, rng apples
+Counts: nodes=1000 edges=1398 cycles=399 singles=1 maxDegree=74
+
+max triangles, star apples NSH TFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, star rng 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=344
+
+max tris_fours mix, star apples
+Counts: nodes=1000 edges=1335 cycles=336 singles=0 maxDegree=508
+
+Test 085:
+
+max star SN NSH SN-1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=999
+
+max tris_fours edges, cycle apples
+Counts: nodes=1000 edges=1289 cycles=290 singles=0 maxDegree=4
+
+max mids edges, path beads
+Counts: nodes=1000 edges=1086 cycles=87 singles=0 maxDegree=3
+
+max squares edges, rng rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=5
+
+max triangles, rng beads
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=20
+
+Test 086:
+
+max smalls, star apples
+Counts: nodes=1000 edges=1239 cycles=240 singles=16 maxDegree=496
+
+max squares mix, rng apples
+Counts: nodes=1000 edges=1288 cycles=289 singles=0 maxDegree=62
+
+max pents, star apples
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=500
+
+max triangles, path beads NSH FTT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max bigs, rng beads
+Counts: nodes=1000 edges=1049 cycles=50 singles=0 maxDegree=12
+
+Test 087:
+
+max tris_fours, rng beads
+Counts: nodes=1000 edges=1393 cycles=394 singles=1 maxDegree=20
+
+max extr squares edges, path rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=1 maxDegree=3
+
+max squares edges, path beads
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=3
+
+max smalls edges, path rng
+Counts: nodes=1000 edges=1193 cycles=194 singles=27 maxDegree=4
+
+max path SN SH 1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+Test 088:
+
+max smalls mix, rng rng
+Counts: nodes=1000 edges=1201 cycles=202 singles=28 maxDegree=12
+
+max triangles mix, path apples
+Counts: nodes=1000 edges=1388 cycles=389 singles=0 maxDegree=16
+
+max tris_fours edges, star rng
+Counts: nodes=1000 edges=1285 cycles=286 singles=0 maxDegree=104
+
+max tree SN SH
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=10
+
+max squares mix, rng beads
+Counts: nodes=1000 edges=1282 cycles=283 singles=2 maxDegree=14
+
+Test 089:
+
+max extr cycle 3
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+max triangles, path beads NSH FFT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max extr smalls edges, path rng
+Counts: nodes=1000 edges=1190 cycles=191 singles=22 maxDegree=3
+
+max mids edges, path apples
+Counts: nodes=1000 edges=1086 cycles=87 singles=0 maxDegree=4
+
+max extr cycle SN-1
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+Test 090:
+
+max mids mix, star apples
+Counts: nodes=1000 edges=1090 cycles=91 singles=0 maxDegree=142
+
+max smalls edges, rng beads
+Counts: nodes=1000 edges=1190 cycles=191 singles=26 maxDegree=11
+
+max triangles, star rng 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=348
+
+max tris_fours, path rng
+Counts: nodes=1000 edges=1404 cycles=405 singles=0 maxDegree=12
+
+max squares edges, path rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=4
+
+Test 091:
+
+max smalls mix, path apples
+Counts: nodes=1000 edges=1215 cycles=216 singles=23 maxDegree=14
+
+max pents edges, path apples
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=4
+
+max extr pents edges, path rng
+Counts: nodes=1000 edges=1199 cycles=200 singles=1 maxDegree=3
+
+max extr tris_fours edges, rng rng
+Counts: nodes=1000 edges=1288 cycles=289 singles=2 maxDegree=3
+
+max mids mix, rng apples
+Counts: nodes=1000 edges=1090 cycles=91 singles=0 maxDegree=26
+
+Test 092:
+
+max pents edges, star apples
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=201
+
+max triangles, path beads NSH rev FFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max squares mix, path beads
+Counts: nodes=1000 edges=1287 cycles=288 singles=0 maxDegree=4
+
+max smalls edges, path beads
+Counts: nodes=1000 edges=1185 cycles=186 singles=24 maxDegree=3
+
+max triangles, path beads NSH FTT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+Test 093:
+
+max tris_fours mix, cycle apples
+Counts: nodes=1000 edges=1329 cycles=330 singles=0 maxDegree=16
+
+max triangles, star apples NSH TFF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max star SN SH 0
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=999
+
+max pents edges, star rng
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=49
+
+max extr squares edges, rng rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=1 maxDegree=3
+
+Test 094:
+
+max path SN SH 0
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+max bigs mix, star rng
+Counts: nodes=1000 edges=1048 cycles=49 singles=0 maxDegree=13
+
+max tris_fours mix, path apples
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=20
+
+max extr cycle SN-1
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+max tris_fours edges, path rng
+Counts: nodes=1000 edges=1286 cycles=287 singles=0 maxDegree=4
+
+Test 095:
+
+max squares edges, rng apples
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=11
+
+max tris_fours mix, rng beads
+Counts: nodes=1000 edges=1330 cycles=331 singles=0 maxDegree=14
+
+max extr cycle 4 NSH
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+max pents mix, rng apples
+Counts: nodes=1000 edges=1221 cycles=222 singles=0 maxDegree=124
+
+max squares edges, rng beads
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=9
+
+Test 096:
+
+max triangles, star apples NSH TFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max bigs, path rng
+Counts: nodes=1000 edges=1049 cycles=50 singles=0 maxDegree=4
+
+max smalls edges, cycle apples
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=4
+
+max mids mix, star rng
+Counts: nodes=1000 edges=1089 cycles=90 singles=0 maxDegree=20
+
+max path SN NSH SN-1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+Test 097:
+
+max triangles, star apples NSH TFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, path beads
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max tris_fours edges, rng beads
+Counts: nodes=1000 edges=1284 cycles=285 singles=1 maxDegree=9
+
+max triangles, path beads NSH TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max squares, star rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=212
+
+Test 098:
+
+max extr triangles edges, path rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max mids mix, path rng
+Counts: nodes=1000 edges=1091 cycles=92 singles=0 maxDegree=6
+
+max squares, rng rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=26
+
+max triangles mix, path beads
+Counts: nodes=1000 edges=1402 cycles=403 singles=0 maxDegree=4
+
+max smalls mix, path beads
+Counts: nodes=1000 edges=1212 cycles=213 singles=31 maxDegree=4
+
+Test 099:
+
+max pents mix, rng rng
+Counts: nodes=1000 edges=1224 cycles=225 singles=2 maxDegree=10
+
+max triangles edges, path rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=4
+
+max bigs edges, rng apples
+Counts: nodes=1000 edges=1046 cycles=47 singles=0 maxDegree=10
+
+max bigs edges, path apples
+Counts: nodes=1000 edges=1045 cycles=46 singles=0 maxDegree=4
+
+max tree SN NSH
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=12
+
+Test 100:
+
+max triangles mix, star apples 0
+Counts: nodes=1000 edges=1396 cycles=397 singles=2 maxDegree=593
+
+max squares mix, cycle apples
+Counts: nodes=1000 edges=1288 cycles=289 singles=0 maxDegree=20
+
+max bigs, star apples
+Counts: nodes=1000 edges=1048 cycles=49 singles=0 maxDegree=98
+
+max squares, path beads
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=4
+
+max triangles, path beads NSH rev TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+Test 101:
+
+max triangles, star apples NSH FFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, star apples NSH FFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max pents mix, path beads
+Counts: nodes=1000 edges=1219 cycles=220 singles=1 maxDegree=4
+
+max tris_fours, rng rng
+Counts: nodes=1000 edges=1394 cycles=395 singles=0 maxDegree=30
+
+max triangles edges, star rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=130
+
+Test 102:
+
+max cycle SN NSH
+Counts: nodes=1000 edges=1000 cycles=1 singles=0 maxDegree=2
+
+max squares, rng beads
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=22
+
+max smalls, rng rng
+Counts: nodes=1000 edges=1226 cycles=227 singles=35 maxDegree=16
+
+max path SN NSH 0
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+max bigs, path beads
+Counts: nodes=1000 edges=1048 cycles=49 singles=0 maxDegree=4
+
+Test 103:
+
+max triangles, star apples 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max smalls edges, path apples
+Counts: nodes=1000 edges=1186 cycles=187 singles=23 maxDegree=4
+
+max triangles, star apples
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, star apples NSH TFF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles, star apples NSH FTF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+Test 104:
+
+max triangles mix, path rng
+Counts: nodes=1000 edges=1399 cycles=400 singles=0 maxDegree=10
+
+max squares edges, path apples
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=4
+
+max triangles, path beads NSH FFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max extr cycle 4
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+max tris_fours, star rng
+Counts: nodes=1000 edges=1397 cycles=398 singles=0 maxDegree=276
+
+Test 105:
+
+max extr triangles edges, path beads NSH TFF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles mix, rng beads
+Counts: nodes=1000 edges=1403 cycles=404 singles=1 maxDegree=12
+
+max squares, path rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=12
+
+max smalls edges, star apples
+Counts: nodes=1000 edges=1182 cycles=183 singles=21 maxDegree=205
+
+max bigs edges, rng beads
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=7
+
+Test 106:
+
+max mids mix, path beads
+Counts: nodes=1000 edges=1092 cycles=93 singles=0 maxDegree=4
+
+max triangles, star apples NSH TFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max tris_fours edges, star apples
+Counts: nodes=1000 edges=1289 cycles=290 singles=2 maxDegree=293
+
+max extr cycle SN-1
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+max extr cycle 3 NSH
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+Test 107:
+
+max bigs edges, path beads
+Counts: nodes=1000 edges=1045 cycles=46 singles=0 maxDegree=3
+
+max triangles, star apples NSH FTT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles mix, cycle apples
+Counts: nodes=1000 edges=1397 cycles=398 singles=0 maxDegree=26
+
+max smalls, rng beads
+Counts: nodes=1000 edges=1233 cycles=234 singles=25 maxDegree=18
+
+max pents edges, path beads
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=3
+
+Test 108:
+
+max extr triangles edges, path beads NSH TFF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles, path beads NSH rev TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max bigs edges, cycle apples
+Counts: nodes=1000 edges=1045 cycles=46 singles=0 maxDegree=4
+
+max triangles, star rng
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=390
+
+max mids edges, rng beads
+Counts: nodes=1000 edges=1086 cycles=87 singles=0 maxDegree=7
+
+Test 109:
+
+max pents edges, cycle apples
+Counts: nodes=1000 edges=1200 cycles=201 singles=0 maxDegree=4
+
+max bigs mix, path apples
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=12
+
+max triangles, path beads NSH rev FFT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max mids mix, rng beads
+Counts: nodes=1000 edges=1093 cycles=94 singles=0 maxDegree=15
+
+max pents edges, rng beads
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=9
+
+Test 110:
+
+max smalls mix, path rng
+Counts: nodes=1000 edges=1206 cycles=207 singles=29 maxDegree=8
+
+max bigs edges, star rng
+Counts: nodes=1000 edges=1046 cycles=47 singles=0 maxDegree=7
+
+max path SN SH SN/2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+max triangles, path beads NSH rev FFF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles edges, star apples 3
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=335
+
+Test 111:
+
+max triangles, star apples NSH FTT 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max pents, star rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=120
+
+max bigs edges, rng rng
+Counts: nodes=1000 edges=1045 cycles=46 singles=0 maxDegree=4
+
+max smalls, star rng
+Counts: nodes=1000 edges=1227 cycles=228 singles=40 maxDegree=109
+
+max extr pents edges, rng rng
+Counts: nodes=1000 edges=1199 cycles=200 singles=1 maxDegree=3
+
+Test 112:
+
+max pents edges, rng apples
+Counts: nodes=1000 edges=1199 cycles=200 singles=0 maxDegree=9
+
+max triangles edges, star rng 3
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=121
+
+max bigs mix, rng apples
+Counts: nodes=1000 edges=1047 cycles=48 singles=1 maxDegree=23
+
+max tris_fours mix, rng rng
+Counts: nodes=1000 edges=1335 cycles=336 singles=0 maxDegree=21
+
+max extr triangles edges, path beads NSH FTF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+Test 113:
+
+max squares mix, rng rng
+Counts: nodes=1000 edges=1283 cycles=284 singles=2 maxDegree=12
+
+max mids, rng rng
+Counts: nodes=1000 edges=1095 cycles=96 singles=0 maxDegree=12
+
+max smalls mix, star rng
+Counts: nodes=1000 edges=1206 cycles=207 singles=30 maxDegree=122
+
+max mids, star apples
+Counts: nodes=1000 edges=1087 cycles=88 singles=1 maxDegree=177
+
+max path SN NSH
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+Test 114:
+
+max triangles, star apples NSH TFF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max squares edges, cycle apples
+Counts: nodes=1000 edges=1250 cycles=251 singles=0 maxDegree=4
+
+max bigs edges, star apples
+Counts: nodes=1000 edges=1046 cycles=47 singles=0 maxDegree=48
+
+max triangles edges, star apples 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=335
+
+max tris_fours mix, path beads
+Counts: nodes=1000 edges=1337 cycles=338 singles=0 maxDegree=4
+
+Test 115:
+
+max triangles edges, cycle apples
+Counts: nodes=1000 edges=1333 cycles=334 singles=0 maxDegree=4
+
+max extr triangles edges, path beads NSH FFF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles mix, star apples
+Counts: nodes=1000 edges=1398 cycles=399 singles=0 maxDegree=597
+
+max triangles, path beads NSH TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max extr triangles edges, path beads NSH TFF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+Test 116:
+
+max triangles, star apples NSH TFF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max tris_fours edges, rng apples
+Counts: nodes=1000 edges=1282 cycles=283 singles=0 maxDegree=12
+
+max star SN NSH SN/2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=999
+
+max squares edges, star apples
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=251
+
+max star SN SH 1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=999
+
+Test 117:
+
+max triangles, star apples NSH FFT 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max triangles mix, star apples 1
+Counts: nodes=1000 edges=1394 cycles=395 singles=0 maxDegree=581
+
+max bigs, star rng
+Counts: nodes=1000 edges=1048 cycles=49 singles=0 maxDegree=12
+
+max mids mix, rng rng
+Counts: nodes=1000 edges=1092 cycles=93 singles=0 maxDegree=7
+
+max triangles, star apples NSH FFF 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+Test 118:
+
+max squares mix, path apples
+Counts: nodes=1000 edges=1287 cycles=288 singles=0 maxDegree=22
+
+max mids edges, star apples
+Counts: nodes=1000 edges=1088 cycles=89 singles=0 maxDegree=90
+
+max tris_fours edges, rng rng
+Counts: nodes=1000 edges=1278 cycles=279 singles=1 maxDegree=6
+
+max tris_fours, star apples
+Counts: nodes=1000 edges=1401 cycles=402 singles=0 maxDegree=804
+
+max extr cycle 4 NSH rev
+Counts: nodes=5 edges=5 cycles=1 singles=1 maxDegree=3
+
+Test 119:
+
+max triangles mix, star rng 0
+Counts: nodes=1000 edges=1405 cycles=406 singles=0 maxDegree=221
+
+max extr cycle SN-1 NSH rev
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+max star SN NSH 1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=999
+
+max smalls mix, cycle apples
+Counts: nodes=1000 edges=1201 cycles=202 singles=0 maxDegree=14
+
+max triangles, rng rng
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=28
+
+Test 120:
+
+max pents mix, rng beads
+Counts: nodes=1000 edges=1220 cycles=221 singles=0 maxDegree=14
+
+max bigs mix, path rng
+Counts: nodes=1000 edges=1050 cycles=51 singles=0 maxDegree=5
+
+max mids edges, star rng
+Counts: nodes=1000 edges=1084 cycles=85 singles=1 maxDegree=14
+
+max bigs mix, rng rng
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=7
+
+max path SN NSH 1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=2
+
+Test 121:
+
+max tris_fours mix, rng apples
+Counts: nodes=1000 edges=1331 cycles=332 singles=2 maxDegree=98
+
+max pents, rng beads
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=20
+
+max mids mix, path apples
+Counts: nodes=1000 edges=1088 cycles=89 singles=1 maxDegree=14
+
+max triangles, star apples 3
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max tree SN SH 0
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=13
+
+Test 122:
+
+max smalls mix, rng beads
+Counts: nodes=1000 edges=1216 cycles=217 singles=25 maxDegree=11
+
+max bigs mix, cycle apples
+Counts: nodes=1000 edges=1047 cycles=48 singles=0 maxDegree=16
+
+max pents mix, cycle apples
+Counts: nodes=1000 edges=1222 cycles=223 singles=0 maxDegree=14
+
+max mids, star rng
+Counts: nodes=1000 edges=1094 cycles=95 singles=0 maxDegree=32
+
+max extr cycle SN-1
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+Test 123:
+
+max tree SN NSH SN-1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=9
+
+max extr triangles edges, path beads NSH FFT 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles edges, rng beads
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=8
+
+max triangles, star apples NSH FTF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max cycle SN
+Counts: nodes=1000 edges=1000 cycles=1 singles=0 maxDegree=2
+
+Test 124:
+
+max extr triangles edges, path beads NSH TFF 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles edges, star apples
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=335
+
+max extr triangles edges, path beads NSH FTT 0
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max triangles, path beads NSH FTF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max squares, star apples
+Counts: nodes=1000 edges=1332 cycles=333 singles=0 maxDegree=666
+
+Test 125:
+
+max tris_fours edges, path beads
+Counts: nodes=1000 edges=1282 cycles=283 singles=1 maxDegree=3
+
+max extr cycle SN-1 NSH
+Counts: nodes=1000 edges=1000 cycles=1 singles=1 maxDegree=3
+
+max triangles edges, path beads
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=3
+
+max tree SN NSH SN/2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=10
+
+max triangles, path rng
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=16
+
+Test 126:
+
+max pents, rng rng
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=16
+
+max triangles, path beads NSH rev FTT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles edges, rng rng
+Counts: nodes=1000 edges=1332 cycles=333 singles=1 maxDegree=7
+
+max extr cycle 3 NSH rev
+Counts: nodes=4 edges=4 cycles=1 singles=1 maxDegree=3
+
+max mids, path beads
+Counts: nodes=1000 edges=1100 cycles=101 singles=0 maxDegree=4
+
+Test 127:
+
+max pents, path beads
+Counts: nodes=1000 edges=1249 cycles=250 singles=0 maxDegree=4
+
+max pents mix, star apples
+Counts: nodes=1000 edges=1220 cycles=221 singles=1 maxDegree=329
+
+max tree SN SH SN-1
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=11
+
+max extr tris_fours edges, path rng
+Counts: nodes=1000 edges=1284 cycles=285 singles=1 maxDegree=3
+
+max tree SN NSH 0
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=11
+
+Test 128:
+
+max smalls edges, rng apples
+Counts: nodes=1000 edges=1196 cycles=197 singles=23 maxDegree=9
+
+max triangles, star apples 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max tree SN SH SN/2
+Counts: nodes=1000 edges=999 cycles=0 singles=1000 maxDegree=10
+
+max triangles, star apples NSH FTF 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999
+
+max mids edges, rng apples
+Counts: nodes=1000 edges=1085 cycles=86 singles=0 maxDegree=8
+
+Test 129:
+
+max extr smalls edges, rng rng
+Counts: nodes=1000 edges=1196 cycles=197 singles=33 maxDegree=3
+
+max triangles, path beads NSH rev TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles mix, star rng 3
+Counts: nodes=1000 edges=1401 cycles=402 singles=0 maxDegree=227
+
+max triangles, path beads NSH rev TFF 0
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=4
+
+max triangles, star apples NSH FFT 1
+Counts: nodes=1000 edges=1498 cycles=499 singles=1 maxDegree=999

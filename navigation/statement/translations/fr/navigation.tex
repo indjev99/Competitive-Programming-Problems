@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Jour 2}
+\renewcommand{\problemName}{Problème Navigation}
+\renewcommand{\lang}{Français}
+
+\renewcommand{\tl}{$3$ s}
+\renewcommand{\ml}{$512$ Mo}
+\problem{\problemName}
+
+On a un \textbf{graphe cactus simple, connexe et non-orienté}\textsuperscript{1} avec $N \leq 1000$ nœuds et $M$ arêtes. Ses nœuds ont des couleurs (notées avec des entiers positifs entre $0$ et $1499$). Initialement, tous les nœuds ont la couleur $0$. Un \textbf{robot déterministe sans mémoire}\textsuperscript{2} explore le graphe en se déplaçant de nœud en nœud. Il doit visiter tous les nœuds au moins une fois puis s'arrêter. 
+%There is a \textbf{connected undirected simple cactus graph}\textsuperscript{1} with $N \leq 1000$ nodes and $M$ edges. Its nodes have colors (denoted with non-negative integers from $0$ to $1499$). Initially all nodes have color $0$. A \textbf{deterministic memoryless robot}\textsuperscript{2} explores the graph by moving from node to node. It must visit all nodes at least once and then terminate.
+
+Le robot commence sur un nœud quelconque du graphe. À chaque étape, il voit la couleur du nœud actuel et les couleurs de tous les nœuds adjacents \textbf{dans un ordre qui est fixé pour le noeud actuel} (c'est-à-dire que revisiter le nœud donnera au robot la même séquence de nœuds adjacents, même si leurs couleurs ont changé depuis). Le robot effectue l'une des deux actions suivantes :
+%The robot starts at some node, which could be any of the nodes in the graph. At each step, it sees the color of its current node and the colors of all adjacent nodes \textbf{in some fixed for the current node order} (i.e. revisiting the node will give the robot the same sequence of adjacent nodes, even if their colors are different from before). The robot does one of the following two actions:
+\begin{enumerate}
+    \item il décide de s'arrêter.
+%    \item Decides to terminate.
+    \item il choisit une nouvelle couleur (qui peut être la couleur actuelle) pour le nœud actuel et vers quel nœud adjacent se déplacer. Le nœud adjacent est identifié par un indice entre $0$ et $D-1$, où $D$ est le nombre de nœuds adjacents. 
+%    \item Chooses a new (or possibly the same) color for the current node and which adjacent node to move to. The adjacent node is identified by an index from $0$ to $D-1$, where $D$ is the number of adjacent nodes.
+\end{enumerate}
+
+Dans le deuxième cas, le nœud actuel est recoloré (ou éventuellement conserve sa couleur) et le robot se déplace vers le nœud adjacent choisi. Cela se répète jusqu'à ce que le robot s'arrête ou jusqu'à ce qu'il atteigne la limite d'itérations. Le robot gagne s'il visite tous les nœuds, puis s'arrête en respectant la limite de $L = 3000$ itérations (sinon il perd).
+%In the second case, the current node is recolored (or possibly stays the same color) and the robot moves to the chosen adjacent node. This repeats until the robot terminates or until it runs out of time. If the robot has not visited all nodes before terminating or if it runs out of time without terminating, it loses. The iteration limit is $L = 3000$ steps.
+
+Vous devez mettre en place une stratégie pour le robot qui résolve le problème sur n'importe quel graphe cactus tel que décrit. De plus, vous devez essayer de minimiser le nombre de couleurs distinctes que votre solution utilise. Ici, la couleur $0$ est toujours comptée comme utilisée.
+%You should design a strategy for the robot that can solve the problem on any such cactus graph. Additionally, you should try to minimize the number of distinct colors your solution uses. Here color 0 always counts as used.
+
+\textsuperscript{1}\textit{Un graphe cactus simple, connexe et non-orienté est un graphe simple, connexe et non-orienté (chaque nœud est atteignable depuis chaque autre nœud ; les arêtes sont bidirectionnelles ; il n'y a pas de boucle, c'est-à-dire une arête d'un nœud vers lui-même, ni d'arêtes multiples reliant une même paire de nœuds) dans lequel chaque arête appartient à un seul cycle simple (un cycle simple est un cycle qui ne contient chaque nœud qu'une fois). L'image ci-dessous est un exemple.}
+%\textsuperscript{1}\textit{A connected undirected simple cactus graph is a connected undirected simple graph (every node is reachable from every other node; edges are bi-directional; has no self-loops or multi-edges) in which every edge belongs to at most one simple cycle (a simple cycle is a cycle that contains each node at most once). The below image is an example.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Un robot est déterministe sans mémoire, si son action ne dépend que de ses entrées (c'est-à-dire qu'il ne stocke pas de données d'une étape à l'autre), et qu'il choisit toujours la même action quand on lui donne les mêmes entrées.}
+%\textsuperscript{2}\textit{A robot is deterministic and memoryless, if its action depends only on its current inputs (i.e. it stores no data from step to step), and it always chooses the same action when given the same inputs.}
+
+\subsection{Détails d'implémentation}
+La stratégie du robot doit être implémentée via la fonction suivante :
+%The robot's strategy should be implemented as the following function:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Elle reçoit en paramètre la couleur du nœud actuel et les couleurs de tous les nœuds adjacents (dans l'ordre). Elle doit renvoyer une paire dont le premier élément est la nouvelle couleur du nœud actuel et dont le deuxième élément est l'indice du nœud adjacent auquel le robot doit se déplacer. Sinon, si le robot doit s'arrêter, la fonction doit renvoyer la paire $(-1,-1)$.
+%It receives as parameters the color of the current node and the colors of all adjacent nodes (in order). It must return a pair whose first element is the new color for the current node and whose second element is the adjacency index of the node the robot should move to. If instead the robot should terminate, the function should return the pair $(-1, -1)$.
+
+Cette fonction sera appelée de manière répétée de manière à choisit les actions du robot. Puisqu'elle est déterministe, si \texttt{navigate} a déjà été appelée avec certains paramètres, elle ne sera jamais rappelée avec ces paramètres à nouveau ; on va plutôt réutiliser la valeur de retour précédente. De plus, chaque test peut contenir $T \leq 5$ sous-tests (des graphes et/ou des positions de départ distincts) et ils peuvent être lancés en parallèle (c'est-à-dire que votre programme peut recevoir en alternance des appels pour des sous-tests différents). Enfin, les appels à \texttt{navigate} peuvent se produire dans \textbf{des exécutions séparées} de votre programme (mais ils pourraient aussi parfois se produire dans la même exécution). Le nombre total d'exécutions de votre programme est $P=100$. Pour toutes ces raisons, votre programme ne devrait pas essayer de passer de l'information entre les différents appels.
+%This function will be called repeatedly in order to choose the actions of the robot. Since it is deterministic, if \texttt{navigate} was already called with some parameters, it will never be called with those same parameters again; instead its previous return value will be reused. Additionally, each test may contain $T \leq 5$ subtests (distinct graphs and/or starting positions) and they may be run concurrently (i.e. your program may get alternating calls about different subtests). Finally, the calls to \texttt{navigate} may happen in \textbf{separate executions} of your program (but they may also sometimes happen in the same execution). The total number of executions of your program is $P = 100$. Due to all of this, your program should not try to pass information between different calls.
+
+\subsection{Contraintes}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Couleur} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Notation}
+
+La fraction $S$ des points que vous recevrez pour une sous-tâche dépend de $C$, le nombre maximum de couleurs distinctes que votre solution utilise (dont la couleur $0$) sur chacun des tests de cette sous-tâche ou n'importe laquelle des sous-tâches requises :
+%The fraction $S$ of the points for a subtask that you get depends on $C$ -- the maximum number of distinct colors your solution uses (including color $0$) on any test in that subtask or any other required subtask:
+
+\begin{itemize}
+\item Si votre solution échoue sur n'importe quel sous-test, alors $S = 0$.
+\item Si $C \leq 4$, alors $S = 1.0$.
+\item Si $4 < C \leq 8$, alors $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Si $8 < C \leq 21$, alors $S = 0.4 \frac{8}{C}$.
+\item Si $C > 21$, alors $S = 0.15$.
+\end{itemize}
+%%%%\begin{itemize}
+%%%%\item If your solution fails on any subtest, then $S = 0$.
+%%%%\item If $C \leq 4$, then $S = 1.0$.
+%%%%\item If $4 < C \leq 8$, then $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+%%%%\item If $8 < C \leq 21$, then $S = 0.4 \frac{8}{C}$.
+%%%%\item If $C > 21$, then $S = 0.15$.
+%%%%\end{itemize}
+
+\subsection{Sous-tâches}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Sous-tâche} & \textbf{Points} & \textbf{\makecell{Sous-tâches\\requises}} & $N$ & \textbf{Contraintes supplémentaires}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & L'exemple. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Le graphe est un cycle.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Le graphe est une étoile.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Le graphe est un chemin.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Le graphe est un arbre.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Tous les nœuds ont au plus $3$ nœuds adjacents et le nœeud où le robot commence a un seul nœud adjacent. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Un cycle a les arêtes : $\left(i, (i+1) \bmod N\right)$ pour chaque $0 \leq i < N$. \\
+\textsuperscript{2}Une étoile a les arêtes : $\left(0, i\right)$ pour chaque  $1 \leq i < N$. \\
+\textsuperscript{3}Un chemin a les arêtes : $\left(i, i+1\right)$ pour chaque $0 \leq i < N - 1$. \\
+\textsuperscript{4}Un arbre est un graphe sans cycles.}
+\end{table}
+\FloatBarrier
+
+\subsection{Exemple}
+
+On considère le graphe de l'image ci-dessus dans l'énoncé, qui a  $N=7$, $M=8$ et les arêtes $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ et $(2, 6)$. De plus, puisque les ordres des éléments dans les listes d'adjacence des nœuds sont importants, ils sont donnés dans ce tableau :
+%Consider the sample graph from the image in the statement, which has $N=7$, $M=8$ and edges $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ and $(2, 6)$. Additionally, since the orders of the elements in the nodes' adjacency lists are relevant, we give them in this table:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Nœud}} & \textbf{Nœuds adjacents} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+On suppose que le robot commence au nœud $5$. Voici une séquence possible (perdante) d'intéractions :
+%Suppose the robot starts at node $5$. Then the following is one possible (unsuccessful) sequence of interactions:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Couleurs}} & \textbf{\makecell{Nœud}} & \textbf{\makecell{Appel à \texttt{navigate}}} & \textbf{Valeur de retour} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Ici, le robot a utilisé un total de $6$ couleurs distinctes: $0$, $1$, $2$, $3$, $4$ et $8$ (remarquez que $0$ aurait compté comme utilisée même si le robot n'avait jamais renvoyé la couleur $0$ puisque tous les nœuds commencent avec la couleur $0$). Le robot s'est exécuté pour $9$ itérations avant de s'arrêter. Toutefois, il a échoué puisqu'il s'est arrêté sans avoir visité le nœud $1$.
+%Here the robot used a total of $6$ distinct colors: $0$, $1$, $2$, $3$, $4$ and $8$ (note that $0$ would have counted as used even if the robot never returned color $0$, since all nodes start in color $0$). The robot ran for $9$ iterations before terminating. However, it failed since it terminated without having visited node $1$.
+
+\textsuperscript{1}Remarquez que l'appel à \texttt{navigate} à l'itération $4$ ne se produirait pas vraiment. En effet, il est équivalent à celui de l'appel à l'itération $1$, donc l'évaluateur réutiliserait simplement la valeur renvoyée par votre fonction sur ce premier appel. Néanmoins, cela compte tout de même comme une itération du robot.
+%\textsuperscript{1}Note the call to \texttt{navigate} at iteration $4$ would not actually happen. This is because it is equivalent to the call at iteration $1$, so the grader would simply reuse the return value of your function from that call. However, this still counts as an iteration of the robot.
+
+\subsection{Évaluateur d'exemple}
+
+L'évaluateur d'exemple ne lance pas plusieurs exécutions de votre programme, donc tous les appels à navigate seront dans la même exécution de votre programme.
+
+Le format d'entrée est le suivant : Tout d'abord, on lit $T$, le nombre de sous-tests. Puis pour chaque sous-test :
+%The input format is the following: First $T$ (the number of subtests) is read. Then for each subtest:
+\begin{itemize}
+\item ligne $1$ : les deux entiers $N$ et $M$ ;
+\item ligne $2+i$ (pour chaque $0 \leq i < M$) : les deux entiers $A_i$ et $B_i$, qui sont les deux nœuds que l'arête $i$ relie ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+L'évaluateur d'exemple affichera ensuite le nombre de couleurs distinctes que votre solution a utilisé et le nombre d'itérations dont elle a eu besoin avant de s'arrêter. Autrement, elle afficher un message d'erreur si votre solution a échoué.
+%The sample grader will then print out the number of distinct colors your solution used and the number of iterations it needed before it terminated. Alternatively, it will print out an error message, if your solution failed.
+
+Par défaut, l'évaluateur d'exemple affiche des informations détaillées sur ce que le robot voit et fait à chaque itération. Vous pouvez désactiver ceci en changeant la valeur de \texttt{DEBUG} de \texttt{true} à \texttt{false}.
+%By default, the sample grader prints detailed information on what the robot sees and does at each iteration. You can disable this, by changing the value of \texttt{DEBUG} from \texttt{true} to \texttt{false}.
+
+\end{document}

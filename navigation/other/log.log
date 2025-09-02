@@ -1,0 +1,2528 @@
+
+Num strats: 1
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 1
+Num failed nonvis: 2
+Num succ term: 0
+Num curr strats: 7
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 2
+Num failed nonvis: 3
+Num succ term: 2
+Num curr strats: 10
+Total succ strats: 2
+
+Iter: 4
+Num failed cycled: 8
+Num failed nonvis: 5
+Num succ term: 5
+Num curr strats: 32
+Total succ strats: 7
+
+Iter: 5
+Num failed cycled: 20
+Num failed nonvis: 5
+Num succ term: 15
+Num curr strats: 32
+Total succ strats: 22
+
+Iter: 6
+Num failed cycled: 23
+Num failed nonvis: 6
+Num succ term: 26
+Num curr strats: 105
+Total succ strats: 48
+
+Iter: 7
+Num failed cycled: 63
+Num failed nonvis: 4
+Num succ term: 45
+Num curr strats: 91
+Total succ strats: 93
+
+Iter: 8
+Num failed cycled: 69
+Num failed nonvis: 4
+Num succ term: 87
+Num curr strats: 295
+Total succ strats: 180
+
+Iter: 9
+Num failed cycled: 198
+Num failed nonvis: 0
+Num succ term: 104
+Num curr strats: 201
+Total succ strats: 284
+
+Num strats: 284
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 159
+Num succ term: 0
+Num curr strats: 725
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 125
+Num succ term: 0
+Num curr strats: 756
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 102
+Num failed nonvis: 399
+Num succ term: 0
+Num curr strats: 1683
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 341
+Num failed nonvis: 282
+Num succ term: 44
+Num curr strats: 1324
+Total succ strats: 44
+
+Iter: 5
+Num failed cycled: 201
+Num failed nonvis: 242
+Num succ term: 319
+Num curr strats: 2266
+Total succ strats: 363
+
+Iter: 6
+Num failed cycled: 478
+Num failed nonvis: 123
+Num succ term: 664
+Num curr strats: 1613
+Total succ strats: 1027
+
+Iter: 7
+Num failed cycled: 245
+Num failed nonvis: 91
+Num succ term: 570
+Num curr strats: 2415
+Total succ strats: 1597
+
+Iter: 8
+Num failed cycled: 692
+Num failed nonvis: 65
+Num succ term: 618
+Num curr strats: 1424
+Total succ strats: 2215
+
+Iter: 9
+Num failed cycled: 94
+Num failed nonvis: 0
+Num succ term: 529
+Num curr strats: 1489
+Total succ strats: 2744
+
+Num strats: 2744
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2744
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 922
+Num succ term: 0
+Num curr strats: 4574
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 337
+Num failed nonvis: 928
+Num succ term: 72
+Num curr strats: 3949
+Total succ strats: 72
+
+Iter: 4
+Num failed cycled: 394
+Num failed nonvis: 449
+Num succ term: 895
+Num curr strats: 4599
+Total succ strats: 967
+
+Iter: 5
+Num failed cycled: 454
+Num failed nonvis: 141
+Num succ term: 1576
+Num curr strats: 3164
+Total succ strats: 2543
+
+Iter: 6
+Num failed cycled: 133
+Num failed nonvis: 115
+Num succ term: 860
+Num curr strats: 3140
+Total succ strats: 3403
+
+Iter: 7
+Num failed cycled: 310
+Num failed nonvis: 78
+Num succ term: 818
+Num curr strats: 2202
+Total succ strats: 4221
+
+Iter: 8
+Num failed cycled: 74
+Num failed nonvis: 0
+Num succ term: 885
+Num curr strats: 1699
+Total succ strats: 5106
+
+Iter: 9
+Num failed cycled: 196
+Num failed nonvis: 0
+Num succ term: 614
+Num curr strats: 1009
+Total succ strats: 5720
+
+Num strats: 5720
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 5720
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 5720
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 314
+Num failed nonvis: 30
+Num succ term: 0
+Num curr strats: 5492
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 81
+Num failed nonvis: 182
+Num succ term: 72
+Num curr strats: 5261
+Total succ strats: 72
+
+Iter: 5
+Num failed cycled: 211
+Num failed nonvis: 209
+Num succ term: 517
+Num curr strats: 4640
+Total succ strats: 589
+
+Iter: 6
+Num failed cycled: 301
+Num failed nonvis: 418
+Num succ term: 675
+Num curr strats: 4678
+Total succ strats: 1264
+
+Iter: 7
+Num failed cycled: 535
+Num failed nonvis: 389
+Num succ term: 1055
+Num curr strats: 4093
+Total succ strats: 2319
+
+Iter: 8
+Num failed cycled: 473
+Num failed nonvis: 411
+Num succ term: 743
+Num curr strats: 3462
+Total succ strats: 3062
+
+Iter: 9
+Num failed cycled: 446
+Num failed nonvis: 265
+Num succ term: 776
+Num curr strats: 2853
+Total succ strats: 3838
+
+Iter: 10
+Num failed cycled: 485
+Num failed nonvis: 50
+Num succ term: 863
+Num curr strats: 2011
+Total succ strats: 4701
+
+Iter: 11
+Num failed cycled: 278
+Num failed nonvis: 57
+Num succ term: 547
+Num curr strats: 1637
+Total succ strats: 5248
+
+Iter: 12
+Num failed cycled: 342
+Num failed nonvis: 21
+Num succ term: 471
+Num curr strats: 1225
+Total succ strats: 5719
+
+Num strats: 5719
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 5719
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 5719
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 9
+Num succ term: 0
+Num curr strats: 5718
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 9
+Num failed nonvis: 320
+Num succ term: 0
+Num curr strats: 5417
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 455
+Num failed nonvis: 668
+Num succ term: 43
+Num curr strats: 5463
+Total succ strats: 43
+
+Iter: 6
+Num failed cycled: 127
+Num failed nonvis: 388
+Num succ term: 227
+Num curr strats: 4909
+Total succ strats: 270
+
+Iter: 7
+Num failed cycled: 109
+Num failed nonvis: 309
+Num succ term: 530
+Num curr strats: 4211
+Total succ strats: 800
+
+Iter: 8
+Num failed cycled: 130
+Num failed nonvis: 237
+Num succ term: 865
+Num curr strats: 3365
+Total succ strats: 1665
+
+Iter: 9
+Num failed cycled: 170
+Num failed nonvis: 218
+Num succ term: 867
+Num curr strats: 2416
+Total succ strats: 2532
+
+Iter: 10
+Num failed cycled: 79
+Num failed nonvis: 88
+Num succ term: 855
+Num curr strats: 1564
+Total succ strats: 3387
+
+Iter: 11
+Num failed cycled: 90
+Num failed nonvis: 36
+Num succ term: 616
+Num curr strats: 884
+Total succ strats: 4003
+
+Iter: 12
+Num failed cycled: 24
+Num failed nonvis: 7
+Num succ term: 354
+Num curr strats: 543
+Total succ strats: 4357
+
+Num strats: 4357
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 4357
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 153
+Num succ term: 0
+Num curr strats: 4732
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 176
+Num failed nonvis: 59
+Num succ term: 0
+Num curr strats: 4665
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 122
+Num failed nonvis: 258
+Num succ term: 0
+Num curr strats: 4653
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 101
+Num failed nonvis: 499
+Num succ term: 121
+Num curr strats: 4422
+Total succ strats: 121
+
+Iter: 6
+Num failed cycled: 161
+Num failed nonvis: 499
+Num succ term: 243
+Num curr strats: 3801
+Total succ strats: 364
+
+Iter: 7
+Num failed cycled: 77
+Num failed nonvis: 152
+Num succ term: 495
+Num curr strats: 3259
+Total succ strats: 859
+
+Iter: 8
+Num failed cycled: 80
+Num failed nonvis: 103
+Num succ term: 767
+Num curr strats: 2419
+Total succ strats: 1626
+
+Iter: 9
+Num failed cycled: 50
+Num failed nonvis: 31
+Num succ term: 717
+Num curr strats: 1717
+Total succ strats: 2343
+
+Iter: 10
+Num failed cycled: 52
+Num failed nonvis: 16
+Num succ term: 622
+Num curr strats: 1113
+Total succ strats: 2965
+
+Iter: 11
+Num failed cycled: 18
+Num failed nonvis: 0
+Num succ term: 513
+Num curr strats: 602
+Total succ strats: 3478
+
+Iter: 12
+Num failed cycled: 12
+Num failed nonvis: 8
+Num succ term: 238
+Num curr strats: 348
+Total succ strats: 3716
+
+Num strats: 3716
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3716
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3716
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3716
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 61
+Num succ term: 134
+Num curr strats: 3521
+Total succ strats: 134
+
+Iter: 5
+Num failed cycled: 9
+Num failed nonvis: 23
+Num succ term: 216
+Num curr strats: 3277
+Total succ strats: 350
+
+Iter: 6
+Num failed cycled: 18
+Num failed nonvis: 32
+Num succ term: 505
+Num curr strats: 3026
+Total succ strats: 855
+
+Iter: 7
+Num failed cycled: 80
+Num failed nonvis: 23
+Num succ term: 822
+Num curr strats: 2355
+Total succ strats: 1677
+
+Iter: 8
+Num failed cycled: 76
+Num failed nonvis: 29
+Num succ term: 620
+Num curr strats: 1806
+Total succ strats: 2297
+
+Iter: 9
+Num failed cycled: 53
+Num failed nonvis: 14
+Num succ term: 554
+Num curr strats: 1293
+Total succ strats: 2851
+
+Iter: 10
+Num failed cycled: 56
+Num failed nonvis: 5
+Num succ term: 512
+Num curr strats: 810
+Total succ strats: 3363
+
+Iter: 11
+Num failed cycled: 39
+Num failed nonvis: 8
+Num succ term: 334
+Num curr strats: 479
+Total succ strats: 3697
+
+Iter: 12
+Num failed cycled: 30
+Num failed nonvis: 1
+Num succ term: 197
+Num curr strats: 281
+Total succ strats: 3894
+
+Num strats: 3894
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3894
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3894
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 455
+Num failed nonvis: 40
+Num succ term: 0
+Num curr strats: 3399
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 9
+Num failed nonvis: 70
+Num succ term: 2
+Num curr strats: 3466
+Total succ strats: 2
+
+Iter: 5
+Num failed cycled: 178
+Num failed nonvis: 344
+Num succ term: 149
+Num curr strats: 2981
+Total succ strats: 151
+
+Iter: 6
+Num failed cycled: 189
+Num failed nonvis: 86
+Num succ term: 666
+Num curr strats: 2444
+Total succ strats: 817
+
+Iter: 7
+Num failed cycled: 266
+Num failed nonvis: 81
+Num succ term: 583
+Num curr strats: 1898
+Total succ strats: 1400
+
+Iter: 8
+Num failed cycled: 322
+Num failed nonvis: 48
+Num succ term: 552
+Num curr strats: 1390
+Total succ strats: 1952
+
+Iter: 9
+Num failed cycled: 178
+Num failed nonvis: 40
+Num succ term: 392
+Num curr strats: 1002
+Total succ strats: 2344
+
+Iter: 10
+Num failed cycled: 323
+Num failed nonvis: 0
+Num succ term: 215
+Num curr strats: 600
+Total succ strats: 2559
+
+Iter: 11
+Num failed cycled: 113
+Num failed nonvis: 0
+Num succ term: 101
+Num curr strats: 488
+Total succ strats: 2660
+
+Iter: 12
+Num failed cycled: 166
+Num failed nonvis: 0
+Num succ term: 45
+Num curr strats: 291
+Total succ strats: 2705
+
+Num strats: 2705
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2705
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 591
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2114
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2114
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 1
+Num failed nonvis: 18
+Num succ term: 0
+Num curr strats: 2095
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 1
+Num failed nonvis: 310
+Num succ term: 1
+Num curr strats: 1803
+Total succ strats: 1
+
+Iter: 6
+Num failed cycled: 4
+Num failed nonvis: 66
+Num succ term: 87
+Num curr strats: 1646
+Total succ strats: 88
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 86
+Num succ term: 297
+Num curr strats: 1263
+Total succ strats: 385
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 436
+Num curr strats: 824
+Total succ strats: 821
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 22
+Num succ term: 350
+Num curr strats: 452
+Total succ strats: 1171
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 2
+Num succ term: 224
+Num curr strats: 226
+Total succ strats: 1395
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 107
+Num curr strats: 119
+Total succ strats: 1502
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 85
+Num curr strats: 34
+Total succ strats: 1587
+
+Num strats: 1587
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 1586
+Total succ strats: 1
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 87
+Num curr strats: 1499
+Total succ strats: 88
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 297
+Num curr strats: 1202
+Total succ strats: 385
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 436
+Num curr strats: 766
+Total succ strats: 821
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 350
+Num curr strats: 416
+Total succ strats: 1171
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 224
+Num curr strats: 192
+Total succ strats: 1395
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 107
+Num curr strats: 85
+Total succ strats: 1502
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 85
+Num curr strats: 0
+Total succ strats: 1587
+
+Num strats: 1587
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 1586
+Total succ strats: 1
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 87
+Num curr strats: 1499
+Total succ strats: 88
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 261
+Num curr strats: 1238
+Total succ strats: 349
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 368
+Num curr strats: 870
+Total succ strats: 717
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 336
+Num curr strats: 534
+Total succ strats: 1053
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 297
+Num curr strats: 237
+Total succ strats: 1350
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 152
+Num curr strats: 85
+Total succ strats: 1502
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 75
+Num curr strats: 10
+Total succ strats: 1577
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 10
+Num curr strats: 0
+Total succ strats: 1587
+
+Num strats: 1587
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1587
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 217
+Num curr strats: 1370
+Total succ strats: 217
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 176
+Num curr strats: 1194
+Total succ strats: 393
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 288
+Num curr strats: 906
+Total succ strats: 681
+
+Iter: 8
+Num failed cycled: 9
+Num failed nonvis: 13
+Num succ term: 172
+Num curr strats: 712
+Total succ strats: 853
+
+Iter: 9
+Num failed cycled: 9
+Num failed nonvis: 23
+Num succ term: 280
+Num curr strats: 416
+Total succ strats: 1133
+
+Iter: 10
+Num failed cycled: 7
+Num failed nonvis: 30
+Num succ term: 93
+Num curr strats: 290
+Total succ strats: 1226
+
+Iter: 11
+Num failed cycled: 4
+Num failed nonvis: 31
+Num succ term: 72
+Num curr strats: 197
+Total succ strats: 1298
+
+Iter: 12
+Num failed cycled: 5
+Num failed nonvis: 7
+Num succ term: 41
+Num curr strats: 148
+Total succ strats: 1339
+
+Iter: 13
+Num failed cycled: 5
+Num failed nonvis: 6
+Num succ term: 78
+Num curr strats: 63
+Total succ strats: 1417
+
+Iter: 14
+Num failed cycled: 4
+Num failed nonvis: 1
+Num succ term: 8
+Num curr strats: 54
+Total succ strats: 1425
+
+Iter: 15
+Num failed cycled: 1
+Num failed nonvis: 1
+Num succ term: 31
+Num curr strats: 21
+Total succ strats: 1456
+
+Num strats: 1456
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1456
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1456
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1456
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1456
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1456
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 217
+Num curr strats: 1236
+Total succ strats: 217
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 166
+Num curr strats: 1067
+Total succ strats: 383
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 5
+Num succ term: 298
+Num curr strats: 764
+Total succ strats: 681
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 167
+Num curr strats: 597
+Total succ strats: 848
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 260
+Num curr strats: 336
+Total succ strats: 1108
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 123
+Num curr strats: 213
+Total succ strats: 1231
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 96
+Num curr strats: 116
+Total succ strats: 1327
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 27
+Num curr strats: 89
+Total succ strats: 1354
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 60
+Num curr strats: 29
+Total succ strats: 1414
+
+Iter: 15
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 2
+Num curr strats: 27
+Total succ strats: 1416
+
+Num strats: 1416
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1416
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1416
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1416
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 0
+Num curr strats: 1415
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1415
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 7
+Num succ term: 0
+Num curr strats: 1408
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 217
+Num curr strats: 1188
+Total succ strats: 217
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 21
+Num succ term: 165
+Num curr strats: 1002
+Total succ strats: 382
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 17
+Num succ term: 274
+Num curr strats: 711
+Total succ strats: 656
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 5
+Num succ term: 157
+Num curr strats: 549
+Total succ strats: 813
+
+Iter: 11
+Num failed cycled: 2
+Num failed nonvis: 0
+Num succ term: 288
+Num curr strats: 259
+Total succ strats: 1101
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 103
+Num curr strats: 156
+Total succ strats: 1204
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 74
+Num curr strats: 82
+Total succ strats: 1278
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 25
+Num curr strats: 57
+Total succ strats: 1303
+
+Iter: 15
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 52
+Num curr strats: 5
+Total succ strats: 1355
+
+Num strats: 1355
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1355
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1355
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1355
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1355
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1355
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 36
+Num succ term: 0
+Num curr strats: 1339
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 12
+Num succ term: 0
+Num curr strats: 1327
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 2
+Num failed nonvis: 21
+Num succ term: 217
+Num curr strats: 1087
+Total succ strats: 217
+
+Iter: 9
+Num failed cycled: 1
+Num failed nonvis: 5
+Num succ term: 170
+Num curr strats: 911
+Total succ strats: 387
+
+Iter: 10
+Num failed cycled: 1
+Num failed nonvis: 5
+Num succ term: 268
+Num curr strats: 637
+Total succ strats: 655
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 139
+Num curr strats: 498
+Total succ strats: 794
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 255
+Num curr strats: 243
+Total succ strats: 1049
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 88
+Num curr strats: 155
+Total succ strats: 1137
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 65
+Num curr strats: 90
+Total succ strats: 1202
+
+Iter: 15
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 25
+Num curr strats: 65
+Total succ strats: 1227
+
+Num strats: 1227
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1227
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1227
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1227
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1227
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 7
+Num curr strats: 1220
+Total succ strats: 7
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 35
+Num curr strats: 1185
+Total succ strats: 42
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 68
+Num curr strats: 1117
+Total succ strats: 110
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 111
+Num curr strats: 1006
+Total succ strats: 221
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 320
+Num curr strats: 695
+Total succ strats: 541
+
+Iter: 10
+Num failed cycled: 11
+Num failed nonvis: 1
+Num succ term: 150
+Num curr strats: 593
+Total succ strats: 691
+
+Iter: 11
+Num failed cycled: 5
+Num failed nonvis: 2
+Num succ term: 246
+Num curr strats: 356
+Total succ strats: 937
+
+Iter: 12
+Num failed cycled: 8
+Num failed nonvis: 0
+Num succ term: 93
+Num curr strats: 279
+Total succ strats: 1030
+
+Iter: 13
+Num failed cycled: 6
+Num failed nonvis: 2
+Num succ term: 136
+Num curr strats: 139
+Total succ strats: 1166
+
+Iter: 14
+Num failed cycled: 3
+Num failed nonvis: 0
+Num succ term: 25
+Num curr strats: 111
+Total succ strats: 1191
+
+Iter: 15
+Num failed cycled: 1
+Num failed nonvis: 0
+Num succ term: 75
+Num curr strats: 35
+Total succ strats: 1266
+
+Num strats: 1266
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1266
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1266
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1266
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 500
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 766
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 765
+Total succ strats: 1
+
+Iter: 6
+Num failed cycled: 65
+Num failed nonvis: 10
+Num succ term: 67
+Num curr strats: 623
+Total succ strats: 68
+
+Iter: 7
+Num failed cycled: 71
+Num failed nonvis: 6
+Num succ term: 188
+Num curr strats: 442
+Total succ strats: 256
+
+Iter: 8
+Num failed cycled: 49
+Num failed nonvis: 2
+Num succ term: 131
+Num curr strats: 328
+Total succ strats: 387
+
+Iter: 9
+Num failed cycled: 41
+Num failed nonvis: 13
+Num succ term: 160
+Num curr strats: 166
+Total succ strats: 547
+
+Iter: 10
+Num failed cycled: 12
+Num failed nonvis: 1
+Num succ term: 40
+Num curr strats: 121
+Total succ strats: 587
+
+Iter: 11
+Num failed cycled: 18
+Num failed nonvis: 3
+Num succ term: 41
+Num curr strats: 77
+Total succ strats: 628
+
+Iter: 12
+Num failed cycled: 9
+Num failed nonvis: 7
+Num succ term: 12
+Num curr strats: 49
+Total succ strats: 640
+
+Iter: 13
+Num failed cycled: 6
+Num failed nonvis: 2
+Num succ term: 27
+Num curr strats: 14
+Total succ strats: 667
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 3
+Num curr strats: 11
+Total succ strats: 670
+
+Iter: 15
+Num failed cycled: 4
+Num failed nonvis: 1
+Num succ term: 4
+Num curr strats: 6
+Total succ strats: 674
+
+Num strats: 674
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 674
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 674
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 674
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 674
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 674
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 673
+Total succ strats: 1
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 3
+Num succ term: 66
+Num curr strats: 604
+Total succ strats: 67
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 2
+Num succ term: 192
+Num curr strats: 410
+Total succ strats: 259
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 131
+Num curr strats: 279
+Total succ strats: 390
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 157
+Num curr strats: 122
+Total succ strats: 547
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 39
+Num curr strats: 83
+Total succ strats: 586
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 45
+Num curr strats: 38
+Total succ strats: 631
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 10
+Num curr strats: 28
+Total succ strats: 641
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 22
+Num curr strats: 6
+Total succ strats: 663
+
+Iter: 15
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 3
+Num curr strats: 3
+Total succ strats: 666
+
+Num strats: 666
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 666
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 621
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 45
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 45
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 2
+Num failed nonvis: 1
+Num succ term: 0
+Num curr strats: 42
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 23
+Num succ term: 0
+Num curr strats: 19
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 9
+Num succ term: 0
+Num curr strats: 10
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 10
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 10
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 6
+Num succ term: 0
+Num curr strats: 4
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 4
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 1
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 3
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 1
+Num failed nonvis: 0
+Num succ term: 2
+Num curr strats: 0
+Total succ strats: 2
+
+Num strats: 2
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 2
+Num curr strats: 0
+Total succ strats: 2
+
+Num strats: 2
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 2
+Num curr strats: 0
+Total succ strats: 2
+
+Num strats: 2
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 1
+Total succ strats: 1
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 1
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 0
+Total succ strats: 2
+
+Num strats: 2
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 2
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 0
+Total succ strats: 1
+
+Num strats: 1
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 0
+Total succ strats: 1
+
+Num strats: 1
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 0
+Total succ strats: 1
+
+Num strats: 1
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 1
+Num curr strats: 0
+Total succ strats: 1
+
+Num strats: 1
+
+Iter: 1
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 2
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 3
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 4
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 5
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 6
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 7
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 8
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 9
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 10
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 11
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 12
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 13
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 14
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 15
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 16
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 17
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 18
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 19
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 20
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 21
+Num failed cycled: 0
+Num failed nonvis: 0
+Num succ term: 0
+Num curr strats: 1
+Total succ strats: 0
+
+Iter: 22
+Num failed cycled: 0
+Num failed nonvis: 1
+Num succ term: 0
+Num curr strats: 0
+Total succ strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0
+
+Num strats: 0

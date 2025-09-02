@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 2}
+\renewcommand{\problemName}{Task Navigation}
+\renewcommand{\lang}{Romanian}
+
+\renewcommand{\tl}{$3$ sec.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+Se dă un \textbf{graf cactus simplu neorientat și conex}\textsuperscript{1} cu $N \leq 1000$ noduri și $M$ muchii. Nodurile sale au culori (notate cu numere întregi ne-negative de la $0$ la $1499$). Inițial toate nodurile au culoarea $0$. Un \textbf{robot determinist fără memorie}\textsuperscript{2} explorează graful mișcându-se dintr-un nod în altul. Acesta trebuie să viziteze fiecare nod cel puțin o dată, apoi să termine explorarea.
+
+Robotul începe într-un nod, care ar putea fi oricare dintre nodurile din graf. La fiecare pas, el vede culoarea nodului curent și culorile tuturor nodurilor adiacente \textbf{într-o ordine fixată pentru nodul curent} (cu alte cuvinte, revizitarea nodului va oferi robotului aceeași secvență de noduri adiacente, chiar dacă culorile lor sunt diferite de cele dinainte). Robotul va face una dintre cele două acțiuni:
+\begin{enumerate}
+    \item Decide să termine explorarea.
+    \item Alege o nouă (sau posibil aceeași) culoare pentru nodul curent și un nod adiacent în care se va muta. Nodul adiacent este identificat printr-un număr de la $0$ la $D-1$, unde $D$ este numărul de noduri adiacente.
+\end{enumerate}
+
+În al doilea caz, nodul curent este recolorat (sau posibil își păstrează culoarea) iar robotul se mută la nodul adiacent ales. Acest lucru se repetă până când robotul termină explorarea sau până când atinge limita de iterații. Robotul câștigă dacă vizitează toate nodurile și termină într-un număr de cel mult $L=3000$ de iterații (altfel pierde).
+
+Trebuie să proiectați o strategie pentru robot care rezolvă problema pentru orice graf cactus valid. în plus, trebuie să încercați să minimizați numărul de culori distincte pe care soluția le folosește. Considerăm culoarea $0$ ca fiind mereu folosită.
+
+\textsuperscript{1}\textit{Un graf cactus simplu neorientat și conex este un graf simplu neorientat conex (orice nod poate vizita orice alt nod; muchiile sunt bidirecționale; nu are muchii de la un nod la el însuși și nici muchii multiple) în care fiecare muchie aparține cel mult unui ciclu simplu (un ciclu simplu este un ciclu ce conține fiecare nod cel mult o dată). Un exemplu este imaginea de mai jos.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Un robot este determinist și fără memorie, dacă acțiunile sale depind doar de intrările curente (cu alte cuvinte, nu stochează nicio informație de la un pas la altul), și mereu face același lucru atunci când primește aceeași intrare.}
+
+\subsection{Detalii de implementare}
+Strategia robotului trebuie implementată prin următoarea funcție:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Funcția primește ca parametri culoarea nodului curent și culorile tuturor nodurilor adiacente (în ordine). Trebuie să returneze o pereche al cărei prim element este culoarea nouă a nodului curent, iar al doilea element este indexul de adiacență al nodului la care robotul trebuie să se mute. Dacă în schimb robotul trebuie să termine, funcția va returna perechea $(-1, -1)$.
+
+Această funcție va fi apelată în mod repetat pentru a alege acțiunile robotului. Deoarece este determinist, dacă \texttt{navigate} a fost deja apelată cu niște parametri, nu va mai fi apelată încă o dată cu aceeași parametri; în schimb valoarea returnată anterior va fi refolosită. În plus, fiecare test poate conține $T \leq 5$ subteste (grafuri distincte și/sau poziții de start distincte) iar acestea ar putea fi rulate concurent (cu alte cuvinte, programul vostru ar putea primi alternativ apeluri despre diferite subteste). În final, apelurile funcției \texttt{navigate} se pot întâmpla în \textbf{execuții separate} ale programului (dar ar putea să se întâmple și în cadrul aceleiași execuții). Numărul total de execuții ale programului vostru este $P = 100$. Astfel, programul vostru nu ar trebui să trimită informații între apeluri diferite.
+
+\subsection{Restricții}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Color} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Punctare}
+
+Ponderea $S$ a punctelor pe care le primiți pentru un subtask depinde de $C$ -- numărul maxim de culori distincte pe care soluția voastră le folosește (inclusiv culoarea $0$) pe fiecare test din acel subtask sau din orice alt subtask necesar:
+
+\begin{itemize}
+\item Dacă soluția voastră eșuează pe un subtest, atunci $S = 0$.
+\item Dacă $C \leq 4$, atunci $S = 1.0$.
+\item Dacă $4 < C \leq 8$, atunci $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Dacă $8 < C \leq 21$, atunci $S = 0.4 \frac{8}{C}$.
+\item Dacă $C > 21$, atunci $S = 0.15$.
+\end{itemize}
+
+\subsection{Subtask-uri}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Puncte} & \textbf{\makecell{Subtask-uri\\necesare}} & $N$ & \textbf{Restricții adiționale}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Exemplu. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Graful este un ciclu.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Graful este o stea.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Graful este un lanț.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Graful este un arbore.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Toate nodurile au cel mult $3$ noduri adiacente și nodul din care începe robotul are $1$ nod adiacent. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Un graf ciclu are muchiile: $\left(i, (i+1) \bmod N\right)$ pentru  $0 \leq i < N$. \\
+\textsuperscript{2}Un graf stea are muchiile: $\left(0, i\right)$ pentru  $1 \leq i < N$. \\
+\textsuperscript{3}Un graf lanț are muchiile: $\left(i, i+1\right)$ pentru $0 \leq i < N - 1$. \\
+\textsuperscript{4}Un arbore este un graf fără cicluri.}
+\end{table}
+\FloatBarrier
+
+\subsection{Exemplu}
+
+Considerăm exemplul de graf din imaginea din enunț, care are $N=7$, $M=8$ și muchiile $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ și $(2, 6)$. În plus, deoarece ordinile elementelor din listele de adiacență ale nodurilor sunt relevante, le dăm în acest tabel:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Nod}} & \textbf{Noduri adiacente} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Să presupunem că robotul începe din nodul $5$. Atunci, următoarea secvență de operații (fără succes) ar fi posibilă:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Culori}} & \textbf{\makecell{Noduri}} & \textbf{\makecell{Apelul \texttt{navigate}}} & \textbf{Valoarea returnată} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Aici robotul a folosit $6$ culori distincte: $0$, $1$, $2$, $3$, $4$ și $8$ (observați că $0$ ar fi numărat ca utilizat chiar dacă robotul nu ar returna niciodată $0$, deoarece toate nodurile au culoarea $0$ la început). Robotul s-a mișcat timp de $9$ iterații înainte de terminare. Cu toate acestea, a eșuat deoarece a terminat explorarea fără a vizita nodul $1$.
+
+\textsuperscript{1}Observați că apelul funcției \texttt{navigate} la iterația $4$ nu se întâmplă de fapt. Acest lucru se întâmplă deoarece este echivalent cu apelul de la iterația $1$, deci grader-ul doar va refolosi valoarea returnată de la acel apel. Totuși, aceasta se numără ca o iterație făcută de robot.
+
+\subsection{Exemplu de grader}
+
+Exemplul de grader nu conține multiple execuții ale programului vostru, deci toate apelurile funcției \texttt{navigate} vor fi în aceeași execuție a programului.
+
+Formatul datelor de intrare este următorul: Prima dată $T$ (numărul de subteste) este citit. Apoi, pentru fiecare subtest:
+\begin{itemize}
+\item linia $1$: două numere întregi -- $N$ și $M$;
+\item linia $2+i$ (pentru $0 \leq i < M$): două numere întregi -- $A_i$ și $B_i$, care sunt cele două noduri pe care muchia $i$ le conectează ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+Exemplul de grader va afișa numărul de culori distincte pe care soluția voastră l-a folosit și numărul de iterații de care a avut nevoie înainte de a se termina. Alternativ, va afișa un mesaj de eroare în caz că soluția voastră eșuează.
+
+În mod implicit, exemplul de grader afișează informații detaliate legate de ceea ce vede și face robotul la fiecare iterație. Puteți dezactiva aceasta prin schimbarea valorii \texttt{DEBUG} din \texttt{true} în \texttt{false}.
+
+\end{document}

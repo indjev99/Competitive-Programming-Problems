@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+\renewcommand{\bottomtitlespace}{2.5cm}
+
+\usepackage{fontspec}
+
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\newfontfamily\arabicfont
+    [Script=Arabic,     % to get correct arabic shaping
+    Scale=1.2]          % make the arabic font bigger, a matter of taste
+        {Arial}     % whatever Arabic font you like
+
+\newcommand{\textarabic}[1]     % Arabic inside LTR
+    {\bgroup\textdir TRT\arabicfont #1\egroup}
+\newcommand{\n}         [1]     % for digits inside Arabic text
+    {\bgroup\textdir TLT #1\egroup}
+\newcommand{\afootnote} [1]     % Arabic footnotes
+    {\footnote{\textarabic{#1}}}
+\newenvironment{Arabic}     % Arabic paragraph
+    {\textdir TRT\pardir TRT\arabicfont}{}
+
+\begin{document}
+
+\renewcommand{\round}{Day 2}
+\renewcommand{\problemName}{Task Navigation}
+\renewcommand{\lang}{Arabic}
+
+\renewcommand{\tl}{$3$ sec.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+\begin{Arabic}
+ملاحظة: الترجمة تشمل المسائل الفرعية، طريقة احتساب الدرجات، وتفاصيل كتابة الكود.
+
+توجد \textbf{شبكة بسيطة غير متجهة متصلة على شكل صبار}\textsuperscript{1} تحتوي على عدد $N$ مكان و عدد $M$ طريق. لكل مكان لون )مشار إليه بعدد صحيح غير سالب من $0$ إلى $1499$(. في البداية، يكون لون جميع الاماكن $0$. يستكشف روبوت حتمي عديم الذاكرة\textsuperscript{2} الشبكة بالانتقال من مكان إلى آخر عبر الطرق. يجب عليه زيارة جميع الاماكن مرة واحدة على الأقل ثم إنهاء المهمة.
+
+يبدأ الروبوت عند مكان ما، والذي قد يكون أيا من الاماكن في الشبكة. في كل خطوة، يرى لون مكانه الحالي وألوان جميع الاماكن المجاورة )بترتيب ثابت للمكان الحالي( )أي أن إعادة زيارة المكان ستمنح الروبوت نفس تسلسل الاماكن المجاورة، حتى لو كانت ألوانها مختلفة عن ذي قبل(. يقوم الروبوت بأحد الإجراءين التاليين:
+
+١. يقرر إنهاء المهمة.
+
+٢. يختار لونا جديدا )أو ربما لونا مطابقا( للمكان الحالي، ومكان مجاور للتحرك اليه. يُحدد المكان المجاور برقم من $0$ إلى $D-1$، حيث $D$ هو عدد الاماكن المجاورة.
+
+في الحالة الثانية، يعاد تلوين المكان الحالي )أو ربما يبقى لونه كما هو( وينتقل الروبوت إلى المكان المجاور المختار. يتكرر هذا حتى ينتهي الروبوت أو حتى يصل إلى حد التكرار. يفوز الروبوت إذا زار جميع العقد، ثم أنهى المهمة ضمن حد التكرار $L = 3000$ خطوة )وإلا سيخسر(.
+
+يجب عليك تصميم استراتيجية للروبوت لحل المسألة على أي شبكة من نوع الصبار. بالإضافة إلى ذلك، حاول تقليل عدد الألوان المختلفة التي يستخدمها الحل. هنا، يُحتسب اللون $0$ دائمًا على أنه لون مستخدم.
+
+\textsuperscript{1}
+شبكة الصبار البسيطة غير الموجهة المتصلة هي شبكة بسيطة غير موجهة متصلة )يمكن الوصول إلى كل مكان من أي مكان آخر؛ الطرق ثنائية الاتجاه؛ لا تحتوي على طرق من مكان الى نفسه أو اكثر من طريق مباشر بين مكانين مختلفين(، حيث ينتمي كل طريق إلى دورة بسيطة واحدة على الأكثر )الدورة البسيطة هي دورة تحتوي على كل مكان مرة واحدة على الأكثر(. الصورة أدناه مثال.
+
+\begin{adjustbox}{center}
+\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}الروبوت حتمي ولا يحتاج إلى ذاكرة، إذا كان عمله يعتمد فقط على مدخلاته الحالية )أي أنه لا يخزن أي بيانات من خطوة إلى أخرى(، ويختار دائما نفس العمل عند إعطائه نفس المدخلات.
+
+\end{Arabic}
+
+\subsection{Implementation details}
+The robot's strategy should be implemented as the following function:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+\begin{Arabic}
+تستقبل الدالة لون المكان الحالي وألوان جميع الاماكن المجاورة )بالترتيب(. يجب أن ترجع الدالة زوجا، يكون عنصره الأول هو اللون الجديد للمكان الحالي، وعنصره الثاني هو رقم المكان المجاور الذي يجب أن ينتقل إليه الروبوت. إذا انتهى الروبوت، فيجب أن ترجع الدالة الزوج $(-1، -1)$.
+
+ستُستدعى هذه الدالة بشكل متكرر لاختيار إجراءات الروبوت. ولأنها حتمية، فإذا استُدعيت دالة $navigate$ بالفعل مع بعض المدخلات، فلن تُستدعى بنفس هذه المدخلات مرة أخرى؛ بل ستُعاد قيمة إرجاعها السابقة. بالإضافة إلى ذلك، قد يحتوي كل اختبار على $T \leq 5$ اختبارات فرعية )شبكات مميزة و/أو مواقع بداية(، ويمكن تشغيلها بالتزامن )أي أن برنامجك قد يتلقى استدعاءات متناوبة لاختبارات فرعية مختلفة(. أخيرًا، قد تحدث استدعاءات دالة التنقل في عمليات تنفيذ منفصلة لبرنامجك )ولكن قد تحدث أحيانًا في نفس التنفيذ(. إجمالي عدد عمليات التنفيذ لبرنامجك هو $P = 100$. لذلك، يجب ألا يحاول برنامجك تمرير المعلومات بين استدعاءات مختلفة.
+\end{Arabic}
+
+\subsection{Constraints}
+
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \mathrm{Color} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Scoring}
+
+\begin{Arabic}
+النسبة $S$ من النقاط التي تحسب لك تعتمد على $C$ -- أكبر عدد ألوان مختلفة يستعملها حلك )شاملا ال $0$( في أي تجربة في المسألة الجزئية الحالية او أي مسألة جزئية ملزومة:
+
+- إذا فشل حلك في أي تجربة، إذن $S=0$.
+
+- إذا $C ≤ 4$، إذن $S = 1.0$.
+
+- إذا $4 < C ≤ 8$، إذن $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+
+- إذا $8 < C ≤ 21$، إذن $S = 0.4 \frac{8}{C}$.
+
+- إذا $C > 21$، إذن $S = 0.15$.
+\end{Arabic}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Points} & \textbf{\makecell{Required\\subtasks}} & $N$ & \textbf{Additional constraints}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & \begin{Arabic}
+المثال المعطى.
+\end{Arabic} \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & \begin{Arabic}
+\textsuperscript{1}.الشبكة عبارة عن دائرة
+\end{Arabic}.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & \begin{Arabic}
+\textsuperscript{2}.الشبكة عبارة عن نجمة
+\end{Arabic} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & \begin{Arabic}
+\textsuperscript{3}.الشبكة عبارة عن طريق
+\end{Arabic} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & \begin{Arabic}
+\textsuperscript{4}.الشبكة عبارة عن شجرة
+\end{Arabic} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & \begin{Arabic}
+جميع الاماكن لديها ثلاثة طرق متصلة بها على الاكثر والنقطة التي سيبدا بها الروبوت لديه طريق وحيد متصل به.
+\end{Arabic} \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}\begin{Arabic}
+الدائرة هي شبكة بحيث طرقها تربط:
+\end{Arabic} $\left(i, (i+1) \bmod N\right)$ for  $0 \leq i < N$. \\
+\textsuperscript{2}\begin{Arabic}
+النجمة هي شبكة بحيث طرقها تربط:
+\end{Arabic} $\left(0, i\right)$ for  $1 \leq i < N$. \\
+\textsuperscript{3}\begin{Arabic}
+الطريق هو شبكة بحيث طرقها تربط:
+\end{Arabic}$\left(i, i+1\right)$ for $0 \leq i < N - 1$. \\
+\textsuperscript{4}\begin{Arabic}
+الشجرة هي شبكة بحيث يوجد طريق بسيط وحيد بين اي مكانين.
+\end{Arabic}}
+\end{table}
+\FloatBarrier
+
+\subsection{Example}
+
+Consider the sample graph from the image in the statement, which has $N=7$, $M=8$ and edges $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ and $(2, 6)$. Additionally, since the orders of the elements in the nodes' adjacency lists are relevant, we give them in this table:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Node}} & \textbf{Adjacent nodes} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Suppose the robot starts at node $5$. Then the following is one possible (unsuccessful) sequence of interactions:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{\#}} & \textbf{\makecell{Colors}} & \textbf{\makecell{Node}} & \textbf{\makecell{Call to \texttt{navigate}}} & \textbf{Return value} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Here the robot used a total of $6$ distinct colors: $0$, $1$, $2$, $3$, $4$ and $8$ (note that $0$ would have counted as used even if the robot never returned color $0$, since all nodes start in color $0$). The robot ran for $9$ iterations before terminating. However, it failed since it terminated without having visited node $1$.
+
+\textsuperscript{1}Note the call to \texttt{navigate} at iteration $4$ would not actually happen. This is because it is equivalent to the call at iteration $1$, so the grader would simply reuse the return value of your function from that call. However, this still counts as an iteration of the robot.
+
+\subsection{Sample grader}
+
+The sample grader does not run multiple executions of your program, so all calls to \texttt{navigate} will be in the same execution of your program.
+
+The input format is the following: First $T$ (the number of subtests) is read. Then for each subtest:
+\begin{itemize}
+\item line $1$: two integers -- $N$ and $M$;
+\item line $2+i$ (for $0 \leq i < M$): two integers -- $A_i$ and $B_i$, which are the two nodes that edge $i$ connects ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+The sample grader will then print out the number of distinct colors your solution used and the number of iterations it needed before it terminated. Alternatively, it will print out an error message, if your solution failed.
+
+By default, the sample grader prints detailed information on what the robot sees and does at each iteration. You can disable this, by changing the value of \texttt{DEBUG} from \texttt{true} to \texttt{false}.
+
+\end{document}

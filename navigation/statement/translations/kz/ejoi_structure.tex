@@ -1,0 +1,139 @@
+%---DOCUMENT MARGINS---
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+	top=4cm, % Top margin
+	bottom=2cm, % Bottom margin
+	left=2cm, % Left margin
+	right=2cm, % Right margin
+	headheight=3cm, % Header height
+	%footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
+	headsep=0.5cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+\usepackage{cmap}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage{fontspec}
+\setmainfont[
+	BoldFont={* Bold},
+	ItalicFont={* Italic},
+	BoldItalicFont={* BoldItalic}
+]{DejaVu Serif Condensed}
+\setsansfont{DejaVu Sans}
+\setmonofont{Dejavu Sans Mono}
+\usepackage[math-style=TeX]{unicode-math}
+\setmathfont{Latin Modern Math}
+
+\usepackage[nobottomtitles*]{titlesec}
+\titleformat
+{\section} % command
+{\fontsize{14}{14}\sffamily\bfseries} % format
+{} % label
+{0pt} % sep
+{} % before-code
+\titlespacing{\section}{0pt}{0.75em}{0.25em}
+\newcommand{\tl}{}
+\newcommand{\ml}{}
+\newcommand{\problem}[1]{%
+	\section[#1]{#1 \fontsize{14}{14}\selectfont{\hfill{\normalfont{
+				\emoji{hourglass-not-done}\tl \space\space \emoji{floppy-disk} \ml}}}}
+}
+\AddToHook{cmd/section/before}{\clearpage}
+
+\usepackage[dvipsnames]{xcolor}
+\titleformat
+{\subsection} % command
+{\fontsize{14}{14}\sffamily\bfseries} % format
+{\includesvg[width=0.035\textwidth, inkscapelatex=false]{lion}\space} % label
+{0pt} % sep
+{} % before-code
+\titlespacing{\subsection}{0pt}{0.75em}{0.25em}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.2}
+\sloppy
+
+\usepackage{listings}
+\definecolor{lstbg}{RGB}{250,250,252}
+\definecolor{lstframe}{RGB}{220,220,225}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{lstbg},
+	frame=single,
+	rulecolor=\color{lstframe},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\bfseries,
+	breaklines=true,
+	aboveskip=0.5\baselineskip,
+	belowskip=0\baselineskip  
+}
+\lstset{style=mystyle, language=C++}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headwidth}{\textwidth}
+\newcommand{\round}{}
+\newcommand{\problemName}{}
+\newcommand{\lang}{English}
+\fancyhead[L]{
+	\begin{minipage}{0.4\textwidth}
+		\bf{
+			EJOI 2025 \round\\
+			\problemName\\
+			\emoji{globe-with-meridians} \lang
+		}
+	\end{minipage}
+	\vspace{0.5cm}
+}
+\fancyhead[R]{%
+	\begin{minipage}{0.6\textwidth}
+		\includesvg[width=\textwidth, inkscapelatex=false]{logo}
+	\end{minipage}
+	\vspace{0.5cm}
+}
+\usepackage{lastpage}
+\fancyfoot[C]{\problemName\space(\lang) \thepage\ / \pageref*{LastPage}}
+
+\raggedbottom
+
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\makeatletter
+\patchcmd\WF@putfigmaybe{\lower\intextsep}{}{}{\fail}
+\AddToHook{env/wrapfigure/begin}{\setlength{\intextsep}{0pt}}
+\makeatother
+\usepackage[inkscapearea=page, inkscapepath=./svg-inkscape]{svg}
+\svgpath{{./}}
+
+\usepackage{makecell}
+\usepackage{tabularray}
+\AtBeginEnvironment{table}{\vspace{-0.2cm}}
+\AtEndEnvironment{table}{\vspace{-0.2cm}}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{caption}
+\captionsetup[table]{
+	skip=0.25em,
+	singlelinecheck=false, justification=justified
+}
+
+\usepackage{enumitem}
+\setlist{itemsep=-0.4em, leftmargin=22pt, topsep=-\parskip}
+\AfterEndEnvironment{itemize}{\vspace{\parskip}}
+\newcommand{\tabitem}{\indent~~\llap{\textbullet}~~}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=cyan,
+}
+
+\usepackage{emoji}

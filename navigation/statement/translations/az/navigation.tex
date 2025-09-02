@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 2}
+\renewcommand{\problemName}{Naviqasiya}
+\renewcommand{\lang}{Azerbaijani}
+
+\renewcommand{\tl}{$3$ san.}
+\renewcommand{\ml}{$512$ MB}
+\problem{\problemName}
+
+$N \leq 1000$ təpədən və $M$ tildən \textbf{birləşik, istiqamətlənməmiş sadə kaktus qrafı}\textsuperscript{1} verilmişdir. Onun təpələrinin rəngləri var (rənglər $0$–$1499$ aralığında olan tam ədədlərlə göstərilir). İlkin olaraq bütün təpələrin rəngi $0$-dır. Qrafı \textbf{deterministik yaddaşsız robot}\textsuperscript{2} araşdırır. Robot bütün təpələri ən azı bir ziyarət etməlidir və sonra hərəkətini dayandırmalıdır.
+
+Robot istənilən təpədən başlaya bilər. Hər addımda robot olduğu təpənin rəngini və onun qonşu təpələrinin rənglərini \textbf{həmin təpə üçün sabit olan ardıcıllıqla} görür (yəni təpəyə yenidən qayıdanda, qonşu təpələrin rəngləri dəyişmiş olsa belə, onların sırası dəyişməyəcək). Robot iki hərəkətdən birini edə bilər:
+\begin{enumerate}
+    \item Dayanmağa qərar verir.
+    \item Olduğu təpəyə yeni (və ya eyni) rəng seçir və qonşulardan hansına hərəkət edəcəyini müəyyənləşdirir. Qonşu təpə $0$–$D-1$ indeksləri ilə müəyyənləşdirilir, burada $D$ olduğu təpənin qonşularının sayıdır.
+\end{enumerate}
+
+İkinci halda, olduğu təpə seçilmiş rəngə boyanır (və ya eyni rəngdə qalır) və robot seçilmiş qonşu təpəyə keçir. Bu proses robot dayanmayana qədər və ya iterasiya limiti çatana qədər təkrarlanır. Robot bütün təpələrə baş çəkib $L = 3000$ addım limiti daxilində dayana bilsə, qalib gəlir, əks halda uduzur.
+
+Sizdən tələb olunur ki, robot üçün elə bir strategiya hazırlayasınız ki, istənilən belə kaktus qrafında problemi həll edə bilsin. Bundan əlavə, istifadə olunan fərqli rənglərin sayını minimum etməyə çalışmalısınız. Burada rəng $0$ həmişə istifadə olunmuş hesab olunur.
+
+\textsuperscript{1}\textit{Əlaqəli, istiqamətlənməmiş sadə kaktus qrafı – hər bir təpədən digərinə getmək mümkündür; tillər istiqamətsizdir; özündən özünə til və təkrar tillər yoxdur; hər bir til ən çox bir sadə dövrəyə aiddir. Aşağıdakı şəkil nümunədir.}
+
+\begin{adjustbox}{center}
+	\includesvg[inkscapelatex=false, width=.5\linewidth]{graph}
+\end{adjustbox}
+
+\textsuperscript{2}\textit{Robot deterministik və yaddaşsızdır, yəni onun hərəkəti yalnız hazırki gördüyü informasiyadan asılıdır və əvvəlki addımları xatırlamır. Eyni girişlər üçün eyni addımları yerinə yetirir.}
+
+\subsection{İmplementasiya detalları}
+Robotun strategiyası aşağıdakı funksiya kimi həyata keçirilməlidir:
+\begin{lstlisting}
+ std::pair<int, int> navigate(int currColor, std::vector<int> adjColors)
+\end{lstlisting}
+
+Funksiya parametrlər kimi hazırki təpənin rəngini və bütün qonşu təpələrin rənglərini (ardıcıllıqla) qəbul edir. Funksiya dəyər olaraq qaytarmalıdır:
+\begin{itemize}
+\item Əgər robot davam etməlidirsə – yeni rəngi və keçəcəyi qonşunun indeksini cütlük kimi;
+\item Əgər dayanmalıdırsa – \texttt{(-1, -1)}.
+\end{itemize}
+
+Robotun hərəkətlərini seçmək üçün bu funksiya dəfələrlə çağırılacaq. Deterministik olduğundan, naviqasiya artıq bəzi parametrlərlə çağırılıbsa, bir daha həmin parametrlərlə çağırılmayacaq; əvəzinə əvvəlki qaytarma dəyəri olacaq
+təkrar istifadə olunur. Əlavə olaraq testlər $T \leq 5$ alt-testdən ibarət ola bilər və paralel işlədilə bilər. Bundan əlavə, proqramınızın icrası $P = 100$ dəfə baş verə bilər. Buna görə də proqram çağırışlar arasında məlumat ötürməyə cəhd etməməlidir.
+
+\subsection{Məhdudiyyətlər}
+\begin{itemize}
+\item $3 \leq N \leq 1000$
+\item $0 \leq \text{Rəng} < 1500$
+\item $L = 3000$
+\item $T \leq 5$
+\item $P = 100$
+\end{itemize}
+
+\subsection{Qiymətləndirmə}
+Alt tapşırıq üzrə toplanılan bal $C$ – istifadə olunan fərqli rənglərin maksimal sayından asılıdır:
+
+\begin{itemize}
+\item Əgər robot hansısa alt-testdə uduzarsa, $S = 0$.
+\item Əgər $C \leq 4$ → $S = 1.0$.
+\item Əgər $4 < C \leq 8$ → $S = 1.0 - 0.6 \frac{C - 4}{4}$.
+\item Əgər $8 < C \leq 21$ → $S = 0.4 \frac{8}{C}$.
+\item Əgər $C > 21$ → $S = 0.15$.
+\end{itemize}
+
+\subsection{Alt tapşırıqlar}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|}
+\hline
+\textbf{Alt tapşırıq} & \textbf{Ballar} & \textbf{\makecell{Tələb olunan\\alt tapşırıqlar}} & $N$ & \textbf{Əlavə məhdudiyyətlər}\\
+\hline
+$0$ & $0$ & $-$ & $\leq 300$ & Nümunə. \\
+\hline
+$1$ & $6$ & $-$ & $\leq 300$ & Qraf dövrədir.\textsuperscript{1} \\
+\hline
+$2$ & $7$ & $-$ & $\leq 300$ & Qraf ulduzdur.\textsuperscript{2} \\ 
+\hline
+$3$ & $9$ & $-$ & $\leq 300$ & Qraf zəncirdir.\textsuperscript{3} \\ 
+\hline
+$4$ & $16$ & $2 - 3$ & $\leq 300$ & Qraf ağacdır.\textsuperscript{4} \\
+\hline
+$5$ & $27$ & $-$ & $\leq 300$ & Hər təpənin ən çox $3$ qonşusu var və başlanğıc təpə yalnız $1$ qonşuya malikdir. \\
+\hline
+$6$ & $28$ & $0 - 5$ & $\leq 300$ & $-$ \\
+\hline
+$7$ & $7$ & $0 - 6$ & $-$ & $-$ \\
+\hline
+\end{tblr}
+\caption*{\textsuperscript{1}Dövrə qrafı belə tillərə malikdir: $\left(i, (i+1) \bmod N\right)$, $0 \leq i < N$. \\
+\textsuperscript{2}Ulduz qrafı belə tilllərə malikdir: $\left(0, i\right)$, $1 \leq i < N$. \\
+\textsuperscript{3}Zəncir qrafı belə tillərə malikdir: $\left(i, i+1\right)$, $0 \leq i < N - 1$. \\
+\textsuperscript{4}Ağac – dövrəsiz qrafdır.}
+\end{table}
+\FloatBarrier
+
+\subsection{Nümunə}
+
+Şərtdəki şəkildə verilmiş qrafı nəzərdən keçirək. Bu qrafda $N=7$, $M=8$ və tillər bunlardır: $(0, 1)$, $(1, 2)$, $(2, 0)$, $(2, 3)$, $(3, 4)$, $(4, 2)$, $(3, 5)$ və $(2, 6)$. Qonşuluq siyahılarının sırası əhəmiyyətli olduğuna görə, onları ayrıca veririk:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Uc} & \textbf{Qonşu uclar} \\
+\hline
+$0$ & $2, 1$ \\
+\hline
+$1$ & $2, 0$ \\
+\hline
+$2$ & $0, 3, 4, 6, 1$ \\
+\hline
+$3$ & $4, 5, 2$ \\
+\hline
+$4$ & $2, 3$ \\
+\hline
+$5$ & $3$ \\
+\hline
+$6$ & $2$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Tutaq ki, robot $5$-ci təpədən başlayır. Onda aşağıdakı (uğursuz) hərəkət ardıcıllığı mümkün ola bilər:
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|X[c,m]|Q[c,m]|}
+\hline
+\textbf{\#} & \textbf{Rənglər} & \textbf{Uc} & \textbf{\texttt{navigate} çağırışı} & \textbf{Geri dəyər} \\
+\hline
+$1$ & $0, 0, 0, 0, 0, 0, 0$ & $5$ & \texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$2$ & $0, 0, 0, 0, 0, 1, 0$ & $3$ & \texttt{navigate(0, \{0, 1, 0\})} & \texttt{\{4, 2\}} \\
+\hline
+$3$ & $0, 0, 0, 4, 0, 1, 0$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 0, 0\})} & \texttt{\{0, 3\}} \\
+\hline
+$4$ & $0, 0, 0, 4, 0, 1, 0$ & $6$ & \textsuperscript{1}\texttt{navigate(0, \{0\})} & \texttt{\{1, 0\}} \\
+\hline
+$5$ & $0, 0, 0, 4, 0, 1, 1$ & $2$ & \texttt{navigate(0, \{0, 4, 0, 1, 0\})} & \texttt{\{8, 0\}} \\
+\hline
+$6$ & $0, 0, 8, 4, 0, 1, 1$ & $0$ & \texttt{navigate(0, \{8, 0\})} & \texttt{\{3, 0\}} \\
+\hline
+$7$ & $3, 0, 8, 4, 0, 1, 1$ & $2$ & \texttt{navigate(8, \{3, 4, 0, 1, 0\})} & \texttt{\{2, 2\}} \\
+\hline
+$8$ & $3, 0, 2, 4, 0, 1, 1$ & $4$ & \texttt{navigate(0, \{2, 4\})} & \texttt{\{1, 1\}} \\
+\hline
+$9$ & $3, 0, 2, 4, 1, 1, 1$ & $3$ & \texttt{navigate(4, \{1, 1, 2\})} & \texttt{\{-1, -1\}} \\
+\hline
+\end{tblr}
+\end{table}
+
+Burada robot $6$ müxtəlif rəngdən istifadə edib: $0$, $1$, $2$, $3$, $4$ və $8$ (qeyd: $0$ başlanğıcda bütün təpələrdə olduğu üçün, hətta robot onu heç vaxt geri qaytarmasa belə, istifadə olunmuş hesab olunur). Robot $9$ addım işləyib, sonra dayanıb. Lakin uğursuz olub, çünki $1$-ci təpəni ziyarət etmədən dayanıb.
+
+\textsuperscript{1}Qeyd: $4$-cü iterasiyada \texttt{navigate} çağırışı əslində baş verməyəcəkdi. Çünki o, $1$-ci iterasiyadakı çağırışla eynidir və qiymətləndirici əvvəlki cavabı istifadə edəcək. Amma bu, yenə də iterasiya sayılır.
+
+\subsection{Nümunə qiymətləndirici (Sample grader)}
+
+\textbf{sample grader} proqramınızın çoxsaylı icrasını işə salmır, yəni bütün \texttt{navigate} çağırışları eyni icra daxilində olacaq.
+
+Giriş formatı belədir: əvvəlcə $T$ (alt-testlərin sayı) verilir. Sonra hər alt-test üçün:
+\begin{itemize}
+\item sətir 1: iki tam ədəd – $N$ və $M$;
+\item sonrakı $M$ sətirdə: iki tam ədəd – $A_i$ və $B_i$, $i$-ci tillərin birləşdirdiyi təpələr ($0 \leq A_i, B_i < N$).
+\end{itemize}
+
+\textbf{sample grader} sizin həllinizin istifadə etdiyi fərqli rənglərin sayını və robot dayanmazdan əvvəl neçə iterasiya etdiyini çap edir. Əgər robot uğursuz olarsa, xəta mesajı verəcək.
+
+Standart olaraq \textbf{sample grader} hər iterasiyada robotun nə gördüyünü və nə etdiyini ətraflı göstərir. Əgər bunu gizlətmək istəsəniz, \texttt{DEBUG} dəyişəninin dəyərini \texttt{true}-dan \texttt{false}-a dəyişə bilərsiniz.
+
+
+\end{document}

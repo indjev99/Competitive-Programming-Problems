@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Gün 1}
+\renewcommand{\problemName}{Görev Hapis (Task Prison)}
+\renewcommand{\lang}{Türkçe}
+
+\renewcommand{\tl}{$2$ saniye}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alice ve Bob haksız yere maksimum güvenlikli bir hapishaneye mahkûm edilmişlerdir. Şimdi kaçışlarını planlamalıdırlar. Bunu yapmak için mümkün olduğunca etkili bir şekilde iletişim kurabilmeleri gerekir (özellikle Alice'in Bob'a günlük bilgi göndermesi gerekmektedir). Ancak buluşamazlar ve yalnızca peçetelere yazılmış notlar aracılığıyla bilgi alışverişinde bulunabilirler. Alice her gün Bob'a yeni bir bilgi göndermek ister - $0$ ile $N-1$ arasında bir sayı. Her öğle yemeğinde Alice üç peçete alır ve her peçeteye $0$ ile $M-1$ arasında bir sayı yazar (tekrarlar olabilir) ve peçeteleri koltuğuna bırakır. Sonra, düşmanları Charly peçetelerden birini yok eder ve diğer ikisini karıştırır. Son olarak, Bob kalan iki peçeteyi bulur ve üzerlerindeki sayıları okur. Alice'in ona göndermek istediği orijinal sayıyı doğru bir şekilde çözmesi gerekir. Peçetelerde sınırlı alan vardır, bu nedenle $M$ sabittir. Ancak, Alice ve Bob'un amacı bilgi akışını en üst düzeye çıkarmaktır, bu yüzden $N$'yi olabildiğince büyük seçmekte özgürdürler. Alice ve Bob'a her biri için bir strateji uygulayarak, $N$ değerini maksimize etmeye çalışarak yardım edin.
+
+
+\subsection{Implementasyon Detayları}
+Bu bir iletişim sorunu olduğundan, programınız burada açıklananın dışında veri paylaşamayan veya iletişim kuramayan iki ayrı yerde (biri Alice, diğeri Bob için) çalıştırılacaktır. Üç fonksiyonu uygulamanız gerekir:
+
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+Bu fonksiyon, Alice'in programınızı çalıştırmaya başlamasıyla birlikte ve Bob'un programınızı çalıştırmaya başlamasıyla birlikte birer kez çağrılacaktır. Fonksiyona $M$ değeri verilir ve fonksiyon istenen $N$ değerini dönmelidir. \texttt{setup}'a yapılan her iki çağrı da aynı $N$ değerini dönmelidir.
+
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+Bu fonksiyon Alice'in stratejisini uygular. $A$'yı kodlayan sayıyla ($0 \leq A < N$) çağrılacak ve $A$'yı kodlayan üç sayı $W_1, W_2, W_3$ ($0 \leq W_i < M$) dönmelidir. Bu fonksiyon toplam $T$ kez çağrılacaktır; günde bir kez ($A$ değerleri günler arasında tekrarlanabilir).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+Bu fonksiyon Bob'un stratejisini uygular. \texttt{encode} tarafından dönülen üç sayıdan ikisi belirli bir sırayla çağrılacaktır. \texttt{encode}'a girdi olarak verilen $A$ değerini dönmelidir. Bu fonksiyon $T$ kez çağrılacaktır (bu sayı, \texttt{encode} için yapılan $T$ çağrıya karşılık gelir); aynı sırada olacaklardır. \texttt{encode} için yapılan tüm çağrılar, tüm \texttt{decode} çağrılarından önce gerçekleşecektir.
+
+
+\subsection{Kısıtlar}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Puanlama}
+
+Belirli bir alt görev için, aldığınız puanların tam puana oranına $S$ diyelim. $S$, o alt görevdeki herhangi bir testte \texttt{setup} tarafından döndürülen en küçük $N$ değerine bağlıdır. Ayrıca, $S$ alt görev için tam puan almanız gereken $N$'nin hedef değeri olan $N^*$ değerine de bağlıdır:
+
+\begin{itemize}
+\item Çözümünüz herhangi bir testte başarısız olursa o zaman $S = 0$ olur.
+\item Eğer $N \geq N^*$ ise, $S = 1.0$'dir.
+\item Eğer $N < N^*$ ise, $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$'dir.
+\end{itemize}
+
+\subsection{Altgörevler}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Altgörev} & \textbf{Puan} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Örnek}
+
+Aşağıdaki $T = 5$ örneğini ele alalım. Alice'in $0$'ı kodlamak için üç eşit sayı veya $1$'i kodlamak için üç farklı sayı gönderdiği bir kodlama şemasını ele alalım. Bob'un, Alice'in gönderdiği üç sayıdan herhangi ikisinden orijinal sayıyı çözebildiğini unutmayın.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Çalıştırma}} & \textbf{\makecell{Fonksiyon çağrısı}} & \textbf{Dönen değer} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Örnek grader}
+
+Örnek grader için, \texttt{encode} ve \texttt{decode} çağrılarının tümü programınızın aynı çalıştırmasında olacaktır. Ek olarak, \texttt{setup} yalnızca bir kez çağrılacaktır (grader sisteminde olduğu gibi, her çalıştırmada bir kez olmak üzere iki kez değil).
+
+Girdi sadece tek bir tamsayıdır -- $M$. Ardından, \texttt{setup} işlevinin döndürdüğü $N$ değerini yazdırır. Ardından, $0$ ile $N-1$ arasında rastgele üretilen sayılarla ve \texttt{encode} 'den \texttt{decode} 'ye verilecek üç sayıdan rastgele seçilen ikisiyle (ve hangi sırayla) $T$ kez \texttt{encode} ve \texttt{decode} işlemi yapılır. Çözümünüz başarısız olursa bir hata mesajı yazdırılır.
+
+\end{document}

@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Dzień 1}
+\renewcommand{\problemName}{Więzienie}
+\renewcommand{\lang}{Polski}
+
+\renewcommand{\tl}{$2$ sek.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alicja i Bajtazar zostali niesłusznie skazani do odsiadki w więzieniu o podwyższonym rygorze. Teraz muszą zaplanować ucieczkę. Aby to zrobić, muszą być w stanie komunikować się tak efektywnie, jak tylko to możliwe (w szczególności, Alicja musi codziennie wysyłać informacje do Bajtazara). Niestety, nie mogą się spotykać. Mogą jedynie wymieniać informacje napisane na chusteczkach. Każdego dnia Alicja chce wysłać nową porcję informacji do Bajtazara -- liczbę od $0$ do $N-1$. Podczas każdego obiadu Alicja zabiera trzy chusteczki i zapisuje liczbę od $0$ do $M-1$ na każdej z nich (liczby mogą się powtarzać) i zostawia chusteczkę na swoim krześle. Następnie ich wróg, Chociemir, niszczy jedną z chusteczek i miesza pozostałe dwie. Na koniec, Bajtazar odnajduje pozostałe dwie chusteczki i odczytuje liczby zapisane na nich. Musi dokładnie odszyfrować oryginalną liczbę, którą Alicja chciała mu przekazać. Ponieważ na chusteczkach jest ograniczone miejsce, liczba $M$ jest stała. Jednak Alicja i Bajtazar starają się zmaksymalizować ilość informacji, które mogą przekazać, zatem mogą wybrać $N$ tak duże, jak chcą. Pomóż Alicji i Bajtazarowi, zaimplementuj strategię dla każdego z nich, która próbuje zmaksymalizować wartość $N$.
+
+\subsection{Szczegóły implementacji}
+Ponieważ jest to zadanie komunikacyjne, Twój program zostanie uruchomiony dwukrotnie (raz dla Alicji, raz dla Bajtazara) i nie może współdzielić żadnych danych i komunikować się w żaden inny sposób, niż podany.
+Musisz zaimplementować trzy funkcje:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+Funkcja zostanie wywołana raz na początku wywołania Twojego programu przez Alicję i raz na początku wywołania Twojego programu przez Bajtazara. Jako argument dostaje $M$ i musi zwrócić wybraną wartość $N$. Oba wywołania \texttt{setup} musza zwrócić to samo $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+Funkcja powinna implementować strategię Alicji. Zostanie wywołana z argumentem do zakodowania $A$ ($0 \leq A < N$) i musi zwrócić trzy liczby $W_1, W_2, W_3$ ($0 \leq W_i < M$) kodujące $A$. Ta funkcja zostanie wywołana $T$ razy -- jeden raz na każdy dzień (wartości $A$ mogą się powtarzać).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+Funkcja powinna implementować strategię Bajrazara. Zostanie wywołana z argumentami będącymi dwoma z trzech liczb zwróconych przez \texttt{encode} w pewnej kolejności. Musi zwrócić tą samą wartość $A$, z którą została wywołana funkcja \texttt{encode}. Ta funkcja również zostanie wywołana $T$ razy -- odpowiadając $T$ wywołaniom funkcji \texttt{encode}. Wywołania będą w tej samej kolejności. Wszystkie wywołania \texttt{encode} będą przed wszystkimi wywołaniami \texttt{decode}.
+
+\subsection{Ograniczenia}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Ocenianie}
+
+Dla każdego podzadania, ułamek S punktów które otrzymasz, zależy od najmniejszego $N$ zwróconego przez \texttt{setup} ze wszystkich testów tego podzadania. Twój wynik jest również zależny od $N^*$, które jest docelowym $N$, które musisz uzyskać, żeby otrzymać maksymalną liczbę punktów za podzadanie:
+
+\begin{itemize}
+\item Jeśli twoje rozwiązanie będzie niepoprawne na dowolnym teście, wtedy $S = 0$.
+\item Jeśli $N \geq N^*$, wtedy $S = 1.0$.
+\item Jeśli $N < N^*$, wtedy $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Podzadania}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Podzadanie} & \textbf{Punkty} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Przykład}
+
+Rozważmy następujący przykład z $T = 5$. Użyte zostało przykładowe kodowanie, gdzie Alicja wysyła trzy równe liczby żeby zakodować $0$, lub trzy różne liczby żeby zakodować $1$.
+Zwróć uwagę, że Bajtazar może odkodować oryginalną liczbę, z dowolnych dwóch liczb wśród każdych trzech liczb wysłanych przez Alicję.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Uruchomienie}} & \textbf{\makecell{Wywołana funkcja}} & \textbf{Zwrócona wartość} \\
+\hline
+Alicja & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bajtazar & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alicja & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alicja & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alicja & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alicja & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alicja & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bajtazar & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bajtazar & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bajtazar & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bajtazar & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bajtazar & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Przykładowa biblioteczka}
+
+W przykładowej biblioteczce, wszystkie wywołania \texttt{encode} i \texttt{decode} będą w tym samym uruchomieniu twojego programu. Dodatkowo, \texttt{setup} będzie wywołane tylko raz (a nie dwa razy, raz na uruchomienie, tak jak w systemie sprawdzającym).
+
+Wejście to jedna liczba całkowita -- $M$. Następnie zostanie wypisane $N$, które twój \texttt{setup} zwrócił. Następnie zostaną wywołane funkcje \texttt{encode} i \texttt{decode} w tej kolejności $T$ razy z losowo wygenerowanymi liczbami od $0$ do $N-1$ i losowymi wyborami, które dwie liczby z trzech zwróconych przez \texttt{encode} zostaną przekazane do \texttt{decode} (i w jakiej kolejności). Jeśli twoje rozwiązanie nie zadziała zostanie wypisany komunikat błędu.
+
+\end{document}

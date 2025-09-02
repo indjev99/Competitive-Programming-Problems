@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 1}
+\renewcommand{\problemName}{Task Prison}
+\renewcommand{\lang}{English}
+
+\renewcommand{\tl}{$2$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alisa și Bob au fost condamnați pe nedrept la închisoare de maximă securitate. Acum trebuie să-și planifice evadarea. Pentru a face acest lucru, trebuie să poată comunica cât mai eficient posibil (în particular, Alisa trebuie să-i trimită zilnic informații lui Bob). Cu toate acestea, ei nu se pot întâlni și pot schimba informații doar prin notițele scrise pe șervețele. În fiecare zi, Alisa vrea să-i trimită lui Bob o nouă informație - un număr între $0$ și $N-1$. La fiecare prânz, Alisa primește trei șervețele și scrie un număr între $0$ și $M-1$ pe fiecare șervețel (pot exista repetări) și le lasă pe scaunul ei. Apoi, dușmanul lor, Charly, distruge unul dintre șervețele și le amestecă pe celelalte două. În cele din urmă, Bob găsește cele două șervețele rămase și citește numerele de pe ele. El trebuie să decodifice cu precizie numărul original pe care Alisa a vrut să i-l trimită. Spațiul pe șervețele este limitat, deci $M$ este fix. Cu toate acestea, scopul lui Alisa și Bob este de a maximiza fluxul de informații, așa că sunt liberi să aleagă $N$ cât mai mare posibil. Ajută-i pe Alisa și Bob implementând o strategie pentru fiecare dintre ei, încercând să maximizezi valoarea lui $N$.
+
+\subsection{Implementation details}
+
+Deoarece aceasta este o problemă de comunicare, programul dvs. va fi rulat în două execuții separate (una pentru Alisa și una pentru Bob) care nu pot partaja date sau comunica în alt mod decât cel descris aici. Trebuie să implementați trei funcții:
+
+\begin{lstlisting}
+ int setup(int m);
+\end{lstlisting}
+
+Aceasta va fi apelată o dată la începutul executării programului tău de către Alisa și o dată la începutul executării programului tău de către Bob. I se atribuie $M$ și trebuie să returneze valoarea dorită $N$. Ambele apeluri către \texttt{setup} trebuie să returneze aceeași valoare $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int a);
+\end{lstlisting}
+
+Aceasta implementează strategia lui Alisa. Va fi apelată cu numărul de codificat $A$ ($0 \leq A < N$) și trebuie să returneze trei numere $W_1, W_2, W_3$ ($0 \leq W_i < M$) care codifică $A$. Această funcție va fi apelată de $T$ ori -- o dată pe zi (valorile lui $A$ se pot repeta între zile).
+
+\begin{lstlisting}
+ int decode(int x, int y);
+\end{lstlisting}
+
+Aceasta implementează strategia lui Bob. Va fi apelată cu două dintre cele trei numere returnate de \texttt{encode} într-o anumită ordine. Trebuie să returneze aceeași valoare $A$ pe care a primit-o \texttt{encode}. Această funcție va fi, de asemenea, apelată de $T$ ori -- corespunzând celor $T$ apeluri către \texttt{encode}; acestea vor fi în aceeași ordine. Toate apelurile către \texttt{encode} vor avea loc înaintea tuturor apelurilor către \texttt{decode}.
+
+\subsection{Constraints}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Scoring}
+
+Pentru un anumit subtask, fracțiunea $S$ din punctele obținute depinde de cel mai mic $N$ returnat de \texttt{setup} la orice test din acel subtask. De asemenea, depinde de $N^*$, care este valoarea țintă a lui $N$ de care aveți nevoie pentru a obține punctajul maxim pentru subtask:
+
+\begin{itemize}
+\item Dacă soluția eșuează la oricare test, atunci $S = 0$.
+\item Dacă $N \geq N^*$, atunci $S = 1.0$.
+\item Dacă $N < N^*$, atunci $S = \max\left(0,35 \max\left(\frac{\log(N) - 0,985 \log(M)} {\log(N^*) - 0,985 \log(M)}, 0.0\right)^{0,3} + 0,65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Points} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Example}
+
+Luați în considerare următorul exemplu cu $T = 5$. Aici avem o schemă de codificare în care Alisa trimite trei numere egale pentru a codifica $0$ sau trei numere distincte pentru a codifica $1$. Observați că Bob poate decoda numărul original din oricare două dintre cele trei numere trimise de Alisa.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Execution}} & \textbf{\makecell{Function call}} & \textbf{Return value} \\
+\hline
+Alisa & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alisa & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alisa & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Sample grader}
+
+Pentru sample grader, toate apelurile către \texttt{encode} și \texttt{decode} vor fi în aceeași execuție a programului. În plus, \texttt{setup} va fi apelat o singură dată (spre deosebire de două ori, o dată per execuție, ca în sistemul de evaluare).
+
+Intrarea este doar un singur număr întreg -- $M$. Apoi se va afișa $N$ returnat de \texttt{setup}. Apoi se va apela \texttt{encode} și \texttt{decode} in aceasta ordine de $T$ ori cu numere generate aleatoriu de la $0$ la $N-1$ și alegeri generate aleatoriu dintre cele două numere din \texttt{encode} care vor fi date către \texttt{decode} (și în ce ordine). Va afișa un mesaj de eroare dacă soluția a eșuat.
+
+\end{document}

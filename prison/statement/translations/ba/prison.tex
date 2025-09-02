@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 1}
+\renewcommand{\problemName}{Zadatak Zatvor}
+\renewcommand{\lang}{Bosanski}
+
+\renewcommand{\tl}{$2$ sek.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alisa i Bob su nepravedno osuđeni na robiju u zatvoru najvećeg sigurnosnog nivoa. Oni sada moraju isplanirati njihov bijeg. Da bi to izveli, moraju imati mogućnost da komuniciraju što je efikasnije moguće (konkretno, Alisa treba da šalje informacije Bobu na dnevnoj bazi). Međutim, ne smiju se susresti i mogu razmijeniti informacije isključivo kroz poruke napisane na salvetama. Svaki dan Alisa želi poslati novu informaciju Bobu -- broj između $0$ i $N-1$. Za vrijeme ručka, Alisa dobije tri salvete i napiše broj između $0$ i $M-1$ na svakoj salveti (brojevi se mogu ponavljati) i ostavi ih na njenoj stolici. Potom, njihov neprijatelj, Čarli, uništi jednu od salveta i izmiješa preostale dvije. Konačno, Bob pronađe dvije preostale salvete i pročita brojeve zapisane na njima. Bob mora precizno dekodirati originalni broj koji je Alisa nastojala da mu pošalje. Na salvetama postoji ograničen prostor, tako da je $M$ fiksiran. Međutim, cilj Alise i Boba je da maksimiziraju protok informacija, tako da mogu odabrati da broj $N$ bude velik koliko god žele. Pomozite Alisi i Bobu implementacijom strategije za svako od njih, nastojeći maksimizirati vrijednost $N$.
+
+\subsection{Detalji implementacije}
+Budući da je ovo komunikacijski problem, vaš program će se pokrenuti u dva odvojena izvršavanja (jedno za Alisu i jedno za Boba) pri čemu ne smije biti razmjene podataka ili komunikacije na bilo koji drugi način osim na način kako je to prethodno opisano. Trebate implementirati tri funkcije:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+Ova funkcija će biti pozvana jednom na početku kada Alisa pokrene izvršenje programa, i jednom kada Bob pokrene izvršenje programa. Funkcija prima $M$ i mora vratiti željeni $N$. Oba poziva \texttt{setup} moraju vratiti istu vrijednost $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+Ova funkcija implementira Alisinu strategiju. Poziv će biti napravljen sa brojem koji se treba enkodirati $A$ ($0 \leq A < N$) i mora vratiti tri broja $W_1, W_2, W_3$ ($0 \leq W_i < M$) u koje je $A$ enkodiran. Ova funkcija će biti pozvana ukupno $T$ puta -- jednom dnevno (vrijednosti $A$ se mogu ponavljati kroz dane).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+Ova funkcija implementira Bobovu strategiju. Poziv će biti napravljen sa dva od tri broja koje je vratila funkcija \texttt{encode} u nekom redoslijedu. Mora vratiti istu vrijednost $A$ koju je primila funkcija \texttt{encode}. Ova funkcija će također biti pozvana $T$ puta -- odgovarajući $T$ poziva \texttt{encode} funkcije; pozivi će biti u istom redoslijedu. Svi pozivi \texttt{encode} funkcije će se desiti prije svih poziva \texttt{decode} funkcije.
+
+\subsection{Ograničenja}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Ocjenjivanje}
+
+Za konkretan podzadatak, dio poena S koje ćete dobiti zavisi o najmanjem $N$ vraćenom od \texttt{setup} funkcije na bilo kojem testu u tom podzadatku. Broj S također zavisi od $N^*$, što je ciljana vrijednost $N$ koju trebate dobiti da bi dobili puni broj poena za podzadatak.
+
+\begin{itemize}
+\item Ako je vaša rješenje neuspješno na bilo kojem od testova, tada je  $S = 0$.
+\item Ako $N \geq N^*$, tada je $S = 1.0$.
+\item Ako $N < N^*$, tada je $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Podzadaci}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Podzadatak} & \textbf{Poeni} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Primjer}
+
+Posmatrajte naredni primjer sa $T = 5$. Tu imamo šemu enkodiranja gdje Alisa šalje tri jednaka broja da enkodira $0$ ili tri različita broja da enkodira $1$. Obratite pažnju da Bob može dekodirati originalni broj iz bilo koja dva od tri broja koje je Alisa poslala.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Izvršenje}} & \textbf{\makecell{Pozvana funkcija}} & \textbf{Vraćena vrijednost} \\
+\hline
+Alisa & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alisa & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alisa & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alisa & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Primjer ocjenjivača}
+
+Kod primjera ocjenjivača, svi pozivi ka \texttt{encode} i \texttt{decode} funkcijama biće unutar istog izvršavanja vašeg programa. Dodatno, funkcija \texttt{setup} će biti pozvana samo jednom po izvršenju (za razliku od dva poziva kao u sistemu ocjenjivanja).
+
+Ulaz je samo jedan cijeli broj -- $M$. Potom će ispisati $N$ koji je vratila vaša \texttt{setup} funkcija. Potom će pozvati funkcije \texttt{encode} i \texttt{decode} tim redoslijedom $T$ puta sa nasumično generisanim brojevima od $0$ do $N-1$ i nasumično generisanim odabirima dva od tri broja iz  \texttt{encode} koji će se proslijediti u \texttt{decode} (i u kojem redoslijedu). Ukoliko rješenje ne bude ispravno, ispisaće grešku.
+
+\end{document}

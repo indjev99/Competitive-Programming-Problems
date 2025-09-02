@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 1}
+\renewcommand{\problemName}{Task Prison}
+\renewcommand{\lang}{English}
+
+\renewcommand{\tl}{$2$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alice and Bob have been unjustly sentenced to a maximum-security prison. Now they must plan their escape. To do this, they need to be able to communicate as efficiently as possible (in particular, Alice needs to send daily information to Bob). However, they cannot meet up and can only exchange information through notes written on napkins. Each day Alice wants to send a new piece of information to Bob -- a number between $0$ and $N-1$. At every lunch, Alice gets three napkins and writes a number between $0$ and $M-1$ on each napkin (there may be repetitions) and leaves them on her seat. Then, their enemy, Charly, destroys one of the napkins and mixes the other two up. Finally, Bob finds the two remaining napkins and reads the numbers on them. He must accurately decode the original number that Alice wanted to send him. There is limited space on the napkins, so $M$ is fixed. However, Alice and Bob's goal is to maximize the information throughput, so they are free to choose $N$ as large as they can. Help Alice and Bob by implementing a strategy for each of them, trying to maximize the value of $N$.
+
+\subsection{Implementation details}
+Since this is a communication problem, your program will be run in two separate executions (one for Alice and one for Bob) that cannot share data or communicate in any way other than the one described here. You need to implement three functions:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+This will be called once at the start of Alice's execution of your program and once at the start of Bob's execution. It is given $M$ and must return the desired $N$. Both calls to \texttt{setup} must return the same $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+This implements Alice's strategy. It will be called with the number to encode $A$ ($0 \leq A < N$) and must return three numbers $W_1, W_2, W_3$ ($0 \leq W_i < M$) that encode $A$. This function will be called a total of $T$ times -- once per day (values of $A$ may repeat between days).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+This implements Bob's strategy. It will be called with two of the three numbers returned by \texttt{encode} in some order. It must return the same value $A$ that \texttt{encode} received. This function will also be called $T$ times -- corresponding to the $T$ calls to \texttt{encode}; they will be in the same order. All calls to \texttt{encode} will happen before all calls to \texttt{decode}.
+
+\subsection{Constraints}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Scoring}
+
+For a particular subtask, the fraction S of the points you get depends on the smallest $N$ returned by \texttt{setup} on any test in that subtask. It also depends on $N^*$, which is the target value of $N$ that you need to get the full points for the subtask:
+
+\begin{itemize}
+\item If your solution fails on any test, then $S = 0$.
+\item If $N \geq N^*$, then $S = 1.0$.
+\item If $N < N^*$, then $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Points} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Example}
+
+Consider the following example with $T = 5$. Here we have an encoding scheme where Alice sends three equal numbers to encode $0$ or three distinct numbers to encode $1$. Notice that Bob can decode the original number from any two of the three numbers Alice sent.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Execution}} & \textbf{\makecell{Function call}} & \textbf{Return value} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Sample grader}
+
+For the sample grader, all calls to \texttt{encode} and \texttt{decode} will be in the same execution of your program. Additionally, \texttt{setup} will be called only once (as opposed to twice, once per execution, as in the grading system).
+
+The input is just a single integer -- $M$. Then it will print out the $N$ your \texttt{setup} returned. It will then call functions \texttt{encode} and \texttt{decode} in this order $T$ times with randomly generated numbers from $0$ to $N-1$ and randomly generated choices of which two of the three numbers from \texttt{encode} to give to \texttt{decode} (and in what order). It will print out an error message if your solution failed.
+
+\end{document}

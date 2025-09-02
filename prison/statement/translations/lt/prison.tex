@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{1-oji diena}
+\renewcommand{\problemName}{Užduotis: Kalėjimas}
+\renewcommand{\lang}{Lithuanian}
+
+\renewcommand{\tl}{$2$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+Alisa ir Bobas buvo neteisingai nuteisti ir įkalinti ypatingai saugomame kalėjime. Dabar jie planuoja pabėgimą. Jiems svarbu kiek įmanoma efektyviau tarpusavyje bendrauti, konkrečiau, Alisa kiekvieną dieną turi nusiųsti informaciją Bobui. Deja, jie nesusitinka ir keičiasi tik informacija, kurią užrašo ant servetėlių. Kiekvieną dieną Alisa nori Bobui nusiųsti naują informaciją -- skaičių nuo  $0$ iki $N-1$. Per kiekvienus pietus Alisa gauna tris servetėles ir ant kiekvienos servetėlės užrašo skaičių nuo  $0$ iki $M-1$ (skaičiai gali kartotis) ir palieka servetėles ant savo kėdės. Tuomet jų priešas Čarlis vieną servetėlių sunaikina, o kitų dviejų tvarką sumaišo. Galiausiai Bobas randa dvi likusias servetėles ir perskaito ant jų užrašytus skaičius. Jis turi tiksliai iškoduoti pradinį skaičių, kurį Alisa norėjo jam nusiųsti. Ant servetėlių yra nedaug vietos rašymui, tad $M$ yra fiksuotas. Tačiau Alisos ir Bobo tikslas yra maksimizuoti informacijos pralaidumą, taigi jie laisvai gali pasirinkti $N$, t.y. tokį didelį, kokį nori. Padėkite Alisai ir Bobui realizuodami kiekvieno jų strategiją bandant maksimizuoti $N$.
+
+\subsection{Realizacija}
+Kadangi tai komunikacijos uždavinys, bus vykdomos dvi jūsų programos kopijos (viena Alisai ir viena Bobui), kurios negali dalintis informacija ar komunikuoti bet kuriuo kitu būdu negu būdu, apibūdintu žemiau. Jums reikia realizuoti tris funkcijas:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+Ši funkcija bus iškviesta vieną kartą Alisos programos kopijos vykdymos pradžioje, ir vieną kartą Bobo programos kopijos vykdymo pradžioje. Šiai funkcijai yra duotas $M$, ir ji turi grąžinti norimą $N$. Abu funkcijos \texttt{setup} kvietiniai turi grąžinti tą patį $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+Tai realizuoja Alisos strategiją. Ji bus iškviesta su skaičiu $A$ ($0 \leq A < N$), kurį norima užkoduoti, ir ji turi grąžinti tris skaičius $W_1, W_2, W_3$ ($0 \leq W_i < M$), užkoduojančius $A$. Ši funkcija bus iškviesta lygiai $T$ kartų -- kartą per dieną ($A$ reikšmės gali kartotis skirtingomis dienomis).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+Tai realizuoja Bobo strategiją. Ji bus iškviesta su dviejais iš trijų skaičių, parašytų atsitiktine tvarka, kuriuos grąžino \texttt{encode}. Ši funkcija turi grąžinti tą pačią reikšmę $A$, kurią gavo \texttt{encode}. Ši funkcija bus irgi iškviesta lygiai $T$ kartų -- atitinkamai kiekvienam iš $T$ \texttt{encode} iškvietimų; jie bus pateikti ta pačia tvarka. Visi \texttt{encode} iškvietimai įvyks prieš visus \texttt{decode} iškvietimus.
+
+\subsection{Ribojimai}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Vertinimas}
+
+Už konkrečią dalinę užduotį, taškų, kuriuos gausite, dalis priklausys nuo mažiausio $N$, kurį grąžins \texttt{setup} iš visų tos dalinės užduoties testų. Ji taip pat priklausys nuo $N^*$, kuris yra siektina $N$ reikšmė, kurią reikia pasiekti norint gauti visus taškus už šią dalinę užduotį. 
+
+\begin{itemize}
+\item Jei jūsų sprendimas neįveikia nors vieno testo, tuomet  $S = 0$.
+\item Jei $N \geq N^*$, tuomet $S = 1.0$.
+\item Jei $N < N^*$, tuomet $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Dalinė užduotis} & \textbf{Taškai} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Pavyzdys}
+
+Panagrinėkime šį pavyzdį kur $T = 5$. Čia turime kodavimo būdą kuriame Alisa siunčia tris vienodus skaičius norėdama užkoduoti $0$ ar tris skirtingus skaičius norėdama užkoduoti $1$. Atkreipkite dėmesį, kad Bobas iš bet kurių dviejų Alisos siųstų skaičių gali iškoduoti Alisos siųstą skaičių.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Vykdymas}} & \textbf{\makecell{Funkcijos iškvietimas}} & \textbf{Grąžinama reikšmė} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Pavyzdinė vertinimo programa}
+
+Paleidus pavyzdinę vertinimo programą, visi \texttt{encode} ir \texttt{decode} iškvietimai bus atlikti vykdant vieną (tą pačią) jūsų programos kopiją. Taip pat \texttt{setup} bus iškviesta lygiai vieną kartą (priešingai negu vertinimo sistemoje kur bus iškviesta du kartus, po vieną kiekvienai vykdomos programos kopijai).
+
+Pradinis duomuo yra vienas sveikasis skaičius $M$. Tuomet ji išspausdins $N$, kurį grąžino jūsų \texttt{setup}. Tuomet ji $T$ kartų iškvies funkcijas pirma \texttt{encode}, paskui \texttt{decode} su atsitiktinai sugeneruotais skaičiais iš intervalo nuo $0$ iki $N-1$ ir atsitiktinai generuotais pasirinkimais kuriuos du iš trijų skaičių (grąžintų from \texttt{encode}) pateikti funkcijai \texttt{decode} (ir kokia tvarka). Jis išves klaidos pranešimą, jei jūsų sprendimas veiks nekorektiškai.
+
+\end{document}

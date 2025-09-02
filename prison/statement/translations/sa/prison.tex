@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+\renewcommand{\bottomtitlespace}{2.5cm}
+
+\usepackage{fontspec}
+
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\newfontfamily\arabicfont
+    [Script=Arabic,     % to get correct arabic shaping
+    Scale=1.2]          % make the arabic font bigger, a matter of taste
+        {Arial}     % whatever Arabic font you like
+
+\newcommand{\textarabic}[1]     % Arabic inside LTR
+    {\bgroup\textdir TRT\arabicfont #1\egroup}
+\newcommand{\n}         [1]     % for digits inside Arabic text
+    {\bgroup\textdir TLT #1\egroup}
+\newcommand{\afootnote} [1]     % Arabic footnotes
+    {\footnote{\textarabic{#1}}}
+\newenvironment{Arabic}     % Arabic paragraph
+    {\textdir TRT\pardir TRT\arabicfont}{}
+
+\begin{document}
+
+\renewcommand{\round}{Day 1}
+\renewcommand{\problemName}{Task Prison}
+\renewcommand{\lang}{Arabic}
+
+\renewcommand{\tl}{$2$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{\problemName}
+
+\begin{Arabic}
+حكم على أليس وبوب ظلما بالسجن شديد الحراسة. والآن عليهما التخطيط لهروبهما. وللقيام بذلك، يجب أن يكونا قادرين على التواصل بأكبر قدر ممكن من الكفاءة )على وجه الخصوص، تحتاج أليس إلى إرسال معلومات يومية إلى بوب(. ومع ذلك، لا يمكنهما الالتقاء ويمكنهما فقط تبادل المعلومات من خلال ملاحظات مكتوبة على المناديل.
+
+
+تريد أليس كل يوم إرسال معلومة جديدة إلى بوب - رقم بين $0$ و $N-1$. في كل غداء، تحصل أليس على ثلاثة مناديل وتكتب رقما بين $0$ و $M-1$ على كل منديل )قد يكون هناك تكرار( وتتركها على مقعدها. ثم يقوم عدوهما، تشارلي، بتدمير أحد المناديل ويخلط الاثنين الآخرين. أخيرا، يجد بوب المنديلين المتبقيين ويقرأ الأرقام الموجودة عليهما. يجب عليه فك شفرة الرقم الأصلي الذي أرادت أليس إرساله إليه بدقة. هناك مساحة محدودة على المناديل، لذا فإن $M$ ثابت. اوجد استراتيجية بين اليس وبوب تعمل لجميع الارقام من $0$ الي $N-1$ لاكبر قيمة ممكنة ل $N$.
+\end{Arabic}
+
+\subsection{Implementation details}
+Since this is a communication problem, your program will be run in two separate executions (one for Alice and one for Bob) that cannot share data or communicate in any way other than the one described here. You need to implement three functions:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+This will be called once at the start of Alice's execution of your program and once at the start of Bob's execution. It is given $M$ and must return the desired $N$. Both calls to \texttt{setup} must return the same $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+This implements Alice's strategy. It will be called with the number to encode $A$ ($0 \leq A < N$) and must return three numbers $W_1, W_2, W_3$ ($0 \leq W_i < M$) that encode $A$. This function will be called a total of $T$ times -- once per day (values of $A$ may repeat between days).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+This implements Bob's strategy. It will be called with two of the three numbers returned by \texttt{encode} in some order. It must return the same value $A$ that \texttt{encode} received. This function will also be called $T$ times -- corresponding to the $T$ calls to \texttt{encode}; they will be in the same order. All calls to \texttt{encode} will happen before all calls to \texttt{decode}.
+
+\subsection{Constraints}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Scoring}
+
+For a particular subtask, the fraction S of the points you get depends on the smallest $N$ returned by \texttt{setup} on any test in that subtask. It also depends on $N^*$, which is the target value of $N$ that you need to get the full points for the subtask:
+
+\begin{itemize}
+\item If your solution fails on any test, then $S = 0$.
+\item If $N \geq N^*$, then $S = 1.0$.
+\item If $N < N^*$, then $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Subtask} & \textbf{Points} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Example}
+
+Consider the following example with $T = 5$. Here we have an encoding scheme where Alice sends three equal numbers to encode $0$ or three distinct numbers to encode $1$. Notice that Bob can decode the original number from any two of the three numbers Alice sent.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Execution}} & \textbf{\makecell{Function call}} & \textbf{Return value} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Sample grader}
+
+For the sample grader, all calls to \texttt{encode} and \texttt{decode} will be in the same execution of your program. Additionally, \texttt{setup} will be called only once (as opposed to twice, once per execution, as in the grading system).
+
+The input is just a single integer -- $M$. Then it will print out the $N$ your \texttt{setup} returned. It will then call functions \texttt{encode} and \texttt{decode} in this order $T$ times with randomly generated numbers from $0$ to $N-1$ and randomly generated choices of which two of the three numbers from \texttt{encode} to give to \texttt{decode} (and in what order). It will print out an error message if your solution failed.
+
+\end{document}

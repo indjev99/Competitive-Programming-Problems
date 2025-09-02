@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Jour 1}
+\renewcommand{\problemName}{Problème Prison}
+\renewcommand{\lang}{Français}
+
+\renewcommand{\tl}{$2$ sec.}
+\renewcommand{\ml}{$1024$ Mo}
+\problem{\problemName}
+
+Alice et Bob ont été injustement condamnés à purger une peine dans une prison à haute sécurité. Maintenant, ils doivent planifier leur évasion. Pour ce faire, ils doivent être en capacité de communiquer aussi efficacement que possible (en particulier, Alice doit envoyer des informations quotidiennes à Bob). Toutefois, ils ne peuvent pas se rencontrer et peuvent uniquement échanger des informations via des notes écrites sur des serviettes de table. Chaque jour Alice veut envoyer une nouvelle information à Bob : un nombre entre $0$ et $N-1$. À chaque déjeuner, Alice prend trois serviettes et écrit un nombre entre $0$ et $M-1$ sur chaque serviette (il peut y avoir des répétitions) et les laisse sur son siège. Ensuite, leur ennemie, Charly, détruit une des serviettes et mélange les deux autres. Enfin, Bob trouve les deux serviettes restantes et lit les nombres qui y sont inscrits. Il doit correctement décoder le nombre original qu'Alice voulait lui envoyer. Il y a un espace limité sur les serviettes, donc $M$ est fixé. Néanmoins, Alice et Bob ont pour objectif de maximiser l'information transmise, ils peuvent donc choisir $N$ aussi grand qu'ils le souhaitent. Aidez Alice et Bob à implémenter une stratégie pour chacun d'eux de manière à maximiser la valeur de $N$.
+%Alice and Bob have been unjustly sentenced to a maximum-security prison. Now they must plan their escape. To do this, they need to be able to communicate as efficiently as possible (in particular, Alice needs to send daily information to Bob). However, they cannot meet up and can only exchange information through notes written on napkins. Each day Alice wants to send a new piece of information to Bob -- a number between $0$ and $N-1$. At every lunch, Alice gets three napkins and writes a number between $0$ and $M-1$ on each napkin (there may be repetitions) and leaves them on her seat. Then, their enemy, Charly, destroys one of the napkins and mixes the other two up. Finally, Bob finds the two remaining napkins and reads the numbers on them. He must accurately decode the original number that Alice wanted to send him. There is limited space on the napkins, so $M$ is fixed. However, Alice and Bob's goal is to maximize the information throughput, so they are free to choose $N$ as large as they can. Help Alice and Bob by implementing a strategy for each of them, trying to maximize the value of $N$.
+
+\subsection{Détails d'implémentation}
+Puisqu'il s'agit d'un problème de communication, votre programme va être lancé dans deux exécutions séparées (une pour Alice et une pour Bob) qui ne peuvent pas échanger de données ni communiquer d'aucune manière autre que celle décrite ici. Vous devez implémenter trois fonctions:
+%Since this is a communication problem, your program will be run in two separate executions (one for Alice and one for Bob) that cannot share data or communicate in any way other than the one described here. You need to implement three functions:
+
+\begin{lstlisting}
+ int setup(int M);
+\end{lstlisting}
+
+Cette fonction sera appelée une fois au début de l'exécution d'Alice et une fois au début de l'exécution de Bob. On lui donne $M$ et elle doit renvoyer la valeur de $N$ souhaitée. Les deux appels à \texttt{setup} doivent renvoyer le même $N$.
+%This will be called once at the start of Alice's execution of your program and once at the start of Bob's execution. It is given $M$ and must return the desired $N$. Both calls to \texttt{setup} must return the same $N$.
+
+\begin{lstlisting}
+ std::vector<int> encode(int A);
+\end{lstlisting}
+
+Cette fonction implémente la stratégie d'Alice. Elle sera appelée avec le nombre à encoder $A$ ($0 \leq A < N$) et doit renvoyer trois nombres $W_1, W_2, W_3$ ($0 \leq W_i < M$) qui encodent $A$. Cette fonction va être appelée un total de $T$ fois, une fois par jour (les valeurs de $A$ peuvent se répéter).
+%This implements Alice's strategy. It will be called with the number to encode $A$ ($0 \leq A < N$) and must return three numbers $W_1, W_2, W_3$ ($0 \leq W_i < M$) that encode $A$. This function will be called a total of $T$ times -- once per day (values of $A$ may repeat between days).
+
+\begin{lstlisting}
+ int decode(int X, int Y);
+\end{lstlisting}
+
+Cette fonction implémente la stratégie de Bob. Elle sera appelée avec deux des trois nombres renvoyés par \texttt{encode} dans un ordre quelconque. Elle doit renvoyer la même valeur $A$ que celle reçue par \texttt{encode}. Cette fonction sera aussi appelée $T$ fois, correspondant aux $T$ appels à \texttt{encode}, dans le même ordre. Tous les appels à \texttt{encode} se produiront avant tous les appels à \texttt{decode}.
+%This implements Bob's strategy. It will be called with two of the three numbers returned by \texttt{encode} in some order. It must return the same value $A$ that \texttt{encode} received. This function will also be called $T$ times -- corresponding to the $T$ calls to \texttt{encode}; they will be in the same order. All calls to \texttt{encode} will happen before all calls to \texttt{decode}.
+
+\subsection{Contraintes}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Notation}
+
+Pour une sous-tâche spécifique, la fraction S des points que vous recevrez dépend du plus petit $N$ renvoyé par \texttt{setup} sur les tests de la sous-tâche. Elle dépend aussi de $N^*$, qui est la valeur cible de $N$ nécessaire pour obtenir tous les points sur la sous-tâche:
+%For a particular subtask, the fraction S of the points you get depends on the smallest $N$ returned by \texttt{setup} on any test in that subtask. It also depends on $N^*$, which is the target value of $N$ that you need to get the full points for the subtask:
+
+\begin{itemize}
+\item Si votre solution échoue sur n'importe quel test, alors $S = 0$.
+%\item If your solution fails on any test, then $S = 0$.
+\item Si $N \geq N^*$, alors $S = 1.0$.
+%\item If $N \geq N^*$, then $S = 1.0$.
+\item Si $N < N^*$, alors $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+%\item If $N < N^*$, then $S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtasks}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Sous-tâche} & \textbf{Points} & $M$ & $N^*$ \\
+\hline
+$1$ & $10$ & $700$ & $82017$ \\
+\hline
+$2$ & $10$ & $1100$ & $202217$ \\
+\hline
+$3$ & $10$ & $1500$ & $375751$ \\
+\hline
+$4$ & $10$ & $1900$ & $602617$ \\
+\hline
+$5$ & $10$ & $2300$ & $882817$ \\
+\hline
+$6$ & $10$ & $2700$ & $1216351$ \\
+\hline
+$7$ & $10$ & $3100$ & $1603217$ \\
+\hline
+$8$ & $10$ & $3500$ & $2043417$ \\
+\hline
+$9$ & $10$ & $3900$ & $2536951$ \\
+\hline
+$10$ & $10$ & $4300$ & $3083817$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Exemple}
+
+Considérez l'exemple suivant avec $T = 5$. Ici, on a un encodage où Alice envoie trois nombres égaux pour encoder $0$ ou trois nombres distincts pour encoder $1$. Remarquez que Bob peut décoder le nombre initial avec n'importe quelle paire de nombres envoyés par Alice.
+%Consider the following example with $T = 5$. Here we have an encoding scheme where Alice sends three equal numbers to encode $0$ or three distinct numbers to encode $1$. Notice that Bob can decode the original number from any two of the three numbers Alice sent.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{\makecell{Exécution}} & \textbf{\makecell{Appel de fonction}} & \textbf{Valeur de retour} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5, 5, 5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8, 3, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0, 3, 1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7, 7, 7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6, 2, 0\}} \\
+\hline
+Bob & \texttt{decode(5, 5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8, 7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3, 0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7, 7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2, 0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+\subsection{Évaluateur d'exemple}
+
+Pour l'évaluateur d'exemple, tous les appels à \texttt{encode} et \texttt{decode} vont être dans la même exécution de votre programme. De plus, \texttt{setup} va être appelé une seule fois (contrairement à deux fois, une par exécution, dans l'évaluateur officiel).
+%For the sample grader, all calls to \texttt{encode} and \texttt{decode} will be in the same execution of your program. Additionally, \texttt{setup} will be called only once (as opposed to twice, once per execution, as in the grading system).
+
+L'entrée est juste constituée d'un unique entier, $M$. Ensuite sera affiché la valeur de $N$ que votre \texttt{setup} a renvoyé. Ensuite, les fonctions \texttt{encode} et \texttt{decode} seront appelées $T$ fois, dans cet ordre, avec des nombres générés aléatoirement entre $0$ et $N-1$ et des choix aléatoires pour les deux des trois nombres de \texttt{encode} à donner à \texttt{decode} (et pour leur ordre). L'évaluateur affichera un message d'erreur si votre solution échoue.
+%The input is just a single integer -- $M$. Then it will print out the $N$ your \texttt{setup} returned. It will then call functions \texttt{encode} and \texttt{decode} in this order $T$ times with randomly generated numbers from $0$ to $N-1$ and randomly generated choices of which two of the three numbers from \texttt{encode} to give to \texttt{decode} (and in what order). It will print out an error message if your solution failed.
+
+\end{document}

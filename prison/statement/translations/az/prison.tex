@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\input{ejoi_structure.tex}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\round}{Day 1}
+\renewcommand{\problemName}{Həbsxana}
+\renewcommand{\lang}{Azerbaijani}
+
+\renewcommand{\tl}{$0.3$ sec.}
+\renewcommand{\ml}{$256$ MB}
+\problem{\problemName}
+
+Alice və Bob haqsız yerə maksimum təhlükəsizlikli həbsxanaya məhkum olunublar. İndi onların qaçış planı hazırlamaları lazımdır. Bunun üçün onlar mümkün qədər səmərəli şəkildə ünsiyyət qura bilməlidirlər (xüsusilə, Alice hər gün Bob-a məlumat göndərməlidir). Lakin onlar görüşə bilmirlər və yalnız salfetlərin üzərinə yazılmış qeydlərlə məlumat mübadiləsi edə bilərlər. Hər gün Alice Bob-a $0$ ilə $N-1$ arasında yeni bir ədəd göndərmək istəyir. Hər naharda Alice üç salfet alır və onların hər birinə $0$ ilə $M-1$ arasında bir ədəd yazır (təkrar ola bilər) və onları oturacağında qoyur. Sonra onların düşməni, Atilla, salfetlərdən birini məhv edir və qalan ikisini qarışdırır. Nəhayət, Bob iki salfeti tapır və üzərindəki ədədləri oxuyur. O, Alice-in göndərmək istədiyi ilkin ədədi düzgün şəkildə bərpa etməlidir. Salfetlərdə məkan məhduddur, buna görə $M$ sabitdir. Lakin Alice və Bob məlumat ötürülməsini maksimuma çatdırmaq istəyirlər, buna görə də $N$-i mümkün qədər böyük seçməkdə azaddırlar. Alice və Bob-a $N$-i böyütmək üçün strategiya hazırlamaqda kömək edin.
+
+\subsection{İcra Detalları}
+Bu ünsiyyət məsələsi olduğundan, proqramınız iki ayrı icraatda (biri Alice, biri Bob üçün) işləyəcək və onlar arasında heç bir birbaşa əlaqə olmayacaq. Siz üç funksiyanı reallaşdırmalısınız:
+
+\begin{lstlisting}
+ int setup(int m);
+\end{lstlisting}
+
+Bu funksiya həm Alice-in, həm də Bob-un proqram icrasının əvvəlində bir dəfə çağırılacaq. Ona $M$ veriləcək və o, seçilmiş $N$-i qaytarmalıdır. Hər iki \texttt{setup} çağırışı eyni $N$ qaytarmalıdır.
+
+\begin{lstlisting}
+ std::vector<int> encode(int a);
+\end{lstlisting}
+
+Bu Alice-in strategiyasını reallaşdırır. Burada $A$ ($0 \leq A < N$) kodlaşdırılacaq ədəd verilir və $0 \leq W_i < M$ olmaqla üç ədəd $W_1, W_2, W_3$ qaytarılmalıdır. Bu funksiya $T$ dəfə çağırılacaq – hər gün üçün bir dəfə (dəyərlər təkrarlana bilər).
+
+\begin{lstlisting}
+ int decode(int x, int y);
+\end{lstlisting}
+
+Bu Bob-un strategiyasını reallaşdırır. Burada $encode$ tərəfindən qaytarılmış üç ədədin ikisi (istənilən ardıcıllıqla) verilir. Funksiya Alice-in göndərdiyi ilkin $A$ dəyərini qaytarmalıdır. Bu funksiya da $T$ dəfə çağırılacaq – $encode$-un $T$ çağırışına uyğun olaraq. Bütün $encode$ çağırışları bitdikdən sonra $decode$ çağırışları başlayacaq.
+
+\subsection{Məhdudiyyətlər}
+
+\begin{itemize}
+\item $M \leq 4300$
+\item $T = 5000$
+\end{itemize}
+
+\subsection{Qiymətləndirmə}
+
+Hər subtask üçün balın hesablanması $S$ əmsalından və ən kiçik $N$ dəyərindən asılıdır. Hədəf dəyər $N^*$ verilir və tam bal almaq üçün $N \geq N^*$ olmalıdır:
+
+\begin{itemize}
+\item Əgər həlliniz hər hansı bir testdə uğursuz olarsa, $S = 0$.
+\item Əgər $N \geq N^*$, onda $S = 1.0$.
+\item Əgər $N < N^*$, onda 
+$S = \max\left(0.35 \max\left(\frac{\log(N) - 0.985 \log(M)}{\log(N^*) - 0.985 \log(M)}, 0.0\right)^{0.3} + 0.65 \left(\frac{N}{N^*}\right)^{2.4}, 0.01\right)$.
+\end{itemize}
+
+\subsection{Subtask-lar}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Alt tapşırıq} & \textbf{Bal} & $M$ & $N^*$ \\
+\hline
+1 & 10 & 700 & 82017 \\
+\hline
+2 & 10 & 1100 & 202217 \\
+\hline
+3 & 10 & 1500 & 375751 \\
+\hline
+4 & 10 & 1900 & 602617 \\
+\hline
+5 & 10 & 2300 & 882817 \\
+\hline
+6 & 10 & 2700 & 1216351 \\
+\hline
+7 & 10 & 3100 & 1603217 \\
+\hline
+8 & 10 & 3500 & 2043417 \\
+\hline
+9 & 10 & 3900 & 2536951 \\
+\hline
+10 & 10 & 4300 & 3083817 \\
+\hline
+\end{tblr}
+\end{table}
+
+
+\subsection{Nümunə}
+
+Tutaq ki, $T = 5$. Burada sadə bir kodlaşdırma sxemi göstərək: Alice $0$ göndərmək istədikdə üç eyni ədəd, $1$ göndərmək istədikdə isə üç fərqli ədəd yazır. Bob hər iki salfeti oxumaqla ilkin ədədi düzgün təyin edə bilər.
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{İcra} & \textbf{Funksiya çağırışı} & \textbf{Nəticə} \\
+\hline
+Alice & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Bob & \texttt{setup(10)} & \texttt{2} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{5,5,5\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{8,3,7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{0,3,1\}} \\
+\hline
+Alice & \texttt{encode(0)} & \texttt{\{7,7,7\}} \\
+\hline
+Alice & \texttt{encode(1)} & \texttt{\{6,2,0\}} \\
+\hline
+Bob & \texttt{decode(5,5)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(8,7)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(3,0)} & \texttt{1} \\
+\hline
+Bob & \texttt{decode(7,7)} & \texttt{0} \\
+\hline
+Bob & \texttt{decode(2,0)} & \texttt{1} \\
+\hline
+\end{tblr}
+\end{table}
+
+
+\subsection{Nümunə qiymətləndirici}
+
+Bütün \texttt{encode} və \texttt{decode} çağırışları eyni icraatın daxilində olacaq. Üstəlik, \texttt{setup} yalnız bir dəfə çağırılacaq. Giriş yalnız bir tam ədəddən – $M$-dən ibarət olacaq. Daha sonra proqram \texttt{setup}-un qaytardığı $N$-i çap edəcək, ardınca $T$ dəfə \texttt{encode} və \texttt{decode} çağırışları ediləcək. Əgər həll uğursuz olsa, xəta mesajı veriləcək.
+
+\end{document}

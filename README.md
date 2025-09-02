@@ -38,6 +38,7 @@ Non-standard problems:
 * Registers (Collaboration with Encho Mishinev)
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
+* Prison (Idea by Sultan Alaiban and Viktor Kozhuharov)
 * Bits and Tree (Mostly by Viktor Kozhuharov, Solution and analysis are mine)
 * Pointsort
 * Multisort

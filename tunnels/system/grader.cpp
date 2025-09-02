@@ -358,7 +358,7 @@ int main(int argc, char* argv[])
 
     minY = 0;
     maxY = m - 1;
-    
+
     currMinY = k;
     currMaxY = k;
 

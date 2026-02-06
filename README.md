@@ -39,6 +39,7 @@ Non-standard problems:
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
 * Prison (Idea by Sultan Alaiban and Viktor Kozhuharov)
+* Mummy
 * Bits and Tree (Mostly by Viktor Kozhuharov, Solution and analysis are mine)
 * Pointsort
 * Multisort

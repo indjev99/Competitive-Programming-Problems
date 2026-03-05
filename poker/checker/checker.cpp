@@ -132,11 +132,11 @@ void findExpProfit()
         firstExpProfits[i] /= (n - 1);
         secondExpProfits[i] /= (n - 1);
 
-        // expProfit += firstExpProfits[i];
+        expProfit += firstExpProfits[i];
         expProfit += secondExpProfits[i];
     }
 
-    expProfit /= 1 * n;
+    expProfit /= 2 * n;
 }
 
 void info()
@@ -297,7 +297,7 @@ int main(int argc, char *argv[])
     std::cout << std::fixed << std::setprecision(4) << score << std::endl;
     std::cerr << "Average profit: " << std::fixed << std::setprecision(4) << expProfit << std::endl;
 
-    info();
+    // info();
 
     return 0;
 }

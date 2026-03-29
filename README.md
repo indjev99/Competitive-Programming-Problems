@@ -8,6 +8,7 @@ Classical problems:
 * Ads (Idea by Pavel Petrov)
 * Permutation
 * Oil
+* Trip
 * Flights
 * Mushrooms (Collaboration with Encho Mishinev and Atanas Dimitrov)
 * Internship (Idea by Rusko Shikov)

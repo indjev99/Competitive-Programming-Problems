@@ -1,0 +1,92 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+struct Edge
+{
+    int to;
+    long long w;
+};
+
+int n, m;
+std::vector<std::vector<Edge>> es;
+
+bool ans;
+
+void input()
+{
+    std::cin >> n >> m;
+    es.resize(n);
+
+    for (int i = 0; i < m; i++)
+    {
+        int from, to, w;
+        std::cin >> from >> to >> w;
+        es[from].push_back({to, w});
+    }
+}
+
+void output()
+{
+    std::cout << ans << std::endl;
+}
+
+std::vector<int> dfsCol;
+std::vector<std::vector<int>> dfsEs;
+
+bool dfs(int curr)
+{
+    if (dfsCol[curr] == 1) return true;
+    if (dfsCol[curr] == 2) return false;
+
+    dfsCol[curr] = 1;
+
+    for (int to : dfsEs[curr])
+    {
+        if (dfs(to)) return true;
+    }
+
+    dfsCol[curr] = 2;
+
+    return false;
+}
+
+void solve()
+{
+    ans = false;
+
+    dfsCol.assign(n, 0);
+    dfsEs.assign(n, {});
+
+    for (int i = 0; i < n; i++)
+    {
+        for (auto [to, w] : es[i])
+        {
+            if (w == 0)
+            {
+                dfsEs[i].push_back(to);
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (dfs(i))
+        {
+            ans = true;
+            return;
+        }
+    }
+}
+
+int main()
+{
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    input();
+    solve();
+    output();
+
+    return 0;
+}

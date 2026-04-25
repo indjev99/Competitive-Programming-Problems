@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{3cm}
+
+\usepackage{tikz}
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Srpski}
+\renewcommand{\problemName}{AB13. VIDLJIVOST}
+
+\renewcommand{\headerLeft}{IATI Dan 1, Senior grupa}
+\renewcommand{\headerRightFirst}{XVII MEĐUNARODNI NAPREDNI TURNIR IZ INFORMATIKE}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$5$ s}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Zadatak \problemName}
+\addauthor{Author: Emil Indzhev}{2026}{04}{16}
+
+The USS Enterprise spaceship (sa Saškom kao novim kapetanom) putuje kroz univerzum, što je beskonačni 2D grid sektora. U svakom sektoru $(X, Y)$\footnote{$X$ je redni broj reda (raste odozgo nadole) i $Y$ je redni broj kolone (raste sleva nadesno).} se nalazi svetionik koji ima jačinu svetlosti $V_{X, Y}$. Kada je brod u tom sektoru, on koristi svetionik da skenira sve sektore $(X', Y')$ za koje važi $X - V_{X, Y} \leq X' \leq X + V_{X, Y}$ i  $Y - V_{X, Y} \leq Y' \leq Y + V_{X, Y}$. Dakle, vidljivi sektori formiraju kvadrat čija je stranica dužine $2V_{X, Y} + 1$. Za svaki takav sektor, jedina dostupna informacija je jačina svetlosti svetionika u njemu, $V_{X', Y'}$ (zato što svetionici funkcionišu i kao predajnici i kao prijemnici). Nakon skeniranja, brod se teleportuje u jedan od sektora koje vidi, jer svetionici takođe funkcionišu i kao teleporteri.
+
+Nažalost, svetionici imaju kritičan nedostatak: mogu da flip-uju $X$ osu skeniranih podataka, $Y$ osu, ili obe (postoje $4$ kombinacije orijentacije skeniranih podataka). Primetimo da brod koristi potencijalno flip-ovane skenirane podatke da odluči u koji sektor će da se teleportuje, ali pri teleportovanju se gleda ista takva orijentacija. Dakle, ako je $Y$ osa flip-ovana i brod se teleportuje nalevo (ka manjim $Y$) u skeniranom kvadratu, u pravom grid-u će se zapravo teleportovati nadesno. To znači da će se brod zaista teleportovati u sektor koji je izabrao.
+
+Štaviše, brod nema memoriju, pa njegova odluka o mestu na koje se teleportuje mora da zavisi isključivo od podataka skeniranih sa trenutnog svetionika. Takođe, njegova strategija mora biti deterministička. Ako dobije iste skenirane podatke više puta, mora da se teleportuje u isti sektor svaki put.
+
+Brod kreće sa nepoznatih koordinata i mora uvek (bez obzira na to gde počinje i bez obzira na orijentaciju skeniranih podataka) da bude u mogućnosti da ode u pravcu rastućih $X$ i $Y$ proizvoljno daleko (možemo reći da tražimo da dostigne sektor $(X, Y)$ tako da je $X, Y \geq 10^{100}$). Međutim, da bi to bilo moguće, i strategija teleportovanja broda i jačine svetlosti svetionika u univerzumu su krucijalne.
+
+Ovde nastupaš ti -- potrebno je da dizajniraš $N$x$M$ pravougaoni šablon $P$ sa jačinama svetlosti koje se ponavljaju beskonačno širom celog univerzuma: $V_{X, Y} = P_{X \bmod N, Y \bmod M}$. Takođe treba da dizajniraš strategiju teleportovanja broda, drugim rečima funkciju koja uzima skenirane podatke od svetionika i bira u koji sektor će da se teleportuje.
+
+Kako su svetionici veće jačine svetlosti skupi, tvoj cilj je da osmisliš validno rešenje, trudeći se da minimizuješ prosečnu jačinu svetlosti u tvom šablonu, drugim rečima prosečnu vrednost u $P$.
+
+Pošto je ovaj zadatak naizgled prilično težak, krenućeš sa lakšim zadatkom: istim zadatkom ali u 1D. U ovom, lakšem zadatku, zanemarujemo $X$ dimenziju i samo koristimo $Y$. Dakle, tvoj šablon je jednostavno niz dužine $M$ i ponavlja se po pravilu: $V_Y = P_{Y \bmod M}$. Skenirani podaci su takođe nizovi dužine $2V_Y + 1$ (sadrže sektore $Y'$ za koje važi $Y - V_{X, Y} \leq Y' \leq Y + V_{X, Y}$). Ovde postoje samo 2 moguće orijentacije skeniranih podataka (regularna ili flip-ovana) i brod mora da bude u mogućnosti da dostigne $Y \geq 10^{100}$.
+
+Tvoja rešenja za 1D i 2D slučaj će se bodovati odvojeno. Moguće je istovremeno osvojiti poene za jedan od njih, a nemati validno rešenje za drugi.
+
+\subsection{Detalji implementacije}
+
+Potrebno je implementirati 4 funkcije: \verb|getVisionPattern1d|, \verb|getMove1d|, \verb|getVisionPattern2d| i \verb|getMove2d|. Prve dve se koriste za 1D slučaj, a druge dve za 2D slučaj. U jednom test primeru će samo jedan par funkcija biti pozvan, ali sve 4 moraju biti implementirane (u redu je da obe funkcije u jednom paru budu prazne) da bi rešenje bilo validno (da bi se compile-ovalo).
+
+\begin{lstlisting}
+ std::vector<int> getVisionPattern1d()
+\end{lstlisting}
+
+Ova funkcija će biti pozvana jednom, ako je test primer za 1D slučaj. Mora da vrati niz $P$ dužine $M$ -- 1D šablon jačina svetlosti. $M$ i svi elementi niza $P$ moraju biti između $1$ i $60$.
+
+\begin{lstlisting}
+ int getMove1d(std::vector<int> v)
+\end{lstlisting}
+
+Ova funkcija će biti pozvana jednom po skeniranju, ako je test primer za 1D slučaj. Prosleđeni su joj skenirani podaci sa svetionika, kao niz dužine $2V + 1$ (gde je $V$ jačina svetlosti centralnog svetionika u nizu). Funkcija mora da vrati sektor na koji će brod da se teleportuje, kao indeks $T$ u nizu, takav da je $0 \leq T < 2V + 1$.
+
+\begin{lstlisting}
+ std::vector<std::vector<int>> getVisionPattern2d()
+\end{lstlisting}
+
+Ova funkcija će biti pozvana jednom, ako je test primer za 2D slučaj. Mora da vrati pravougaoni šablon $P$ veličine $N$x$M$ -- 2D šablon jačina svetlosti. $N$, $M$ i svi elementi niza $P$ moraju biti između $1$ and $60$.
+
+\begin{lstlisting}
+ std::pair<int, int> getMove2d(std::vector<std::vector<int>> v)
+\end{lstlisting}
+
+Ova funkcija će biti pozvana jednom po skeniranju, ako je test primer za 2D slučaj. Prosleđeni su joj skenirani podaci sa svetionika, kao kvadratna matrica dimenzija $(2V + 1)$ x $(2V + 1)$ (gde je $V$ jačina svetlosti centralnog svetionika u matrici). Funkcija mora da vrati sektor na koji će brod da se teleportuje, kao par indeksa $S$ i $T$ u matrici, takvih da je $0 \leq S, T < 2V + 1$.
+
+Za datu dimenzionalnost $D$ ($1$ ili $2$) testa, grader će proveriti da li tvoj program vraća validan šablon -- da li vraća validne izbore za teleportaciju za svako moguće skeniranje i da li tvoje rešenje radi bez obzira na početne koordinate i sekvencu orijentacija skeniranih podataka.
+
+\subsection{Ograničenja}
+
+\vspace{0.1em}
+
+\begin{itemize}
+\item $1 \leq D \leq 2$
+\item $1 \leq N, M, V_{X, Y}, V_Y \leq 60$
+\end{itemize}
+
+\newpage
+
+\subsection{Podzadaci i bodovanje}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Podzadatak} & \textbf{Poeni} & \textbf{$D$} & \textbf{$A^*$} \\
+\hline
+$1$ & $24$ & $1$ & $1.5$ \\
+\hline
+$2$ & $76$ & $2$ & $1.125$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+Broj poena za određen podzadatak (ako je tvoje rešenje za njega tačno) zavisi od prosečne jačine svetlosti u tvoj šablonu $P$. Neka je to $A$ i neka je target za podzadatak $A^*$. Tvoj broj poena (deo poena za podzadatak) će biti:
+
+$$1 - {\left(1 - \frac{A^* - 1}{\max{\left(A, A^*\right)} - 1}\right)}^{0.8}$$
+
+\subsection{Sample šablon}
+
+Recimo da tvoje rešenje vraća sledeći šablon za $N=3$ i $M=2$:
+
+\[
+\left[
+\begin{array}{c c}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{array}
+\right]
+\]
+
+Sada, posmatrajmo moguća skeniranja u sektoru $(0, 1)$, koji ima jačinu svetlosti $2$. Postoje $4$ moguće orijentacije (neke od njih generišu iste skenirane podatke na ovom šablonu):
+
+\[
+\begin{array}{cc}
+\text{Orijentacija $0$: Bez flip-ova} & \text{Orijentacija $1$: $Y$-osa flip-ovana} \\
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+\\
+\\
+\text{Orijentacija $2$: $X$-osa flip-ovana} & \text{Orijentacija $3$: Obe ose flip-ovane} \\
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+\end{array}
+\] 
+
+Kako su $0$ i $1$ identične i kako je brod deterministički, samo jedan poziv funkcije \verb|getMove2d| će se desiti. Recimo da tvoje rešenje vraća sektor $(0, 1)$ na ovom skeniranju. Na orijentaciji $0$ ovo bi značilo pomeranje za $2$ nagore i za $1$ nalevo, a na orijentaciji $1$ -- pomeranje za $2$ nagore and $1$ nadesno.
+
+\subsection{Sample grader}
+
+Ulaz sample grader-a počinje sa $D$. Nakon toga će izvršiti sve pozive vaše funkcije: prvo dohvatanje šablona $P$, a zatim keširanje svih izbora teleportacije. Nakon toga, počeće interakciju sa konzolom, tražeći početne koordinate broda. Nakon toga, ispisaće trenutno stanje: koordinate i ``raw'' (bez flip-ova) skenirane podatke. Zatim će tražiti orijentaciju koja će biti korišćena ($0$ za bez flip-ova, $1$ za flip-ovanje $Y$ ose, $2$ za flip-ovanje $X$ ose i $3$ za flip-ovanje obe ose). Nakon toga, ispisaće skeniranje u zadatoj orijentaciji, kao i koji potez je brod odabrao. Brod će biti pomeren i ovo će se ponavljati. Imajte na umu da sample grader neće automatski proveravati ispravnost vašeg rešenja.
+
+\end{document}

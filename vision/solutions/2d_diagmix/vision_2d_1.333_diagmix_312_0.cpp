@@ -1,0 +1,82 @@
+#include "vision.h"
+
+#include <algorithm>
+
+std::vector<int> getVisionPattern1d()
+{
+    return {3, 1, 2};
+}
+
+int getMove1d(std::vector<int> v)
+{
+    int curr = (v.size() - 1) / 2;
+
+    if (curr == 1)
+    {
+        if (v[0] != 1) return 0;
+        if (v[2] != 1) return 2;
+        return -1;
+    }
+
+    if (curr == 2)
+    {
+        if (v[1] == 3) return 1;
+        if (v[3] == 3) return 3;
+        return -1;
+    }
+
+    if (curr == 3)
+    {
+        if (v[1] == 2) return 1;
+        if (v[5] == 2) return 5;
+        return -1;
+    }
+
+    return -1;
+}
+
+std::vector<std::vector<int>> getVisionPattern2d()
+{
+    return {
+        {3, 1, 1},
+        {1, 1, 1},
+        {1, 1, 2},
+    };
+}
+
+std::pair<int, int> getMove2d(std::vector<std::vector<int>> v)
+{
+    int curr = (v.size() - 1) / 2;
+
+    if (curr == 1)
+    {
+        for (int i = 0; i <= 2; i++)
+        {
+            for (int j = 0; j <= 2; j++)
+            {
+                if (v[i][j] != 1) return {i, j};
+            }
+        }
+        return {-1, -1};
+    }
+
+    if (curr == 2)
+    {
+        if (v[1][1] == 3) return {1, 1};
+        if (v[1][3] == 3) return {1, 3};
+        if (v[3][1] == 3) return {3, 1};
+        if (v[3][3] == 3) return {3, 3};
+        return {-1, -1};
+    }
+
+    if (curr == 3)
+    {
+        if (v[1][1] == 2) return {1, 1};
+        if (v[1][5] == 2) return {1, 5};
+        if (v[5][1] == 2) return {5, 1};
+        if (v[5][5] == 2) return {5, 5};
+        return {-1, -1};
+    }
+
+    return {-1, -1};
+}

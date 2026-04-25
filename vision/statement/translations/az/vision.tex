@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{3cm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Azerbaijani}
+\renewcommand{\problemName}{AB13. Baxış (Vision)}
+
+\renewcommand{\headerLeft}{IATI Gün 1, Yuxarı yaş qrupu}
+\renewcommand{\headerRightFirst}{XVII BEYNƏLXALQ QABAQCIL İNFORMATİKA TURNİRİ}
+\renewcommand{\headerRightSecond}{ONLAYN 2026}
+
+\renewcommand{\tl}{$5$ s}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Tapşırıq \problemName}
+\addauthor{Müəllif: Emil Indzhev}{2026}{04}{16}
+
+USS Enterprise kosmik gəmisi (yeni kapitanı Saşka ilə birlikdə) sonsuz 2D sektorlar şəbəkəsindən ibarət olan kainatda səyahət edir. Hər bir $(X, Y)$\footnote{$X$ sətir nömrəsidir (aşağıya doğru artır) və $Y$ sütun nömrəsidir (sağa doğru artır).} sektorunda baxış gücü $V_{X, Y}$ olan bir mayak yerləşir. Həmin sektorda olarkən gəmi mayakdan istifadə edərək $X - V_{X, Y} \leq X' \leq X + V_{X, Y}$ və $Y - V_{X, Y} \leq Y' \leq Y + V_{X, Y}$ şərtini ödəyən bütün $(X', Y')$ sektorlarını skan edir. Beləliklə, görünən sektorlar tərəfi $2V_{X, Y} + 1$ olan bir kvadrat əmələ gətirir. Hər bir belə sektor üçün görünən yeganə məlumat oradakı mayakın baxış gücüdür, yəni $V_{X', Y'}$ (çünki mayaklar həm ötürücü, həm də qəbuledici rolunu oynayır). Skan etdikdən sonra gəmi bu görünən sektorlardan birinə teleportasiya olunur, çünki mayaklar həm də teleporter rolunu oynayır.
+
+Təəssüf ki, mayakların bir kritik qüsuru var: onlar skan zamanı $X$ oxunu, $Y$ oxunu və ya hər ikisini çevirə bilərlər (yəni 4 mümkün skan orientasiyası mövcuddur). Nəzərə alın ki, gəmi hansı sektora teleportasiya olunacağına qərar vermək üçün bu (ehtimal ki, çevrilmiş) skandan istifadə edir, lakin teleportasiya da eyni orientasiyadan istifadə edir. Məsələn, əgər $Y$ oxu çevrilibsə və gəmi skanda sol istiqamətə (azalan $Y$) teleportasiya olunursa, o, əslində sağa teleportasiya olunacaq. Bu o deməkdir ki, gəmi həqiqətən də skanda seçilmiş sektora teleportasiya olunacaq.
+
+Bundan əlavə, gəminin yaddaşı yoxdur, buna görə də hara teleportasiya olunacağı barədə qərarı yalnız mayakın təqdim etdiyi skandan asılı olmalıdır. Həmçinin, gəminin strategiyası deterministik olmalıdır — eyni skan verildikdə, o, skandakı eyni sektora teleportasiya olunmağı seçməlidir.
+
+Gəmi naməlum koordinatlarda başlayır və start nöqtəsindən və skan orientasiyalarından asılı olmayaraq həmişə $X$ və $Y$ istiqamətində istənilən qədər uzağa hərəkət edə bilməlidir (onun nəticədə $X, Y \geq 10^{100}$ olan bir sektora çatması tələb olunur). Bunun mümkün olması üçün həm gəminin hərəkət strategiyası, həm də kainatdakı baxış güclərinin düzülüşü həlledici rol oynayır.
+
+Sizin işiniz buradadır — siz kainatda sonsuz şəkildə təkrarlanacaq $N \times M$ ölçülü düzbucaqlı baxış gücü nümunəsi $P$ hazırlamalısınız: $V_{X, Y} = P_{X \bmod N, Y \bmod M}$. Siz həmçinin gəmi üçün hərəkət strategiyasını, yəni mayak tərəfindən yaradılan skanı qəbul edən və növbəti teleportasiya ediləcək sektoru seçən bir funksiyanı layihələndirməlisiniz.
+
+Yüksək baxış gücü olan mayaklar bahalı olduğu üçün məqsədiniz orta baxış gücünü (yəni $P$-nin orta qiymətini) minimuma endirməyə çalışaraq etibarlı həll yolu hazırlamaqdır.
+
+Bu problem olduqca çətin görünə biləyi üçün siz praktika problemi ilə başlamağa qərar verirsiniz: eyni problem, lakin 1D formatında. Bu daha sadə variantda biz $X$ ölçüsünü atırıq və yalnız $Y$-dən istifadə edirik. Beləliklə, sizin nümunəniz yalnız $M$ uzunluğunda bir ardıcıllıqdır və belə təkrarlanır: $V_Y = P_{Y \bmod M}$. Mayaklar tərəfindən istehsal olunan skanlar da $2V_Y + 1$ uzunluğunda ardıcıllıqlardır. Burada skan üçün yalnız 2 mümkün orientasiya (normal və ya çevrilmiş) var və gəmi $Y \geq 10^{100}$ nöqtəsinə çata bilməlidir.
+
+1D və 2D halları üçün həlləriniz ayrı-ayrılıqda qiymətləndiriləcək.
+
+\subsection{İmplementasiya detalları}
+
+Siz 4 funksiya reallaşdırmalısınız: \verb|getVisionPattern1d|, \verb|getMove1d|, \verb|getVisionPattern2d| və \verb|getMove2d|. İlk ikisi 1D halı üçün, sonrakı ikisi isə 2D halı üçün istifadə olunur. Hər hansı bir testdə bu funksiya cütlərindən yalnız biri çağırılacaq, lakin həllin etibarlı olması (kompilyasiya olunması) üçün hər dördü də reallaşdırılmalıdır.
+
+\begin{lstlisting}
+ std::vector<int> getVisionPattern1d()
+\end{lstlisting}
+
+Bu funksiya əgər test 1D halı üçündürsə, bir dəfə çağırılacaq. O, təkrarlanacaq $M$ uzunluqlu 1D baxış nümunəsi $P$ ardıcıllığını qaytarmalıdır. $M$ və $P$-nin bütün elementləri $1$ ilə $60$ arasında olmalıdır.
+
+\begin{lstlisting}
+ int getMove1d(std::vector<int> v)
+\end{lstlisting}
+
+Bu funksiya hər bir mümkün skan üçün bir dəfə çağırılacaq (1D halında). Ona mayak tərəfindən istehsal olunan, $2V + 1$ uzunluğunda ardıcıllıq şəklində skan verilir. O, gəminin teleportasiya etməli olduğu sektoru ardıcıllıqdakı indeks $T$ kimi qaytarmalıdır ($0 \leq T < 2V + 1$).
+
+\begin{lstlisting}
+ std::vector<std::vector<int>> getVisionPattern2d()
+\end{lstlisting}
+
+Bu funksiya 2D halı üçün bir dəfə çağırılacaq. O, təkrarlanacaq $N \times M$ ölçülü düzbucaqlı $P$ cədvəlini qaytarmalıdır. $N$, $M$ və $P$-nin bütün elementləri $1$ ilə $60$ arasında olmalıdır.
+
+\begin{lstlisting}
+ std::pair<int, int> getMove2d(std::vector<std::vector<int>> v)
+\end{lstlisting}
+
+Bu funksiya hər mümkün skan üçün bir dəfə çağırılacaq (2D halında). Ona kvadrat cədvəl şəklində skan verilir. O, gəminin teleportasiya etməli olduğu sektoru cədvəldəki $S$ və $T$ indeksləri cütü kimi qaytarmalıdır ($0 \leq S, T < 2V + 1$).
+
+\subsection{Məhdudiyyətlər}
+
+\begin{itemize}
+\item $1 \leq D \leq 2$
+\item $1 \leq N, M, V_{X, Y}, V_Y \leq 60$
+\end{itemize}
+
+\newpage
+
+\subsection{Alt tapşırıqlar və qiymətləndirmə}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Alt tapşırıq} & \textbf{Ballar} & \textbf{$D$} & \textbf{$A^*$} \\
+\hline
+$1$ & $24$ & $1$ & $1.5$ \\
+\hline
+$2$ & $76$ & $2$ & $1.125$ \\
+\hline
+\end{tblr}
+\end{table}
+
+Sizin balınız $P$ nümunəsindəki orta baxış gücündən asılıdır. Tutaq ki, bu $A$-dır və hədəf $A^*$-dır. Balınız belə hesablanacaq:
+$$1 - {\left(1 - \frac{A^* - 1}{\max{\left(A, A^*\right)} - 1}\right)}^{0.8}$$
+
+\subsection{Nümunə model}
+
+Tutaq ki, həlliniz $N=3$ və $M=2$ olan aşağıdakı nümunəni qaytarır:
+\[
+\left[
+\begin{array}{c c}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{array}
+\right]
+\]
+
+İndi $(0, 1)$ sektorundakı mümkün skanlara baxaq, hansı ki, baxış gücü $2$-dir. Burada $4$ mümkün orientasiya var:
+
+\[
+\begin{array}{cc}
+\text{Orientasiya $0$: Çevrilmə yoxdur} & \text{Orientasiya $1$: $Y$ oxu çevrilib} \\
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+\\
+\\
+\text{Orientasiya $2$: $X$ oxu çevrilib} & \text{Orientasiya $3$: Hər iki ox çevrilib} \\
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+\end{array}
+\] 
+
+$0$ və $1$ eyni olduğu üçün və gəmi deterministik olduğu üçün onlar üçün \verb|getMove2d| funksiyası cəmi bir dəfə çağırılacaq. Tutaq ki, həlliniz bu skan üçün $(0, 1)$ gedişini qaytarır. $0$ orientasiyasında bu, $1$ vahid sola və $2$ vahid yuxarı hərəkət deməkdir, $1$ orientasiyasında isə $1$ vahid sağa və $2$ vahid yuxarı hərəkət deməkdir.
+
+\subsection{Nümunə qiymətləndirici (grader)}
+
+Nümunə qiymətləndiricinin ilk girişi $D$-dir. Bundan sonra o, sizin funksiyalarınızı çağıracaq: əvvəlcə $P$ nümunəsini alacaq, sonra isə bütün teleportasiya seçimlərini keşləyəcək. Daha sonra konsol vasitəsilə interaksiya başlayacaq və gəminin başlanğıc koordinatlarını soruşacaq. Koordinatları və çevrilməmiş "xam" skanı çap edəcək, sonra tətbiq olunacaq orientasiyanı ($0, 1, 2$ və ya $3$) soruşacaq. Sonda verilmiş orientasiyadakı skanı və gəminin etdiyi gedişi göstərəcək. Bu proses təkrarlanacaq.
+
+\end{document}

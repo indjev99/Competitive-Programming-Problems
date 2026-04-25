@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{3cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{German}
+\renewcommand{\problemName}{AB13. Vision}
+
+\renewcommand{\headerLeft}{IATI Day 1, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$5$ s}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Task \problemName}
+\addauthor{Author: Emil Indzhev}{2026}{04}{16}
+
+
+Das Raumschiff USS Enterprise (mit Sashka als neuer Kapitänin) reist durch das Universum, das aus einem unendlichen 2D-Gitter aus Sektoren besteht. In jedem Sektor $(X, Y)$\footnote{$X$ ist die Zeilennummer (aufsteigend in vertikaler Richtung) und $Y$ ist die Spaltennummer (aufsteigend in horizontaler Richtung).} befindet sich ein Leuchtfeuer mit einer Sichtreichweite von $V_{X, Y}$. Befindet sich das Raumschiff in diesem Sektor, nutzt es das Leuchtfeuer, um alle Sektoren $(X', Y')$ zu scannen, für die $X - V_{X, Y} \leq X' \leq X + V_{X, Y}$ und $Y - V_{X, Y} \leq Y' \leq Y + V_{X, Y}$ gilt. Somit bilden die sichtbaren Sektoren ein Quadrat mit einer Seitenlänge von $2V_{X, Y} + 1$. Für jeden solchen Sektor ist die einzige sichtbare Information die Sichtstärke des darin befindlichen Leuchtfeuers, d. h. $V_{X', Y'}$ (dies liegt daran, dass Leuchtfeuer sowohl als Sender als auch als Empfänger fungieren). Nach dem Scannen teleportiert sich das Schiff dann in einen dieser sichtbaren Sektoren, da die Leuchtfeuer auch als Teleporter fungieren.
+
+Leider weisen die Leuchtfeuer einen entscheidenden Fehler auf: Sie können die $X$-Achse des Scans, die $Y$-Achse oder beide spiegeln (d. h., es gibt $4$ mögliche Scan-Ausrichtungen). Beachte, dass das Schiff diesen möglicherweise gespiegelten Scan verwendet, um zu entscheiden, in welchen Sektor es sich teleportieren soll, aber die Teleportation verwendet ebenfalls dieselbe Ausrichtung. Wenn beispielsweise die $Y$-Achse gespiegelt ist und das Schiff sich in die linke Richtung (abnehmende $Y$) des Scans teleportiert, wird es tatsächlich nach rechts teleportiert. Das bedeutet, dass das Schiff tatsächlich in den im Scan ausgewählten Sektor teleportiert wird.
+
+Außerdem verfügt das Schiff über kein Gedächtnis, sodass seine Entscheidung, wohin es sich teleportieren soll, ausschließlich von dem vom Leuchtfeuer erzeugten Scan abhängen muss. Darüber hinaus muss die Strategie des Schiffes deterministisch sein – bei gleichem Scan muss es sich für die Teleportation in denselben Sektor des Scans entscheiden.
+
+Das Schiff startet an unbekannten Koordinaten und muss immer (unabhängig davon, wo es startet und welche Scan-Ausrichtungen es erhält) in der Lage sein, in Richtung steigender $X$- und $Y$-Werte beliebig weit zu reisen (wir können sagen, dass es schließlich einen Sektor $(X, Y)$ erreichen muss, sodass $X, Y \geq 10^{100}$ gilt). Damit dies jedoch möglich ist, sind sowohl die Bewegungsstrategie des Schiffes als auch die Verteilung der Sichtstärken im Universum entscheidend.
+
+Hier kommst du ins Spiel – du musst ein $N$-mal-$M$-rechteckiges Muster $P$ von Sichtstärken entwerfen, das sich unendlich oft im Universum wiederholt: $V_{X, Y} = P_{X \bmod N, Y \bmod M}$. Außerdem musst du die Bewegungsstrategie für das Schiff entwerfen, d. h. eine Funktion, die den vom Leuchtturm erzeugten Scan als Eingabe nimmt und entscheidet, in welchen dieser Sektoren das Schiff als Nächstes hin teleportiert wird.
+
+Da Leuchttürme mit höherer Sichtstärke teuer sind, ist es dein Ziel, eine gültige Lösung zu finden und dabei die durchschnittliche Sichtstärke in deinem Muster, d. h. den Durchschnittswert von $P$, zu minimieren.
+
+Da dieses Problem recht anspruchsvoll erscheinen mag, beschließen Sie, mit einer Übungsaufgabe zu beginnen: dem gleichen Problem, jedoch in 1D. In dieser einfacheren Aufgabe lassen wir die $X$-Dimension weg und verwenden nur die $Y$-Dimension. Somit ist Ihr Muster lediglich eine Folge der Länge $M$ und wird wie folgt wiederholt: $V_Y = P_{Y \bmod M}$. Die von den Leuchtfeuern erzeugten Scans sind ebenfalls nur Sequenzen der Länge $2V_Y + 1$ (die die Sektoren $Y'$ enthalten, sodass  $Y - V_{X, Y} \leq Y' \leq Y + V_{X, Y}$ gilt). Hier gibt es nur 2 mögliche Ausrichtungen für den Scan (normal oder gespiegelt) und das Schiff muss in der Lage sein, $Y \geq 10^{100}$ zu erreichen.
+
+Deine Lösungen für den 1D-Fall und den 2D-Fall werden separat bewertet, und du kannst Punkte für den einen Fall erhalten, ohne eine gültige Lösung für den anderen zu haben.
+
+\subsection{Implementierungsdetails}
+
+Sie müssen 4 Funktionen implementieren: \verb|getVisionPattern1d|, \verb|getMove1d|, \verb|getVisionPattern2d| und \verb|getMove2d|. Die ersten beiden werden für den 1D-Fall verwendet, die zweiten beiden für den 2D-Fall. In jedem Test wird nur eines dieser Funktionspaare aufgerufen, aber alle vier müssen implementiert sein (auch wenn die Implementierungen für ein Paar leer sind), damit die Lösung gültig ist (kompiliert werden kann).
+
+\begin{lstlisting}
+ std::vector<int> getVisionPattern1d()
+\end{lstlisting}
+
+Diese Funktion wird einmal aufgerufen, wenn der Test für den 1D-Fall gilt. Sie muss die Sequenz $P$ der Länge $M$ zurückgeben – das zu wiederholende 1D-Sichtstärkemuster. $M$ und alle Elemente von $P$ müssen zwischen $1$ und $60$ liegen.
+
+\begin{lstlisting}
+ int getMove1d(std::vector<int> v)
+\end{lstlisting}
+
+Diese Funktion wird einmal pro möglichem Scan aufgerufen, sofern der Test für den 1D-Fall gilt. Als Eingabe erhält sie einen von einem Leuchtfeuer erzeugten Scan in Form einer Sequenz der Länge $2V + 1$ (wobei $V$ die Sichtstärke des Leuchtfeuers im zentralen Sektor der Sequenz ist). Sie muss zurückgeben, in welchen Sektor sich das Schiff teleportieren soll, und zwar als Index $T$ in der Sequenz, sodass $0 \leq T < 2V + 1$ gilt.
+
+\begin{lstlisting}
+ std::vector<std::vector<int>> getVisionPattern2d()
+\end{lstlisting}
+
+Diese Funktion wird einmal aufgerufen, wenn der Test für den 2D-Fall gilt. Sie muss eine rechteckige Tabelle $P$ der Größe $N$ mal $M$ zurückgeben – das zu wiederholende 2D-Sichtstärkemuster. $N$, $M$ und alle Elemente von $P$ müssen zwischen $1$ und $60$ liegen.
+
+\begin{lstlisting}
+ std::pair<int, int> getMove2d(std::vector<std::vector<int>> v)
+\end{lstlisting}
+
+Diese Funktion wird einmal pro möglichem Scan aufgerufen, wenn der Test für den 2D-Fall durchgeführt wird. Sie erhält einen von einem Leuchtfeuer erzeugten Scan als quadratische Tabelle der Größe $2V + 1$ mal $2V + 1$ (wobei $V$ die Sichtstärke des Leuchtfeuers im zentralen Sektor des Quadrats ist). Sie muss zurückgeben, in welchen Sektor sich das Schiff teleportieren soll, und zwar als Paar von Indizes $S$ und $T$ in der Tabelle, sodass $0 \leq S, T < 2V + 1$ gilt.
+
+Für die gegebene Dimensionalität $D$ ($1$ oder $2$) des Tests überprüft der Bewerter, ob Ihr Programm ein gültiges Muster erzeugt – dass es für alle möglichen Scans gültige Teleportationsentscheidungen trifft und dass Ihre Lösung unabhängig von den Startkoordinaten und der Reihenfolge der Scan-Ausrichtungen funktioniert.
+
+\subsection{Einschränkungen}
+
+\vspace{0.1em}
+
+\begin{itemize}
+\item $1 \leq D \leq 2$
+\item $1 \leq N, M, V_{X, Y}, V_Y \leq 60$
+\end{itemize}
+
+\newpage
+
+\subsection{Teilaufgaben und Bewertung}
+
+\begin{table}[H]
+\begin{tblr}{|Q[c,m]|Q[c,m]|Q[c,m]|Q[c,m]|}
+\hline
+\textbf{Teilaufgabe} & \textbf{Punkte} & \textbf{$D$} & \textbf{$A^*$} \\
+\hline
+$1$ & $24$ & $1$ & $1,5$ \\
+\hline
+$2$ & $76$ & $2$ & $1,125$ \\
+\hline
+\end{tblr}
+\end{table}
+\FloatBarrier
+
+Deine Punktzahl für eine bestimmte Teilaufgabe (sofern deine Lösung dafür korrekt ist) hängt von der durchschnittlichen Sichtstärke in deinem Muster $P$ für diese Aufgabe ab. Sei dies $A$ und sei das Ziel für die Teilaufgabe $A^*$. Deine Punktzahl (Anteil der Punkte für die Teilaufgabe) beträgt:
+
+$$1 - {\left(1 - \frac{A^* - 1}{\max{\left(A, A^*\right)} - 1}\right)}^{0.8}$$
+
+\subsection{Beispielmuster}
+
+Angenommen, Ihre Lösung gibt das folgende Muster mit $N=3$ und $M=2$ zurück:
+
+\[
+\left[
+\begin{array}{c c}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{array}
+\right]
+\]
+
+Betrachten wir nun die möglichen Scans im Sektor $(0, 1)$, der eine Sichtstärke von $2$ hat. Es gibt $4$ mögliche Ausrichtungen (von denen einige bei diesem Muster denselben Scan ergeben):
+
+\[
+\begin{array}{cc}
+\text{Ausrichtung $0$: Keine Spiegelungen} & \text{Ausrichtung $1$: $Y$-Achse gespiegelt} \\
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6 \\
+2 & 1 & 2 & 1 & 2 \\
+4 & 3 & 4 & 3 & 4 \\
+6 & 5 & 6 & 5 & 6
+\end{array}
+\right]
+\\
+\\
+\text{Ausrichtung $2$: $X$-Achse gespiegelt} & \text{Ausrichtung $3$: Beide Achsen gespiegelt} \\
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+&
+\left[
+\begin{array}{ccccc}
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4 \\
+2 & 1 & 2 & 1 & 2 \\
+6 & 5 & 6 & 5 & 6 \\
+4 & 3 & 4 & 3 & 4
+\end{array}
+\right]
+\end{array}
+\] 
+
+Da $0$ und $1$ identisch sind und das Schiff deterministisch ist, wird für sie nur ein Aufruf von \verb|getMove2d| erfolgen. Angenommen, Ihre Lösung gibt bei diesem Durchlauf die Bewegung $(0, 1)$ zurück. Bei der Ausrichtung $0$ würde dies bedeuten, sich $1$ nach links und $2$ nach oben zu bewegen, während es bei der Ausrichtung $1$ bedeutet, sich $1$ nach rechts und $2$ nach oben zu bewegen.
+
+\subsection{Beispiel-Bewertungsprogramm}
+
+Die erste Eingabe des Beispiel-Bewertungsprogramms ist $D$. Danach führt es alle Aufrufe Ihrer Funktion durch: Zunächst wird das Muster $P$ abgerufen und anschließend werden alle Teleportationsentscheidungen zwischengespeichert. Danach startet es eine Konsoleninteraktion und fragt nach den Startkoordinaten des Schiffes. Anschließend gibt es den aktuellen Zustand aus: Koordinaten und den „rohen“ (ohne Spiegelungen) Scan. Anschließend fragt er nach der zu verwendenden Ausrichtung ($0$ für keine Spiegelungen, $1$ zum Spiegeln der $Y$-Achse, $2$ zum Spiegeln der $X$-Achse und $3$ zum Spiegeln beider Achsen). Danach gibt er den Scan in der angegebenen Ausrichtung aus, ebenso wie den vom Schiff gewählten Zug. Das Schiff wird bewegt und dieser Vorgang wiederholt sich. Beachte, dass der Beispiel-Bewerter nicht automatisch überprüft, ob deine Lösung korrekt ist.
+
+\end{document}

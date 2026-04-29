@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{English}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Problem \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+Novo rukovodstvo državne komisije, koju predstavljaju koordinatori grupa A i B, želi da održi striktan plan i program datih zadataka za biranje reprezentacije. U tu svrhu, moraće da daju zadatak iz geometrije. Štaviše -- broj interaktivnih zadataka datih do sad je ispod standarda. Da bi rešio krizu u izboru tima za \texttt{IOI}, Vasa je odlučio da da zadatak koji je istovremeno interaktivan i geometrijski. Ima sledeću postavku:
+
+Vasa ima skrivenu permutaciju $P_0,P_1,...,P_{N-1}$ niza $\{1,2,3,...,N\}$. Tvoje je da pogodiš tu permutaciju. U tu svrhu, možeš postaviti Vasi sledeće pitanje: ``Da li je moguće formirati trougao pozitivne površine, dužina stranica $P_A,P_B,P_C$?''
+
+Primerimo da je poznato (po nejednakosti trougla) da je to moguće ako i samo ako je:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{and} \quad P_B + P_C > P_A.\]
+
+Napiši program \textbf{\texttt{triangle}}, koji sadrži funkciju \texttt{solve}, koja će se compile-ovati zajedno sa Vasinim programom i koja će s njim komunicirati tako što će mu postavljati pitanja oblika koji je naveden iznad. Na kraju izvršavanja, mora pogoditi permutaciju.
+
+\subsection{Detalji implementacije}
+Potrebno je implementirati \texttt{solve} funkciju:
+\begin{lstlisting}
+ std::vector<int> solve(solve N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: dužina permutacije.
+\end{itemize}
+
+Ova funkcija će biti pozvana $T$ puta po test primeru -- jednom po podtestu, pri čemu će svaki imati istu vrednost $N$ i treba da vrati skrivenu permutaciju za podtest. Tvoj program može pozvati Vasinu funkciju \texttt{query}:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: indeksi stranica trougla $P_A, P_B, P_C$.
+\end{itemize}
+
+Funkcija vraća \texttt{true}, ako trougao pozitivne površine dužna stranica $P_A,P_B,P_C$ postoji, a \texttt{false} u suprotnom.
+
+\subsection{Ograničenja}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Podzadaci}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Podzadatak} & \textbf{Poeni} & \textbf{Opis}\\
+		\hline
+		$1$ & $100$ & Podzadatak se sastoji od $1$ test primera sa $T=1~000$ nasumično generisanih permutacija, gde svaka sadrži $N=1~000$ elemenata.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{The points for a given subtask are obtained only if all the tests for it.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Bodovanje}
+
+Neka je $Q_{contestant}$ prosečan broj upita koji tvoj program koristi za 1 poziv funkcije \texttt{solve} na jednom podtestu, i neka je $Q_{target}=8770$. Broj poena na zadatku je jednak:
+
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Sample interaction}
+For this sample interaction $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Contestant action} & \textbf{Jury action} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{triangle(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{triangle(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{triangle(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{triangle(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{triangle(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{triangle(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{triangle(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{triangle(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{triangle(1, 2, 3)} & \texttt{talse} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+\subsection{Lokalno testiranje}
+Input format:
+\begin{itemize}
+	\item linija $1$: tri cela broja $T$, $N$, i $R$ -- dužina permutacija, broj podtestova i režim izvršavanja. Za $R = 1$, lokalni grader će generisati nasumične permutacije i očekivaće broj u prvoj liniji -- $S$, što je seed za random generator. Za $R = 2$, ulaz se nastavlja:
+	\item linije od $2$ do $(1+T)$: permutacije niza $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Output format:
+\begin{itemize}
+	\item linija $1$: poruka o grešci ili prosečan broj upita za podtestove ako su sve permutacije pogođene.
+\end{itemize}
+
+\end{document}

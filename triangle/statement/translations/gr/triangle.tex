@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Ελληνικά}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Μέρα 2, Senior κατηγορία}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Πρόβλημα \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+Η νέα ηγεσία της εθνικής επιτροπής, που εκπροσωπείται από τους συντονιστές των ομάδων Α και Β, επιθυμεί να διατηρήσει μια αυστηρή ύλη για τα προβλήματα της επιλογής της εθνικής ομάδας. Για αυτόν τον σκοπό, θα χρειαστεί να δώσουν ένα πρόβλημα γεωμετρίας. Επιπλέον -- ο αριθμός των διαδραστικών προβλημάτων που έχουν δωθεί μέχρι στιγμής ειναι κάτω από το σύνηθες. Για να αντιμετωπιστεί η κρίση της επιλογής για την \texttt{IOI}, η Σάσκα αποφάσισε να δώσει ένα πρόβλημα που είναι και διαδραστικό και γεωμετρικό ταυτόχρονα. Έχει την παρακάτω εκφώνηση:
+
+Ο κριτής έχει κρύψει μια μετάθεση $P_0,P_1,...,P_{N-1}$ των $\{1,2,3,...,N\}$. Πρέπει να βρείτε την μετάθεση. Για αυτόν τον σκοπό, μπορείτε να ρωτήσετε τον κριτή την παρακάτω ερώτηση: ``Είναι δυνατόν να σχηματιστεί ένα τρίγωνο με θετικό εμβαδόν με πλευρές $P_A,P_B,P_C$;''
+
+Σημειώστε ότι είναι γνωστό (από την τριγωνική ανισότητα) ότι αυτό είναι δυνατόν αν και μόνο αν:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{και} \quad P_B + P_C > P_A.\]
+
+Γράψτε ένα πρόγραμμα \textbf{\texttt{triangle}}, που να περιέχει μία συνάρτηση \texttt{solve}, το οποίο θα μεταγλωττιστεί μαζί με το πρόγραμμα του κριτή και θα επικοινωνεί μαζί του, κάνοντάς του ερωτήσεις του τύπου που περιγράφεται παραπάνω. Στο τέλος της εκτέλεσής του, πρέπει να έχει βρει τη μετάθεση.
+
+\subsection{Λεπτομέρειες υλοποίησης}
+Πρέπει να υλοποιήσετε την συνάρτηση \texttt{solve}:
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: το μήκος της μετάθεσης.
+\end{itemize}
+
+Η συνάρτηση θα καλείται $T$ φορές ανά περίπτωση ελέγχου -- μία για κάθε υποπερίπτωση, καθεμία με ίσο $N$ και πρέπει να επιστρέφει την κρυφή μετάθεση για την υποπερίπτωση. Προκειμένου να το κάνει αυτό, το πρόγραμμά σας μπορεί να καλεί τη συνάρτηση \texttt{query} του κριτή:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: οι δείκτες/θέσεις των πλευρών $P_A, P_B, P_C$.
+\end{itemize}
+
+Η συνάρτηση επιστρέφει \texttt{true}, αν ένα τρίγωνο με θετικό εμβαδόν και πλευρές $P_A,P_B,P_C$ υπάρχει και \texttt{false}, διαφορετικά.
+
+\subsection{Περιορισμοί}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Υποπρόβλημα}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Υποπρόβλημα} & \textbf{Πόντοι} & \textbf{Περιγραφή}\\
+		\hline
+		$1$ & $100$ & Το υποπρόβλημα αποτελείται από $1$ περίπτωση ελέγχου με $T=1~000$ μεταθέσεις τυχαία και ομοιόμορφα επιλεγμένες από το σύνολο όλων των πιθανών μεταθέσεων, καθεμία $N=1~000$ στοιχείων.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{Οι πόντοι ενός υποπροβλήματος απονέμονται μόνο αν όλες οι περιπτώσεις (και υποπεριπτώσεις) ελέγχου αυτού περαστούν επιτυχώς.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Βαθμολόγηση}
+
+Έστω $Q_{contestant}$ ο μέσος όρος ερωτημάτων που κάνει το πρόγραμμά σας για μία κλήση της \texttt{solve} σε μία περίπτωση ελέγχου, και έστω $Q_{target}=8770$. Τότε η βαθμολογία σας για το πρόβλημα θα είναι:
+
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{αν } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Ενδεικτική αλληλεπίδραση}
+Για αυτήν την ενδεικτική αλληλεπίδραση $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Πράξη διαγωνιζόμενου} & \textbf{Πράξη κριτή} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+\subsection{Τοπική δοκιμή}
+Μορφή εισόδου:
+\begin{itemize}
+	\item γραμμή $1$: τρεις ακέραιοι $T$, $N$, και $R$ -- το πλήθος υποπεριπτώσεων, το μήκος των μεταθέσεων, και το είδος εκτέλεσης. Αν $R = 1$, ο τοπικός κριτής θα παράξει ομοιόμορφα τυχαίες μεταθέσεις και θα αναμένει έναν αριθμό στη δεύτερη γραμμή -- $S$, ο οποίος θα είναι το seed για τη γεννήτρια τυχαίων αριθμών του. Αν $R = 2$, η είσοδος συνεχίζεται ως εξής:
+	\item γραμμές $2$ έως $(1+T)$: μεταθέσεις των $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Μορφή εξόδου:
+\begin{itemize}
+	\item γραμμή $1$: ένα μήνυμα σφάλματος ή ο μέσος όρος ερωτημάτων για τις υποπεριπτώσεις αν όλες οι μεταθέσεις αναγνωρίστηκαν σωστά.
+\end{itemize}
+
+\end{document}

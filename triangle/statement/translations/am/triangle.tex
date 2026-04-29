@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{English}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Problem \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+Նոր ազգային կոմիտեի ղեկավարությունը, ներկայացված A և B խմբերի համակարգողների կողմից, ցանկանում է պահպանել տրված խնդիրների խիստ սիլաբուսը՝ ազգային հավաքականի ընտրության համար։ Այդ նպատակով նրանք պետք է ներկայացնեն երկրաչափության խնդիր։ Ավելին — մինչ այժմ տրված ինտերակտիվ խնդիրների քանակը չի համապատասխանում պահանջվող մակարդակին։ \texttt{IOI}-ի ընտրության ճգնաժամը լուծելու համար Sashka-ն որոշեց տալ խնդիր, որը միաժամանակ ինտերակտիվ է և երկրաչափական։ Այն ունի հետևյալ ձևակերպումը․
+
+Ժյուրին թաքցրել է ${1,2,3,...,N}$ բազմության մի $P_0,P_1,...,P_{N-1}$ տեղափոխություն։ Դուք պետք է գտնեք այդ տեղափոխությունը։ Դրա համար կարող եք ժյուրիին տալ հետևյալ հարցը․ «Հնարավո՞ր է կազմել դրական մակերես ունեցող եռանկյուն $P_A,P_B,P_C$ կողմերով»։
+
+Նկատենք, որ հայտնի է (եռանկյան անհավասարությունից), որ դա հնարավոր է այն և միայն այն դեպքում, երբ՝
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{and} \quad P_B + P_C > P_A.\]
+
+Գրեք ծրագիր \textbf{\texttt{triangle}}, որը պարունակում է \texttt{solve} ֆունկցիա, որը կկոմպիլացվի ժյուրիի ծրագրի հետ միասին և կհաղորդակցվի դրա հետ՝ տալով վերը նկարագրված տեսակի հարցեր։ Իր աշխատանքի ավարտին այն պետք է որոշի տեղափոխությունը։
+
+\subsection{Իրականացման մանրամասներ}
+Դուք պետք է իրականացնեք \texttt{solve} ֆունկցիան:
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: տեղափոխության երկարությունը։
+\end{itemize}
+
+Այս ֆունկցիան կկանչվի յուրաքանչյուր թեստի համար $T$ անգամ — յուրաքանչյուր ենթաթեստի համար մեկ անգամ, որտեղ բոլոր ենթաթեստերում $N$-ը նույնն է, և այն պետք է վերադարձնի տվյալ ենթաթեստի համար թաքցված տեղափոխությունը։ Դրա համար ձեր ծրագիրը կարող է կանչել ժյուրիի \texttt{query} ֆունկցիան։
+
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: ինդեքսներն են $P_A, P_B, P_C$ կողմերի։
+\end{itemize}
+
+Ֆունկցիան վերադարձնում է \texttt{true}, եթե $P_A,P_B,P_C$ կողմերով եռանկյուն գոյություն ունի, և \texttt{false}՝ հակառակ դեպքում։
+
+\subsection{Սահմանափակումներ}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Subtask}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Subtask} & \textbf{Points} & \textbf{Description}\\
+		\hline
+		$1$ & $100$ & Ենթախնդիրը բաղկացած է $1$ թեստից, որում կա $T=1~000$ պատահական և միատեսակ գեներացված տեղափոխություններ, յուրաքանչյուրը կազմված $N=1~000$ տարրերից։  \\
+		\hline
+	\end{tblr}
+	\caption*{Տրված ենթախնդրի համար միավորները տրվում են միայն այն դեպքում, եթե բոլոր թեստերն անցնում են։}
+\end{table}
+\FloatBarrier
+
+\subsection{Գնահատումը}
+
+Թող $Q_{contestant}$-ը լինի ձեր ծրագրի կողմից կատարված հարցումների միջին քանակը՝ մեկ \texttt{solve} կանչի համար տվյալ մեկ թեստում, և թող $Q_{target}=8770$։ Այդ դեպքում ձեր միավորը այս խնդրի համար կլինի․
+
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Փոխգործակցման օրինակ}
+For this sample interaction $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Contestant action} & \textbf{Jury action} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{Լոկալ թեստավորում}
+
+Մուտքային տվյալների ձևաչափ՝
+\begin{itemize}
+	\item տող $1$: երեք ամբողջ թիվ՝ $T$, $N$ և $R$ -- տեղափոխությունների չափը, ենթաթեստերի քանակը և կատարման ռեժիմը։
+	\item եթե $R = 1$, մուտքի հաջորդ տողը պարունակում է մեկ թիվ՝ $S$, որը կօգտագործվի որպես պատահական գեներատորի seed, և լոկալ գրեյդերը կստեղծի պատահական և միատեսակ տեղափոխություններ։
+	\item եթե $R = 2$, մուտքը շարունակվում է հետևյալ կերպ՝
+	\item տողեր $2$-ից մինչև $(1+T)$: $\{1,2,\dots,N\}$ բազմության տեղափոխություններ։
+\end{itemize}
+
+Ելքային ձևաչափ՝
+\begin{itemize}
+	\item տող $1$: սխալի հաղորդագրություն կամ հարցումների միջին քանակը ենթաթեստերի համար, եթե բոլոր տեղափոխությունները ճիշտ են հայտնաբերվել։
+\end{itemize}
+	
+\end{document}

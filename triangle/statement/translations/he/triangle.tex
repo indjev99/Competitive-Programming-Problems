@@ -1,0 +1,148 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[bidi=basic]{babel}
+\babelprovide[import=he, main]{hebrew}
+\babelprovide[import=en]{english}
+\babelfont{rm}{DejaVu Sans}
+\babelfont{sf}{DejaVu Sans}
+\babelfont[english]{rm}{DejaVu Serif Condensed}
+\babelfont[english]{sf}{DejaVu Sans}
+
+\fancyfoot[R]{\color{RoyalBlue}משימה \problemName}
+\fancyfoot[C]{\color{black}\href{https://iati-shu.org}{iati-shu.org}}
+\fancyfoot[L]{\color{RoyalBlue}עמוד \thepage\ מתוך \pageref*{LastPage}}
+
+\begin{document}
+
+\renewcommand{\headerLang}{עברית}
+\renewcommand{\problemName}{AB23. משולש}
+
+\renewcommand{\headerLeft}{IATI יום 2, קבוצת בוגרים}
+\renewcommand{\headerRightFirst}{הטורניר הבינלאומי המתקדם ה-17 במדעי המחשב}
+\renewcommand{\headerRightSecond}{אונליין 2026}
+
+\renewcommand{\tl}{$10$ שניות}
+\renewcommand{\ml}{$1024$ MB}
+\problem{משימה \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+
+ההנהגה החדשה של הוועדה הלאומית, המיוצגת על ידי הרכזים של קבוצות A ו-B, רוצה לשמור על סילבוס קפדני של הבעיות הניתנות לבחירת הנבחרת הלאומית. לשם כך, הם יצטרכו לתת בעיה בגיאומטריה. יתרה מכך -- מספר הבעיות האינטראקטיביות שניתנו עד כה הוא מתחת לסטנדרט. כדי לתקן את המשבר בבחירה ל-\foreignlanguage{english}{\texttt{IOI}}, סשקה החליטה לתת בעיה שהיא גם אינטראקטיבית וגם גיאומטרית. זו תוכנה:
+
+השופטים הסתירו תמורה $P_0,P_1,...,P_{N-1}$ של $\{1,2,3,...,N\}$. עליכם למצוא את התמורה. לשם כך, תוכלו לשאול את השופטים את השאלה הבאה: "האם ניתן ליצור משולש בעל שטח חיובי עם צלעות $P_A,P_B,P_C$?"
+
+שימו לב כי ידוע (על ידי אי-שוויון המשולש) שאפשרות זו מתקיימת אם ורק אם:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{and} \quad P_B + P_C > P_A.\]
+כתבו תוכנית \foreignlanguage{english}{\textbf{\texttt{triangle}}}, המכילה פונקציה \foreignlanguage{english}{\texttt{solve}}, אשר תקומפל יחד עם תוכנית השופטים ותתקשר איתה על ידי שאילת שאלות מהסוג המתואר למעלה. בסוף הריצה, עליה לקבוע את התמורה.
+
+
+\subsection{פרטי מימוש}
+עליכם לממש את הפונקציה \foreignlanguage{english}{\texttt{solve}}:
+\begin{otherlanguage}{english}
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\end{otherlanguage}
+\begin{itemize}
+    \item $N$: אורך התמורה.
+\end{itemize}
+
+פונקציה זו תיקרא $T$ פעמים לכל טסט -- פעם אחת לכל תת-טסט, כל אחת עם $N$ שווה, ועליה להחזיר את התמורה המוסתרת עבור אותו תת-טסט. כדי לבצע זאת, התוכנית שלכם יכולה לקרוא לפונקציית השופטים \foreignlanguage{english}{\texttt{query}}:
+\begin{otherlanguage}{english}
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\end{otherlanguage}
+\begin{itemize}
+    \item $A$, $B$, $C$: אינדקסים של הצלעות $P_A, P_B, P_C$.
+\end{itemize}
+
+הפונקציה מחזירה \foreignlanguage{english}{\texttt{true}}, אם קיים משולש עם שטח חיובי עם צלעות $P_A,P_B,P_C$, ו-\foreignlanguage{english}{\texttt{false}} אחרת.
+
+\subsection{אילוצים}
+\vspace{0.1em}
+\begin{itemize}
+    \item $N = T = 1~000$
+\end{itemize}
+
+\subsection{תת-משימה}
+\begin{table}[H]
+    \begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+        \hline
+        \textbf{תת-משימה} & \textbf{ניקוד} & \textbf{תיאור}\\
+        \hline
+        $1$ & $100$ & התת-משימה מורכבת מטסט $1$ עם $T=1~000$ תמורות שנדגמו באופן אקראי ואחיד מתוך כלל התמורות האפשריות, כל אחת בת $N=1~000$ אלמנטים.  \\
+        \hline
+    \end{tblr}
+    \caption*{הניקוד עבור תת-משימה יינתן רק אם כל הטסטים שלה עוברים בהצלחה.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{ניקוד}
+
+יהי $Q_{contestant}$ מספר השאילתות הממוצע שהתוכנית שלכם מבצעת לקריאה אחת של \foreignlanguage{english}{\texttt{solve}} על הטסט היחיד, ויהי $Q_{target}=8770$. אזי הניקוד שלכם יהיה:
+
+\begin{otherlanguage}{english}
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+\end{otherlanguage}
+
+\subsection{אינטראקציה לדוגמה}
+לצורך דוגמה זו $N=4$, $T=2$.
+\begin{table}[H]
+    \begin{tblr}{|c|c|}
+        \hline
+        \textbf{פעולות המתחרה} & \textbf{פעולות השופטים} \\
+        \hline
+        & \foreignlanguage{english}{\texttt{solve(4)}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 0, 0)}} & \foreignlanguage{english}{\texttt{true}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 1, 2)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 1, 3)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 2, 3)}} & \foreignlanguage{english}{\texttt{true}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(1, 2, 3)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{return \{3, 1, 2, 4\};}} & \\
+        \hline
+        & \foreignlanguage{english}{\texttt{solve(4)}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 1, 2)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 1, 3)}} & \foreignlanguage{english}{\texttt{true}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(0, 2, 3)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{query(1, 2, 3)}} & \foreignlanguage{english}{\texttt{false}} \\
+        \hline
+        \foreignlanguage{english}{\texttt{return \{4, 2, 1, 3\};}} & \\
+        \hline
+    \end{tblr}
+\end{table}
+\FloatBarrier
+
+\subsection{בדיקה מקומית}
+פורמט קלט:
+\begin{itemize}
+    \item שורה $1$: שלושה מספרים שלמים $T$, $N$ ו-$R$ -- מספר תתי-הטסטים, גודל התמורות, ומצב ההרצה. אם $R = 1$, הגריידר המקומי ייצור תמורות אקראיות באופן אחיד ויצפה למספר בשורה השנייה -- $S$, שישמש כ-seed למחולל המספרים האקראיים שלו. אם $R = 2$, הקלט ממשיך כך:
+    \item שורות $2$ עד $(1+T)$: תמורות של $\{1,2,\dots,N\}$.
+\end{itemize}
+
+פורמט פלט:
+\begin{itemize}
+    \item שורה $1$: הודעת שגיאה או מספר השאילתות הממוצע עבור תתי-הטסטים אם כל התמורות זוהו בהצלחה.
+\end{itemize}
+
+\end{document}

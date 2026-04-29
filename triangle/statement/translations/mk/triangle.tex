@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Македонски}
+\renewcommand{\problemName}{AB23. ТРИАГОЛНИК}
+
+\renewcommand{\headerLeft}{IATI Ден 2, сениорска група}
+\renewcommand{\headerRightFirst}{XVII МЕЃУНАРОДЕН НАПРЕДЕН ТУРНИР ПО ИНФОРМАТИКА}
+\renewcommand{\headerRightSecond}{ОНЛАЈН 2026}
+
+\renewcommand{\tl}{$10$ сек.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Задача \problemName}
+\addauthor{Автор: Boris Mihov}{2026}{04}{19}
+
+Новото раководство на националниот комитет, претставено од координаторите на групите A и B, сака да одржи строга програма на зададени теми при изборот на националниот тим. За таа цел, ќе треба да зададат задача по геометрија. Освен тоа -- бројот на интерактивни задачи зададени досега е под очекуваното ниво. За да ја поправи кризата во изборот за \texttt{IOI}, Сашка одлучи да зададе задача што е и интерактивна и геометриска. Нејзиниот текст е следниот:
+
+Жирито има сокриено пермутација $P_0,P_1,...,P_{N-1}$ на множеството $\{1,2,3,...,N\}$. Ваша задача е да ја пронајдете пермутацијата. За таа цел, може да му го поставувате на жирито следното прашање: ``Дали е можно да се формира триаголник со позитивна плоштина со страни $P_A,P_B,P_C$?''
+
+Забележете дека е познато (според неравенствата за триаголник) дека тоа е можно ако и само ако:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{and} \quad P_B + P_C > P_A.\]
+
+Напишете програма \textbf{\texttt{triangle}}, која содржи функција \texttt{solve}, што ќе се компајлира заедно со програмата на жирито и ќе комуницира со неа преку поставување прашања од погоре опишаниот тип. На крајот од своето извршување, програмата мора да ја одреди пермутацијата.
+
+\subsection{Implementation details}
+Треба да ја имплементирате функцијата \texttt{solve}:
+\begin{lstlisting}
+std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: должина на пермутацијата.
+\end{itemize}
+
+Оваа функција ќе биде повикана $T$ пати по тест -- еднаш за секој подтест, секојпат со исто $N$, и треба да ја врати сокриената пермутација за соодветниот подтест. За да го направите тоа, вашата програма може да ја повикува функцијата на жирито \texttt{query}:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: индекси на страните $P_A, P_B, P_C$.
+\end{itemize}
+
+Функцијата враќа \texttt{true} ако постои триаголник со позитивна плоштина со страни $P_A,P_B,P_C$, а \texttt{false} во спротивно.
+
+\subsection{Constraints}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Subtask}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Потзадача} & \textbf{Поени} & \textbf{Опис}\\
+		\hline
+		$1$ & $100$ & Потзадачата се состои од $1$ тест со $T=1~000$ пермутации, избрани случајно и рамномерно од множеството на сите можни пермутации, при што секоја е со $N=1~000$ елементи.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{Поените за дадена потзадача се добиваат само ако успешно се поминати сите тестови за неа.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Scoring}
+
+Нека $Q_{contestant}$ е просечниот број прашања што вашата програма ги поставува при едно повикување на \texttt{solve} на единствениот тест, и нека $Q_{target}=8770$. Тогаш вашиот резултат за задачата ќе биде:
+
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Sample interaction}
+За оваа примерна интеракција важи $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Акција на натпреварувачот} & \textbf{Акција на жирито} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+\subsection{Local testing}
+Формат на влез:
+\begin{itemize}
+	\item линија $1$: три цели броеви $T$, $N$ и $R$ -- бројот на подтестови, големината на пермутациите и режимот на извршување. Ако $R = 1$, локалниот проверувач ќе генерира рамномерно случајни пермутации и ќе очекува број на втората линија -- $S$, кој ќе биде семе за неговиот случаен генератор. Ако $R = 2$, влезот продолжува на следниов начин:
+	\item линиите $2$ до $(1+T)$: пермутации на $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Формат на излез:
+\begin{itemize}
+	\item линија $1$: порака за грешка или просечниот број прашања за подтестовите, ако сите пермутации се точно одредени.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{French}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Problem \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+
+
+La nouvelle direction du comité national, représentée par les coordinateurs des groupes A et B, souhaite maintenir un programme strict concernant les problèmes proposés pour la sélection de l'équipe nationale. À cette fin, ils devront proposer un problème de géométrie. De plus, le nombre de problèmes interactifs proposés jusqu'à présent est inférieur à la norme. Pour remédier à la crise dans la sélection pour l'IOI, Sashka a décidé de proposer un problème à la fois interactif et géométrique. Voici son énoncé :
+
+Le jury a caché une permutation $P_0,P_1,...,P_{N-1}$ de $\{1,2,3,...,N\}$. Vous devez trouver cette permutation. À cette fin, vous pouvez poser la question suivante au jury : « Est-il possible de former un triangle d'aire positive avec les côtés $P_A,P_B,P_C$ ? »
+
+Notez qu'il est connu (d'après l'inégalité des triangles) que cela est possible si et seulement si :
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{et} \quad P_B + P_C > P_A.\]
+
+Écrivez un programme \textbf{\texttt{triangle}}, contenant une fonction \texttt{solve}, qui sera compilé avec le programme du jury et communiquera avec celui-ci en posant des questions du type décrit ci-dessus. À la fin de son exécution, il doit déterminer la permutation.
+
+\subsection{Détails de l'implémentation}
+Vous devez implémenter la fonction \texttt{solve} :
+\begin{lstlisting}
+std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+    \item $N$ : longueur de la permutation.
+\end{itemize}
+
+Cette fonction sera appelée $T$ fois par test — une fois par sous-test, chacun avec un $N$ égal — et elle doit renvoyer la permutation cachée pour le sous-test. Pour ce faire, votre programme peut appeler la fonction du jury \texttt{query} :
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+    \item $A$, $B$, $C$ : indices des côtés $P_A, P_B, P_C$.
+\end{itemize}
+
+La fonction renvoie \texttt{true} s'il existe un triangle d'aire positive dont les côtés sont $P_A, P_B, P_C$, et \texttt{false} dans le cas contraire.
+
+\subsection{Contraintes}
+\vspace{0.1em}
+\begin{itemize}
+    \item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Sous-tâche}
+\begin{table}[H]
+    \begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+        \hline
+        \textbf{Sous-tâche} & \textbf{Points} & \textbf{Description}\\
+		\hline
+        $1$ & $100$ & La sous-tâche consiste en $1$ test avec $T=1~000$ permutations générées aléatoirement, chacune comportant $N=1~000$ éléments.  \\ 
+        \hline
+    \end{tblr}
+    \caption*{Les points pour une sous-tâche donnée ne sont attribués que si tous les tests correspondants sont réussis.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Notation}
+
+Soit $Q_{contestant}$ le nombre moyen de requêtes que votre programme effectue pour un appel de \texttt{solve} sur le test unique, et soit $Q_{target}=8770$. Votre score pour le problème sera alors :
+
+\[
+\begin{cases}
+0 & \text{si } Q_{contestant} > 2\times 10^6, \\
+100 & \text{si } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0,15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0,55}}\right) & \text{si } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Exemple d'interaction}
+Pour cet exemple d'interaction, $N=4$, $T=2$.
+\begin{table}[H]
+    \begin{tblr}{|c|c|}
+        \hline
+        \textbf{Action du candidat} & \textbf{Action du jury} \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+        \texttt{triangle(0, 0, 0)} & \texttt{vrai} \\
+        \hline
+        \texttt{triangle(0, 1, 2)} & \texttt{faux} \\
+        \hline
+        \texttt{triangle(0, 1, 3)} & \texttt{false} \\
+        \hline
+        \texttt{triangle(0, 2, 3)} & \texttt{true} \\
+        \hline
+        \texttt{triangle(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+        \hline
+        \texttt{triangle(0, 1, 2)} & \texttt{false} \\
+        \hline
+        \texttt{triangle(0, 1, 3)} & \texttt{true} \\
+        \hline
+        \texttt{triangle(0, 2, 3)} & \texttt{false} \\
+        \hline
+        \texttt{triangle(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+        \hline
+    \end{tblr}
+\end{table}
+\FloatBarrier
+    
+\subsection{Tests locaux}
+Format d'entrée :
+\begin{itemize}
+	\item ligne $1$ : trois entiers $T$, $N$ et $R$ -- le nombre de sous-tests, la taille des permutations et le mode d'exécution. Si $R = 1$, le correcteur local générera des permutations aléatoires uniformément réparties et attendra un nombre sur la deuxième ligne -- $S$, qui servira de graine pour son générateur aléatoire. Si $R = 2$, l'entrée se poursuit comme suit :
+	\item lignes $2$ à $(1+T)$ : permutations de $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Format de sortie :
+\begin{itemize}
+    \item ligne $1$ : un message d'erreur ou le nombre moyen de requêtes pour les sous-tests si toutes les permutations sont correctement identifiées.
+\end{itemize}
+
+\end{document}

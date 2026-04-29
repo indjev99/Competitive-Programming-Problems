@@ -1,0 +1,241 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Română}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Problema \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+% The new leadership of the national committee, represented by the coordinators of groups A and B, wishes to maintain a strict syllabus of the given problems for selecting the national team. For this purpose, they will need to give a geometry problem. Moreover -- the number of interactive problems given so far are below standard. To fix the crisis in the selection for \texttt{IOI}, Sashka decided to give a problem that is both interactive and geometric. It has the following statement:
+Noua conducere a comitetului național, reprezentată de coordonatorii grupurilor A și B, dorește să mențină o programă strictă a problemelor date pentru selectarea echipei naționale. În acest scop, ei vor avea nevoie să dea o problemă de geometrie. În plus -- numărul de probleme interactive date până acum este sub standard. Pentru a rezolva criza în alegerea problemelor pentru \texttt{IOI}, Sashka a decis să dea o problemă care este și interactivă, și geometrică. Ea are următorul enunț:
+
+% The jury has hidden a permutation $P_0,P_1,...,P_{N-1}$ of $\{1,2,3,...,N\}$. You must find the permutation. For this purpose, you may ask the jury the following question: ``Is it possible to form a triangle with positive area with sides $P_A,P_B,P_C$?''
+Juriul a ascuns o permutare $P_0,P_1,\dots,P_{N-1}$ a $\{1,2,\dots,N\}$. Trebuie să găsiți permutarea. În acest scop, puteți întreba juriul următoarea întrebare: ``Este posibil să se formeze un triunghi cu arie pozitivă cu laturile $P_A,P_B,P_C$?''
+
+% Note that it is known (by the triangle inequality) this is possible if and only if:
+Se cunoaște (conform inegalității triunghului) că acest lucru este posibil dacă și numai dacă:
+
+% \[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{and} \quad P_B + P_C > P_A.\]
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{și} \quad P_B + P_C > P_A.\]
+
+% Write a program \textbf{\texttt{triangle}}, containing a function \texttt{solve}, which will be compiled together with the jury program and will communicate with it by asking questions of the type described above. At the end of its execution, it must determine the permutation.
+Scrieți un program \textbf{\texttt{triangle}}, care conține funcția \texttt{solve}, care va fi compilată împreună cu programul juriului și care va comunica cu acesta, punându-i întrebări de tipul descris mai sus. La finalul execuției, programul trebuie să determine permutarea.
+
+% \subsection{Implementation details}
+% You should implement the \texttt{solve} function:
+\subsection{Detalii de implementare}
+Trebuie să implementați funcția \texttt{solve}:
+
+% \begin{lstlisting}
+%  std::vector<int> solve(solve N)
+% \end{lstlisting}
+% \begin{itemize}
+% 	\item $N$: length of the permutation.
+% \end{itemize}
+
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: lungimea permutării.
+\end{itemize}
+
+% This function will be called $T$ times per test -- once per subtest, each with equal $N$ and it should return the hidden permutation for the subtest. In order to do this, your program can call the jury function \texttt{query}:
+Această funcție va fi apelată de $T$ ori pentru fiecare test -- o dată pentru fiecare subtest, fiecare cu $N$ egal, și ar trebui să returneze permutarea ascunsă pentru subtest. Pentru a face asta, programul vostru poate să apeleze funcția juriului \texttt{query}:
+
+% \begin{lstlisting}
+%  bool query(int A, int B, int C)
+% \end{lstlisting}
+% \begin{itemize}
+% 	\item $A$, $B$, $C$: indices of the sides $P_A, P_B, P_C$.
+% \end{itemize}
+
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: indicii laturilor $P_A, P_B, P_C$.
+\end{itemize}
+
+% The function returns \texttt{true}, if a triangle with positive area with sides $P_A,P_B,P_C$ exists and \texttt{false}, otherwise.
+
+Funcția returnează \texttt{true}, dacă un triunghi cu arie pozitivă și cu laturile $P_A,P_B,P_C$ există și \texttt{false}, în cazul contrar.
+
+% \subsection{Constraints}
+% \vspace{0.1em}
+% \begin{itemize}
+% 	\item $N = T = 1~000$
+% \end{itemize}
+
+\subsection{Restricții}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+% \subsection{Subtask}
+% \begin{table}[H]
+% 	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+% 		\hline
+% 		\textbf{Subtask} & \textbf{Points} & \textbf{Description}\\
+% 		\hline
+% 		$1$ & $100$ & The subtask consists of $1$ test with $T=1~000$ randomly generated permutations, each of $N=1~000$ elements.  \\ 
+% 		\hline
+% 	\end{tblr}
+% 	\caption*{The points for a given subtask are obtained only if all the tests for it.}
+% \end{table}
+% \FloatBarrier
+
+\subsection{Subtaskuri}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Subtask} & \textbf{Puncte} & \textbf{Descriere}\\
+		\hline
+		$1$ & $100$ & Subtaskul conține un test cu $T=1~000$ de permutări alese aleatoriu și uniform din setul tuturor permutărilor posibile, fiecare cu $N=1~000$ de elemente.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{Punctele pentru un anumit subtask se obțin numai dacă toate testele acestuia sunt trecute cu succes.}
+\end{table}
+\FloatBarrier
+
+% \newpage
+% \subsection{Scoring}
+
+% Let $Q_{contestant}$ be the average number of queries that your program makes for one call of \texttt{solve} on the single test, and let $Q_{target}=8770$. Then your score for the problem will be:
+
+% \[
+% \begin{cases}
+% 0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+% 100 & \text{if } Q_{contestant} \le Q_{target}, \\
+% 100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+% \end{cases}
+% \]
+
+\newpage
+\subsection{Punctare}
+
+Fie $Q_{\text{concurent}}$ numărul mediu de întrebări pe care programul vostru le face pentru un apel către \texttt{solve} pe unicul test, și fie $Q_{\text{țintă}}=8770$. Atunci scorul vostru pe problemă va fi:
+
+\[
+\begin{cases}
+0 & \text{dacă } Q_{\text{concurent}} > 2\times 10^6, \\
+100 & \text{dacă } Q_{\text{concurent}} \le Q_{\text{țintă}}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{\text{țintă}}}{Q_{\text{concurent}}}\right)^{0.55}}\right) & \text{if } Q_{\text{țintă}} > Q_{\text{țintă}}.
+\end{cases}
+\]
+
+
+% \subsection{Sample interaction}
+% For this sample interaction $N=4$, $T=2$.
+% \begin{table}[H]
+% 	\begin{tblr}{|c|c|}
+% 		\hline
+% 		\textbf{Contestant action} & \textbf{Jury action} \\
+% 		\hline
+% 		& \texttt{solve(4)} \\
+% 		\hline
+% 		\texttt{triangle(0, 0, 0)} & \texttt{true} \\
+% 		\hline
+%         \texttt{triangle(0, 1, 2)} & \texttt{false} \\
+% 		\hline
+%         \texttt{triangle(0, 1, 3)} & \texttt{false} \\
+% 		\hline
+%         \texttt{triangle(0, 2, 3)} & \texttt{true} \\
+% 		\hline
+%         \texttt{triangle(1, 2, 3)} & \texttt{false} \\
+% 		\hline
+%         \texttt{return \{3, 1, 2, 4\};} & \\
+%         \hline
+%         & \texttt{solve(4)} \\
+% 		\hline
+% 		\texttt{triangle(0, 1, 2)} & \texttt{false} \\
+% 		\hline
+%         \texttt{triangle(0, 1, 3)} & \texttt{true} \\
+% 		\hline
+%         \texttt{triangle(0, 2, 3)} & \texttt{false} \\
+% 		\hline
+%         \texttt{triangle(1, 2, 3)} & \texttt{talse} \\
+% 		\hline
+%         \texttt{return \{4, 2, 1, 3\};} & \\
+% 		\hline
+% 	\end{tblr}
+% \end{table}
+% \FloatBarrier
+
+
+\subsection{Exemplu de interacțiune}
+Pentru acest exemplu de interacțiune $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Acțiunea concurentului} & \textbf{Acțiunea juriului} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+% \subsection{Local testing}
+% Input format:
+% \begin{itemize}
+% 	\item line $1$: three integers $T$, $N$, and $R$ -- the size of the permutations, the number of subtests, and the execution mode. If $R = 1$, the local grader will generate random permutations and will expect a number on the first line -- $S$, which will be the seed for its random generator. If $R = 2$, the input continues as follows:
+% 	\item lines $2$ to $(1+T)$: permutations of $\{1,2,\dots,N\}$.
+% \end{itemize}
+
+\subsection{Testare locală}
+Format de intrare:
+\begin{itemize}
+	\item linia $1$: trei numere întregi $T$, $N$, and $R$ -- numărul de subteste, mărimea permutărilor, și modul de execuție. Dacă $R = 1$, evaluatorul local va genera uniform aleatoriu permutări și va aștepta un număr pe a doua linie -- $S$, care va fi seed-ul pentru generatorul său de numere aleatorii. Dacă $R = 2$, intrarea va conține:
+	\item liniile de la $2$ până la $(1+T)$: permutări ale $\{1,2,\dots,N\}$.
+\end{itemize}
+
+% Output format:
+% \begin{itemize}
+% 	\item line $1$: an error message or the average number of queries for the subtests if all permutations are correctly identified.
+% \end{itemize}
+
+Format de ieșire:
+\begin{itemize}
+	\item linia $1$: un mesaj de eroare sau numărul mediu de întrebări pentru subteste, dacă toate permutările au fost identificate corect.
+\end{itemize}
+
+
+\end{document}

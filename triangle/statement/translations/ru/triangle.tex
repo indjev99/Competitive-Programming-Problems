@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Russian}
+\renewcommand{\problemName}{AB23. ТРЕУГОЛЬНИК}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ сек.}
+\renewcommand{\ml}{$1024$ МБ}
+\problem{Задача \problemName}
+\addauthor{Автор: Борис Михов}{2026}{04}{19}
+
+Новое руководство национального комитета в лице координаторов групп A и B желает придерживаться строгой программы по задачам для отбора национальной команды. Для этой цели им потребуется дать геометрическую задачу. Более того — количество интерактивных задач, данных на текущий момент, ниже стандарта. Чтобы исправить кризис в отборе на \texttt{IOI}, Сашка решил дать задачу, которая одновременно является и интерактивной, и геометрической. Её условие следующее:
+
+Жюри загадало перестановку $P_0,P_1,...,P_{N-1}$ чисел $\{1,2,3,...,N\}$. Вы должны найти эту перестановку. Для этого вы можете задать жюри следующий вопрос: «Можно ли составить треугольник положительной площади со сторонами $P_A,P_B,P_C$?»
+
+Заметим, что (по неравенству треугольника) это возможно тогда и только тогда, когда:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{и} \quad P_B + P_C > P_A.\]
+
+Напишите программу \textbf{\texttt{triangle}}, содержащую функцию \texttt{solve}, которая будет компилироваться вместе с программой жюри и взаимодействовать с ней, задавая вопросы описанного выше типа. По завершении своей работы она должна определить перестановку.
+
+\subsection{Детали реализации}
+Вы должны реализовать функцию \texttt{solve}:
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: длина перестановки.
+\end{itemize}
+
+Эта функция будет вызываться $T$ раз на тест — по одному разу на подтест, каждый раз с одинаковым $N$, и должна возвращать загаданную перестановку для подтеста. Для этого ваша программа может вызывать функцию жюри \texttt{query}:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: индексы сторон $P_A, P_B, P_C$.
+\end{itemize}
+
+Функция возвращает \texttt{true}, если существует треугольник положительной площади со сторонами $P_A,P_B,P_C$, и \texttt{false} в противном случае.
+
+\newpage
+
+\subsection{Ограничения}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Подзадачи}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Подзадача} & \textbf{Баллы} & \textbf{Описание}\\
+		\hline
+		$1$ & $100$ & Подзадача состоит из $1$ теста с $T=1~000$ случайно сгенерированными перестановками, каждая из $N=1~000$ элементов.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{Баллы за данную подзадачу начисляются только при прохождении всех её тестов.}
+\end{table}
+\FloatBarrier
+
+\subsection{Оценка}
+
+Пусть $Q_{contestant}$ — среднее количество запросов, которое ваша программа делает за один вызов \texttt{solve} на единственном тесте, и пусть $Q_{target}=8770$. Тогда ваша оценка за задачу будет:
+
+\[
+\begin{cases}
+0 & \text{если } Q_{contestant} > 2\times 10^6, \\
+100 & \text{если } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{если } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\newpage
+
+\subsection{Пример взаимодействия}
+Для этого примера взаимодействия $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Действие участника} & \textbf{Действие жюри} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+\subsection{Локальное тестирование}
+Формат ввода:
+\begin{itemize}
+	\item строка $1$: три целых числа $T$, $N$ и $R$ — размер перестановок, количество подтестов и режим выполнения. Если $R = 1$, локальный проверяющий сгенерирует перестановки равномерно случайно и ожидает число на первой строке — $S$, которое будет seed'ом для его генератора случайных чисел. Если $R = 2$, ввод продолжается следующим образом:
+	\item строки $2$ по $(1+T)$: перестановки чисел $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Формат вывода:
+\begin{itemize}
+	\item строка $1$: сообщение об ошибке или среднее количество запросов по подтестам, если все перестановки определены верно.
+\end{itemize}
+
+\end{document}

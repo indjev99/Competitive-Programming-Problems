@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\renewcommand{\headerLang}{German}
+\renewcommand{\problemName}{AB23. TRIANGLE}
+
+\renewcommand{\headerLeft}{IATI Day 2, Senior group}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ONLINE 2026}
+
+\renewcommand{\tl}{$10$ sec.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Problem \problemName}
+\addauthor{Author: Boris Mihov}{2026}{04}{19}
+
+
+Die neue Leitung des Nationalkomitees, vertreten durch die Koordinatoren der Gruppen A und B, möchte bei der Auswahl der Nationalmannschaft einen strengen Rahmen für die gestellten Aufgaben beibehalten. Zu diesem Zweck muss eine Geometrieaufgabe gestellt werden. Zudem liegt die Anzahl der bisher gestellten interaktiven Aufgaben unter dem Standard. Um die Krise bei der Auswahl für die \texttt{IOI} zu beheben, hat Sashka beschlossen, eine Aufgabe zu stellen, die sowohl interaktiv als auch geometrisch ist. Sie lautet wie folgt:
+
+Die Jury hat eine Permutation $P_0,P_1,...,P_{N-1}$ von $\{1,2,3,...,N\}$ versteckt. Du musst die Permutation finden. Zu diesem Zweck darfst du der Jury folgende Frage stellen: „Ist es möglich, ein Dreieck mit positiver Fläche mit den Seiten $P_A,P_B,P_C$ zu bilden?“
+
+Beachte, dass (aufgrund der Dreiecksungleichung) bekannt ist, dass dies genau dann möglich ist, wenn:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{und} \quad P_B + P_C > P_A.\]
+
+Schreiben Sie ein Programm \textbf{\texttt{triangle}}, das eine Funktion \texttt{solve} enthält, die zusammen mit dem Jury-Programm kompiliert wird und mit diesem kommuniziert, indem sie Fragen des oben beschriebenen Typs stellt. Am Ende seiner Ausführung muss es die Permutation ermitteln.
+
+\subsection{Implementierungsdetails}
+Sie sollten die Funktion \texttt{solve} implementieren:
+\begin{lstlisting}
+std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+    \item $N$: Länge der Permutation.
+\end{itemize}
+
+Diese Funktion wird pro Test $T$ Mal aufgerufen – einmal pro Subtest, jeweils mit gleichem $N$ – und sollte die verborgene Permutation für den Subtest zurückgeben. Um dies zu erreichen, kann Ihr Programm die Jury-Funktion \texttt{query} aufrufen:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+    \item $A$, $B$, $C$: Indizes der Seiten $P_A, P_B, P_C$.
+\end{itemize}
+
+Die Funktion gibt \texttt{true} zurück, wenn ein Dreieck mit positiver Fläche und den Seiten $P_A, P_B, P_C$ existiert, und andernfalls \texttt{false}.
+
+\subsection{Einschränkungen}
+\vspace{0.1em}
+\begin{itemize}
+    \item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Teilaufgabe}
+\begin{table}[H]
+    \begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+        \hline
+        \textbf{Teilaufgabe} & \textbf{Punkte} & \textbf{Beschreibung}\\
+		\hline
+        $1$ & $100$ & Die Teilaufgabe besteht aus $1$ Test mit $T=1~000$ zufällig generierten Permutationen, die jeweils $N=1~000$ Elemente umfassen.  \\ 
+        \hline
+    \end{tblr}
+    \caption*{Die Punkte für eine bestimmte Teilaufgabe werden nur vergeben, wenn alle Tests dafür erfolgreich bestanden wurden.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Punktevergabe}
+
+Sei $Q_{contestant}$ die durchschnittliche Anzahl von Abfragen, die Ihr Programm bei einem Aufruf von \texttt{solve} für den einzelnen Test durchführt, und sei $Q_{target}=8770$. Dann beträgt Ihre Punktzahl für die Aufgabe:
+
+\[
+\begin{cases}
+0 & \text{wenn } Q_{contestant} > 2\times 10^6, \\
+100 & \text{wenn } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0,15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0,55}}\right) & \text{wenn } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Beispielinteraktion}
+Für diese Beispielinteraktion gilt $N=4$, $T=2$.
+\begin{table}[H]
+    \begin{tblr}{|c|c|}
+        \hline
+        \textbf{Aktion des Teilnehmers} & \textbf{Aktion der Jury} \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+        \texttt{Dreieck(0, 0, 0)} & \texttt{wahr} \\
+        \hline
+        \texttt{Dreieck(0, 1, 2)} & \texttt{falsch} \\
+        \hline
+        \texttt{Dreieck(0, 1, 3)} & \texttt{falsch} \\
+        \hline
+        \texttt{Dreieck(0, 2, 3)} & \texttt{wahr} \\
+        \hline
+        \texttt{Dreieck(1, 2, 3)} & \texttt{falsch} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+        \hline
+        \texttt{triangle(0, 1, 2)} & \texttt{false} \\
+        \hline
+        \texttt{triangle(0, 1, 3)} & \texttt{true} \\
+        \hline
+        \texttt{triangle(0, 2, 3)} & \texttt{false} \\
+        \hline
+        \texttt{triangle(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+        \hline
+    \end{tblr}
+\end{table}
+\FloatBarrier
+    
+\subsection{Lokale Tests}
+Eingabeformat:
+\begin{itemize}
+	\item Zeile $1$: drei ganze Zahlen $T$, $N$ und $R$ – die Anzahl der Teilprüfungen, die Größe der Permutationen und der Ausführungsmodus. Wenn $R = 1$ ist, generiert der lokale Bewerter gleichverteilte Zufallspermutationen und erwartet in der zweiten Zeile eine Zahl – $S$ –, die als Startwert für seinen Zufallsgenerator dient. Wenn $R = 2$ ist, setzt sich die Eingabe wie folgt fort:
+	\item Zeilen $2$ bis $(1+T)$: Permutationen von $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Ausgabeformat:
+\begin{itemize}
+    \item Zeile $1$: eine Fehlermeldung oder die durchschnittliche Anzahl der Abfragen für die Teilprüfungen, falls alle Permutationen korrekt identifiziert wurden.
+\end{itemize}
+
+\end{document}

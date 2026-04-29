@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[english]{babel}
+\usepackage{tabularray}
+
+\begin{document}
+
+\renewcommand{\headerLang}{Azərbaycan dili}
+\renewcommand{\problemName}{AB23. ÜÇBUCAQ}
+
+\renewcommand{\headerLeft}{IATI Gün 2, Yuxarı yaş qrupu}
+\renewcommand{\headerRightFirst}{XVII BEYNƏLXALQ İNFORMATİKA TURNİRİ}
+\renewcommand{\headerRightSecond}{ONLAYN 2026}
+
+\renewcommand{\tl}{$10$ san.}
+\renewcommand{\ml}{$1024$ MB}
+\problem{Məsələ \problemName}
+\addauthor{Müəllif: Boris Mihov}{2026}{04}{19}
+
+Milli komitənin A və B qruplarının koordinatorlarından ibarət yeni rəhbərliyi, milli komandanın seçilməsi üçün verilən məsələlərin ciddi tədris proqramına (syllabus) uyğun olmasını istəyir. Bu məqsədlə onlara həndəsə məsələsi vermək lazımdır. Üstəlik, indiyədək verilən interaktiv məsələlərin sayı standartdan aşağıdır. \texttt{IOI} seçimlərindəki bu boşluğu aradan qaldırmaq üçün Saşka həm interaktiv, həm də həndəsi olan bir məsələ verməyə qərar verdi. Məsələnin şərti belədir:
+
+Münsiflər heyəti $\{1,2,3,...,N\}$ çoxluğunun $P_0,P_1,...,P_{N-1}$ permutasiyasını gizlədib. Siz bu permutasiyanı tapmalısınız. Bu məqsədlə münsiflər heyətinə aşağıdakı sualı verə bilərsiniz: ``Tərəfləri $P_A,P_B,P_C$ olan müsbət sahəli üçbucaq qurmaq mümkündürmü?''
+
+Qeyd edək ki, (üçbucaq bərabərsizliyinə görə) bu, yalnız və yalnız aşağıdakı hallarda mümkündür:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{və} \quad P_B + P_C > P_A.\]
+
+Münsiflər heyətinin proqramı ilə birlikdə kompilyasiya olunacaq və yuxarıda təsvir olunan tipdə suallar verərək onunla əlaqə saxlayacaq, daxilində \texttt{solve} funksiyası olan \textbf{\texttt{triangle}} proqramını yazın. İcra sonunda proqram permutasiyanı müəyyən etməlidir.
+
+\subsection{İmplementasiya detalları}
+Siz \texttt{solve} funksiyasını reallaşdırmalısınız:
+\begin{lstlisting}
+std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: permutasiyanın uzunluğu.
+\end{itemize}
+
+Bu funksiya hər test üçün $T$ dəfə çağırılacaq (hər alt-test üçün bir dəfə, hər biri eyni $N$ ilə) və alt-test üçün gizli permutasiyanı qaytarmalıdır. Bunu etmək üçün proqramınız münsiflərin \texttt{query} funksiyasını çağıra bilər:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: $P_A, P_B, P_C$ tərəflərinin indeksləri.
+\end{itemize}
+
+Funksiya tərəfləri $P_A,P_B,P_C$ olan müsbət sahəli üçbucaq mövcuddursa \texttt{true}, əks halda \texttt{false} qaytarır.
+
+\subsection{Məhdudiyyətlər}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\subsection{Alt-tapşırıq}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m,1.5cm]|Q[c,m,1.5cm]|X[l,m]|}}
+		\hline
+		\textbf{Alt-tapşırıq} & \textbf{Ballar} & \textbf{Təsvir}\\
+		\hline
+		$1$ & $100$ & Alt-tapşırıq, hər biri $N=1000$ elementdən ibarət olan və bütün mümkün permutasiyalar çoxluğundan bərabərpaylanmış şəkildə seçilmiş $T=1000$ testdən ibarətdir. \\ 
+		\hline
+	\end{tblr}
+	\caption*{Alt-tapşırıq üzrə ballar yalnız ona aid olan bütün testlər uğurla keçildikdə verilir.}
+\end{table}
+\FloatBarrier
+
+\newpage
+\subsection{Qiymətləndirmə}
+
+Qoy $Q_{contestant}$ proqramınızın tək bir testdə bir \texttt{solve} çağırışı üçün etdiyi orta sual sayı olsun və $Q_{target}=8770$ olsun. Onda məsələ üzrə balınız belə hesablanacaq:
+
+\[
+\begin{cases}
+0 & \text{əgər } Q_{contestant} > 2\times 10^6, \\
+100 & \text{əgər } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{əgər } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Nümunə interaksiya}
+Bu nümunə interaksiya üçün $N=4$, $T=2$-dir.
+\begin{table}[H]
+	\begin{tblr}{|X[c,m]|X[c,m]|}
+		\hline
+		\textbf{İştirakçının hərəkəti} & \textbf{Münsifin hərəkəti} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+	
+\subsection{Lokal yoxlama}
+Giriş formatı:
+\begin{itemize}
+	\item sətir $1$: üç tam ədəd $T$, $N$ və $R$ -- alt-testlərin sayı, permutasiyaların ölçüsü və icra rejimi. Əgər $R = 1$, lokal qreyder bərabərpaylanmış təsadüfi permutasiyalar yaradacaq və ikinci sətirdə təsadüfi generator üçün seed (başlanğıc dəyər) olacaq $S$ ədədini gözləyəcək. Əgər $R = 2$, giriş aşağıdakı kimi davam edir:
+	\item sətir $2$-dən $(1+T)$-ə qədər: $\{1,2,\dots,N\}$ çoxluğunun permutasiyaları.
+\end{itemize}
+
+Çıxış formatı:
+\begin{itemize}
+	\item sətir $1$: xəta mesajı və ya bütün permutasiyalar düzgün müəyyən edildikdə alt-testlər üçün orta sual sayı.
+\end{itemize}
+
+\end{document}

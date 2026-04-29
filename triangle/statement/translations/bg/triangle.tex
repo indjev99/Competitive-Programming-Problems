@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\input{iati_structure.tex}
+\renewcommand{\bottomtitlespace}{2cm}
+
+\usepackage[bulgarian]{babel}
+
+
+\begin{document}
+
+\renewcommand{\headerLang}{Български}
+\renewcommand{\problemName}{AB23. Триъгълник}
+
+\renewcommand{\headerLeft}{IATI Ден 2, Старша група}
+\renewcommand{\headerRightFirst}{XVII INTERNATIONAL ADVANCED TOURNAMENT IN INFORMATICS}
+\renewcommand{\headerRightSecond}{ПРИСЪСТВЕНО 2026}
+
+\renewcommand{\tl}{$10$ сек.}
+\renewcommand{\ml}{$1024$ МБ}
+\problem{Задача \problemName}
+\addauthor{Автор: Борис Михов}{2026}{04}{19}
+
+Ръководството на националната комисия, преставлявана от отговорниците на групи A и B, желае да следва стриктно конспекта на задачите, чрез които се избира националния отбор. За да изпълнят това, те ще дадат геометрична задача. И не само -- бройката на интерактивните задачи, дадени досега, не изпълнява изискванията. За да разреши кризата в подбора за \texttt{IOI}, Сашка реши да даде задача, която е както интерактивна, така и геометрична. Условието е както следва: 
+%The new leadership of the national committee, represented by the coordinators of groups A and B, wishes to maintain a strict syllabus of the given problems for selecting the national team. For this purpose, they will need to give a geometry problem. Moreover -- the number of interactive problems given so far are below standard. To fix the crisis in the selection for \texttt{IOI}, Sashka decided to give a problem that is both interactive and geometric. It has the following statement:
+
+Журито е скрило пермутация $P_0, P_1, \dots, P_{N-1}$ на $\{1, 2, 3, \dots, N\}$. Трябва да откриете пермутацията. За тази цел, можете да задавате следния въпрос на журито: 'Възможно ли е да се създаде триъгълник с положително лице и страни с дължини $P_A, P_B, P_C$?'
+% The jury has hidden a permutation $P_0,P_1,...,P_{N-1}$ of $\{1,2,3,...,N\}$. You must find the permutation. For this purpose, you may ask the jury the following question: ``Is it possible to form a triangle with positive area with sides $P_A,P_B,P_C$?"
+ 
+Известно е (от неравенството на триъгълника), че това е възможно тогава и само тогава, когато:
+%Note that it is known (by the triangle inequality) this is possible if and only if:
+
+\[P_A + P_B > P_C,\ P_A + P_C > P_B \quad \text{и} \quad P_B + P_C > P_A.\]
+
+Напишете програма \textbf{\texttt{triangle}}, съдържаща функция \texttt{solve}, която ще бъде компилирана заедно с програмата на журито и ще комуникира с нея, задавайки въпроси от гореописания вид. Накрая на комуникацията трябва да може да определите пермутацията.
+
+%Write a program \textbf{\texttt{triangle}}, containing a function \texttt{solve}, which will be compiled together with the jury program and will communicate with it by asking questions of the type described above. At the end of its execution, it must determine the permutation.
+
+\subsection{Детайли по имплементацията}
+Трябва да имплементирате функцията \texttt{solve}:
+%You should implement the \texttt{solve} function:
+\begin{lstlisting}
+ std::vector<int> solve(int N)
+\end{lstlisting}
+\begin{itemize}
+	\item $N$: дължината на пермутацията.%length of the permutation.
+\end{itemize}
+
+Функцията ще бъде извикана $T$ пъти в един тест -- веднъж за всеки подтест, които имат равни $N$ и трябва да върне скритата пермутация за дадения подтест. За да постигне това, Вашата програма може да вика функцията \texttt{query}, имплементирана от журито:
+%This function will be called $T$ times per test -- once per subtest, each with equal $N$ and it should return the hidden permutation for the subtest. In order to do this, your program can call the jury function \texttt{query}:
+\begin{lstlisting}
+ bool query(int A, int B, int C)
+\end{lstlisting}
+\begin{itemize}
+	\item $A$, $B$, $C$: индексите на страните $P_A, P_B, P_C$.%indices of the sides $P_A, P_B, P_C$.
+\end{itemize}
+
+Функцията ще върне \texttt{true}, ако съществува триъгълник със страни с дължини $P_A, P_B, P_C$  и \texttt{false}, в противен случай. %The function returns \texttt{true}, if a triangle with positive area with sides $P_A,P_B,P_C$ exists and \texttt{false}, otherwise.
+
+\subsection{Ограничения}
+\vspace{0.1em}
+\begin{itemize}
+	\item $N = T = 1~000$
+\end{itemize}
+
+\newpage
+\subsection{Подзадачи}
+\begin{table}[H]
+	\begin{tblr}{width=\linewidth,colspec={|Q[c,m]|Q[c,m]|X[c,m]|}}
+		\hline
+		\textbf{Подзадача} & \textbf{Точки} & \textbf{Описание}\\
+		\hline
+		$1$ & $100$ & Подзадачата съдържа $1$ тест с $T=1~000$ произволно генерирани пермутации, всяка с по $N=1~000$ елемента.  \\ 
+		\hline
+	\end{tblr}
+	\caption*{Точките за подзадача се получават само ако се преминат успешно всички тестове предвидени за нея.}
+\end{table}
+\FloatBarrier
+
+\subsection{Оценяване}
+
+Нека $Q_{contestant}$ да бъде средното аритметично на бройката заявки, необходими на вашата програма за едно извикване на \texttt{solve} в единствения тест, и нека $Q_{target}=8770$. Тогава резултатът Ви за задачата ще бъде:
+%Let $Q_{contestant}$ be the average number of queries that your program makes for one call of \texttt{solve} on the single test, and let $Q_{target}=8770$. Then your score for the problem will be:
+
+\[
+\begin{cases}
+0 & \text{if } Q_{contestant} > 2\times 10^6, \\
+100 & \text{if } Q_{contestant} \le Q_{target}, \\
+100 \times \max\left(0.15,\; 1-\sqrt{1-\left(\frac{Q_{target}}{Q_{contestant}}\right)^{0.55}}\right) & \text{if } Q_{contestant} > Q_{target}.
+\end{cases}
+\]
+
+\subsection{Примерно взаимодействие}
+За примерната интеракция $N=4$, $T=2$.
+\begin{table}[H]
+	\begin{tblr}{|c|c|}
+		\hline
+		\textbf{Действие на състезателя} & \textbf{Действие на журито} \\
+		\hline
+		& \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 0, 0)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{3, 1, 2, 4\};} & \\
+        \hline
+        & \texttt{solve(4)} \\
+		\hline
+		\texttt{query(0, 1, 2)} & \texttt{false} \\
+		\hline
+        \texttt{query(0, 1, 3)} & \texttt{true} \\
+		\hline
+        \texttt{query(0, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{query(1, 2, 3)} & \texttt{false} \\
+		\hline
+        \texttt{return \{4, 2, 1, 3\};} & \\
+		\hline
+	\end{tblr}
+\end{table}
+\FloatBarrier
+\pagebreak
+\subsection{Формат на грейдъра}
+Формат на входа:
+\begin{itemize}
+	\item ред $1$: три цели числа $T$, $N$ и $R$ -- размерът на пермутациите, броят на подтестовете и режимът на работа. Ако $R = 1$, локалният гредът ще генерира произволни пермутации и ще очаква допълнително число -- $S$, което ще бъде параметъра (сийда) за генератора. Ако $R=2$, входът продължава, както следва: 
+	%line $1$: three integers $T$, $N$, and $R$ -- the size of the permutations, the number of subtests, and the execution mode. If $R = 1$, the local grader will generate random permutations and will expect a number on the first line -- $S$, which will be the seed for its random generator. If $R = 2$, the input continues as follows:
+	\item ред $2$ до $(1 + T)$: пермутация на числата $\{1,2,\dots,N\}$.
+	%lines $2$ to $(1+T)$: permutations of $\{1,2,\dots,N\}$.
+\end{itemize}
+
+Формат на изхода:
+\begin{itemize}
+	\item ред $1$: съобщение за грешка или средното аритметично на броя заявки за всички подтестове, ако всички пермутации са коректно намерени. 
+	%line $1$: an error message or the average number of queries for the subtests if all permutations are correctly identified.
+\end{itemize}
+
+\end{document}

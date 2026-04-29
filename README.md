@@ -37,10 +37,12 @@ Non-standard problems:
 * Rabbit (Collaboration with Encho Mishinev)
 * Submarine (Collaboration with Encho Mishinev, Rough idea by Pavel Petrov)
 * Registers (Collaboration with Encho Mishinev)
+* Vision (Rough idea by Boris Mihov)
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
 * Prison (Idea by Sultan Alaiban and Viktor Kozhuharov)
 * Mummy
+* Triangle (Mostly by Boris Mihov, Solution and analysis are mine)
 * Bits and Tree (Mostly by Viktor Kozhuharov, Solution and analysis are mine)
 * Pointsort
 * Multisort

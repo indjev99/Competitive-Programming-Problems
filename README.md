@@ -41,6 +41,7 @@ Non-standard problems:
 * Periods (Idea by Radoslav Dimitrov)
 * Poker
 * Prison (Idea by Sultan Alaiban and Viktor Kozhuharov)
+* Ones (Mostly by Viktor Kozhuharov, Solution by me)
 * Mummy
 * Triangle (Mostly by Boris Mihov, Solution and analysis are mine)
 * Bits and Tree (Mostly by Viktor Kozhuharov, Solution and analysis are mine)
